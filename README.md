@@ -6,10 +6,10 @@ Eve was originally designed on an entirely different framework and language and 
 
 Now Eve is on Ruby and the Cinch IRC Framework. 
 
---Installation-- 
+###--Installation-- 
 Eve and several of it’s plugins have some dependencies. The first of which are very important, you need Ruby, RVM, and RubyGems. If you already have those installed then you can skip ahead to: -Section B: Installing The Framework-.
 
-#-Section A: Installing Ruby, RVM, and RubyGems-
+###-Section A: Installing Ruby, RVM, and RubyGems-
 
 1.) The first thing we need to do is make sure that your package manager is up to date:
 sudo apt-get update
@@ -37,12 +37,12 @@ rvm rubygems current
 
 Excellent. Now you are done installing RVM, Ruby, and RubyGems!
 
-#-Section B: Installing the Framework-
+###-Section B: Installing the Framework-
 
 1.) This is really easy:
 gem install cinch
 
-#-Section C: Installing Plugin Dependencies-
+###-Section C: Installing Plugin Dependencies-
 
 As of now there are only two dependencies needed for the plugins. 
 
@@ -52,12 +52,12 @@ gem install nokogiri
 2.) If you want to have Eve fetch tweets from any twitter account you need to install the Twitter gem:
 gem install cinch-twitter
 
-#-Section D: Getting Eve-
+###-Section D: Getting Eve-
 
 Now you just need to get Eve from the repo:
 git clone 
 
-#-Section E: Configuring Eve-
+###-Section E: Configuring Eve-
 
 Alright now that you have Eve, and all the dependencies it takes to run her you must configure it. Use a code editor (I use Notepad ++) to open ~/Eve-Bot/Eve.rb it should be fairly easy to figure out the configuration. 
 

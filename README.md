@@ -55,7 +55,7 @@ gem install cinch-twitter
 ###-Section D: Getting Eve-
 
 Now you just need to get Eve from the repo:
-git clone 
+git clone https://github.com/Namasteh/Eve-Bot.git
 
 ###-Section E: Configuring Eve-
 

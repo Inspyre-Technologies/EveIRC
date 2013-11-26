@@ -8,16 +8,16 @@
      
         def greet(m)
           [
-            "Oh look it's #{m.user.nick} again. Lovely.",
-            "Hello #{m.user.nick}! Welcome to #{m.channel}!",
-            "So yeah, that #{m.user.nick} I really can't st- OH HI #{m.user.nick}!",
-            "We weren't JUST talking about you, #{m.user.nick}",
-            "#{m.user.nick}, where's my money?",
             "Hi #{m.user.nick}!",
-            "Get out of here #{m.user.nick}, you don't want any part of this!",
-            "Did you guys hear that? Oh it's just wind between #{m.user.nick}'s ears.",
+            "Hello #{m.user.nick}! Welcome to #{m.channel}!",
+            "#{m.user.nick}, I love you!",
+            "Hi #{m.user.nick}, I want to hold your hand!",
+            "#{m.user.nick}, where's my money?",
+            "Ladies and gentlemen! #{m.user.nick} is here!",
+            "#{m.user.nick}, how are ya?",
+            "Oh hi there, #{m.user.nick}.",
             "#{m.user.nick}!!! Oh how I've missed you!",
-            "...and I said 'I DIDN'T BRING THE BONG' XDDD, oh hi #{m.user.nick}",
+            "Welcome to #{m.channel}, #{m.user.nick}.",
 			"Oh it's #{m.user.nick}, look what the cat dragged in."
           ].sample
         end

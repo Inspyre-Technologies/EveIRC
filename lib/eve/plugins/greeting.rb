@@ -49,7 +49,7 @@
      
         def goodbye(m)
 		   unless m.user == bot
-             m.reply leave(m)
+             m.channel.send leave(m)
 			 return;
            end
          end

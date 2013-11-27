@@ -8,18 +8,19 @@ require 'cgi'
 
 module Cinch::Plugins
   class UrbanDictionary
-  include Cinch::Plugin
+    include Cinch::Plugin
 
-  match /urban (.+)/
-  def lookup(word)
-    url = "http://www.urbandictionary.com/define.php?term=#{CGI.escape(word)}"
-    CGI.unescape_html Nokogiri::HTML(open(url)).at("div.definition").text.gsub(/\s+/, ' ') rescue nil
-  end
+    match /urban (.+)/
+    
+    def lookup(word)
+      url = "http://www.urbandictionary.com/define.php?term=#{CGI.escape(word)}"
+      CGI.unescape_html Nokogiri::HTML(open(url)).at("div.definition").text.gsub(/\s+/, ' ') rescue nil
+    end
 
-  def execute(m, word)
-    unless check_ifban(m.user)
-      m.reply(lookup(word) || "No results found", true)
+    def execute(m, word)
+      unless check_ifban(m.user)
+        m.reply(lookup(word) || "No results found", true)
+      end
     end
   end
-end
 end

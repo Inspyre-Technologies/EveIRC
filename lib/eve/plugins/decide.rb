@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class Float
   def prettify
     to_i == self ? to_i : self
@@ -20,13 +18,13 @@ module Cinch
       match /decide (.+)/, method: :execute_decision
       match /choose (.+)/, method: :execute_decision
       def execute_decision(m, list)
-	    unless check_ifban(m.user)
+        unless check_ifban(m.user)
           m.safe_reply("I choose \"#{decide! list}\"!",true);
         end
 
       match "coin", method: :execute_coinflip
       def execute_coinflip(m)
-	    unless check_ifban(m.user)
+        unless check_ifban(m.user)
           face = Random.new.rand(1..2) == 1 ? "heads" : "tails";
           m.safe_reply("The coin says: \"#{face}\"!",true);
         end
@@ -37,30 +35,29 @@ module Cinch
         x = x.to_f.prettify
         y = y.to_f.prettify
         xy = "(x=#{x}, y=#{y})"
-        return m.reply("X must not be equal to Y. #{xy}", true) if x == y
-        return m.reply("X must be lesser than Y. #{xy}") if x > y
+          return m.reply("X must not be equal to Y. #{xy}", true) if x == y
+          return m.reply("X must be lesser than Y. #{xy}") if x > y
 
-        m.reply "Your number is: #{Random.new.rand(x..y)}.", true
-      end
+          m.reply "Your number is: #{Random.new.rand(x..y)}.", true
+        end
 
       match /token (\d+)/, method: :execute_token
       def execute_token(m, length)
-        max_length = 256
-        def power_of_2?(number)
-          (1..32).each { |bit| return true if number == (1 << bit) }
-          false
-        end
-
-        return m.reply "Your token length can only be 2, 4, 8, 16, 32, 64, 128, and 256." unless power_of_2?(length.to_i)
-        return m.reply "Your token length must be 256 or below." if length.to_i > 256
-        characters = ('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a
-        key = (0..length.to_i-1).map{characters.sample}.join
-        m.reply "Your token is: #{key}", true
-        m.user.notice "Alternatively, you may want it in these formats: #{key.scan(/.{0,#{key.length / (key.length / 8)}}/).reject(&:empty?).join("-")}, #{key.upcase.scan(/.{0,#{key.length / (key.length / 8)}}/).reject(&:empty?).join("-")}"
+          max_length = 256
+      def power_of_2?(number)
+        (1..32).each { |bit| return true if number == (1 << bit) }
+        false
       end
 
+          return m.reply "Your token length can only be 2, 4, 8, 16, 32, 64, 128, and 256." unless power_of_2?(length.to_i)
+          return m.reply "Your token length must be 256 or below." if length.to_i > 256
+          characters = ('a'..'z').to_a + ('A'..'Z').to_a + (0..9).to_a
+          key = (0..length.to_i-1).map{characters.sample}.join
+          m.reply "Your token is: #{key}", true
+          m.user.notice "Alternatively, you may want it in these formats: #{key.scan(/.{0,#{key.length / (key.length / 8)}}/).reject(&:empty?).join("-")}, #{key.upcase.scan(/.{0,#{key.length / (key.length / 8)}}/).reject(&:empty?).join("-")}"
+        end
+      end
     end
   end
-end
 end
 end

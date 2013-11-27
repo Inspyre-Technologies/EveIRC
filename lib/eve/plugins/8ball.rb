@@ -5,7 +5,7 @@ require_relative "config/check_ifban"
 module Cinch
   module Plugins
     class Eightball
-      include Cinch::Plugin
+    include Cinch::Plugin
 	  include Cinch::Helpers
 
       @@eightball = [
@@ -29,7 +29,7 @@ module Cinch
         "My sources say no",
         "Outlook not so good",
         "Very doubtful"
-      ]
+    ]
 
       def shake!
         @@eightball.sample
@@ -37,7 +37,7 @@ module Cinch
 	  
       match /8ball (.+)/
       def execute(m, s)
-	    unless check_ifban(m.user)
+        unless check_ifban(m.user)
           questions = s.split("? ")
           answers = [];
           questions.each {|question|

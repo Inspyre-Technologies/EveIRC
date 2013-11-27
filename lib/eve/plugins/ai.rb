@@ -3,8 +3,8 @@ require_relative "config/check_user"
 
 module Cinch::Plugins
   class AIRespond
-  include Cinch::Plugin
-  include Cinch::Helpers
+    include Cinch::Plugin
+    include Cinch::Helpers
   
     def status(m)
       [
@@ -22,7 +22,7 @@ module Cinch::Plugins
       ].sample
     end
     
-	def brbr(m)
+    def brbr(m)
       [
         "Hurry back #{m.user.nick}",
         "Don't threaten us #{m.user.nick}!",
@@ -30,38 +30,39 @@ module Cinch::Plugins
       ].sample
     end
   
-  set :prefix, /^^/
-  match lambda {|m| /#{m.bot.nick}, how are you/}, :method => :hau
-  match lambda {|m| /#{m.bot.nick} how are you/}, :method => :hau
-  match lambda {|m| /How are you, #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /How are you #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /how are you, #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /how are you #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /how are you doing, #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /how are you doing #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /How are you doing #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /How are you doing, #{m.bot.nick}/}, :method => :hau
-  match lambda {|m| /Hello #{m.bot.nick}./}, :method => :hi
-  match lambda {|m| /Hello, #{m.bot.nick}./}, :method => :hi
-  match lambda {|m| /Hello, #{m.bot.nick}!/}, :method => :hi
-  match lambda {|m| /hello #{m.bot.nick}!/}, :method => :hi
-  match lambda {|m| /hello, #{m.bot.nick}!/}, :method => :hi
-  match lambda {|m| /hello, #{m.bot.nick}./}, :method => :hi
-  match lambda {|m| /hello #{m.bot.nick}./}, :method => :hi
-  match lambda {|m| /hello #{m.bot.nick}/}, :method => :hi
-  match lambda {|m| /Hello #{m.bot.nick}/}, :method => :hi
-  match /brb/, :method => :brb
+      set :prefix, /^^/
+    
+      match lambda {|m| /#{m.bot.nick}, how are you/}, :method => :hau
+      match lambda {|m| /#{m.bot.nick} how are you/}, :method => :hau
+      match lambda {|m| /How are you, #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /How are you #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /how are you, #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /how are you #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /how are you doing, #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /how are you doing #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /How are you doing #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /How are you doing, #{m.bot.nick}/}, :method => :hau
+      match lambda {|m| /Hello #{m.bot.nick}./}, :method => :hi
+      match lambda {|m| /Hello, #{m.bot.nick}./}, :method => :hi
+      match lambda {|m| /Hello, #{m.bot.nick}!/}, :method => :hi
+      match lambda {|m| /hello #{m.bot.nick}!/}, :method => :hi
+      match lambda {|m| /hello, #{m.bot.nick}!/}, :method => :hi
+      match lambda {|m| /hello, #{m.bot.nick}./}, :method => :hi
+      match lambda {|m| /hello #{m.bot.nick}./}, :method => :hi
+      match lambda {|m| /hello #{m.bot.nick}/}, :method => :hi
+      match lambda {|m| /Hello #{m.bot.nick}/}, :method => :hi
+      match /brb/, :method => :brb
   
     def hau(m)
-	  m.reply status(m)
-	end
+      m.reply status(m)
+    end
 	
-	def hi(m)
-	  m.reply hir(m)
-	end
+    def hi(m)
+      m.reply hir(m)
+    end
 	
-	def brb(m)
-	  m.reply brbr(m)
-	end
+    def brb(m)
+      m.reply brbr(m)
+    end
   end
 end

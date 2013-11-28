@@ -5,8 +5,8 @@ require_relative "config/check_ifban"
 module Cinch
   module Plugins
     class Eightball
-    include Cinch::Plugin
-	  include Cinch::Helpers
+      include Cinch::Plugin
+      include Cinch::Helpers
 
       @@eightball = [
         "It is certain",

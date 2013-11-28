@@ -22,8 +22,8 @@ module Cinch::Plugins
       return;
     end
       unless check_ifban(m.user)
-          @autovoice = option == "on"
-          m.reply "Autovoice is now #{@autovoice ? 'enabled' : 'disabled'}"
+        @autovoice = option == "on"
+        m.reply "Autovoice is now #{@autovoice ? 'enabled' : 'disabled'}"
         end
       end
     end

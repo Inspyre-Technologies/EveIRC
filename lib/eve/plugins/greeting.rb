@@ -33,9 +33,9 @@ module Cinch::Plugins
       ].sample
     end
 		
-    listen_to :join, :method => :hello
-    listen_to :part, :method => :goodbye
-    listen_to :quit, :method => :goodbye
+      listen_to :join, :method => :hello
+      listen_to :part, :method => :goodbye
+      listen_to :quit, :method => :goodbye
     
     def hello(m)
       unless m.user.nick == bot.nick

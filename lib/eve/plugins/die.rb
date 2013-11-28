@@ -17,10 +17,10 @@ module Cinch::Plugins
           m.reply Format(:red, "You are not authorized to use this command!")
         return;
 	  end
-	    bot.info("Received valid quit command from #{m.user.nick}")
-      m.reply Format(:green, "Very well. Goodbye.")
-      bot.quit("on command of #{m.user.nick}")
+        bot.info("Received valid quit command from #{m.user.nick}")
+        m.reply Format(:green, "Very well. Goodbye.")
+        bot.quit("on command of #{m.user.nick}")
+      end
     end
   end
-end
 end

@@ -49,13 +49,13 @@ module Cinch::Plugins
         "If you ever need a hand, I'm always here #{m.user.nick}!",
         "I should thank YOU for using me, #{m.user.nick}!",
         "Aww you're welcome #{m.user.nick}! I want to hold your hand!"
-      ]
+      ].sample
     end
     
     def ywr(m)
       [
         ":D"
-      ]
+      ].sample
     end
       
     match lambda {|m| /#{m.bot.nick}, how are you/}, :method => :hau, use_prefix: false

@@ -39,10 +39,19 @@ module Cinch::Plugins
         m.user.send Format(:green, "%s | It is recommended you use this in a PM. It will send your message to the specified user when they speak next in a channel I am in! The message will be delivered via PM" % [Format(:red, "memo <nick> <message>")])
         m.user.send Format(:red, "The following commands are only available to operators of the bot! USE WITH CAUTION!! USE OF EVERY ONE OF THESE COMMANDS IS REPORTED!!!")
         m.user.send Format(:green, "%s | Makes the bot give you +o in a channel." % [Format(:red, "opme")])
+        m.user.send Format(:green, "%s | Makes the bot deop you in the channel." % [Format(:red, "deopme")])
         m.user.send Format(:green, "%s | Kill the bot process. You will not be able to bring it back online without shell access!" % [Format(:red, "die")])
         m.user.send Format(:green, "%s | Makes the bot join the specified channel." % [Format(:red, "join <#channel>")])
         m.user.send Format(:green, "%s | Makes the bot part the current channel." % [Format(:red, "part")])
-        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. It will send a specified message to a channel if it's in it." % [Format(:red, ".say <channel> <message>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. This will send the specified text to nickserv." % [Format(:red, ".ns <channel> <user>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. This will send the specified text to chanserv." % [Format(:red, ".cs <channel> <user>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. It will send a specified message to a channel if I'm in it." % [Format(:red, ".say <channel> <message>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will send a specified action to the channel if I'm in it." % [Format(:red, ".act <channel> <message>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will kick the specified user from the specified channel, if it has op." % [Format(:red, ".kick <channel> <user> <reason>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will ban the specified user from the specified channel, if it has op." % [Format(:red, ".ban <channel> <user>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will kickban the specified user from the specified channel, if it has op." % [Format(:red, ".kban <channel> <user> <reason>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will unban the specified mask from the specified channel, if it has op." % [Format(:red, ".unban <channel> <mask>")])
+        m.user.send Format(:green, "%s | THIS MUST BE USED IN A PM WITH THE BOT. The bot will op the specified user in the specified channel, if it has op." % [Format(:red, ".op <channel> <user>")])
       end
     end
   end

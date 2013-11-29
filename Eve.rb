@@ -18,28 +18,28 @@ bot = Cinch::Bot.new do
   configure do |c|
   c.server = "rawr.coreirc.org"
   c.channels = ["#Eve"]
-	c.nick = "Eve"
-	c.user = "Eve"
-	c.realname = "Eve 1.RC"
+  c.nick = "Eve"
+  c.user = "Eve"
+  c.realname = "Eve 1.RC"
   c.plugins.plugins = [Cinch::Plugins::Google,
-	Cinch::Plugins::UrbanDictionary,
-	Cinch::Plugins::Help,
-	Cinch::Plugins::Seen,
-	Cinch::Plugins::Twitter,
-	Cinch::Plugins::Greeting,
-	Cinch::Plugins::Eightball,
-	Cinch::Plugins::Decide,
-	Cinch::Plugins::Memo,
-  Cinch::Plugins::AIRespond,
-  Cinch::Plugins::ControlPanel,
-  Cinch::Plugins::ChanopCP];
-	c.plugins.options[Cinch::Plugins::Twitter] = { 
-    access_keys: { 
-    consumer_key: "key", 
-    consumer_secret: "key", 
-    oauth_token: "key", 
-    oauth_token_secret: "key" 
-  } 
+    Cinch::Plugins::UrbanDictionary,
+    Cinch::Plugins::Help,
+    Cinch::Plugins::Seen,
+    Cinch::Plugins::Twitter,
+    Cinch::Plugins::Greeting,
+    Cinch::Plugins::Eightball,
+    Cinch::Plugins::Decide,
+    Cinch::Plugins::Memo,
+    Cinch::Plugins::AIRespond,
+    Cinch::Plugins::ControlPanel,
+    Cinch::Plugins::ChanopCP];
+  c.plugins.options[Cinch::Plugins::Twitter] = {
+    access_keys: {
+    consumer_key: "key",
+    consumer_secret: "key",
+    oauth_token: "key",
+    oauth_token_secret: "key"
+  }
 }
     c.password = "nspass"
   end

@@ -83,10 +83,6 @@ module Cinch::Plugins
         bot.info("Received invalid kick command from #{m.user.nick}")
       return;
     end
-      unless Bot#channels(m.channel)
-        m.reply Format(:red, "I would love to but I am not in that channel")
-      return;
-    end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't make a kick because I am not op in #{channel}")
       return;

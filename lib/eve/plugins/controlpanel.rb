@@ -56,6 +56,13 @@ module Cinch::Plugins
     end
   end
   
+# The following command will cause the bot to join or part
+# a channel as directed. Please bear in mind that at this
+# time there are no limiters on how many times this can 
+# be used in any given timeframe, so only add users to
+# check_user that can be trusted not to give Eve or 
+# yourself a bad reputation!
+  
     match /join (.+)/, method: :join
     match /part(?: (.+))?/, method: :part
 
@@ -87,9 +94,15 @@ module Cinch::Plugins
     
   # Now we are going to go into commands that should be used in a query with the bot.
   
+# This command will cause Eve to send a message to the 
+# channel that you ask her to. Please bear in mind that
+# there is no announcement other than in the console 
+# that someone is making Eve say these things so please
+# use caution when adding users to check_user!
+  
     set :prefix, /^./
 	  
-    match /say (.+?) (.+)/
+    match /say (#.+?) (.+)/
 	  
   def execute(m, receiver, message)
     unless check_user(m.user)
@@ -100,6 +113,10 @@ module Cinch::Plugins
       Channel(receiver).send(message)
       bot.info("Received valid say command from #{m.user.nick}")
     end
+    
+# The following command acts the same as the one above
+# however it sends the equivalent of /me to the channel
+# instead of a message.
     
     set :prefix, /^./
     
@@ -114,6 +131,11 @@ module Cinch::Plugins
       Channel(receiver).action(act)
       bot.info("Received valid act command from #{m.user.nick}")
     end
+    
+# The following command has Eve send a specified message
+# to NickServ. This command can be used just like /ns 
+# can be used on your client, so there are a vast array
+# of things that can be done with this command!
     
     set :prefix, /^./
     
@@ -131,6 +153,9 @@ module Cinch::Plugins
     
     set :prefix, /^./
     
+# The following command does the same as the one above,
+# however it allows you to use ChanServ instead!
+    
     match /cs (.+?) (.+)/, method: :execute_cs
     
   def execute_cs(m, text)
@@ -144,3 +169,12 @@ module Cinch::Plugins
     end
   end
 end
+
+# A FEW NOTES:
+# 1.) If you need further help with the commands and their syntax just type !help in a channel
+# that Eve is in and she will send you a vast array of commands at your disposal.
+#
+# As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
+# could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
+# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

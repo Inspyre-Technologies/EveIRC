@@ -1,8 +1,18 @@
+# This plugin requires you to have a file in the bot's root directory named
+# memos.yaml. Please be certain that this file is in your directory.
+
 require 'yaml'
 
 module Cinch::Plugins
   class Memo
     include Cinch::Plugin
+    
+    set :plugin_name, 'memo'
+    set :help, <<-USAGE.gsub(/^ {6}/, '') 
+      Sometimes MemoServ can be confusing or some users just don't notice that they have messages. This is a good way to leave messages for users! Please use this command in a PM with me.
+      Usage:
+      - !memo <nick> <message>: I will store a message for the specified nick until they speak again in a channel I am in, then I will PM them your memo!
+    USAGE
 
     def initialize(*args)
       super
@@ -61,3 +71,8 @@ end
     end
   end
 end
+
+# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
+# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
+# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

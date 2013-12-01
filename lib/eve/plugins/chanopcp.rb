@@ -1,22 +1,43 @@
+# This is the channel control panel for Eve. Most of the commands you'll
+# use as an admin will run off of this plugin. Please make sure 
+# that you've configured your check_user properly or these commands will
+# not work for you. TAKE NOTE: I don't want you to gain a bad reputation
+# for yourself or for Eve, so please remember that these commands can be
+# abused and are likely to be abused if you don't take caution with who
+# you are adding to check_user!
+
 require 'cinch'
 require_relative "config/check_user"
-
-# This is a Channel Operator Control Panel. Please make sure
-# that you have check_user configured to the AUTHNAMES that
-# you want to have access to these commands! Some of these
-# commands can be abused so please only add users that you
-# can trust not to give you and Eve a bad name!
 
 module Cinch::Plugins
   class ChanopCP
     include Cinch::Plugin
     include Cinch::Helpers
-  
-# The following command is to be used in a channel. It will
-# give the user op in the channel they are using it if Eve
-# is also op in that channel. Eve will report use of this 
-# command for security purposes.
-  
+    
+    # First we will address everything that your users will need to know
+    # in order to use EVE. Feel free to edit anything between the "usage"
+    # tags, as long as it's sane to your users. :P
+    
+    set :plugin_name, 'channelcp'
+    set :help, <<-USAGE.gsub(/^ {6}/, '')
+      Allows you to control the channel functions of the bot. The bot must have op in the specified channels or these commands will not work! Please keep in mind that all uses of these commands are reported on the console!
+      Usage:
+      - !opme: This command must be used in a channel. Forces the bot to op you.
+      - !deopme: This command must be used in a channel. Forces the bot to deop you.
+      USAGE
+    
+    # Now that we have that out of the way we are going to jump right in 
+    # to the meat of the plugin. The following instance is used to op the
+    # command giver in the channel he's using it. We should make these
+    # fool-proof so as to discourage newer users from bugging you for help.
+    #
+    # That is why you will see several methods for telling the user what
+    # they are doing wrong. If the bot isn't opped, they don't have rights
+    # etc, etc.
+    #
+    # TODO: Add a method for determining whether the bot is in the channel
+    # that it's being asked to execute in!
+    
     match /opme/, method: :execute_op
   
     def execute_op(m)
@@ -40,7 +61,8 @@ module Cinch::Plugins
       end
     end
     
-# This will de-op you in the channel.
+    # It's only sane to add an instance to undo the last, we mustn't become
+    # lazy here!
     
     match /deopme/, method: :execute_deop
     
@@ -64,231 +86,17 @@ module Cinch::Plugins
         bot.irc.send ("MODE #{m.channel} -o #{m.user.nick}")
       end
     end
-    
-# When I designed this plugin it was in my mind to
-# use Eve as a channel helper, for various reasons.
-# None of these commands report the nick that uses
-# it publicly. So if you need to see who is using
-# the commands you need to look in the console.
-# The following command will kick a user from 
-# the channel with a reason.
-    
-    set :prefix, /^./
-    
-    match /kick (#\S+) (\S+)\s?(.+)?/, method: :execute_kick
-    
-    def execute_kick(m, channel, knick, reason)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid kick command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't make a kick because I am not op in #{channel}")
-      return;
-    end
-        bot.info("Received valid kick command from #{m.user.nick}")
-        m.reply Format(:green, "Very well...")
-        Channel(channel).kick(knick, reason)
-      end
-  
-# The following command will ban a user from a channel
-# you just give Eve the nick, she will determine the 
-# mask and ban tha mask.
-  
-    set :prefix, /^./
-  
-    match /ban (#\S+) (\S+)/, method: :execute_ban
-  
-    def execute_ban(m, channel, user)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invaled ban command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't ban #{user} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid ban command from #{m.user.nick}")
-      user = User(user)
-      mask = user.mask("*!*@%h")
-      m.reply Format(:green, "Very well...")
-      Channel(channel).ban(mask)
-    end
-    
-# The following command will unban a mask from a 
-# channel. This means you must specify the mask that
-# you want to unban.
-    
-    set :prefix, /^./
-  
-    match /unban (#\S+) (\S+)/, method: :execute_unban
-  
-    def execute_unban(m, channel, mask)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid unban command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't unban #{mask} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid unban command from #{m.user.nick}")
-      m.reply Format(:green, "Very well...")
-      Channel(channel).unban(mask)
-    end
-    
-# The following command is a combination of kick and
-# ban. Again, just use the nick, Eve will ascertain
-# the mask on her own.
-
-    
-    set :prefix, /^./
-    
-    match /kban (#\S+) (\S+)(?: (.+))?/, method: :execute_kban
-    
-    def execute_kban(m, channel, user, reason)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid kban command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't kban #{user} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid kban command from #{m.user.nick}")
-      user = User(user)
-      mask = user.mask("*!*@%h")
-      m.reply Format(:green, "Very well...")
-      Channel(channel).ban(mask)
-      Channel(channel).kick(user, reason)
-    end
-    
-# Unlike the above !opme command, this command will
-# op another user and and should be done in PM with
-# Eve.
-    
-    set :prefix, /^./
-    
-    match /op (#\S+) (\S+)(?: (.+))?/, method: :execute_rop
-    
-    def execute_rop(m, channel, user)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid op command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't op #{user} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid op command from #{m.user.nick}")
-      m.reply Format(:green, "Very well...")
-      bot.irc.send ("MODE #{channel} +o #{user}")
-    end
-    
-# This command will de-op a user that you specify 
-# whilst giving her the command in a PM.
-    
-    set :prefix, /^./
-    
-    match /deop (#\S+) (\S+)(?: (.+))?/, method: :execute_rdop
-    
-    def execute_rdop(m, channel, user)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid deop command from #{m.user.nick}. User attempted to op #{user} in #{channel}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't deop #{user} because I am not op in #{channel}")
-        bot.info("Valid deop command failed because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid deop command from #{m.user.nick} for #{channel}")
-      m.reply Format(:green, "Very well...")
-      bot.irc.send ("MODE #{channel} -o #{user}")
-    end
-    
-# The following command will have Eve give voice
-# to the user of your choice. 
-    
-    set :prefix, /^./
-    
-    match /voice (#\S+) (\S+)(?: (.+))?/, method: :execute_rv
-    
-    def execute_rv(m, channel, user)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid voice command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't give voice to #{user} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid voice command from #{m.user.nick}")
-      m.reply Format(:green, "Very well...")
-      bot.irc.send ("MODE #{channel} +v #{user}")
-    end
-    
-# The following command will have Eve take voice
-# from who you ask her too.
-    
-    set :prefix, /^./
-    
-    match /devoice (#\S+) (\S+)(?: (.+))?/, method: :execute_rdv
-    
-    def execute_rdv(m, channel, user)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid devoice command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't take voice from #{user} because I am not op in #{channel}")
-      return;
-    end
-      bot.info("Received valid devoice command from #{m.user.nick}")
-      m.reply Format(:green, "Very well...")
-      bot.irc.send ("MODE #{channel} -v #{user}")
-    end
-    
-# The following command changes the title in the given channel
-# and for some reason colors at the beginning of the title
-# are stripped so please keep this in mind.
-
-    set :prefix, /^./
-    
-    match /t (#.+?) (.+)/, method: :execute_topic
-    
-    def execute_topic(m, channel, topic)
-      unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invalid topic command from #{m.user.nick}")
-      return;
-    end
-      unless Channel(channel).opped?(m.bot) == true
-        m.reply ("I can't change the topic in #{channel} because I am not op.")
-      return;
-    end
-      bot.info("Received valid topic command from #{m.user.nick}")
-      m.reply Format(:green, "Very well...")
-      bot.irc.send ("TOPIC #{channel} #{topic}")
-    end
   end
 end
+
 
 # A FEW NOTES:
 # 1.) If you need further help with the commands and their syntax just type !help in a channel
 # that Eve is in and she will send you a vast array of commands at your disposal.
 #
-# 2.) As a rule it is never, EVER nice to use IRC bots or any other means to abuse channel op
-# privileges! There are several reasons I included public anonymity; none of which include
-# abuse of power!
+# 2.) Please remember that these commands can be easily abused and you don't want to give the wrong
+# impression to chanops or IRCops, so please use with caution and permission. Also, don't add anyone
+# who doesn't have the common sense to do the same.
 #
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot

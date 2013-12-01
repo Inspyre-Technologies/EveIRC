@@ -10,8 +10,18 @@ module Cinch::Plugins
     include Cinch::Plugin
     include Cinch::Helpers
     
+    set :plugin_name, 'controlpanel'
+    set :help, <<-USAGE.gsub(/^ {6}/, '')
+      Allows you to control the basic functions of the bot.
+      Usage:
+      - !die: Forces the bot to die. Please keep in mind that you can't start it up again without shell access.
+      - !autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
+      - !join <channel>: This will force the bot to join a channel.
+      - !part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
+      USAGE
+    
     # The die function forces the bot to quit irc and end it's process upon execution.
-
+    
     match /die/, method: :execute_die
 	
 	def execute_die(m)
@@ -48,13 +58,11 @@ module Cinch::Plugins
         bot.info("Received invalid autovoice command from #{m.user.nick} in #{m.channel}")
       return;
     end
-      unless check_ifban(m.user)
         @autovoice = option == "on"
         m.reply "Autovoice is now #{@autovoice ? 'enabled' : 'disabled'}"
         bot.info("Received valid autovoice command from #{m.user.nick} in #{m.channel}")
       end
     end
-  end
   
 # The following command will cause the bot to join or part
 # a channel as directed. Please bear in mind that at this
@@ -90,82 +98,6 @@ module Cinch::Plugins
         Channel(channel).part if channel
         bot.info("Received valid part command from #{m.user.nick} in #{m.channel}")
       end
-    end
-    
-  # Now we are going to go into commands that should be used in a query with the bot.
-  
-# This command will cause Eve to send a message to the 
-# channel that you ask her to. Please bear in mind that
-# there is no announcement other than in the console 
-# that someone is making Eve say these things so please
-# use caution when adding users to check_user!
-  
-    set :prefix, /^./
-	  
-    match /say (#.+?) (.+)/
-	  
-  def execute(m, receiver, message)
-    unless check_user(m.user)
-      m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-      bot.info("Received invalid say command from #{m.user.nick}")
-    return;
-	end
-      Channel(receiver).send(message)
-      bot.info("Received valid say command from #{m.user.nick}")
-    end
-    
-# The following command acts the same as the one above
-# however it sends the equivalent of /me to the channel
-# instead of a message.
-    
-    set :prefix, /^./
-    
-    match /act (.+?) (.+)/, method: :execute_act
-  
-  def execute_act(m, receiver, act)
-    unless check_user(m.user)
-      m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-      bot.info("Received invalid act command from #{m.user.nick}")
-    return;
-  end
-      Channel(receiver).action(act)
-      bot.info("Received valid act command from #{m.user.nick}")
-    end
-    
-# The following command has Eve send a specified message
-# to NickServ. This command can be used just like /ns 
-# can be used on your client, so there are a vast array
-# of things that can be done with this command!
-    
-    set :prefix, /^./
-    
-    match /ns (.+?) (.+)/, method: :execute_ns
-    
-  def execute_ns(m, text)
-    unless check_user(m.user)
-      m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-      bot.info("Received invalid ns command from #{m.user.nick}")
-    return;
-  end
-      User("nickserv").send(text)
-      bot.info("Received valid ns command from #{m.user.nick}")
-    end
-    
-    set :prefix, /^./
-    
-# The following command does the same as the one above,
-# however it allows you to use ChanServ instead!
-    
-    match /cs (.+?) (.+)/, method: :execute_cs
-    
-  def execute_cs(m, text)
-    unless check_user(m.user)
-      m.reply Format(:red, "You are not authorized to use this command! This incident will be reported")
-      bot.info("Received invalid cs command from #{m.user.nick}")
-    return;
-  end
-      User("chanserv").send(text)
-      bot.info("Received valid cs command from #{m.user.nick}")
     end
   end
 end

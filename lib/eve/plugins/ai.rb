@@ -1,8 +1,18 @@
+# One of the things that seperates the EVE project from many of it's
+# competitors is it's comprehensive quasi-ai that is being built right now!
+# This is that AI plugin and it can always be expanded upon and grow with
+# The rest of the project. I encourage everyone who is working on the 
+# project or who are currently using the bot to expand upon this with more
+# matchers and responses! Let's see how intelligent we can make EVE!
+
 require 'cinch'
 
 module Cinch::Plugins
   class AIRespond
     include Cinch::Plugin
+    
+    # Here is where the responses are set. It should be pretty easy to 
+    # understand!
   
     def status(m)
       [
@@ -58,6 +68,8 @@ module Cinch::Plugins
       ].sample
     end
       
+    # Here is where the matchers are set. This is what the bot responds to.
+      
     match lambda {|m| /#{m.bot.nick}, how are you/}, :method => :hau, use_prefix: false
     match lambda {|m| /#{m.bot.nick} how are you/}, :method => :hau, use_prefix: false
     match lambda {|m| /How are you, #{m.bot.nick}/}, :method => :hau, use_prefix: false
@@ -98,6 +110,9 @@ module Cinch::Plugins
     match lambda {|m| /you're welcome #{m.bot.nick}/}, :method => :yw, use_prefix: false
     match lambda {|m| /you're welcome, #{m.bot.nick}/}, :method => :yw, use_prefix: false
     
+    # Here is where we specify where to go in the array above for when
+    # matchers are met and a response is required from the bot.
+    
     def hau(m)
       m.reply status(m)
     end
@@ -123,3 +138,8 @@ module Cinch::Plugins
     end
   end
 end
+
+# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
+# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
+# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

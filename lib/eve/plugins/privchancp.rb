@@ -31,15 +31,28 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid kick command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kick' command for #{channel} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kick' command for #{channel} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't make a kick because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kick' command for #{channel} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(knick)
+        m.reply ("I can not kick #{knick} because #{knick} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kick' command to kick #{knick} from #{channel} but #{knick} is not in #{channel}.") }
       return;
     end
         bot.info("Received valid kick command from #{m.user.nick}")
         m.reply Format(:green, "Very well...")
         Channel(channel).kick(knick, reason)
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'kick' command to kick #{knick} from #{channel}. Reason: #{reason}") }
       end
     
     # The nice thing about the following command is that it takes the nick
@@ -53,11 +66,23 @@ module Cinch::Plugins
     def execute_ban(m, channel, user)
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
-        bot.info("Received invaled ban command from #{m.user.nick}")
+        bot.info("Received invalid ban command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ban' command for #{channel} on #{user} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ban' command for #{channel} on #{user} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't ban #{user} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ban' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not ban #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ban' command to ban #{user} from #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid ban command from #{m.user.nick}")
@@ -65,6 +90,7 @@ module Cinch::Plugins
       mask = user.mask("*!*@%h")
       m.reply Format(:green, "Very well...")
       Channel(channel).ban(mask)
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'ban' command in #{channel} on #{user}. Banned mask: #{mask}") }
     end
     
     # Sometimes you just have to unban a fella! Unfortunately now you have
@@ -76,15 +102,23 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid unban command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'unban' command for #{channel} on #{mask} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'unban' command for #{channel} on #{mask} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't unban #{mask} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'unban' command for #{channel} on #{mask} but I am not op in #{channel}.") }
       return;
     end
       bot.info("Received valid unban command from #{m.user.nick}")
       m.reply Format(:green, "Very well...")
       Channel(channel).unban(mask)
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'unban' command to unban #{mask} from #{channel}.") }
     end
     
     # What better way to make your point but to kick and ban the annoying 
@@ -95,12 +129,20 @@ module Cinch::Plugins
     
     def execute_kban(m, channel, user, reason)
       unless check_user(m.user)
+        sleep config[:delay] || 10
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid kban command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kban' command for #{channel} on #{user} but was not authorized.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't kban #{user} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kban' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not kick/ban #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kban' command to kick/ban #{user} from #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid kban command from #{m.user.nick}")
@@ -109,6 +151,7 @@ module Cinch::Plugins
       m.reply Format(:green, "Very well...")
       Channel(channel).ban(mask)
       Channel(channel).kick(user, reason)
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'kban' command to kick and ban #{user} from #{channel}. Reason: #{reason} | Banned mask: #{mask}") }
     end
     
     # Why not? 
@@ -119,15 +162,33 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid op command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command for #{channel} on #{user} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command for #{channel} on #{user} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't op #{user} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).opped?(user) == false
+        m.reply ("I can't op #{user} because they already have op in #{channel} Perhaps you meant to use the 'deop' command?")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command for #{channel} on #{user} but #{user} already has op in #{channel}") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not op #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command to op #{user} in #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid op command from #{m.user.nick}")
       m.reply Format(:green, "Very well...")
       bot.irc.send ("MODE #{channel} +o #{user}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'op' command to give +o to #{user} in #{channel}.") }
     end
     
     # This is for when you need to deop, duh! :P
@@ -138,16 +199,34 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid deop command from #{m.user.nick}. User attempted to op #{user} in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command for #{channel} on #{user} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command for #{channel} on #{user} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't deop #{user} because I am not op in #{channel}")
         bot.info("Valid deop command failed because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).opped?(m.bot) == true
+        m.reply ("I can't deop #{user} because #{user} does not have op in #{channel}. Perhaps you meant to use the 'op' command?")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command for #{channel} on #{user} but #{user} does not have op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not deop #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command to deop #{user} in #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid deop command from #{m.user.nick} for #{channel}")
       m.reply Format(:green, "Very well...")
       bot.irc.send ("MODE #{channel} -o #{user}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'op' command to take +o from #{user} in #{channel}.") }
     end
     
     # This mode (voice) is becoming obsolete. But why not add it to the 
@@ -159,15 +238,28 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid voice command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'voice' command for #{channel} on #{user} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'voice' command for #{channel} on #{user} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't give voice to #{user} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'voice' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not voice #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'voice' command to voice #{user} in #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid voice command from #{m.user.nick}")
       m.reply Format(:green, "Very well...")
       bot.irc.send ("MODE #{channel} +v #{user}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'voice' command to give +v to #{user} in #{channel}.") }
     end
     
     # We can take it away just as easily!
@@ -178,15 +270,28 @@ module Cinch::Plugins
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid devoice command from #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'devoice' command for #{channel} on #{user} but was not authorized.") }
+      return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'devoice' command for #{channel} on #{user} but I am not in #{channel}.") }
       return;
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't take voice from #{user} because I am not op in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'devoice' command for #{channel} on #{user} but I am not op in #{channel}.") }
+      return;
+    end
+      unless Channel(channel).users.keys.include?(user)
+        m.reply ("I can not devoice #{user} because #{user} is not in #{channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'devoice' command to devoice #{user} in #{channel} but #{user} is not in #{channel}.") }
       return;
     end
       bot.info("Received valid devoice command from #{m.user.nick}")
       m.reply Format(:green, "Very well...")
       bot.irc.send ("MODE #{channel} -v #{user}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'devoice' command to take +v from #{user} in #{channel}.") }
     end
     
     # This could be fun and particularly useful in your channel if you set
@@ -200,6 +305,10 @@ module Cinch::Plugins
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid topic command from #{m.user.nick}")
       return;
+    end
+      unless bot.channels.include? Channel(channel)
+        m.reply ("I'm sorry. I am not in #{channel}, please have me join that channel and op me in order for me to complete this action!")
+      return
     end
       unless Channel(channel).opped?(m.bot) == true
         m.reply ("I can't change the topic in #{channel} because I am not op.")
@@ -223,4 +332,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.coreirc.org
+# For help with EVE you can always visit #Eve at irc.catiechat.net

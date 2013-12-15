@@ -7,12 +7,12 @@ module Cinch
     class Eightball
       include Cinch::Plugin
       include Cinch::Helpers
-
+      
       set :plugin_name, 'eightball'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         Time for some fun, and some fortune telling! Ask the magic eightball any yes or no question and it will give you an answer!
         Usage:
-        - !eightball <question>: The eightball will give you an answer. Note: the question should be a yes or no question.
+        - !8ball <question>: The eightball will give you an answer. Note: the question should be a yes or no question.
       USAGE
 
       @@eightball = [
@@ -61,4 +61,4 @@ module Cinch
 # EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
 # Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.coreirc.org
+# For help with EVE you can always visit #Eve at irc.catiechat.net

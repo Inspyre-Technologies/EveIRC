@@ -43,8 +43,9 @@ module Cinch::Plugins
     def execute_op(m)
       if m.channel
         unless check_user(m.user)
-          m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+          m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
           bot.info("Received invalid OpMe command from #{m.user.nick}")
+          Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'opme' command in #{m.channel} but was not authorized.") }
         return;
       end
         unless m.channel.opped?(m.user) == false
@@ -58,6 +59,7 @@ module Cinch::Plugins
         bot.info("Received valid OpMe command from #{m.user.nick}")
         m.reply Format(:green, "Very well...")
         bot.irc.send ("MODE #{m.channel} +o #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'opme' command in #{m.channel} to op themselves!") }
       end
     end
     
@@ -69,8 +71,9 @@ module Cinch::Plugins
     def execute_deop(m)
       if m.channel
         unless check_user(m.user)
-          m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+          m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
           bot.info("Received invalid deopme command from #{m.user.nick}")
+          Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deopme' command in #{m.channel} but was not authorized.") }
         return;
       end
         unless m.channel.opped?(m.user) == true
@@ -84,6 +87,7 @@ module Cinch::Plugins
         bot.info("Received valid deop command from #{m.user.nick}")
         m.reply Format(:green, "Very well...")
         bot.irc.send ("MODE #{m.channel} -o #{m.user.nick}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'deopme' command in #{m.channel} to deop themselves!") }
       end
     end
   end
@@ -101,4 +105,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.coreirc.org
+# For help with EVE you can always visit #Eve at irc.catiechat.net

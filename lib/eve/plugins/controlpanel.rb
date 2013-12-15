@@ -14,7 +14,7 @@ module Cinch::Plugins
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Allows you to control the basic functions of the bot.
       Usage:
-      - !die: Forces the bot to die. Please keep in mind that you can't start it up again without shell access.
+      - !off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
       - !autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
       - !join <channel>: This will force the bot to join a channel.
       - !part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
@@ -22,17 +22,19 @@ module Cinch::Plugins
     
     # The die function forces the bot to quit irc and end it's process upon execution.
     
-    match /die/, method: :execute_die
+    match /off/, method: :execute_off
 	
-	def execute_die(m)
+	def execute_off(m)
 	  if m.channel
 	    unless check_user(m.user)
-          m.reply Format(:red, "You are not authorized to use this command! This incident will be reported.")
+          m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
           bot.info("Received invalid quit command from #{m.user.nick}")
+          Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'off' command in #{m.channel} but was not authorized.") }
         return;
 	    end
         bot.info("Received valid quit command from #{m.user.nick}")
-        m.reply Format(:green, "Very well. Goodbye.")
+        m.reply dier(m)
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'off' command in #{m.user.nick}.") }
         bot.quit("on command of #{m.user.nick}")
       end
     end
@@ -54,8 +56,9 @@ module Cinch::Plugins
   def execute_av(m, option)
     if m.channel
       unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported.")
+        m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
         bot.info("Received invalid autovoice command from #{m.user.nick} in #{m.channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'autovoice' command in #{m.channel} but was not authorized.") }
       return;
     end
         @autovoice = option == "on"
@@ -77,10 +80,15 @@ module Cinch::Plugins
   def join(m, channel)
     if m.channel
       unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+        m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid join command from #{m.user.nick} in #{m.channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'join' command in #{m.channel} to join #{channel} but was not authorized.") }
       return;
 	  end
+      unless bot.channels.include?(channel) == false
+        m.reply ("I am already in #{channel}!")
+      return;
+    end
         Channel(channel).join
         bot.info("Received valid join command from #{m.user.nick} in #{m.channel}")
       end
@@ -90,8 +98,9 @@ module Cinch::Plugins
   def part(m, channel)
     if m.channel
       unless check_user(m.user)
-        m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+        m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid part command from #{m.user.nick} in #{m.channel}")
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'part' command in #{m.channel} but was not authorized. Maybe they are sick of me?") }
       return;
     end
         channel ||= m.channel
@@ -99,6 +108,28 @@ module Cinch::Plugins
         bot.info("Received valid part command from #{m.user.nick} in #{m.channel}")
       end
     end
+    
+  def dier(m)
+    [
+      Format(:green, "Critical Error!"),
+      Format(:green, "Unknown Error!"),
+      Format(:green, "!rorrE lacitirC"),
+      Format(:green, "Please don't hurt me"),
+      Format(:green, "Shutting down..."),
+      Format(:green, "Whhyy?"),
+      Format(:green, "No hard feelings"),
+      Format(:green, "Goodbye."),
+      Format(:green, "Nap time."),
+      Format(:green, "Resting."),
+      Format(:green, "Nap time."),
+      Format(:green, "Hibernating."),
+      Format(:green, "Sleep mode activated"),
+      Format(:green, "Self test error...Unknown Error"),
+      Format(:green, "Well it's been nice being here!"),
+      Format(:green, "Well it's bee011100010101110100110100101010111100010101010001"),
+      Format(:green, "You monster.")
+    ].sample
+    end  
   end
 end
 
@@ -109,4 +140,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.coreirc.org
+# For help with EVE you can always visit #Eve at irc.catiechat.net

@@ -29,6 +29,7 @@ module Cinch::Plugins
     unless check_user(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid say command from #{m.user.nick}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'say' command but was not authorized.") }
     return;
   end
       Channel(receiver).send(message)
@@ -45,6 +46,7 @@ module Cinch::Plugins
     unless check_user(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid act command from #{m.user.nick}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'act' but was not authorized.") }
     return;
   end
       Channel(receiver).action(act)
@@ -62,6 +64,7 @@ module Cinch::Plugins
     unless check_user(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid ns command from #{m.user.nick}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ns' command but was not authorized.") }
     return;
   end
       User("nickserv").send(text)
@@ -77,6 +80,7 @@ module Cinch::Plugins
     unless check_user(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported")
       bot.info("Received invalid cs command from #{m.user.nick}")
+      Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'cs' command but was not authorized.") }
     return;
   end
       User("chanserv").send(text)

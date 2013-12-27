@@ -108,6 +108,12 @@ module Cinch::Plugins
         Format(:green, "Glad to hear you're doing well, #{m.user.nick}")
       ].sample
     end
+    
+    def nightr(m)
+      [
+        Format(:green, "Good night, #{m.user.nick}!")
+      ].sample
+    end
       
     # Here is where the matchers are set. This is what the bot responds to.
       
@@ -121,7 +127,7 @@ module Cinch::Plugins
     match lambda {|m| /#{m.bot.nick}(\S|) (shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\W|$)/i}, :method => :sup, use_prefix: false
     match lambda {|m| /\A(thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ty, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\W|$)/i}, :method => :ty, use_prefix: false
-    match lambda {|m| /\A(yw|you(\S|)re welcome|)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :yw, use_prefix: false
+    match lambda {|m| /\A(yw|you(\S|)re welcome)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :yw, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (yw|you(|S|)re welcome|)(\W|$)/i}, :method => :yw, use_prefix: false
     match lambda {|m| /(i love you|ilu|<3|i love you so much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ilu, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (i love you|ilu|<3|i love you so much)(\W|$)/i}, :method => :ilu, use_prefix: false
@@ -129,7 +135,7 @@ module Cinch::Plugins
     match lambda {|m| /(what(\S|)s up|sup)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :wu, use_prefix: false
     match lambda {|m| /i(\S|)m (good|fine|okay|happy|gurd)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :rosp, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) I(\S|)m (good|fine|okay|happy|gurd)(\W|$)/i}, :method => :rosp, use_prefix: false
-
+    match lambda {|m| /Good(night|)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :night, use_prefix: false
     
     # Here is where we specify where to go in the array above for when
     # matchers are met and a response is required from the bot.
@@ -178,10 +184,15 @@ module Cinch::Plugins
       sleep config[:delay] || 3
       m.reply rospr(m)
     end
+    
+    def night(m)
+      sleep config[:delay] || 3
+      m.reply night(m)
+    end
   end
 end
 
 # EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
 # Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at irc.catiechat.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

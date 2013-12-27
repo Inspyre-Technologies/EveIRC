@@ -115,6 +115,12 @@ module Cinch::Plugins
       ].sample
     end
       
+    def roser(m)
+      [
+        Format(:green, "Thanks for the rose, #{m.user.nick}!"),
+        Format(:green, "#{m.user.nick}, roses are red, violets are blue, you gave me a rose, so I love you!")
+      ].sample
+    end
     # Here is where the matchers are set. This is what the bot responds to.
       
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
@@ -135,7 +141,8 @@ module Cinch::Plugins
     match lambda {|m| /(what(\S|)s up|sup)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :wu, use_prefix: false
     match lambda {|m| /i(\S|)m (good|fine|okay|happy|gurd)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :rosp, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) I(\S|)m (good|fine|okay|happy|gurd)(\W|$)/i}, :method => :rosp, use_prefix: false
-    match lambda {|m| /Good(night|)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :night, use_prefix: false
+    match lambda {|m| /(Good|)night(\S|) #{m.bot.nick}(\W|$)/i}, :method => :night, use_prefix: false
+    match lambda {|m| /!rose #{m.bot.nick}(\W|$)/i}, :method => :rose, use_prefix: false
     
     # Here is where we specify where to go in the array above for when
     # matchers are met and a response is required from the bot.
@@ -187,7 +194,12 @@ module Cinch::Plugins
     
     def night(m)
       sleep config[:delay] || 3
-      m.reply night(m)
+      m.reply nightr(m)
+    end
+    
+    def rose(m)
+      sleep config[:delay] || 5
+      m.reply roser(m)
     end
   end
 end

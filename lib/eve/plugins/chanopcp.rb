@@ -105,4 +105,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at irc.catiechat.net
+# For help with EVE you can always visit #Eve at rawr.sinsira.net

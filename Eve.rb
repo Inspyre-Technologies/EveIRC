@@ -38,7 +38,7 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 1.1"
+  c.realname = "Eve 1.4"
   c.plugins.plugins = [Cinch::Plugins::Google,
     Cinch::Plugins::UrbanDictionary,
     Cinch::Plugins::Help,
@@ -69,11 +69,6 @@ bot = Cinch::Bot.new do
    # }
     c.password = "nspass"
   end
-  
-  on :action, "kicks the bot" do |m|
-  m.reply "Ouch! Stop kicking me :("
-  m.reply "I thought you loved me D:", true
-end
 end
 
 bot.start

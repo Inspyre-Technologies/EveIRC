@@ -34,7 +34,7 @@ module Cinch::Plugins
 	    end
         bot.info("Received valid quit command from #{m.user.nick}")
         m.reply dier(m)
-        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'off' command in #{m.user.nick}.") }
+        Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'off' command in #{m.channel}.") }
         bot.quit("on command of #{m.user.nick}")
       end
     end

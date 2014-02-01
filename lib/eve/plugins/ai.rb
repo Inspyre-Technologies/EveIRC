@@ -6,9 +6,12 @@
 # matchers and responses! Let's see how intelligent we can make EVE!
 
 require 'cinch'
+require_relative "config/check_friend"
+require_relative "config/check_user"
+require_relative "config/check_foe"
 
 module Cinch::Plugins
-  class AIRespond
+  class Ai
     include Cinch::Plugin
     
   # Here is where the responses are set. It should be pretty easy to 
@@ -169,7 +172,7 @@ module Cinch::Plugins
         Format(:green, "I love you too, #{m.user.nick}, as much as a bot can!"),
         Format(:green, "#{m.user.nick} love #{m.bot.nick}."),
         Format(:green, "Chunk love #{m.bot.nick}."),
-        Format(:green, "#{m.bot.nick} plus #{m.user.nick} = LOVE! <3!!!"),
+        Format(:green, "#{m.user.nick} plus #{m.bot.nick} = <3!!!"),
         Format(:green, "I love you too #{m.user.nick}! Now you might be thinking, 'Well that's just provocative.' Well it's not, so you, you just knock that off mister."),
         Format(:green, "Love? Just love? Well I FUCKING LOVE you. Hehe"),
         Format(:green, "*swoon* Really? <3"),
@@ -249,8 +252,8 @@ module Cinch::Plugins
  
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
-    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|hallo|hiya|howdy|greetings)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
-    match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
+    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
+    match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
     match /brb/i, :method => :brb, use_prefix: false
     match /bbs/i, :method => :brb, use_prefix: false
     match lambda {|m| /(shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :sup, use_prefix: false

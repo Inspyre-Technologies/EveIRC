@@ -4,14 +4,13 @@ module Cinch::Plugins
   class ChristmasBoxx
     include Cinch::Plugin
     
-    set :prefix, /^~/
     set :plugin_name, 'christmasboxx'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       A plugin full of Christmas goodies
       Usage:
-      - ~present <user>: Gives <user> a gift from you!
-      - ~cracker <user>: Gives you and the other user a Christmas cracker! See who wins!
-      - ~mistletoe <user>: You know how this works...
+      - !present <user>: Gives <user> a gift from you!
+      - !cracker <user>: Gives you and the other user a Christmas cracker! See who wins!
+      - !mistletoe <user>: You know how this works...
       USAGE
       
     def presentg(m, user)

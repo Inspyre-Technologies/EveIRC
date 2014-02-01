@@ -1,21 +1,26 @@
 require 'cinch'
 # require 'cinch/plugins/twitter'
 require 'redis'
-require_relative "lib/eve/plugins/google"
 require_relative "lib/eve/plugins/urban_dictionary"
 require_relative "lib/eve/plugins/help"
 require_relative "lib/eve/plugins/seen"
 require_relative "lib/eve/plugins/greeting"
-require_relative "lib/eve/plugins/8ball"
+require_relative "lib/eve/plugins/eightball"
 require_relative "lib/eve/plugins/decide"
 require_relative "lib/eve/plugins/memo"
 require_relative "lib/eve/plugins/ai"
-require_relative "lib/eve/plugins/controlpanel"
-require_relative "lib/eve/plugins/chanopcp"
-require_relative "lib/eve/plugins/privchancp"
-require_relative "lib/eve/plugins/privatecp"
-require_relative "lib/eve/plugins/actai"
-require_relative "lib/eve/plugins/factcore"
+require_relative "lib/eve/plugins/control_panel"
+require_relative "lib/eve/plugins/chanop_cp"
+require_relative "lib/eve/plugins/private_cp"
+require_relative "lib/eve/plugins/priv_chan_cp"
+require_relative "lib/eve/plugins/fact_core"
+require_relative "lib/eve/plugins/act_ai"
+require_relative "lib/eve/plugins/url_scraper"
+require_relative "lib/eve/plugins/twitter"
+require_relative "lib/eve/plugins/twitter_status"
+require_relative "lib/eve/plugins/plugin_management"
+require_relative "lib/eve/plugins/valentine_boxx"
+require_relative "lib/eve/plugins/wikipedia"
 
 
 # You should have something in the block below as it will have Eve report
@@ -34,46 +39,50 @@ Config.dispatch = ["foo", "bar", "you"]
 
 bot = Cinch::Bot.new do
   configure do |c|
-  c.server = "rawr.coreirc.org"
+  c.server = "rawr.sinsira.net"
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 1.1"
-  c.plugins.plugins = [Cinch::Plugins::Google,
-    Cinch::Plugins::UrbanDictionary,
-    Cinch::Plugins::Help,
-    Cinch::Plugins::Seen,
-   # Cinch::Plugins::Twitter,
-    Cinch::Plugins::Greeting,
-    Cinch::Plugins::Eightball,
-    Cinch::Plugins::Decide,
-    Cinch::Plugins::Memo,
-    Cinch::Plugins::AIRespond,
-    Cinch::Plugins::ControlPanel,
-    Cinch::Plugins::ChanopCP,
-    Cinch::Plugins::PrivateCP,
-    Cinch::Plugins::PrivChanCP,
-    Cinch::Plugins::ActAI,
-    Cinch::Plugins::FactCore];
-   # In order to make the Twitter plugin work you need to get the api keys
-   # from twitter.com. When you have done that and put in the proper keys
-   # you can un-comment Cinch::Plugins::Twitter, and the block below, as
-   # well as the twitter require line above!
-   # c.plugins.options[Cinch::Plugins::Twitter] = {
-   # access_keys: {
-   # consumer_key: "key",
-   # consumer_secret: "key",
-   # oauth_token: "key",
-   # oauth_token_secret: "key"
-   #   }
-   # }
+  c.realname = "Eve 2.6"
+  c.plugins.plugins = [Cinch::Plugins::PluginManagement,
+	Cinch::Plugins::UrbanDictionary,
+	Cinch::Plugins::Help,
+	Cinch::Plugins::Seen,
+	Cinch::Plugins::Greeting,
+	Cinch::Plugins::Eightball,
+	Cinch::Plugins::Decide,
+	Cinch::Plugins::Memo,
+  Cinch::Plugins::AIRespond,
+  Cinch::Plugins::ControlPanel,
+  Cinch::Plugins::ChanopCP,
+  Cinch::Plugins::PrivateCP,
+  Cinch::Plugins::PrivChanCP,
+  Cinch::Plugins::FactCore,
+  Cinch::Plugins::ActAI,
+  Cinch::Plugins::UrlScraper,
+  Cinch::Plugins::Twitter,
+  Cinch::Plugins::TwitterStatus,
+  Cinch::Plugins::Forecast,
+  Cinch::Plugins::ValentineBoxx,
+  Cinch::Plugins::Wikipedia];
+  #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
+  #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
+  #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
+  #                                                   consumer_key:    'foo',
+  #                                                   consumer_secret: 'foo',
+  #                                                   oauth_token:     'foo',
+  #                                                   oauth_secret:    'foo',
+  #                                                   watchers:        { '#foo' => ['bar'] } }
+  #c.plugins.options[Cinch::Plugins::Twitter] = { 
+  #access_keys: { 
+  #  consumer_key: "foo", 
+  #  consumer_secret: "foo", 
+  #  oauth_token: "foo", 
+  #  oauth_token_secret: "foo" 
+  #} 
+#}
     c.password = "nspass"
   end
-  
-  on :action, "kicks the bot" do |m|
-  m.reply "Ouch! Stop kicking me :("
-  m.reply "I thought you loved me D:", true
-end
 end
 
 bot.start

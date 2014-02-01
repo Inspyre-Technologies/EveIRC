@@ -21,7 +21,7 @@ module Cinch::Plugins
     
     def lookup(word)
       url = "http://www.urbandictionary.com/define.php?term=#{CGI.escape(word)}"
-      CGI.unescape_html Nokogiri::HTML(open(url)).at("div.definition").text.gsub(/\s+/, ' ') rescue nil
+      CGI.unescape_html Nokogiri::HTML(open(url)).at("div.meaning").text.gsub(/\s+/, ' ') rescue nil
     end
 
     def execute(m, word)
@@ -33,4 +33,4 @@ module Cinch::Plugins
 # EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
 # Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at irc.catiechat.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

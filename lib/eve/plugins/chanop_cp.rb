@@ -18,12 +18,13 @@ module Cinch::Plugins
     # in order to use EVE. Feel free to edit anything between the "usage"
     # tags, as long as it's sane to your users. :P
     
+    set :prefix, /^~/
     set :plugin_name, 'channelcp'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Allows you to control the channel functions of the bot. The bot must have op in the specified channels or these commands will not work! Please keep in mind that all uses of these commands are reported on the console!
       Usage:
-      - !opme: This command must be used in a channel. Forces the bot to op you.
-      - !deopme: This command must be used in a channel. Forces the bot to deop you.
+      - ~opme: This command must be used in a channel. Forces the bot to op you.
+      - ~deopme: This command must be used in a channel. Forces the bot to deop you.
       USAGE
     
     # Now that we have that out of the way we are going to jump right in 
@@ -105,4 +106,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

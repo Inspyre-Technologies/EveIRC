@@ -1,8 +1,13 @@
 require 'cinch'
+require_relative "config/check_user"
+require_relative "config/check_friend"
+require_relative "config/check_foe"
      
-module Cinch::Plugins
-  class Greeting
-    include Cinch::Plugin
+module Cinch
+  module Plugins
+    class Greeting
+      include Cinch::Plugin
+      include Cinch::Helpers
      
     def greet(m)
       [
@@ -69,6 +74,7 @@ module Cinch::Plugins
       listen_to :join, :method => :hello
     
     def hello(m)
+      return unless config[:enabled_channels].include?(m.channel.name)
       if m.user.nick != bot.nick
         unless check_friend(m.user) == false
           sleep config[:delay] || 4
@@ -93,6 +99,7 @@ module Cinch::Plugins
     listen_to :join, :method => :botj
       
     def botj(m)
+      return unless config[:enabled_channels].include?(m.channel.name)
       if m.user.nick == bot.nick
         sleep config[:delay] || 2
         m.reply botgreet(m)
@@ -102,9 +109,35 @@ module Cinch::Plugins
     listen_to :leaving, :method => :goodbye
       
     def goodbye(m, channel)
+      return unless config[:enabled_channels].include?(m.channel.name)
 		  unless m.user.nick == bot.nick
         m.channel.send leave(m)
       return;
+    end
+  end
+  
+  match /greeting (on|off)$/
+  
+  def execute(m, option)
+    begin
+      return unless check_user(m.user)
+      
+      @greeting = option == "on"
+      
+      case option
+        when "on"
+          config[:enabled_channels] << m.channel.name
+        else
+          config[:enabled_channels].delete(m.channel.name)
+        end
+        
+        m.reply Format(:green, "Greetings for #{m.channel} are now #{@greeting ? 'enabled' : 'disabled'}!")
+        
+        @bot.debug("#{self.class.name} → #{config[:enabled_channels].inspect}");
+        
+      rescue 
+        m.reply Format(:red, "Error: #{$!}")
+      end
     end
   end
 end

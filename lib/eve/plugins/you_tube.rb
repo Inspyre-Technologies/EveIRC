@@ -34,7 +34,7 @@ module Cinch
       
     def result(m, data)
       url1 = data.url1a.split("http://gdata.youtube.com/feeds/api/videos/")[1]
-      m.reply Format(:green, "%s Title: #{data.title1} | #{data.content1} | By: #{data.author1} | http://youtu.be/#{url1}" % "0,4You1,0Tube")
+      m.reply Format("%s 3Title: #{data.title1} | #{data.content1} | By: #{data.author1} | http://youtu.be/#{url1}" % "0,4You1,0Tube")
     end  
   end
 end

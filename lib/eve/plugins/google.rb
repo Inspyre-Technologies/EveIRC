@@ -49,7 +49,7 @@ module Cinch
         return results
       end
        
-      def search_result_w(m, data)
+      def search_result(m, data)
         data[0..2].each{|i| m.reply i}
       end
       

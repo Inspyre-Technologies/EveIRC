@@ -36,7 +36,8 @@ module Cinch
       end
       
       def get_current(geometry)
-        data = JSON.parse(open("https://api.forecast.io/forecast/9cf5d8e80388a30e7e37b14e43b9707a/#{geometry}").read)
+        apikey = "foo"
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{apikey}/#{geometry}").read)
         current = data['currently']
         
         OpenStruct.new(

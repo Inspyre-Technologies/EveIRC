@@ -47,8 +47,13 @@ module Cinch
       # Fetch the current weather data for the location found in geolookup.
       
       def get_current(geometry)
+<<<<<<< HEAD
         key = config[:key]
         data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
+=======
+        apikey = "foo"
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{apikey}/#{geometry}").read)
+>>>>>>> 18777609992663e779dd25a14efa81dbb8dc87ca
         current = data['currently']
         
         OpenStruct.new(

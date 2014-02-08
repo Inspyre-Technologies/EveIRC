@@ -1,5 +1,4 @@
 require 'cinch'
-# require 'cinch/plugins/twitter'
 require 'redis'
 require_relative "lib/eve/plugins/urban_dictionary"
 require_relative "lib/eve/plugins/help"
@@ -21,6 +20,9 @@ require_relative "lib/eve/plugins/twitter_status"
 require_relative "lib/eve/plugins/plugin_management"
 require_relative "lib/eve/plugins/valentine_boxx"
 require_relative "lib/eve/plugins/wikipedia"
+require_relative "lib/eve/plugins/weather"
+require_relative "lib/eve/plugins/google"
+require_relative "lib/eve/plugins/you_tube"
 
 
 # You should have something in the block below as it will have Eve report
@@ -43,7 +45,7 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 2.6"
+  c.realname = "Eve 2.7"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
 	Cinch::Plugins::UrbanDictionary,
 	Cinch::Plugins::Help,
@@ -62,9 +64,11 @@ bot = Cinch::Bot.new do
   Cinch::Plugins::UrlScraper,
   Cinch::Plugins::Twitter,
   Cinch::Plugins::TwitterStatus,
-  Cinch::Plugins::Forecast,
   Cinch::Plugins::ValentineBoxx,
-  Cinch::Plugins::Wikipedia];
+  Cinch::Plugins::Wikipedia,
+  Cinch::Plugins::Weather,
+  Cinch::Plugins::Google,
+  Cinch::Plugins::YouTube];
   #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
@@ -81,6 +85,7 @@ bot = Cinch::Bot.new do
   #  oauth_token_secret: "foo" 
   #} 
 #}
+  c.plugins.options[Cinch::Plugins::Weather] = { key: 'foo' }
     c.password = "nspass"
   end
 end

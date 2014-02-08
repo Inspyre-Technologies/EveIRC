@@ -2,28 +2,35 @@ require 'cinch'
 require 'ostruct'
 require 'open-uri'
 require 'json'
+require 'cgi'
 
 module Cinch
   module Plugins
     class Google
       include Cinch::Plugin
        
-      set :prefix, /^~/
+      set :plugin_name, 'google'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+        Searches Google for results on image and web entries.
+          Usage:
+            * !google <terms>: This will execute a Google WEB search, and return the top three results.
+            * !images <terms>: This will execute a Google Image search and returns the top three results.
+          USAGE
        
-      match /google (.+)/, method: :execute_w
-      match /images (.+)/, method: :execute_i
+      match /google (.+)/i, method: :execute_w
+      match /images (.+)/i, method: :execute_i
       
       def execute_w(m, query)
         query.gsub! /\s/, '+'
         data = search_w(m, query)
-        return m.reply "No results found for #{query}." if data.nil?
+        return m.reply "No results found for #{query}." if data.empty?
         search_result(m, data)
       end
     
       def execute_i(m, query)
         query.gsub! /\s/, '+'
         data = search_i(m, query)
-        return m.reply "No results found for #{query}." if data.nil?
+        return m.reply "No results found for #{query}." if data.empty?
         search_result(m, data)
       end
     
@@ -52,7 +59,6 @@ module Cinch
       def search_result(m, data)
         data[0..2].each{|i| m.reply i}
       end
-      
     end
   end
 end

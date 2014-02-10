@@ -9,7 +9,6 @@ module Cinch
     class Weather
       include Cinch::Plugin
       
-      set :prefix, /^~/
       set :required_options, [:key]
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         Check the weather right from the IRC channel!

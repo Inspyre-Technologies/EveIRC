@@ -23,6 +23,10 @@ require_relative "lib/eve/plugins/wikipedia"
 require_relative "lib/eve/plugins/weather"
 require_relative "lib/eve/plugins/google"
 require_relative "lib/eve/plugins/you_tube"
+require_relative "lib/eve/plugins/math"
+require_relative "lib/eve/plugins/bitcoin"
+require_relative "lib/eve/plugins/user_info"
+require_relative "lib/eve/plugins/isitup"
 
 
 # You should have something in the block below as it will have Eve report
@@ -45,7 +49,7 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 2.7"
+  c.realname = "Eve 3.0"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
 	Cinch::Plugins::UrbanDictionary,
 	Cinch::Plugins::Help,
@@ -68,7 +72,11 @@ bot = Cinch::Bot.new do
   Cinch::Plugins::Wikipedia,
   Cinch::Plugins::Weather,
   Cinch::Plugins::Google,
-  Cinch::Plugins::YouTube];
+  Cinch::Plugins::YouTube,
+  Cinch::Plugins::Math,
+  Cinch::Plugins::Bitcoin,
+  Cinch::Plugins::UserInfo,
+  Cinch::Plugins::Isitup];
   #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {

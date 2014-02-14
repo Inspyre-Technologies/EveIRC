@@ -1,54 +1,73 @@
 require 'cinch'
+require 'cinch/toolbox'
+require 'cinch-storage'
+require 'cinch/cooldown'
+require 'time-lord'
 
-module Cinch::Plugins
-  class Seen
-  class SeenStruct < Struct.new(:who, :where, :what, :time)
+module Cinch
+  module Plugins
+    class Seen
+      include Cinch::Plugin
     
-    def to_s
-      "[#{time.asctime}] #{who} was seen in #{where} saying #{what}"
-    end
-  end
-    
-    # This plugin was not written by me and frankly I believe it to be
-    # outdated. I will soon re-write a plugin that does that same but is
-    # persistent with the data.
-    
-    include Cinch::Plugin
-    listen_to :channel
-    
-    set :plugin_name, 'seen'
-    set :help, <<-USAGE.gsub(/^ {6}/, '')
-      The seen plugin is great for finding out when the last time a user spoke in a channel I am in!
-      Usage:
-      - !seen <nick>: This will cause the bot to return with the last instance of this user speaking in a channel it was in.
-    USAGE
-  
-    match /seen (.+)/
-
-    def initialize(*args)
-      super
-        @users = {}
-      end
-
-    def listen(m)
-      @users[m.user.nick] = SeenStruct.new(m.user, m.channel, m.message, Time.now)
-    end
-
-    def execute(m, nick)
-        if nick == @bot.nick
-          m.reply "That's me!"
-        elsif nick == m.user.nick
-          m.reply "That's you!"
-        elsif @users.key?(nick)
-          m.reply @users[nick].to_s
-        else
-          m.reply "I haven't seen #{nick}"
+      class Watch < Struct.new(:nick, :time, :message)
+        def to_yaml
+          { nick: nick, time: time, message: message }
         end
       end
+      
+      enforce_cooldown
+      
+      set :plugin_name, 'seen'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+        Just a seen plugin!
+          Usage:
+            * !seen <name>: Use this to see the last thing a nick said and where
+          USAGE
+      listen_to :channel
+      
+      match /seen ([^\s]+)\z/
+      
+    def initialize(*args)
+      super
+      @storage = CinchStorage.new(config[:filename] || 'seen.yml')
+      @storage.data ||= {}
+    end
+    
+    def listen(m)
+      channel = m.channel.name
+      nick = m.user.nick
+      @storage.data[channel] ||= {}
+      @storage.data[channel][nick.downcase] =
+        Watch.new(nick, Time.now, m.message)
+      @storage.synced_save(@bot)
+    end
+    
+    def execute(m, nick)
+      return if sent_via_pm?(m)
+      unless m.user.nick.downcase == nick.downcase
+        m.reply last_seen(m.channel.name, nick), true
+      end
+    end
+    
+    private
+
+    def last_seen(channel, nick)
+      @storage.data[channel] ||= {}
+      activity = @storage.data[channel][nick.downcase]
+      
+      if activity.nil?
+        "I haven't seen #{nick} before, sorry!"
+      else
+        "I last saw #{activity.nick} #{activity.time.ago.to_words} " +
+        "saying '#{activity.message}'"
+      end
+    end
+    
+    def sent_via_pm?(m)
+      return false unless m.channel.nil?
+      m.reply 'You must use that command in the main channel.'
+      true
     end
   end
-
-# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
-# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
-# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+end
+end

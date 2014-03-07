@@ -1,5 +1,5 @@
 require 'cinch'
-require_relative "config/check_friend"
+require_relative "config/check_master"
 require_relative "config/check_user"
 require_relative "config/check_foe"
 
@@ -8,6 +8,15 @@ module Cinch::Plugins
     include Cinch::Plugin
     include Cinch::Helpers
     listen_to :action
+    
+      def initialize(*args)
+        super
+          if File.exist?('userinfo.yaml')
+            @storage = YAML.load_file('userinfo.yaml')
+          else
+            @storage = {}
+          end
+        end
     
     ## This is where the hug responses are for friend, foe, master, and neutral
     
@@ -439,7 +448,7 @@ module Cinch::Plugins
     
     
     def hug(m)
-        unless check_friend(m.user) == false
+        unless check_master(m.user) == false
           sleep config[:delay] || 3
           m.channel.action hugar_friend(m)
           sleep config[:delay] || 2
@@ -467,7 +476,7 @@ module Cinch::Plugins
       end
     
     def kiss(m)
-      unless check_friend(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.channel.action kissar_friend(m)
         sleep config[:delay] || 2
@@ -495,7 +504,7 @@ module Cinch::Plugins
     end
     
     def dirty(m)
-      unless check_friend(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.channel.action dirtyar_friend(m)
         sleep config[:delay] || 2
@@ -523,7 +532,7 @@ module Cinch::Plugins
     end
     
     def cuddle(m)
-      unless check_friend(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.channel.action cuddlear_friend(m)
         sleep config[:delay] || 2
@@ -551,7 +560,7 @@ module Cinch::Plugins
     end
     
     def highfive(m)
-      unless check_friend(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.channel.action highfivear_friend(m)
         sleep config[:delay] || 2
@@ -580,7 +589,7 @@ module Cinch::Plugins
       
     
     def handhold(m)
-      unless check_friend(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.channel.action handholdar_friend(m)
         sleep config[:delay] || 2

@@ -1,6 +1,6 @@
 require "json"
 require "mechanize"
-require_relative "config/check_user"
+require_relative "config/check_master"
 
 module Cinch
   module Plugins
@@ -13,10 +13,20 @@ module Cinch
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         If enabled, this plugin will return the title of the webpage that you or another user posts in the channel. For YouTube and IMDB there are special outputs for relevent information.
         Enable/Disable Usage:
-        - !url [on/off]: This command will turn the URL Scraper on or off for the channel you use this command in. Only bot operators can use this command!
+        - ~url [on/off]: This command will turn the URL Scraper on or off for the channel you use this command in. Only bot operators can use this command!
         USAGE
+        
+    def initialize(*args)
+      super
+        if File.exist?('userinfo.yaml')
+          @storage = YAML.load_file('userinfo.yaml')
+        else
+          @storage = {}
+        end
+      end
       
       def listen(m)
+        return if m.message.include? "nospoil"
         return unless config[:enabled_channels].include?(m.channel.name)
         # Create mechanize agent
         if @agent.nil?
@@ -129,11 +139,12 @@ module Cinch
         end
       end
 
+  set :prefix, /^~/
   match /url (on|off)$/
   
   def execute(m, option)
     begin
-      return unless check_user(m.user)
+      return unless check_master(m.user)
       
       @url = option == "on"
       

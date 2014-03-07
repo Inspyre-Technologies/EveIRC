@@ -1,13 +1,13 @@
 # This is the channel control panel for Eve. Most of the commands you'll
 # use as an admin will run off of this plugin. Please make sure 
-# that you've configured your check_user properly or these commands will
+# that you've configured your check_master properly or these commands will
 # not work for you. TAKE NOTE: I don't want you to gain a bad reputation
 # for yourself or for Eve, so please remember that these commands can be
 # abused and are likely to be abused if you don't take caution with who
-# you are adding to check_user!
+# you are adding to check_master!
 
 require 'cinch'
-require_relative "config/check_user"
+require_relative "config/check_master"
 
 module Cinch::Plugins
   class ChanopCP
@@ -39,11 +39,20 @@ module Cinch::Plugins
     # TODO: Add a method for determining whether the bot is in the channel
     # that it's being asked to execute in!
     
+      def initialize(*args)
+        super
+          if File.exist?('userinfo.yaml')
+            @storage = YAML.load_file('userinfo.yaml')
+          else
+            @storage = {}
+          end
+        end
+    
     match /opme/, method: :execute_op
   
     def execute_op(m)
       if m.channel
-        unless check_user(m.user)
+        unless check_master(m.user)
           m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
           bot.info("Received invalid OpMe command from #{m.user.nick}")
           Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'opme' command in #{m.channel} but was not authorized.") }
@@ -71,7 +80,7 @@ module Cinch::Plugins
     
     def execute_deop(m)
       if m.channel
-        unless check_user(m.user)
+        unless check_master(m.user)
           m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
           bot.info("Received invalid deopme command from #{m.user.nick}")
           Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deopme' command in #{m.channel} but was not authorized.") }

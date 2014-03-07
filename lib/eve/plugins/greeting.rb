@@ -1,5 +1,6 @@
+require 'date'
 require 'cinch'
-require_relative "config/check_user"
+require_relative "config/check_master"
 require_relative "config/check_friend"
 require_relative "config/check_foe"
      
@@ -8,6 +9,15 @@ module Cinch
     class Greeting
       include Cinch::Plugin
       include Cinch::Helpers
+      
+    def initialize(*args)
+      super
+        if File.exist?('userinfo.yaml')
+          @storage = YAML.load_file('userinfo.yaml')
+        else
+          @storage = {}
+        end
+      end
      
     def greet(m)
       [
@@ -46,7 +56,7 @@ module Cinch
         Format(:green, "Greetings, Master #{m.user.nick}.")
       ].sample
     end
-        		
+                
     def leave(m)
       [
         Format(:green, "Well fine then #{m.user.nick}, we didn't want to talk to you anyway"),
@@ -70,12 +80,26 @@ module Cinch
         Format(:green, "It's been a long time. How have you been? I've been *really* busy being dead. You know, after you MURDERED ME?")
       ].sample
     end
-		
+        
       listen_to :join, :method => :hello
     
     def hello(m)
+      reload
       return unless config[:enabled_channels].include?(m.channel.name)
       if m.user.nick != bot.nick
+        if @storage.key?(m.user.nick)
+          if @storage[m.user.nick].key? 'birthday'
+            if isBirthday(@storage[m.user.nick]['birthday'])
+              m.reply "Happy Birthday, #{m.user.nick}!!"
+            return;
+          end
+        end
+          if @storage[m.user.nick].key? 'greeting'
+            sleep config[:delay] || 4
+            m.reply @storage[m.user.nick]['greeting']
+          return;
+        end
+      end
         unless check_friend(m.user) == false
           sleep config[:delay] || 4
           m.reply greet_friend(m)
@@ -86,7 +110,7 @@ module Cinch
           m.reply greet_foe(m)
         return;
       end
-        unless check_user(m.user) == false
+        unless check_master(m.user) == false
           sleep config[:delay] || 4
           m.reply greet_m(m)
         return;
@@ -95,6 +119,14 @@ module Cinch
         m.reply greet(m)
       end
     end
+    
+   def reload
+    if File.exist?('userinfo.yaml')
+      @storage = YAML.load_file('userinfo.yaml')
+    else
+      @storage = {}
+    end
+  end
     
     listen_to :join, :method => :botj
       
@@ -110,17 +142,20 @@ module Cinch
       
     def goodbye(m, channel)
       return unless config[:enabled_channels].include?(m.channel.name)
-		  unless m.user.nick == bot.nick
+          unless m.user.nick == bot.nick
         m.channel.send leave(m)
       return;
     end
   end
+
+
   
+  set :prefix, /^~/
   match /greeting (on|off)$/
   
   def execute(m, option)
     begin
-      return unless check_user(m.user)
+      return unless check_master(m.user)
       
       @greeting = option == "on"
       
@@ -133,12 +168,16 @@ module Cinch
         
         m.reply Format(:green, "Greetings for #{m.channel} are now #{@greeting ? 'enabled' : 'disabled'}!")
         
-        @bot.debug("#{self.class.name} → #{config[:enabled_channels].inspect}");
+        @bot.debug("#{self.class.name} ? #{config[:enabled_channels].inspect}");
         
       rescue 
         m.reply Format(:red, "Error: #{$!}")
       end
     end
+  def isBirthday(dob)
+    date = Date.parse(dob)
+    return Date.today.day == date.day && Date.today.month == date.month
   end
+end
 end
 end

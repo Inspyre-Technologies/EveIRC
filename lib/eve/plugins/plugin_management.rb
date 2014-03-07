@@ -1,4 +1,4 @@
-require_relative "config/check_user"
+require_relative "config/check_master"
 
 module Cinch
   module Plugins
@@ -6,15 +6,25 @@ module Cinch
       include Cinch::Plugin
       include Cinch::Helpers
 
+      set :prefix, /^~/
       set :plugin_name, 'pluginmanagement'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         A plugin manager.
           Usage:
-          * !plugin load <plugin>: This loads <plugin> into the bot.
-          * !plugin unload <plugin>: This unloads <plugin> from the bot.
-          * !plugin reload <plugin>: This unloads and loads <plugin>.
-          * !plugin set <plugin> <option> <value>: This sets configuration options for <plugin>.
+          * ~plugin load <plugin>: This loads <plugin> into the bot.
+          * ~plugin unload <plugin>: This unloads <plugin> from the bot.
+          * ~plugin reload <plugin>: This unloads and loads <plugin>.
+          * ~plugin set <plugin> <option> <value>: This sets configuration options for <plugin>.
         USAGE
+        
+    def initialize(*args)
+      super
+        if File.exist?('userinfo.yaml')
+          @storage = YAML.load_file('userinfo.yaml')
+        else
+          @storage = {}
+        end
+      end
       
       match(/plugin load (\S+)(?: (\S+))?/, method: :load_plugin)
       match(/plugin unload (\S+)/, method: :unload_plugin)
@@ -27,7 +37,7 @@ module Cinch
         }.downcase # we downcase here to also catch the first letter
 
         file_name = "lib/eve/plugins/#{mapping}.rb"
-          if check_user(m.user) == true
+          if check_master(m.user) == true
             unless File.exist?(file_name)
               m.reply Format(:red, "Could not load #{plugin} because #{file_name} does not exist.")
             return;
@@ -56,7 +66,7 @@ module Cinch
       end
 
       def unload_plugin(m, plugin)
-        if check_user(m.user) == true
+        if check_master(m.user) == true
           begin
             plugin_class = Cinch::Plugins.const_get(plugin)
           rescue NameError
@@ -102,7 +112,7 @@ module Cinch
       end
 
       def set_option(m, plugin, option, value)
-        if check_user(m.user) == true
+        if check_master(m.user) == true
           begin
             const = Cinch::Plugins.const_get(plugin)
           rescue NameError

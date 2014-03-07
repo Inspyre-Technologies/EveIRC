@@ -1,32 +1,44 @@
 # This is the control panel for Eve. Most of the commands you'll use as an admin will
-# run off of this plugin. Please make sure that you've configured your check_user
+# run off of this plugin. Please make sure that you've configured your check_master
 # properly or these commands will not work for you.
 
 require 'cinch'
-require_relative "config/check_user"
+require 'yaml'
+require_relative "config/check_master"
 
 module Cinch::Plugins
   class ControlPanel
     include Cinch::Plugin
     include Cinch::Helpers
     
+    set :prefix, /^~/
     set :plugin_name, 'controlpanel'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Allows you to control the basic functions of the bot.
       Usage:
-      - !off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
-      - !autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
-      - !join <channel>: This will force the bot to join a channel.
-      - !part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
+      - ~off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
+      - ~autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
+      - ~join <channel>: This will force the bot to join a channel.
+      - ~part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
       USAGE
     
     # The die function forces the bot to quit irc and end it's process upon execution.
+    
+    
+    def initialize(*args)
+      super
+        if File.exist?('userinfo.yaml')
+          @storage = YAML.load_file('userinfo.yaml')
+        else
+          @storage = {}
+        end
+      end
     
     match /off/, method: :execute_off
 	
 	def execute_off(m)
 	  if m.channel
-	    unless check_user(m.user)
+	    unless check_master(m.user)
           m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
           bot.info("Received invalid quit command from #{m.user.nick}")
           Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'off' command in #{m.channel} but was not authorized.") }
@@ -55,7 +67,7 @@ module Cinch::Plugins
 
   def execute_av(m, option)
     if m.channel
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
         bot.info("Received invalid autovoice command from #{m.user.nick} in #{m.channel}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'autovoice' command in #{m.channel} but was not authorized.") }
@@ -71,7 +83,7 @@ module Cinch::Plugins
 # a channel as directed. Please bear in mind that at this
 # time there are no limiters on how many times this can 
 # be used in any given timeframe, so only add users to
-# check_user that can be trusted not to give Eve or 
+# check_master that can be trusted not to give Eve or 
 # yourself a bad reputation!
   
     match /join (.+)/, method: :join
@@ -79,7 +91,7 @@ module Cinch::Plugins
 
   def join(m, channel)
     if m.channel
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid join command from #{m.user.nick} in #{m.channel}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'join' command in #{m.channel} to join #{channel} but was not authorized.") }
@@ -97,7 +109,7 @@ module Cinch::Plugins
 
   def part(m, channel)
     if m.channel
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid part command from #{m.user.nick} in #{m.channel}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'part' command in #{m.channel} but was not authorized. Maybe they are sick of me?") }
@@ -140,4 +152,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

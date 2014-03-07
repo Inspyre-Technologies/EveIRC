@@ -1,5 +1,5 @@
 require 'cinch'
-require_relative "config/check_user"
+require_relative "config/check_master"
 
 module Cinch::Plugins
   class PrivChanCP
@@ -7,28 +7,38 @@ module Cinch::Plugins
     include Cinch::Helpers
     set :react_on, :private
     
+    set :prefix, /^~/
     set :plugin_name, 'privchancp'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Private commands to allow you to control the channel functions of the bot.
       Usage:
-      - !kick <channel> <nick> [<reason>]: This command must be used in a PM. Forces the bot to kick the specified user from the specified channel. Note: if you do not give a <reason> the bot will not give one either.
-      - !ban <channel> <nick>: This command must be used in a PM. Forces the bot to ban the specified user from the specified channel.
-      - !unban <channel> <mask>: This command must be used in a PM. Forces the bot to unban a specified mask in the specified channel. Note: you must specify the mask or the bot can not unban the user.
-      - !kban <channel> <nick> <reason>: This command must be used in a PM. Forces the bot to kick and ban the specified user from the specified channel with the specified reason. Note: if you do not specify the reason, the bot won't either.
-      - !op <channel> <nick>: This command must be used in a PM. Forces the bot to op the specified user in the specified channel.
-      - !deop <channel> <nick>: This command must be used in a PM. Forces the bot to deop the specified user in the specified channel.
-      - !voice <channel> <nick>: This command must be used in a PM. Forces the bot to give the specified user voice in the specified channel.
-      - !devoice <channel> <nick>: This command must be used in a PM. Forces the bot to take voice from the specified user in the specified channel.
-      - !topic <channel> <topic>: This command must be used in a PM. Forces the bot to change the topic in the specified channel to the topic you specify.
+      - ~kick <channel> <nick> [<reason>]: This command must be used in a PM. Forces the bot to kick the specified user from the specified channel. Note: if you do not give a <reason> the bot will not give one either.
+      - ~ban <channel> <nick>: This command must be used in a PM. Forces the bot to ban the specified user from the specified channel.
+      - ~unban <channel> <mask>: This command must be used in a PM. Forces the bot to unban a specified mask in the specified channel. Note: you must specify the mask or the bot can not unban the user.
+      - ~kban <channel> <nick> <reason>: This command must be used in a PM. Forces the bot to kick and ban the specified user from the specified channel with the specified reason. Note: if you do not specify the reason, the bot won't either.
+      - ~op <channel> <nick>: This command must be used in a PM. Forces the bot to op the specified user in the specified channel.
+      - ~deop <channel> <nick>: This command must be used in a PM. Forces the bot to deop the specified user in the specified channel.
+      - ~voice <channel> <nick>: This command must be used in a PM. Forces the bot to give the specified user voice in the specified channel.
+      - ~devoice <channel> <nick>: This command must be used in a PM. Forces the bot to take voice from the specified user in the specified channel.
+      - ~topic <channel> <topic>: This command must be used in a PM. Forces the bot to change the topic in the specified channel to the topic you specify.
       USAGE
     
     # This will kick the user. This is nice if you're a nice admin and
     # don't want to be seen kicking your friends for being n00bs! :p
     
+    def initialize(*args)
+      super
+        if File.exist?('userinfo.yaml')
+          @storage = YAML.load_file('userinfo.yaml')
+        else
+          @storage = {}
+        end
+      end
+    
     match /kick (#\S+) (\S+)\s?(.+)?/, method: :execute_kick
     
     def execute_kick(m, channel, knick, reason)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid kick command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'kick' command for #{channel} but was not authorized.") }
@@ -64,7 +74,7 @@ module Cinch::Plugins
     match /ban (#\S+) (\S+)/, method: :execute_ban
   
     def execute_ban(m, channel, user)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid ban command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'ban' command for #{channel} on #{user} but was not authorized.") }
@@ -99,7 +109,7 @@ module Cinch::Plugins
     match /unban (#\S+) (\S+)/, method: :execute_unban
   
     def execute_unban(m, channel, mask)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid unban command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'unban' command for #{channel} on #{mask} but was not authorized.") }
@@ -128,7 +138,7 @@ module Cinch::Plugins
     match /kban (#\S+) (\S+)(?: (.+))?/, method: :execute_kban
     
     def execute_kban(m, channel, user, reason)
-      unless check_user(m.user)
+      unless check_master(m.user)
         sleep config[:delay] || 10
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid kban command from #{m.user.nick}")
@@ -159,7 +169,7 @@ module Cinch::Plugins
     match /op (#\S+) (\S+)(?: (.+))?/, method: :execute_rop
     
     def execute_rop(m, channel, user)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid op command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'op' command for #{channel} on #{user} but was not authorized.") }
@@ -196,7 +206,7 @@ module Cinch::Plugins
     match /deop (#\S+) (\S+)(?: (.+))?/, method: :execute_rdop
     
     def execute_rdop(m, channel, user)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid deop command from #{m.user.nick}. User attempted to op #{user} in #{channel}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'deop' command for #{channel} on #{user} but was not authorized.") }
@@ -235,7 +245,7 @@ module Cinch::Plugins
     match /voice (#\S+) (\S+)(?: (.+))?/, method: :execute_rv
     
     def execute_rv(m, channel, user)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid voice command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'voice' command for #{channel} on #{user} but was not authorized.") }
@@ -267,7 +277,7 @@ module Cinch::Plugins
     match /devoice (#\S+) (\S+)(?: (.+))?/, method: :execute_rdv
     
     def execute_rdv(m, channel, user)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid devoice command from #{m.user.nick}")
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'devoice' command for #{channel} on #{user} but was not authorized.") }
@@ -301,7 +311,7 @@ module Cinch::Plugins
     match /t (#.+?) (.+)/, method: :execute_topic
     
     def execute_topic(m, channel, topic)
-      unless check_user(m.user)
+      unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid topic command from #{m.user.nick}")
       return;
@@ -314,6 +324,7 @@ module Cinch::Plugins
         m.reply ("I can't change the topic in #{channel} because I am not op.")
       return;
     end
+      puts topic
       bot.info("Received valid topic command from #{m.user.nick}")
       m.reply Format(:green, "Very well...")
       bot.irc.send ("TOPIC #{channel} #{topic}")
@@ -332,4 +343,4 @@ end
 # As a last note, always remember that EVE is a project for a Top-Tier IRC bot, and the project
 # could always use more help. Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

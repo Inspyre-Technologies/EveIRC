@@ -6,9 +6,6 @@
 # matchers and responses! Let's see how intelligent we can make EVE!
 
 require 'cinch'
-require_relative "config/check_friend"
-require_relative "config/check_user"
-require_relative "config/check_foe"
 
 module Cinch::Plugins
   class Ai
@@ -16,6 +13,15 @@ module Cinch::Plugins
     
   # Here is where the responses are set. It should be pretty easy to 
   # understand!
+  
+      def initialize(*args)
+        super
+          if File.exist?('userinfo.yaml')
+            @storage = YAML.load_file('userinfo.yaml')
+          else
+            @storage = {}
+          end
+        end
     
   
     def status(m)
@@ -256,6 +262,7 @@ module Cinch::Plugins
     match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
     match /brb/i, :method => :brb, use_prefix: false
     match /bbs/i, :method => :brb, use_prefix: false
+    match /bbl/i, :method => :brb, use_prefix: false
     match lambda {|m| /(shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :sup, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\W|$)/i}, :method => :sup, use_prefix: false
     match lambda {|m| /\A(thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ty, use_prefix: false
@@ -285,7 +292,7 @@ module Cinch::Plugins
         m.reply status_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply status_m(m)
       return;
@@ -305,7 +312,7 @@ module Cinch::Plugins
         m.reply hir_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply hir_m(m)
       return;
@@ -325,7 +332,7 @@ module Cinch::Plugins
         m.reply brbr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply brbr(m)
       return;
@@ -345,7 +352,7 @@ module Cinch::Plugins
         m.reply supr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply supr_m(m)
       return;
@@ -365,7 +372,7 @@ module Cinch::Plugins
         m.reply tyr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply tyr(m)
       return;
@@ -385,7 +392,7 @@ module Cinch::Plugins
         m.reply ywr(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply ywr(m)
       return;
@@ -405,7 +412,7 @@ module Cinch::Plugins
         m.reply ilur_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply ilur_master(m)
       return;
@@ -425,7 +432,7 @@ module Cinch::Plugins
         m.reply wur_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply wur_friend(m)
       return;
@@ -445,7 +452,7 @@ module Cinch::Plugins
         m.reply rospr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply rospr(m)
       return;
@@ -465,7 +472,7 @@ module Cinch::Plugins
         m.reply nightr(m)
       return;
     end
-      unless check_user(m.user) == false
+      unless check_master(m.user) == false
         sleep config[:delay] || 3
         m.reply nightr(m)
       return;

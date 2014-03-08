@@ -70,5 +70,3 @@ Next you need to make sure the plugins you want loaded are in the c.plugins.plug
 Next are your Twitter options, you need to put your API keys in this section or the Twitter plugin will not work!
 
 In c.password you need to put Eve's NickServ pass so she can identify upon connecting.
-Next you need to navigate to ~/Eve-Bot/lib/eve/plugins/config/check_user and put in the auth name of the bot administrators, not their NICK their AUTHNAME!
-If you want to ban anyone from using the bot you need to navigate to ~/Eve-Bot/lib/eve/plugins/config/check_ifban

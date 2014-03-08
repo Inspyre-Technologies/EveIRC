@@ -1,7 +1,7 @@
 require 'cinch'
 require_relative "config/check_master"
-require_relative "config/check_user"
 require_relative "config/check_foe"
+require_relative "config/check_friend"
 
 module Cinch::Plugins
   class ActAI
@@ -448,21 +448,22 @@ module Cinch::Plugins
     
     
     def hug(m)
-        unless check_master(m.user) == false
+      reload
+        if check_friend(m.user)
           sleep config[:delay] || 3
           m.channel.action hugar_friend(m)
           sleep config[:delay] || 2
           m.reply hugr_friend(m)
         return;
       end
-        unless check_foe(m.user) == false
+        if check_foe(m.user)
           sleep config[:delay] || 3
           m.channel.action hugar_foe(m)
           sleep config[:delay] || 2
           m.reply hugr_foe(m)
         return;
       end
-        unless check_user(m.user) == false
+        if check_master(m.user)
           sleep config[:delay] || 3
           m.channel.action hugar_m(m)
           sleep config[:delay] || 2
@@ -476,21 +477,22 @@ module Cinch::Plugins
       end
     
     def kiss(m)
-      unless check_master(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.channel.action kissar_friend(m)
         sleep config[:delay] || 2
         m.reply kissr_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.channel.action kissar_foe(m)
         sleep config[:delay] || 2
         m.reply kissr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action kissar_m(m)
         sleep config[:delay] || 2
@@ -504,21 +506,22 @@ module Cinch::Plugins
     end
     
     def dirty(m)
-      unless check_master(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.channel.action dirtyar_friend(m)
         sleep config[:delay] || 2
         m.reply dirtyr_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.channel.action dirtyar_foe(m)
         sleep config[:delay] || 2
         m.reply dirtyr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action dirtyar_m(m)
         sleep config[:delay] || 2
@@ -532,21 +535,22 @@ module Cinch::Plugins
     end
     
     def cuddle(m)
-      unless check_master(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.channel.action cuddlear_friend(m)
         sleep config[:delay] || 2
         m.reply cuddler_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.channel.action cuddlear_foe(m)
         sleep config[:delay] || 2
         m.reply cuddler_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action cuddlear_m(m)
         sleep config[:delay] || 2
@@ -560,21 +564,22 @@ module Cinch::Plugins
     end
     
     def highfive(m)
-      unless check_master(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.channel.action highfivear_friend(m)
         sleep config[:delay] || 2
         m.reply highfiver_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.channel.action highfivear_foe(m)
         sleep config[:delay] || 2
         m.reply highfiver_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action highfivear_m(m)
         sleep config[:delay] || 2
@@ -589,21 +594,22 @@ module Cinch::Plugins
       
     
     def handhold(m)
-      unless check_master(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.channel.action handholdar_friend(m)
         sleep config[:delay] || 2
         m.reply handholdr_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.channel.action handholdar_foe(m)
         sleep config[:delay] || 2
         m.reply handholdr_foe(m)
       return;
     end
-      unless check_user(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action handholdar_m(m)
         sleep config[:delay] || 2
@@ -618,7 +624,8 @@ module Cinch::Plugins
     
     
     def buttgrab(m)
-      unless check_user(m.user)
+      reload
+      unless check_master(m.user)
         sleep config[:delay] || 3
         m.channel.action buttgrabar(m)
         sleep config[:delay] || 2
@@ -629,6 +636,14 @@ module Cinch::Plugins
       m.channel.action buttgrabar_m(m)
       sleep config[:delay] || 2
       m.reply buttgrabr_m(m)
+    end
+    
+    def reload
+      if File.exist?('userinfo.yaml')
+        @storage = YAML.load_file('userinfo.yaml')
+      else
+        @storage = {}
+      end
     end
   end
 end

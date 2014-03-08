@@ -27,6 +27,8 @@ require_relative "lib/eve/plugins/math"
 require_relative "lib/eve/plugins/bitcoin"
 require_relative "lib/eve/plugins/user_info"
 require_relative "lib/eve/plugins/isitup"
+require_relative "lib/eve/plugins/relationship_handler"
+require_relative "lib/eve/plugins/admin_handler"
 
 
 # You should have something in the block below as it will have Eve report
@@ -49,7 +51,7 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 3.0"
+  c.realname = "Eve 4.0"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
 	Cinch::Plugins::UrbanDictionary,
 	Cinch::Plugins::Help,
@@ -76,7 +78,9 @@ bot = Cinch::Bot.new do
   Cinch::Plugins::Math,
   Cinch::Plugins::Bitcoin,
   Cinch::Plugins::UserInfo,
-  Cinch::Plugins::Isitup];
+  Cinch::Plugins::Isitup,
+  Cinch::Plugins::RelationshipHandler,
+  Cinch::Plugins::AdminHandler];
   #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {

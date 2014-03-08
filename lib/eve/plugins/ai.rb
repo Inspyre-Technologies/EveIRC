@@ -6,6 +6,8 @@
 # matchers and responses! Let's see how intelligent we can make EVE!
 
 require 'cinch'
+require 'yaml'
+require_relative "config/check_master"
 
 module Cinch::Plugins
   class Ai
@@ -282,37 +284,39 @@ module Cinch::Plugins
     # matchers are met and a response is required from the bot.
     
     def hau(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply status_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply status_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply status_m(m)
       return;
     end
-      sleep config[:delay] || 3
+      sleep config[:delay] || 3 
       m.reply status(m)
     end
 	
     def hi(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply hir_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply hir_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply hir_m(m)
       return;
@@ -322,17 +326,18 @@ module Cinch::Plugins
     end
 	
     def brb(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply brbr(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply brbr_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply brbr(m)
       return;
@@ -342,17 +347,18 @@ module Cinch::Plugins
     end
     
     def sup(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply supr_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply supr_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply supr_m(m)
       return;
@@ -362,17 +368,18 @@ module Cinch::Plugins
     end
     
     def ty(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply tyr_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply tyr_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply tyr(m)
       return;
@@ -382,17 +389,18 @@ module Cinch::Plugins
     end
     
     def yw(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ywr(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply ywr(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply ywr(m)
       return;
@@ -402,17 +410,18 @@ module Cinch::Plugins
     end
     
     def ilu(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ilur(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply ilur_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply ilur_master(m)
       return;
@@ -422,17 +431,18 @@ module Cinch::Plugins
     end
     
     def wu(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply wur_friend(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply wur_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply wur_friend(m)
       return;
@@ -442,17 +452,18 @@ module Cinch::Plugins
     end
     
     def rosp(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply rospr(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply rospr_foe(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply rospr(m)
       return;
@@ -462,17 +473,18 @@ module Cinch::Plugins
     end
     
     def night(m)
-      unless check_friend(m.user) == false
+      reload
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply nightr(m)
       return;
     end
-      unless check_foe(m.user) == false
+      if check_foe(m.user)
         sleep config[:delay] || 3
         m.reply nightr(m)
       return;
     end
-      unless check_master(m.user) == false
+      if check_master(m.user)
         sleep config[:delay] || 3
         m.reply nightr(m)
       return;
@@ -484,6 +496,14 @@ module Cinch::Plugins
     def rose(m)
       sleep config[:delay] || 5
       m.reply roser(m)
+    end
+    
+    def reload
+      if File.exist?('userinfo.yaml')
+        @storage = YAML.load_file('userinfo.yaml')
+      else
+        @storage = {}
+      end
     end
   end
 end

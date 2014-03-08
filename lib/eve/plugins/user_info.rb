@@ -1,6 +1,5 @@
 require 'cinch'
 require 'yaml'
-require_relative "config/check_user"
 require_relative "config/check_master"
 
 module Cinch
@@ -46,12 +45,6 @@ USAGE
       
       match /set-gender (male|female)/, method: :set_gender
       
-      match /test/, method: :test_command
-      
-      match /pizza/, method: :test_1
-      
-      match /add-master (.+)/, method: :set_master
-      
       
       match /del-w/, method: :del_w
       
@@ -65,7 +58,7 @@ USAGE
       
       match /rdel-data (.+)/, method: :rdel_data
       
-      match /del-master (.+)/, method: :del_master
+      
       def set_w(m, zc)
         zc.gsub! /\s/, '+'
         @storage[m.user.nick] ||= {}
@@ -176,15 +169,19 @@ USAGE
     end
   
     def rdel_data(m, user)
-      return unless check_user(m.user)
-        if @storage.key?(user)
-        @storage.delete user
-        update_store
-        m.reply "All of #{user}'s data has been deleted!"
+      unless check_user(m.user)
+        m.reply Format(:red, "You are not authorized to use that command!")
       return;
     end
+      if @storage.key?(user)
+      @storage.delete user
+      update_store
+      m.reply "All of #{user}'s data has been deleted!"
+    else
       m.reply "#{user} has no custom data set!"
     end
+  end
+end
   
     def set_gender(m, gender)
       @storage[m.user.nick] ||= {}
@@ -194,74 +191,11 @@ USAGE
     rescue
       m.reply Format(:red, "Error: #{$!}")
     end
-      
-    def test_command(m)
-      m.user.refresh
-      auth = m.user.authname
-      return m.reply "It doesn't work." if auth.nil?
-      if @storage.key?(m.user.nick)
-        if @storage[m.user.nick].key? 'master'
-          if @storage[m.user.nick].key? 'auth'
-            master = @storage[m.user.nick]['master']
-            mauth = @storage[m.user.nick]['auth']
-              unless master == true
-            return;
-              m.reply "It doesn't work."
-            end
-          end
-        end
-      end
-        if mauth == m.user.authname
-          m.reply "It works"
-        else
-          m.reply "It doesn't work."
-        end
-        return m.reply "It doesn't work." if auth.nil?
-      end
-      
-    def test_1(m)
-      unless check_master(m.user)
-        m.reply "Command success."
-      return;
-    end
-        m.reply "Command not successful"
-      end
-    
-    def set_master(m, target)
-      unless check_master(m.user)
-        m.reply Format(:red, "You are not authorized to use that command!")
-      return;
-    end
-      mas = User(target)
-      sleep config[:delay] || 4
-      mas.refresh
-      auth = mas.authname
-      @storage[User(target).nick] ||= {}
-      @storage[User(target).nick]['auth'] = auth
-      @storage[User(target).nick]['master'] = true
-      update_store
-      m.reply "Added #{User(target).nick} as a master!"
-    end
-    
-    def del_master(m, master)
-      if @storage.key?(User(master).nick)
-        if @storage[User(master).nick].key? 'master'
-          mas = @storage[User(master).nick]
-          mas.delete('master')
-          update_store
-          m.reply "Deleted #{User(master).nick} from the masters list"
-        else
-          m.reply "#{User(master).nick} isn't a master!"
-        end
-      end
-    end
           
-      
-      def update_store
-        synchronize(:update) do
-        File.open('userinfo.yaml', 'w') do |fh|
-        YAML.dump(@storage, fh)
-      end
+    def update_store
+      synchronize(:update) do
+      File.open('userinfo.yaml', 'w') do |fh|
+      YAML.dump(@storage, fh)
     end
   end
 end

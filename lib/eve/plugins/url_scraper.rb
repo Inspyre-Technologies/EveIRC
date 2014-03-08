@@ -139,10 +139,10 @@ module Cinch
         end
       end
 
-  set :prefix, /^~/
   match /url (on|off)$/
   
   def execute(m, option)
+    reload
     begin
       return unless check_master(m.user)
       

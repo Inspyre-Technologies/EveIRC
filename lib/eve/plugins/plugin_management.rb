@@ -6,15 +6,14 @@ module Cinch
       include Cinch::Plugin
       include Cinch::Helpers
 
-      set :prefix, /^~/
       set :plugin_name, 'pluginmanagement'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         A plugin manager.
           Usage:
-          * ~plugin load <plugin>: This loads <plugin> into the bot.
-          * ~plugin unload <plugin>: This unloads <plugin> from the bot.
-          * ~plugin reload <plugin>: This unloads and loads <plugin>.
-          * ~plugin set <plugin> <option> <value>: This sets configuration options for <plugin>.
+          * !plugin load <plugin>: This loads <plugin> into the bot.
+          * !plugin unload <plugin>: This unloads <plugin> from the bot.
+          * !plugin reload <plugin>: This unloads and loads <plugin>.
+          * !plugin set <plugin> <option> <value>: This sets configuration options for <plugin>.
         USAGE
         
     def initialize(*args)

@@ -7,20 +7,19 @@ module Cinch::Plugins
     include Cinch::Helpers
     set :react_on, :private
     
-    set :prefix, /^~/
     set :plugin_name, 'privchancp'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Private commands to allow you to control the channel functions of the bot.
       Usage:
-      - ~kick <channel> <nick> [<reason>]: This command must be used in a PM. Forces the bot to kick the specified user from the specified channel. Note: if you do not give a <reason> the bot will not give one either.
-      - ~ban <channel> <nick>: This command must be used in a PM. Forces the bot to ban the specified user from the specified channel.
-      - ~unban <channel> <mask>: This command must be used in a PM. Forces the bot to unban a specified mask in the specified channel. Note: you must specify the mask or the bot can not unban the user.
-      - ~kban <channel> <nick> <reason>: This command must be used in a PM. Forces the bot to kick and ban the specified user from the specified channel with the specified reason. Note: if you do not specify the reason, the bot won't either.
-      - ~op <channel> <nick>: This command must be used in a PM. Forces the bot to op the specified user in the specified channel.
-      - ~deop <channel> <nick>: This command must be used in a PM. Forces the bot to deop the specified user in the specified channel.
-      - ~voice <channel> <nick>: This command must be used in a PM. Forces the bot to give the specified user voice in the specified channel.
-      - ~devoice <channel> <nick>: This command must be used in a PM. Forces the bot to take voice from the specified user in the specified channel.
-      - ~topic <channel> <topic>: This command must be used in a PM. Forces the bot to change the topic in the specified channel to the topic you specify.
+      - !kick <channel> <nick> [<reason>]: This command must be used in a PM. Forces the bot to kick the specified user from the specified channel. Note: if you do not give a <reason> the bot will not give one either.
+      - !ban <channel> <nick>: This command must be used in a PM. Forces the bot to ban the specified user from the specified channel.
+      - !unban <channel> <mask>: This command must be used in a PM. Forces the bot to unban a specified mask in the specified channel. Note: you must specify the mask or the bot can not unban the user.
+      - !kban <channel> <nick> <reason>: This command must be used in a PM. Forces the bot to kick and ban the specified user from the specified channel with the specified reason. Note: if you do not specify the reason, the bot won't either.
+      - !op <channel> <nick>: This command must be used in a PM. Forces the bot to op the specified user in the specified channel.
+      - !deop <channel> <nick>: This command must be used in a PM. Forces the bot to deop the specified user in the specified channel.
+      - !voice <channel> <nick>: This command must be used in a PM. Forces the bot to give the specified user voice in the specified channel.
+      - !devoice <channel> <nick>: This command must be used in a PM. Forces the bot to take voice from the specified user in the specified channel.
+      - !topic <channel> <topic>: This command must be used in a PM. Forces the bot to change the topic in the specified channel to the topic you specify.
       USAGE
     
     # This will kick the user. This is nice if you're a nice admin and

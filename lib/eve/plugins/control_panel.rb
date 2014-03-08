@@ -11,15 +11,14 @@ module Cinch::Plugins
     include Cinch::Plugin
     include Cinch::Helpers
     
-    set :prefix, /^~/
     set :plugin_name, 'controlpanel'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Allows you to control the basic functions of the bot.
       Usage:
-      - ~off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
-      - ~autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
-      - ~join <channel>: This will force the bot to join a channel.
-      - ~part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
+      - !off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
+      - !autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
+      - !join <channel>: This will force the bot to join a channel.
+      - !part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
       USAGE
     
     # The die function forces the bot to quit irc and end it's process upon execution.

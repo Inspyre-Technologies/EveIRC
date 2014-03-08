@@ -7,15 +7,14 @@ module Cinch::Plugins
     include Cinch::Helpers
     set :react_on, :private
     
-    set :prefix, /^~/
     set :plugin_name, 'privatecp'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Private commands to allow you to control the basic functions of the bot.
       Usage:
-      - ~say <channel> <message>: This is to be used in a PM with the bot, it will force the bot to say a message in the given channel.
-      - ~act <channel> <action>: This is to be used in a PM with the bot, it will force the bot to say an action in the given cahnnel.
-      - ~ns <command>: This will force the bot to send a command to NickServ.
-      - ~cs <command>: This will force the bot to send a command to ChanServ
+      - !say <channel> <message>: This is to be used in a PM with the bot, it will force the bot to say a message in the given channel.
+      - !act <channel> <action>: This is to be used in a PM with the bot, it will force the bot to say an action in the given cahnnel.
+      - !ns <command>: This will force the bot to send a command to NickServ.
+      - !cs <command>: This will force the bot to send a command to ChanServ
       USAGE
       
 # This command will cause Eve to send a message to the 

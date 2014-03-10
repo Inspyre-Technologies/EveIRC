@@ -16,6 +16,13 @@ module Cinch
       
       listen_to :channel
       
+      set :plugin_name, 'seen'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+        Allows you to control the basic functions of the bot.
+        Usage:
+        * !seen <user>: The bot searches for the last time <user> spoke and returns with the results.
+        USAGE
+      
       match /seen ([^\s]+)\z/
       
       def initialize(*args)

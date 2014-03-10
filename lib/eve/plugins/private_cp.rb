@@ -35,6 +35,7 @@ module Cinch::Plugins
     match /say (#.+?) (.+)/
 	  
   def execute(m, receiver, message)
+    reload
     unless check_master(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid say command from #{m.user.nick}")
@@ -52,6 +53,7 @@ module Cinch::Plugins
     match /act (.+?) (.+)/, method: :execute_act
   
   def execute_act(m, receiver, act)
+    reload
     unless check_master(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid act command from #{m.user.nick}")
@@ -70,6 +72,7 @@ module Cinch::Plugins
     match /ns (.+?) (.+)/, method: :execute_ns
     
   def execute_ns(m, text)
+    reload
     unless check_master(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
       bot.info("Received invalid ns command from #{m.user.nick}")
@@ -86,6 +89,7 @@ module Cinch::Plugins
     match /cs (.+?) (.+)/, method: :execute_cs
     
   def execute_cs(m, text)
+    reload
     unless check_master(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported")
       bot.info("Received invalid cs command from #{m.user.nick}")
@@ -99,6 +103,7 @@ module Cinch::Plugins
     match /nick (.+)/, method: :execute_nick
     
   def execute_nick(m, nick)
+    reload
     unless check_master(m.user)
       m.reply Format(:red, "You are not authorized to use this command! This incident will be reported.")
       bot.info("Received invalid nick command from #{m.user.nick}")
@@ -106,6 +111,14 @@ module Cinch::Plugins
     return;
   end
     @bot.nick = nick
+  end
+
+    def reload
+      if File.exist?('userinfo.yaml')
+        @storage = YAML.load_file('userinfo.yaml')
+      else
+        @storage = {}
+    end
   end
 end
 end

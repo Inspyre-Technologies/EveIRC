@@ -27,8 +27,8 @@ module Cinch::Plugins
     
     def initialize(*args)
       super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
         else
           @storage = {}
         end
@@ -37,6 +37,7 @@ module Cinch::Plugins
     match /kick (#\S+) (\S+)\s?(.+)?/, method: :execute_kick
     
     def execute_kick(m, channel, knick, reason)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid kick command from #{m.user.nick}")
@@ -73,6 +74,7 @@ module Cinch::Plugins
     match /ban (#\S+) (\S+)/, method: :execute_ban
   
     def execute_ban(m, channel, user)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid ban command from #{m.user.nick}")
@@ -108,6 +110,7 @@ module Cinch::Plugins
     match /unban (#\S+) (\S+)/, method: :execute_unban
   
     def execute_unban(m, channel, mask)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid unban command from #{m.user.nick}")
@@ -137,6 +140,7 @@ module Cinch::Plugins
     match /kban (#\S+) (\S+)(?: (.+))?/, method: :execute_kban
     
     def execute_kban(m, channel, user, reason)
+      reload
       unless check_master(m.user)
         sleep config[:delay] || 10
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
@@ -168,6 +172,7 @@ module Cinch::Plugins
     match /op (#\S+) (\S+)(?: (.+))?/, method: :execute_rop
     
     def execute_rop(m, channel, user)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid op command from #{m.user.nick}")
@@ -205,6 +210,7 @@ module Cinch::Plugins
     match /deop (#\S+) (\S+)(?: (.+))?/, method: :execute_rdop
     
     def execute_rdop(m, channel, user)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid deop command from #{m.user.nick}. User attempted to op #{user} in #{channel}")
@@ -244,6 +250,7 @@ module Cinch::Plugins
     match /voice (#\S+) (\S+)(?: (.+))?/, method: :execute_rv
     
     def execute_rv(m, channel, user)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid voice command from #{m.user.nick}")
@@ -276,6 +283,7 @@ module Cinch::Plugins
     match /devoice (#\S+) (\S+)(?: (.+))?/, method: :execute_rdv
     
     def execute_rdv(m, channel, user)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid devoice command from #{m.user.nick}")
@@ -310,6 +318,7 @@ module Cinch::Plugins
     match /t (#.+?) (.+)/, method: :execute_topic
     
     def execute_topic(m, channel, topic)
+      reload
       unless check_master(m.user)
         m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
         bot.info("Received invalid topic command from #{m.user.nick}")
@@ -328,7 +337,15 @@ module Cinch::Plugins
       m.reply Format(:green, "Very well...")
       bot.irc.send ("TOPIC #{channel} #{topic}")
     end
+    
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+        @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
+    end
   end
+end
 end
 
 # A FEW NOTES:

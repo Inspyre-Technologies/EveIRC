@@ -6,12 +6,11 @@ module Cinch
       include Cinch::Plugin
       include Cinch::Helpers
       
-      set :prefix, /^~/
       set :plugin_name, 'eightball'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         Time for some fun, and some fortune telling! Ask the magic eightball any yes or no question and it will give you an answer!
         Usage:
-        - ~8ball <question>: The eightball will give you an answer. Note: the question should be a yes or no question.
+        - !8ball <question>: The eightball will give you an answer. Note: the question should be a yes or no question.
       USAGE
 
       @@eightball = [

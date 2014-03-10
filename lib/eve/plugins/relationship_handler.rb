@@ -6,24 +6,23 @@ require_relative "config/check_foe"
 module Cinch::Plugins
   class RelationshipHandler
     include Cinch::Plugin
-    
-      set :plugin_name, 'relationshiphandler'
-      set :help, <<-USAGE.gsub(/^ {6}/, '')
-This plugin handles the 'relationships' of the bot.
-Usage:
-* !add-friend <user>: Add <user> as a friend of the bot.
-* !add-foe <user>: Add <user> as a foe of the bot.
-* !del-relationship <user>: Deletes the relationship information of <user>.
-USAGE
 
     def initialize(*args)
       super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
         else
           @storage = {}
         end
       end
+      
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+        @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
+    end
+  end
       
       match /add-friend (.+)/, method: :add_friend
       
@@ -75,7 +74,7 @@ USAGE
     
       def update_store
         synchronize(:update) do
-        File.open('userinfo.yaml', 'w') do |fh|
+        File.open('docs/userinfo.yaml', 'w') do |fh|
         YAML.dump(@storage, fh)
       end    
     end

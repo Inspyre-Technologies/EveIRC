@@ -25,8 +25,8 @@ USAGE
 
       def initialize(*args)
         super
-          if File.exist?('userinfo.yaml')
-            @storage = YAML.load_file('userinfo.yaml')
+          if File.exist?('docs/userinfo.yaml')
+            @storage = YAML.load_file('docs/userinfo.yaml')
           else
             @storage = {}
           end
@@ -135,27 +135,29 @@ USAGE
       
       def custom_d(m, day)
         reload
-        if @storage[m.user.nick].key? 'zipcode'
+        if @storage.key?(m.user.nick)
+          if @storage[m.user.nick].key? 'zipcode'
         
-        geo = @storage[m.user.nick]['zipcode']
+          geo = @storage[m.user.nick]['zipcode']
         
-        geometry = geolookup(geo)
-        return m.reply "No results found for #{geo}." if geometry.nil?
+          geometry = geolookup(geo)
+          return m.reply "No results found for #{geo}." if geometry.nil?
         
-        locale = location_r(geo)
+          locale = location_r(geo)
         
-        data = get_daily(day, geometry, locale, false)
+          data = get_daily(day, geometry, locale, false)
         
-        return m.reply 'Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.' if data.nil?
+          return m.reply 'Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.' if data.nil?
         
-        return m.reply daily_summary(data, day)
+          return m.reply daily_summary(data, day)
+        end
       end
         return m.reply "You have no custom data set."
       end
       
       def reload
-          if File.exist?('userinfo.yaml')
-            @storage = YAML.load_file('userinfo.yaml')
+          if File.exist?('docs/userinfo.yaml')
+            @storage = YAML.load_file('docs/userinfo.yaml')
           else
             @storage = {}
           end
@@ -268,9 +270,9 @@ USAGE
           wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
          
           if withLocale
-            daily.push(("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Min: %s °F (10#{temp_c_min} °C) | 4Max: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Min: %s °F (10#{feels_temp_c_min} °C) | 4Max: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
           else
-            daily.push(("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Min: %s °F (10#{temp_c_min} °C) | 4Max: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Min: %s °F (10#{feels_temp_c_min} °C) | 4Max: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
           end
         end
           return daily

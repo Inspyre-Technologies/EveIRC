@@ -11,13 +11,13 @@ module Cinch::Plugins
     set :help, <<-USAGE.gsub(/^ {6}/, '') 
       Sometimes MemoServ can be confusing or some users just don't notice that they have messages. This is a good way to leave messages for users! Please use this command in a PM with me.
       Usage:
-      - !memo <nick> <message>: I will store a message for the specified nick until they speak again in a channel I am in, then I will PM them your memo!
+      * !memo <nick> <message>: I will store a message for the specified nick until they speak again in a channel I am in, then I will PM them your memo!
     USAGE
 
     def initialize(*args)
       super
-        if File.exist?('memos.yaml')
-          @memos = YAML.load_file('memos.yaml')
+        if File.exist?('docs/memos.yaml')
+          @memos = YAML.load_file('docs/memos.yaml')
         else
           @memos = {}
         end
@@ -59,7 +59,7 @@ module Cinch::Plugins
 
     def update_store
       synchronize(:update) do
-      File.open('memos.yaml', 'w') do |fh|
+      File.open('docs/memos.yaml', 'w') do |fh|
       YAML.dump(@memos, fh)
     end
   end
@@ -75,4 +75,4 @@ end
 # EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
 # Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

@@ -3,6 +3,7 @@
 require "oj"
 require "twitter"
 require "cgi"
+require 'time-lord'
 
 module Cinch
   module Plugins
@@ -29,6 +30,8 @@ module Cinch
       
       match /tw (\w+)(?:-(\d+))?$/, method: :execute_tweet
       match /(\w+)(?:-(\d+))?$/, method: :execute_tweet, prefix: /^@/
+      
+      match /@(?:-(\d+))?$/, method: :execute_ctweet, prefix: /^~/
       def execute_tweet m, username, offset
         offset ||= 0
         
@@ -51,6 +54,47 @@ module Cinch
         m.reply ERROR_TPL % "#{username} doesn't exist."
       rescue ::Twitter::Error => e
         m.reply ERROR_TPL % "#{e.message.gsub(/user/i, username)}. (#{e.class})"
+      end
+      
+      def execute_ctweet m, offset
+        loadfile
+        offset ||= 0
+        
+        if @storage.key?(m.user.nick)
+          if @storage[m.user.nick].key? 'twitter'
+        
+          username = @storage[m.user.nick]['twitter']
+        
+          user = ::Twitter.user(username)
+        end
+          return m.reply Format(:red, "No custom data set") if @storage[m.user.nick]['twitter'].nil?
+        end
+        
+        return m.reply ERROR_TPL % "#{user.screen_name}'s tweets are protected." if user.protected?
+        return m.reply "#{user.screen_name} is lame because they haven't tweeted yet!" if user.status.nil?
+        
+        # Getting the user's 20 latest tweets if our offset is greater than 0:
+        if offset.to_i > 0
+          tweets = ::Twitter.user_timeline(user)
+          return m.reply ERROR_TPL % "You cannot backtrack more than #{tweets.count.pred} tweets before the current tweet." if offset.to_i > tweets.count.pred
+          tweet = tweets[offset.to_i]
+        # Otherwise, just get the latest tweet from the user object.
+        else
+          tweet = user.status
+        end
+        m.reply format_tweet(tweet)
+      rescue ::Twitter::Error::NotFound => e
+        m.reply ERROR_TPL % "#{username} doesn't exist."
+      rescue ::Twitter::Error => e
+        m.reply ERROR_TPL % "#{e.message.gsub(/user/i, username)}. (#{e.class})"
+      end
+      
+      def loadfile
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
+        else
+          @storage = {}
+        end
       end
       
       
@@ -82,8 +126,9 @@ module Cinch
         body = expand_uris(CGI.unescapeHTML(!!tweet.retweet? ? tweet.retweeted_status.full_text : tweet.full_text).gsub("\n", " ").squeeze(" "), tweet.urls)
         
         # Metadata
+        ttime = tweet.created_at
         tail = []
-        tail << tweet.created_at.strftime("at %b %-d %Y, %-l:%M %p %Z")
+        tail << ttime.ago.to_words
         tail << "from #{tweet.place.full_name}" if !!tweet.place
         tail << "via #{tweet.source.gsub( %r{</?[^>]+?>}, '' )}"
         

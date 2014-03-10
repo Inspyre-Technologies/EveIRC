@@ -8,7 +8,7 @@ module Cinch
       include Cinch::Plugin
 
       enforce_cooldown
-    
+
       match /wiki (.*)/
       match /wikipedia (.*)/
 

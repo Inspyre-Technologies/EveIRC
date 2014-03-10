@@ -1,3 +1,11 @@
+# Author: Richard Banks
+# Author: b0nk
+# E-Mail: namaste@rawrnet.net
+
+# This is your standard Google search plugin using the JSON API that Google
+# provides. Please keep in mind that it can be a little spammy due to it 
+# providing the top three results of the query.
+
 require 'cinch'
 require 'ostruct'
 require 'open-uri'
@@ -8,7 +16,7 @@ module Cinch
   module Plugins
     class Google
       include Cinch::Plugin
-       
+      
       set :plugin_name, 'google'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         Searches Google for results on image and web entries.
@@ -20,6 +28,7 @@ module Cinch
       match /google (.+)/i, method: :execute_w
       match /images (.+)/i, method: :execute_i
       
+      # Execute the web search.
       def execute_w(m, query)
         query.gsub! /\s/, '+'
         data = search_w(m, query)
@@ -27,6 +36,7 @@ module Cinch
         search_result(m, data)
       end
     
+      #Execute the image search.
       def execute_i(m, query)
         query.gsub! /\s/, '+'
         data = search_i(m, query)

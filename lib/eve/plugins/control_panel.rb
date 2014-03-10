@@ -15,7 +15,7 @@ module Cinch::Plugins
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Allows you to control the basic functions of the bot.
       Usage:
-      - !off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
+      - ~off: Forces the bot to turn off. Please keep in mind that you can't start it up again without shell access.
       - !autovoice [<on>|<off>]: This command turns autovoice on and off. Autovoice forces the bot to give +v to everyone who joins that channel.
       - !join <channel>: This will force the bot to join a channel.
       - !part [<channel>]: This will force the bot to part a channel. Note: if you do not specify a channel it will part the channel in which the command is invoked..
@@ -26,16 +26,25 @@ module Cinch::Plugins
     
     def initialize(*args)
       super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
         else
           @storage = {}
         end
       end
+      
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+        @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
+    end
+  end
     
     match /off/, method: :execute_off
 	
 	def execute_off(m)
+    reload
 	  if m.channel
 	    unless check_master(m.user)
           m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
@@ -59,12 +68,14 @@ module Cinch::Plugins
     match /autovoice (on|off)$/, method: :execute_av
 
   def listen(m)
+    reload
     unless m.user.nick == bot.nick
       m.channel.voice(m.user) if @autovoice
     end
   end
-
+  
   def execute_av(m, option)
+    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
@@ -89,6 +100,7 @@ module Cinch::Plugins
     match /part(?: (.+))?/, method: :part
 
   def join(m, channel)
+    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
@@ -105,8 +117,8 @@ module Cinch::Plugins
       end
     end
 
-
   def part(m, channel)
+    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")

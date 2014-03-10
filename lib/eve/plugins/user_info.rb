@@ -8,26 +8,25 @@ module Cinch
       include Cinch::Plugin
       include Cinch::Helpers
       
-      set :prefix, /^~/
       set :plugin_name, 'userinfo'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
 Save certain data to the bot for convienence and sometimes privacy
 Usage:
-* ~set-w <location>: Save your location to the bot for future use in calling weather.
-* ~set-greeting <custom-greeting>: Save a custom greeting for the bot to use when you enter the channel.
-* ~set-twitter <handle>: Save your Twitter handle to the bot for use with the Twitter plugin! (use ~@ to call your own Twitter information!)
-* ~set-birthday <YYYY-MM-DD>: Save your birthday to the bot for special surprises!
+* !set-w <location>: Save your location to the bot for future use in calling weather.
+* !set-greeting <custom-greeting>: Save a custom greeting for the bot to use when you enter the channel.
+* !set-twitter <handle>: Save your Twitter handle to the bot for use with the Twitter plugin! (use !@ to call your own Twitter information!)
+* !set-birthday <YYYY-MM-DD>: Save your birthday to the bot for special surprises!
 There are delete commands as well:
-* ~del-w: Delete your location data from the bot.
-* ~del-greeting: Deletes your custom greeting from the bot.
-* ~del-twitter: Deletes your Twitter handle from the bot.
-* ~del-birthday: Deletes your birthday from the bot. 
+* !del-w: Delete your location data from the bot.
+* !del-greeting: Deletes your custom greeting from the bot.
+* !del-twitter: Deletes your Twitter handle from the bot.
+* !del-birthday: Deletes your birthday from the bot. 
 USAGE
       
       def initialize(*args)
         super
-          if File.exist?('userinfo.yaml')
-            @storage = YAML.load_file('userinfo.yaml')
+          if File.exist?('docs/userinfo.yaml')
+            @storage = YAML.load_file('docs/userinfo.yaml')
           else
             @storage = {}
           end
@@ -194,7 +193,7 @@ end
           
     def update_store
       synchronize(:update) do
-      File.open('userinfo.yaml', 'w') do |fh|
+      File.open('docs/userinfo.yaml', 'w') do |fh|
       YAML.dump(@storage, fh)
     end
   end

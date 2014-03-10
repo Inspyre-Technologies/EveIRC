@@ -13,13 +13,13 @@ module Cinch
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         If enabled, this plugin will return the title of the webpage that you or another user posts in the channel. For YouTube and IMDB there are special outputs for relevent information.
         Enable/Disable Usage:
-        - ~url [on/off]: This command will turn the URL Scraper on or off for the channel you use this command in. Only bot operators can use this command!
+        - !url [on/off]: This command will turn the URL Scraper on or off for the channel you use this command in. Only bot operators can use this command!
         USAGE
         
     def initialize(*args)
       super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
         else
           @storage = {}
         end
@@ -161,6 +161,14 @@ module Cinch
         
       rescue 
         m.reply Format(:red, "Error: #{$!}")
+      end
+    end
+      
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+        @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
       end
     end
   end

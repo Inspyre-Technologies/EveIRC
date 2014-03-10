@@ -8,8 +8,7 @@ module Cinch
   module Plugins
     class Decide
       include Cinch::Plugin
-      
-      
+       
       set :plugin_name, 'decider'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
         This plugin has a few commands to help you decide if you can't on your own. Have fun!
@@ -25,9 +24,10 @@ module Cinch
         options = list.gsub(/ or /i, ",").split(",").map(&:strip).reject(&:empty?)
         options[Random.new.rand(1..options.length)-1]
       end
-
+      
       match /decide (.+)/, method: :execute_decision
       match /choose (.+)/, method: :execute_decision
+      
       def execute_decision(m, list)
           m.safe_reply("I choose \"#{decide! list}\"!",true);
         end
@@ -73,4 +73,4 @@ module Cinch
 # EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
 # Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
 # For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+# For help with EVE you can always visit #Eve at rawr.coreirc.org

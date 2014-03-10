@@ -6,18 +6,10 @@ module Cinch::Plugins
     include Cinch::Plugin
     include Cinch::Helpers
     
-      set :plugin_name, 'relationshiphandler'
-      set :help, <<-USAGE.gsub(/^ {6}/, '')
-This plugin handles the 'masters' of the bot.
-Usage:
-* !add-master <user>: Add <user> as a master of the bot.
-* !del-master <user>: Deletes <user> as a master of the bot.
-USAGE
-    
     def initialize(*args)
       super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
+        if File.exist?('docs/userinfo.yaml')
+          @storage = YAML.load_file('docs/userinfo.yaml')
         else
           @storage = {}
         end
@@ -62,7 +54,7 @@ USAGE
         
    def update_store
      synchronize(:update) do
-     File.open('userinfo.yaml', 'w') do |fh|
+     File.open('docs/userinfo.yaml', 'w') do |fh|
      YAML.dump(@storage, fh)
     end
   end

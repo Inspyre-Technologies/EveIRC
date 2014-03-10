@@ -11,8 +11,8 @@ module Cinch::Plugins
     
       def initialize(*args)
         super
-          if File.exist?('userinfo.yaml')
-            @storage = YAML.load_file('userinfo.yaml')
+          if File.exist?('docs/userinfo.yaml')
+            @storage = YAML.load_file('docs/userinfo.yaml')
           else
             @storage = {}
           end
@@ -639,8 +639,8 @@ module Cinch::Plugins
     end
     
     def reload
-      if File.exist?('userinfo.yaml')
-        @storage = YAML.load_file('userinfo.yaml')
+      if File.exist?('docs/userinfo.yaml')
+        @storage = YAML.load_file('docs/userinfo.yaml')
       else
         @storage = {}
       end

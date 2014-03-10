@@ -44,6 +44,7 @@ module Cinch
           end
             else
               m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+              Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'plugin load' command to load #{plugin} but was not authorized.") }
             return;
           end
 
@@ -76,6 +77,7 @@ module Cinch
         end
           else
             m.reply Format(:red, "You are not authorized to use this command! This incident will be reported!")
+            Config.dispatch.each { |n| User(n).notice("#{m.user.nick} attempted to use the 'plugin unload' command to unload #{plugin} but was not authorized.") }
           return;
         end
 

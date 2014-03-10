@@ -9,15 +9,6 @@ module Cinch::Plugins
     include Cinch::Helpers
     listen_to :action
     
-      def initialize(*args)
-        super
-          if File.exist?('docs/userinfo.yaml')
-            @storage = YAML.load_file('docs/userinfo.yaml')
-          else
-            @storage = {}
-          end
-        end
-    
     ## This is where the hug responses are for friend, foe, master, and neutral
     
     def hugar_friend(m)
@@ -636,14 +627,6 @@ module Cinch::Plugins
       m.channel.action buttgrabar_m(m)
       sleep config[:delay] || 2
       m.reply buttgrabr_m(m)
-    end
-    
-    def reload
-      if File.exist?('docs/userinfo.yaml')
-        @storage = YAML.load_file('docs/userinfo.yaml')
-      else
-        @storage = {}
-      end
     end
   end
 end

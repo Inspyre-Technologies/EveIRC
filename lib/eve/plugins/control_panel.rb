@@ -23,28 +23,9 @@ module Cinch::Plugins
     
     # The die function forces the bot to quit irc and end it's process upon execution.
     
-    
-    def initialize(*args)
-      super
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
-      end
-      
-    def reload
-      if File.exist?('docs/userinfo.yaml')
-        @storage = YAML.load_file('docs/userinfo.yaml')
-      else
-        @storage = {}
-    end
-  end
-    
     match /off/, method: :execute_off
 	
 	def execute_off(m)
-    reload
 	  if m.channel
 	    unless check_master(m.user)
           m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
@@ -68,14 +49,12 @@ module Cinch::Plugins
     match /autovoice (on|off)$/, method: :execute_av
 
   def listen(m)
-    reload
     unless m.user.nick == bot.nick
       m.channel.voice(m.user) if @autovoice
     end
   end
   
   def execute_av(m, option)
-    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported.")
@@ -100,7 +79,6 @@ module Cinch::Plugins
     match /part(?: (.+))?/, method: :part
 
   def join(m, channel)
-    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")
@@ -118,7 +96,6 @@ module Cinch::Plugins
     end
 
   def part(m, channel)
-    reload
     if m.channel
       unless check_master(m.user)
         m.user.notice Format(:red, "You are not authorized to use this command! This incident will be reported!")

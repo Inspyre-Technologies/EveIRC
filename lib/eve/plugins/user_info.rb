@@ -126,7 +126,7 @@ module Cinch
     end
       
       def set_rgreeting(m, user, greeting)
-        return unless check_user(m.user)
+        return unless check_master(m.user)
           @storage[user] ||= {}
           @storage[user]['greeting'] = greeting
           m.reply "Updated #{user}'s greeting to \"#{greeting}\"."
@@ -180,7 +180,6 @@ module Cinch
       m.reply "#{user} has no custom data set!"
     end
   end
-end
   
     def set_gender(m, gender)
       @storage[m.user.nick] ||= {}
@@ -197,6 +196,7 @@ end
       YAML.dump(@storage, fh)
     end
   end
+end
 end
 end
 end

@@ -16,16 +16,6 @@ module Cinch::Plugins
   # Here is where the responses are set. It should be pretty easy to 
   # understand!
   
-      def initialize(*args)
-        super
-          if File.exist?('docs/userinfo.yaml')
-            @storage = YAML.load_file('docs/userinfo.yaml')
-          else
-            @storage = {}
-          end
-        end
-    
-  
     def status(m)
       [
         Format(:green, "I have the privilege of serving everywun here, #{m.user.nick}, how do you think I am?"),
@@ -260,7 +250,7 @@ module Cinch::Plugins
  
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
-    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
+    match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(,|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
     match /brb/i, :method => :brb, use_prefix: false
     match /bbs/i, :method => :brb, use_prefix: false
@@ -270,7 +260,7 @@ module Cinch::Plugins
     match lambda {|m| /\A(thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ty, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\W|$)/i}, :method => :ty, use_prefix: false
     match lambda {|m| /\A(yw|you(\S|)re welcome)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :yw, use_prefix: false
-    match lambda {|m| /#{m.bot.nick}(\S|) (yw|you(|S|)re welcome|)(\W|$)/i}, :method => :yw, use_prefix: false
+    match lambda {|m| /#{m.bot.nick}(\S|) (yw|you(\S|)re welcome)(\W|$)/i}, :method => :yw, use_prefix: false
     match lambda {|m| /(i love you|ilu|<3|i love you so much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ilu, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (i love you|ilu|<3|i love you so much)(\W|$)/i}, :method => :ilu, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (what(\S|)s up|sup)(\W|$)/i}, :method => :wu, use_prefix: false
@@ -284,7 +274,6 @@ module Cinch::Plugins
     # matchers are met and a response is required from the bot.
     
     def hau(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply status_friend(m)
@@ -305,7 +294,6 @@ module Cinch::Plugins
     end
 	
     def hi(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply hir_friend(m)
@@ -326,7 +314,6 @@ module Cinch::Plugins
     end
 	
     def brb(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply brbr(m)
@@ -347,7 +334,6 @@ module Cinch::Plugins
     end
     
     def sup(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply supr_friend(m)
@@ -368,7 +354,6 @@ module Cinch::Plugins
     end
     
     def ty(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply tyr_friend(m)
@@ -389,7 +374,6 @@ module Cinch::Plugins
     end
     
     def yw(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ywr(m)
@@ -410,7 +394,6 @@ module Cinch::Plugins
     end
     
     def ilu(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ilur(m)
@@ -431,7 +414,6 @@ module Cinch::Plugins
     end
     
     def wu(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply wur_friend(m)
@@ -452,7 +434,6 @@ module Cinch::Plugins
     end
     
     def rosp(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply rospr(m)
@@ -473,7 +454,6 @@ module Cinch::Plugins
     end
     
     def night(m)
-      reload
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply nightr(m)
@@ -496,14 +476,6 @@ module Cinch::Plugins
     def rose(m)
       sleep config[:delay] || 5
       m.reply roser(m)
-    end
-    
-    def reload
-      if File.exist?('docs/userinfo.yaml')
-        @storage = YAML.load_file('docs/userinfo.yaml')
-      else
-        @storage = {}
-      end
     end
   end
 end

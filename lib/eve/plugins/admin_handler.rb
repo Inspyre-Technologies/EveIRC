@@ -5,16 +5,16 @@ module Cinch::Plugins
   class AdminHandler
     include Cinch::Plugin
     include Cinch::Helpers
-    
-    def initialize(*args)
-      super
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
-      end
+
+    set :plugin_name, 'adminhandler'
+    set :help, <<-USAGE.gsub(/^ {6}/, '')
+      Commands to handle the masters of the bot.
+      Usage:
+        * !add-master <user>: Adds <user> as master, must be authenticated with NickServ.
+        * !del-master <user>: Deletes <user> as a master of the bot.
+      USAGE
       
+    
     match /add-master (.+)/, method: :set_master
       
     match /del-master (.+)/, method: :del_master

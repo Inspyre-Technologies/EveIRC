@@ -9,21 +9,13 @@ require 'cinch'
 require_relative "config/check_master"
 require_relative "config/check_friend"
 require_relative "config/check_foe"
+require_relative "config/ratelimit"
      
 module Cinch
   module Plugins
     class Greeting
       include Cinch::Plugin
       include Cinch::Helpers
-      
-      def initialize(*args)
-        super
-          if File.exist?('docs/userinfo.yaml')
-            @storage = YAML.load_file('docs/userinfo.yaml')
-          else
-            @storage = {}
-          end
-        end
        
       def greet(m)
         [
@@ -91,6 +83,8 @@ module Cinch
       
       def hello(m)
         reload
+        limit = ratelimit(:greeting, 60)
+        return if limit > 0
         return unless config[:enabled_channels].include?(m.channel.name)
         if m.user.nick != bot.nick
           if @storage.key?(m.user.nick)
@@ -126,14 +120,6 @@ module Cinch
         end
       end
       
-     def reload
-      if File.exist?('docs/userinfo.yaml')
-        @storage = YAML.load_file('docs/userinfo.yaml')
-      else
-        @storage = {}
-      end
-    end
-      
       listen_to :join, :method => :botj
         
       def botj(m)
@@ -147,10 +133,20 @@ module Cinch
       listen_to :leaving, :method => :goodbye
         
       def goodbye(m, channel)
+        bye = limit = ratelimit(:goodbye, 60)
+        return if bye > 0
         return unless config[:enabled_channels].include?(m.channel.name)
             unless m.user.nick == bot.nick
           m.channel.send leave(m)
         return;
+      end
+    end
+    
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+       @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
       end
     end
 
@@ -160,7 +156,6 @@ module Cinch
     match /greeting (on|off)$/
     
     def execute(m, option)
-      reload
       begin
         return unless check_master(m.user)
         
@@ -181,10 +176,11 @@ module Cinch
           m.reply Format(:red, "Error: #{$!}")
         end
       end
-    def isBirthday(dob)
-      date = Date.parse(dob)
-      return Date.today.day == date.day && Date.today.month == date.month
+        
+      def isBirthday(dob)
+        date = Date.parse(dob)
+        return Date.today.day == date.day && Date.today.month == date.month
+      end
     end
   end
 end
-  end

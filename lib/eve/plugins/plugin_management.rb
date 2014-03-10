@@ -16,22 +16,12 @@ module Cinch
           * !plugin set <plugin> <option> <value>: This sets configuration options for <plugin>.
         USAGE
         
-    def initialize(*args)
-      super
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
-      end
-      
       match(/plugin load (\S+)(?: (\S+))?/, method: :load_plugin)
       match(/plugin unload (\S+)/, method: :unload_plugin)
       match(/plugin reload (\S+)(?: (\S+))?/, method: :reload_plugin)
       match(/plugin set (\S+) (\S+) (.+)$/, method: :set_option)
       
       def load_plugin(m, plugin, mapping)
-        reload
         mapping ||= plugin.gsub(/(.)([A-Z])/) { |_|
           $1 + "_" + $2
         }.downcase # we downcase here to also catch the first letter
@@ -67,7 +57,6 @@ module Cinch
       end
 
       def unload_plugin(m, plugin)
-        reload
         if check_master(m.user) == true
           begin
             plugin_class = Cinch::Plugins.const_get(plugin)
@@ -110,13 +99,11 @@ module Cinch
       end
 
       def reload_plugin(m, plugin, mapping)
-        reload
         unload_plugin(m, plugin)
         load_plugin(m, plugin, mapping)
       end
 
       def set_option(m, plugin, option, value)
-        reload
         if check_master(m.user) == true
           begin
             const = Cinch::Plugins.const_get(plugin)
@@ -129,14 +116,6 @@ module Cinch
          end
           @bot.config.plugins.options[const][option.to_sym] = eval(value)
       end
-      
-      def reload
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-      end
     end
   end
-end
 end

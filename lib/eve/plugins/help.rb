@@ -14,26 +14,8 @@ module Cinch::Plugins
     include Cinch::Helpers
     
     match "help"
-    
-    def initialize(*args)
-      super
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
-      end
-      
-    def reload
-      if File.exist?('docs/userinfo.yaml')
-        @storage = YAML.load_file('docs/userinfo.yaml')
-      else
-        @storage = {}
-      end
-    end
   
   def execute(m)
-      reload
       unless check_master(m.user)
         m.user.send Format(:green, "Hello, #{m.user.nick}")
         m.user.send Format(:green, "You can get further information on a plugin by typing !help <plugin name> IN A PM. Don't do it in a channel!!")

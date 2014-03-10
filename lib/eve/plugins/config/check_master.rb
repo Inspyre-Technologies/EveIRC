@@ -2,17 +2,9 @@ require 'yaml'
 
 module Cinch
   module Helpers
-  
-    def initialize(*args)
-      super
-        if File.exist?('userinfo.yaml')
-          @storage = YAML.load_file('userinfo.yaml')
-        else
-          @storage = {}
-        end
-      end
     
     def check_master(user)
+      reload
       user.refresh
       
       return false unless !user.authname.nil?
@@ -21,6 +13,14 @@ module Cinch
         mcheck = @storage[user.nick]['master']
         mauth = @storage[user.nick]['auth']
         return ((mauth == user.authname) && mcheck)
+      end
+    end
+    
+    def reload
+      if File.exist?('docs/userinfo.yaml')
+       @storage = YAML.load_file('docs/userinfo.yaml')
+      else
+        @storage = {}
       end
     end
   end

@@ -348,6 +348,7 @@ module Cinch
     end
   end
 end
+end
 
 # A FEW NOTES:
 # 1.) If you need further help with the commands and their syntax just type !help in a channel

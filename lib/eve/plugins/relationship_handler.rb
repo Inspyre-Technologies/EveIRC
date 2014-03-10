@@ -97,3 +97,4 @@ module Cinch
     end
   end
 end
+end

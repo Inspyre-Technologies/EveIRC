@@ -86,15 +86,15 @@ bot = Cinch::Bot.new do
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
   #                                                   consumer_key:    'foo',
   #                                                   consumer_secret: 'foo',
-  #                                                   oauth_token:     'foo',
-  #                                                   oauth_secret:    'foo',
+  #                                                   access_token:     'foo',
+  #                                                   access_token_secret:    'foo',
   #                                                   watchers:        { '#foo' => ['bar'] } }
   #c.plugins.options[Cinch::Plugins::Twitter] = { 
   #access_keys: { 
   #  consumer_key: "foo", 
   #  consumer_secret: "foo", 
-  #  oauth_token: "foo", 
-  #  oauth_token_secret: "foo" 
+  #  access_token: "foo", 
+  #  access_token_secret: "foo" 
   #} 
 #}
   c.plugins.options[Cinch::Plugins::Weather] = { key: 'foo' }

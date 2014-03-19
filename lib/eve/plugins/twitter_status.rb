@@ -17,11 +17,11 @@ module Cinch::Plugins
     def initialize(*args)
       super
       if config
-        ::Twitter.configure do |c|
+        @client = ::Twitter::REST::Client.new do |c|
           c.consumer_key =        config[:consumer_key]
           c.consumer_secret =     config[:consumer_secret]
-          c.oauth_token =         config[:oauth_token]
-          c.oauth_token_secret =  config[:oauth_secret]
+          c.oauth_token =         config[:access_token]
+          c.oauth_token_secret =  config[:access_token_secret]
         end
 
         if config[:watchers]
@@ -42,7 +42,7 @@ module Cinch::Plugins
           begin 
             # Just check the last tweet, if they are posting more than once
             # every timer tick I don't want to spam the channel. 
-            tweet = ::Twitter::Client.new.user_timeline(user).first
+            tweet = @client.user_timeline(user).first
             unless @watched[chan][user].include?(tweet.id)
               @watched[chan][user] << tweet.id
               
@@ -110,7 +110,7 @@ module Cinch::Plugins
 
     def refresh_cache(chan, user)
       @watched[chan][user] = []
-      ::Twitter::Client.new.user_timeline(user).each do |tweet|
+      @client.user_timeline(user).each do |tweet|
         @watched[chan][user] << tweet.id
       end
     rescue ::Twitter::Error::NotFound

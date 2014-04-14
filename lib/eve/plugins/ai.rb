@@ -8,6 +8,9 @@
 require 'cinch'
 require 'yaml'
 require_relative "config/check_master"
+require_relative "config/check_friend"
+require_relative "config/check_foe"
+
 
 module Cinch::Plugins
   class Ai
@@ -47,7 +50,7 @@ module Cinch::Plugins
         Format(:green, "Well, Master #{m.user.nick}, all my plugins are operational, and you're here, what more could I ask for?")
       ].sample
     end
-	
+  
     def hir(m)
       [
         Format(:green, "Hello #{m.user.nick}"),
@@ -247,6 +250,13 @@ module Cinch::Plugins
         Format(:green, "#{m.user.nick}, roses are red, violets are blue, you gave me a rose, so I love you!")
       ].sample
     end
+    
+    def yolor(m)
+      [
+  Format(:green, "#YOLO!"),
+  Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
+      ].sample
+    end
  
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
@@ -269,6 +279,7 @@ module Cinch::Plugins
     match lambda {|m| /#{m.bot.nick}(\S|) I(\S|)m (good|fine|okay|happy|gurd)(\W|$)/i}, :method => :rosp, use_prefix: false
     match lambda {|m| /(Good|)night(\S|) #{m.bot.nick}(\W|$)/i}, :method => :night, use_prefix: false
     match lambda {|m| /!rose #{m.bot.nick}(\W|$)/i}, :method => :rose, use_prefix: false
+    match /(yolo|#yolo)/i, :method => :yolo, use_prefix: false
     
     # Here is where we specify where to go in the array above for when
     # matchers are met and a response is required from the bot.
@@ -292,7 +303,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3 
       m.reply status(m)
     end
-	
+  
     def hi(m)
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -312,7 +323,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3
       m.reply hir(m)
     end
-	
+  
     def brb(m)
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -476,6 +487,19 @@ module Cinch::Plugins
     def rose(m)
       sleep config[:delay] || 5
       m.reply roser(m)
+    end
+    
+    def yolo(m)
+       if check_friend(m.user)
+        sleep config[:delay] || 3
+        m.reply yolor(m)
+       return;
+     end
+       if check_master(m.user)
+   sleep config[:delay] || 3
+         m.reply yolor(m)
+       return;
+      end
     end
   end
 end

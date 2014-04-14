@@ -8,6 +8,9 @@
 require 'cinch'
 require 'yaml'
 require_relative "config/check_master"
+require_relative "config/check_friend"
+require_relative "config/check_foe"
+
 
 module Cinch::Plugins
   class Ai
@@ -47,7 +50,7 @@ module Cinch::Plugins
         Format(:green, "Well, Master #{m.user.nick}, all my plugins are operational, and you're here, what more could I ask for?")
       ].sample
     end
-	
+  
     def hir(m)
       [
         Format(:green, "Hello #{m.user.nick}"),
@@ -250,8 +253,8 @@ module Cinch::Plugins
     
     def yolor(m)
       [
-      	Format(:green, "#YOLO!"),
-      	Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
+  Format(:green, "#YOLO!"),
+  Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
       ].sample
     end
  
@@ -300,7 +303,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3 
       m.reply status(m)
     end
-	
+  
     def hi(m)
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -320,7 +323,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3
       m.reply hir(m)
     end
-	
+  
     def brb(m)
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -487,15 +490,16 @@ module Cinch::Plugins
     end
     
     def yolo(m)
-      if check_friend(m.user)
+       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply yolor(m)
-      return;
-    end
-      if check_master(m.user)
-      	sleep config[:delay] || 3
-      	m.reply yolor(m)
-      return;
+       return;
+     end
+       if check_master(m.user)
+   sleep config[:delay] || 3
+         m.reply yolor(m)
+       return;
+      end
     end
   end
 end

@@ -63,7 +63,7 @@ bot = Cinch::Bot.new do
                        Cinch::Plugins::Eightball,
                        Cinch::Plugins::Decide,
                        Cinch::Plugins::Memo,
-                       Cinch::Plugins::AIRespond,
+                       Cinch::Plugins::Ai,
                        Cinch::Plugins::ControlPanel,
                        Cinch::Plugins::ChanopCP,
                        Cinch::Plugins::PrivateCP,

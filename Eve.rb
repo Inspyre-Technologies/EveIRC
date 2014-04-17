@@ -54,7 +54,7 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 5.0"
+  c.realname = "Eve 6.0"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
                        Cinch::Plugins::Urban,
                        Cinch::Plugins::Help,

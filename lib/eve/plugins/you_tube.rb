@@ -9,12 +9,11 @@
       module Plugins
         class YouTube
           include Cinch::Plugin
-          
-          return if check_ignore(m.user)
          
           match /youtube (.+)/
          
           def execute(m, query)
+            return if check_ignore(m.user)
             query.gsub! /\s/, '+'
             data = lookup(m, query)
             return m.reply "No results found for #{query}." if data.empty?

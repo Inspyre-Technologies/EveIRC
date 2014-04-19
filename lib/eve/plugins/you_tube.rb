@@ -9,6 +9,8 @@
       module Plugins
         class YouTube
           include Cinch::Plugin
+          
+          return if check_ignore(m.user)
          
           match /youtube (.+)/
          

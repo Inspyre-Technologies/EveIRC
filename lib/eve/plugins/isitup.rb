@@ -3,6 +3,7 @@ require 'ostruct'
 require 'open-uri'
 require 'json'
 require 'cgi'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

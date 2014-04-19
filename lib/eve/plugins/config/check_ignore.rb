@@ -7,7 +7,7 @@ module Cinch
     def check_ignore(user)
       reload
       if ((@storage.key?(user.nick)) && (@storage[user.nick].key? 'ignore'))
-        friend = @storage[user.nick]['ignore']
+        ignore = @storage[user.nick]['ignore']
         return ignore
       end
     end

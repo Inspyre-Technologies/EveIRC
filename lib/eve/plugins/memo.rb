@@ -2,6 +2,7 @@
 # memos.yaml. Please be certain that this file is in your directory.
 
 require 'yaml'
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class Memo

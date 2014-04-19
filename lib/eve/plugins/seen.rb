@@ -3,6 +3,7 @@ require 'cinch'
 require 'cinch/toolbox'
 require 'yaml'
 require 'time-lord'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

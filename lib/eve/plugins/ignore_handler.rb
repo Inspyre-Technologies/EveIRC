@@ -66,7 +66,7 @@ module Cinch
         
       def update_store
         synchronize(:update) do
-          File.open('docs/ignorelist.yaml', 'w') do |fh|
+          File.open('docs/userinfo.yaml', 'w') do |fh|
             YAML.dump(@storage, fh)
           end
         end

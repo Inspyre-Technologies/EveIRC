@@ -15,6 +15,7 @@ module Cinch
     end
 
     def execute(m, term)
+      return if check_ignore(m.user)
       m.reply get_def(term)
     end
 

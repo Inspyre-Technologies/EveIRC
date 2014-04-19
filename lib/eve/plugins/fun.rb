@@ -8,6 +8,7 @@ module Cinch
     match /revive (.+)/i, method: :revive
     
   def revive(m, user)
+    return if check_ignore(m.user)
     if User(user) == m.bot
       samebot(m, user)
     return;

@@ -39,6 +39,7 @@ module Cinch::Plugins
       end
 
     def execute(m, nick, message)
+      return if check_ignore(m.user)
       if nick == m.user.nick
         m.reply "You can't leave memos for yourself..."
       elsif nick == bot.nick

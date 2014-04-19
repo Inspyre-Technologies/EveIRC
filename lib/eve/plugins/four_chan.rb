@@ -55,7 +55,7 @@
                 comment_s = comment_s[0..200] # We need to limit the characters for 4chan comments
                 
                 if subject.downcase.include? terms.downcase or comment.downcase.include? terms.downcase
-                  results.push("%s /#{board}/ %s - %s (R:%s | I:%s) [ https://boards.4chan.org/#{board}/reply/%s/%s ]" % [chan_logo, subject, comment_s, replies, images, id, semantic])
+                  results.push("%s /#{board}/ %s - %s (R:%s | I:%s) [ https://boards.4chan.org/#{board}/thread/%s/%s ]" % [chan_logo, subject, comment_s, replies, images, id, semantic])
                 end
               end
             end

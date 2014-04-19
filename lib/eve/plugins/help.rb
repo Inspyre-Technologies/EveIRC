@@ -16,6 +16,7 @@ module Cinch::Plugins
     match "help"
   
   def execute(m)
+    return if check_ignore(m.user)
       unless check_master(m.user)
         m.user.send Format(:green, "Hello, #{m.user.nick}")
         m.user.send Format(:green, "You can get further information on a plugin by typing !help <plugin name> IN A PM. Don't do it in a channel!!")

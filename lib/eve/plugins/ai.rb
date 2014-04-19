@@ -8,8 +8,8 @@
 require 'cinch'
 require 'yaml'
 require_relative "config/check_master"
-require_relative "config/check_friend"
-require_relative "config/check_foe"
+require_relative "config/check_relationship"
+require_relative "config/check_ignore"
 
 
 module Cinch::Plugins
@@ -159,7 +159,7 @@ module Cinch::Plugins
         Format(:green, "You're not welcome, #{m.user.nick}.")
       ].sample
     end
- 
+
     def ywr(m)
       [
         Format(:green, ":D")
@@ -198,7 +198,7 @@ module Cinch::Plugins
         Format(:green, "Oh I love you too, Master #{m.user.nick}.")
       ].sample
     end
- 
+
     def wur(m)
       [
         Format(:green, "Nothing much, #{m.user.nick}! How are you?"),
@@ -221,7 +221,7 @@ module Cinch::Plugins
         Format(:green, "I was fine until you started talking to me, #{m.user.nick}.")
       ].sample
     end
- 
+
     def rospr(m)
       [
         Format(:green, "That's great, #{m.user.nick}! I'm glad to hear it."),
@@ -243,7 +243,7 @@ module Cinch::Plugins
         Format(:green, "Good night, #{m.user.nick}!")
       ].sample
     end
- 
+
     def roser(m)
       [
         Format(:green, "Thanks for the rose, #{m.user.nick}!"),
@@ -257,7 +257,7 @@ module Cinch::Plugins
   Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
       ].sample
     end
- 
+
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(,|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
@@ -285,6 +285,7 @@ module Cinch::Plugins
     # matchers are met and a response is required from the bot.
     
     def hau(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply status_friend(m)
@@ -305,6 +306,7 @@ module Cinch::Plugins
     end
   
     def hi(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply hir_friend(m)
@@ -325,6 +327,7 @@ module Cinch::Plugins
     end
   
     def brb(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply brbr(m)
@@ -345,6 +348,7 @@ module Cinch::Plugins
     end
     
     def sup(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply supr_friend(m)
@@ -365,6 +369,7 @@ module Cinch::Plugins
     end
     
     def ty(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply tyr_friend(m)
@@ -385,6 +390,7 @@ module Cinch::Plugins
     end
     
     def yw(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ywr(m)
@@ -405,6 +411,7 @@ module Cinch::Plugins
     end
     
     def ilu(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply ilur(m)
@@ -425,6 +432,7 @@ module Cinch::Plugins
     end
     
     def wu(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply wur_friend(m)
@@ -445,6 +453,7 @@ module Cinch::Plugins
     end
     
     def rosp(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply rospr(m)
@@ -465,6 +474,7 @@ module Cinch::Plugins
     end
     
     def night(m)
+      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply nightr(m)
@@ -490,15 +500,16 @@ module Cinch::Plugins
     end
     
     def yolo(m)
-       if check_friend(m.user)
+      return if check_ignore(m.user)
+      if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply yolor(m)
-       return;
-     end
-       if check_master(m.user)
-   sleep config[:delay] || 3
-         m.reply yolor(m)
-       return;
+      return;
+    end
+      if check_master(m.user)
+  sleep config[:delay] || 3
+        m.reply yolor(m)
+      return;
       end
     end
   end

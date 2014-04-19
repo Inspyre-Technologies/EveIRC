@@ -1,5 +1,6 @@
 require 'cinch'
 require 'cinch/toolbox'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

@@ -41,9 +41,8 @@ module Cinch
         return;
       end
         @storage[User(target).nick] ||= {}
-        @storage[User(target).nick]['friend'] = true
+        @storage[User(target).nick]['ignore'] = true
         store = @storage[User(target).nick]
-        store.delete('foe')
         update_store
         Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'add-ignore' command to add #{target}.") }
         m.reply "#{target} added to ignore list."
@@ -57,8 +56,7 @@ module Cinch
         end
           if @storage.key?(User(target).nick)
             store = @storage[User(target).nick]
-            store.delete('friend')
-            store.delete('foe')
+            store.delete('ignore')
             update_store
             Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'del-ignore' command to delete #{target}'s info.") }
             m.reply "Removed ignore on #{target}."

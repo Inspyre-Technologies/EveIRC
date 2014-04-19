@@ -28,6 +28,7 @@ require_relative "lib/eve/plugins/bitcoin"
 require_relative "lib/eve/plugins/user_info"
 require_relative "lib/eve/plugins/isitup"
 require_relative "lib/eve/plugins/relationship_handler"
+require_relative "lib/eve/plugins/ignore_handler"
 require_relative "lib/eve/plugins/admin_handler"
 require_relative "lib/eve/plugins/four_chan"
 require_relative "lib/eve/plugins/dictionary"
@@ -83,6 +84,7 @@ bot = Cinch::Bot.new do
                        Cinch::Plugins::UserInfo,
                        Cinch::Plugins::Isitup,
                        Cinch::Plugins::RelationshipHandler,
+                       Cinch::Plugins::IgnoreHandler,
                        Cinch::Plugins::AdminHandler,
                        Cinch::Plugins::FourChan,
                        Cinch::Plugins::Dictionary,

@@ -26,6 +26,7 @@ module Cinch
       end
       
       def listen(m)
+        return if check_ignore(m.user)
         return if m.message.include? "nospoil"
         return unless config[:enabled_channels].include?(m.channel.name)
         # Create mechanize agent
@@ -143,6 +144,7 @@ module Cinch
   match /url (on|off)$/
   
   def execute(m, option)
+    return if check_ignore(m.user)
     reload
     begin
       return unless check_master(m.user)

@@ -5,6 +5,7 @@ require "twitter"
 require "cgi"
 require "time-lord"
 require "yaml"
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

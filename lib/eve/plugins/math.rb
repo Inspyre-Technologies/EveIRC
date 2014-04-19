@@ -1,5 +1,6 @@
 require 'calc'
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

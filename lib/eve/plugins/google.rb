@@ -30,6 +30,7 @@ module Cinch
       
       # Execute the web search.
       def execute_w(m, query)
+        return if check_ignore(m.user)
         query.gsub! /\s/, '+'
         data = search_w(m, query)
         return m.reply "No results found for #{query}." if data.empty?
@@ -38,6 +39,7 @@ module Cinch
     
       #Execute the image search.
       def execute_i(m, query)
+        return if check_ignore(m.user)
         query.gsub! /\s/, '+'
         data = search_i(m, query)
         return m.reply "No results found for #{query}." if data.empty?

@@ -20,6 +20,7 @@ module Cinch::Plugins
     match /urban ([a-zA-Z ]+) ?(\d)?/
     
     def execute(m, word, number)
+      return if check_ignore(m.user)
       
       number ||= 0
 

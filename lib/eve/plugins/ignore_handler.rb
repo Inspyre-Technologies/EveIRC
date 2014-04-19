@@ -61,7 +61,7 @@ module Cinch
             Config.dispatch.each { |n| User(n).notice("#{m.user.nick} used the 'del-ignore' command to delete #{target}'s info.") }
             m.reply "Removed ignore on #{target}."
           else
-            m.reply "I have no record of #{target}."
+            m.reply "#{target} is not on my ignore list!"
           end
         end
         

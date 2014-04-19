@@ -9,6 +9,7 @@ require 'json'
 require 'cgi'
 require 'cinch/toolbox'
 require_relative "helpers/category_helper.rb"
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins

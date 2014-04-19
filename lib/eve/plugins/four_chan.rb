@@ -1,5 +1,3 @@
-	
-
     require 'cinch'
     require 'ostruct'
     require 'open-uri'
@@ -22,6 +20,7 @@
 
          
           def execute(m, board, query)
+            return if check_ignore(m.user)
             data = search(m, board, query)
             return m.reply "No results found on /#{board}/ for \"#{query}\"." if data.empty?
             search_result(m, data)

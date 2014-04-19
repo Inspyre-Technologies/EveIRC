@@ -141,7 +141,6 @@ module Cinch
         end
       end
 
-  set :prefix, /^~/
   match /url (on|off)$/
   
   def execute(m, option)

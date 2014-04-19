@@ -1,9 +1,8 @@
-	
-
     require 'cinch'
     require 'open-uri'
     require 'nokogiri'
     require 'cgi'
+    require_relative "config/check_ignore"
      
     module Cinch
       module Plugins

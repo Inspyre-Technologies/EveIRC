@@ -1,4 +1,5 @@
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class ValentineBoxx
@@ -49,6 +50,7 @@ module Cinch::Plugins
    match /poem (.+)/, method: :poem
    
    def poem(m, user)
+     return if check_ignore(m.user)
      sleep config[:delay] || 3
      m.reply poems(m, user)
    end
@@ -56,6 +58,7 @@ module Cinch::Plugins
    match /sweetheart (.+)/, method: :sweetheart
    
    def sweetheart(m, user)
+     return if check_ignore(m.user)
      sleep config[:delay] || 3
      m.channel.action "has given #{user} a Sweetheart"
      sleep config[:delay] || 2
@@ -65,6 +68,7 @@ module Cinch::Plugins
    match /rose (.+)/, method: :rose
    
    def rose(m, user)
+     return if check_ignore(m.user)
      m.channel.action "gives #{user} a Valentine rose from #{m.user.nick}"
      m.reply Format(:green, "--<--<--%s" % [Format(:pink, "@")])
    end

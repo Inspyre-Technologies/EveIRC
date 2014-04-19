@@ -1,10 +1,9 @@
-	
-
     require 'cinch'
     require 'ostruct'
     require 'open-uri'
     require 'json'
     require 'cgi'
+    require_relative "config/check_ignore"
      
     module Cinch
       module Plugins
@@ -22,6 +21,7 @@
 
          
           def execute(m, board, query)
+            return if check_ignore(m.user)
             data = search(m, board, query)
             return m.reply "No results found on /#{board}/ for \"#{query}\"." if data.empty?
             search_result(m, data)
@@ -40,6 +40,7 @@
                 replies   = j['replies']
                 images    = j['images']
                 id        = j['no']
+                semantic  = j['semantic_url']
                 
              
                 if subject == nil
@@ -54,7 +55,7 @@
                 comment_s = comment_s[0..200] # We need to limit the characters for 4chan comments
                 
                 if subject.downcase.include? terms.downcase or comment.downcase.include? terms.downcase
-                  results.push("%s /#{board}/ %s - %s (R:%s | I:%s) [ https://boards.4chan.org/#{board}/res/%s ]" % [chan_logo, subject, comment_s, replies, images, id])
+                  results.push("%s /#{board}/ %s - %s (R:%s | I:%s) [ https://boards.4chan.org/#{board}/thread/%s/%s ]" % [chan_logo, subject, comment_s, replies, images, id, semantic])
                 end
               end
             end

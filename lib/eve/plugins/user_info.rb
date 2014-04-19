@@ -1,6 +1,7 @@
 require 'cinch'
 require 'yaml'
 require_relative "config/check_master"
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -59,6 +60,7 @@ module Cinch
       
       
       def set_w(m, zc)
+      	return if check_ignore(m.user)
         zc.gsub! /\s/, '+'
         @storage[User(m.user).nick] ||= {}
         @storage[m.user.nick]['zipcode'] = zc
@@ -70,6 +72,7 @@ module Cinch
       end
       
       def del_w(m)
+      	return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
           if @storage[m.user.nick].key? 'zipcode'
             w = @storage[m.user.nick]
@@ -83,6 +86,7 @@ module Cinch
       end
       
       def set_twitter(m, handle)
+      	return if check_ignore(m.user)
         @storage[m.user.nick] ||= {}
         @storage[m.user.nick]['twitter'] = handle
         m.reply "Updated your Twitter handle to #{handle}!"
@@ -92,6 +96,7 @@ module Cinch
       end
       
       def del_twitter(m)
+      	return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
           if @storage[m.user.nick].key? 'twitter'
           t = @storage[m.user.nick]
@@ -105,6 +110,7 @@ module Cinch
     end
           
       def set_greeting(m, greeting)
+      	return if check_ignore(m.user)
         @storage[m.user.nick] ||= {}
         @storage[m.user.nick]['greeting'] = greeting
         m.reply "Updated your custom greeting to \"#{greeting}\"!"
@@ -114,6 +120,7 @@ module Cinch
       end
       
       def del_greeting(m)
+      	return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
           if @storage[m.user.nick].key? 'greeting'
           g = @storage[m.user.nick]
@@ -127,6 +134,7 @@ module Cinch
     end
       
       def set_rgreeting(m, user, greeting)
+      	return if check_ignore(m.user)
         return unless check_master(m.user)
           @storage[user] ||= {}
           @storage[user]['greeting'] = greeting
@@ -137,6 +145,7 @@ module Cinch
         end
         
       def set_birthday(m, birthday)
+      	return if check_ignore(m.user)
         @storage[m.user.nick] ||= {}
         @storage[m.user.nick]['birthday'] = birthday
         m.reply "Updated your birthday to \"#{birthday}\"."
@@ -146,6 +155,7 @@ module Cinch
       end
       
       def del_birthday(m)
+      	return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
           if @storage[m.user.nick].key? 'birthday'
           b = @storage[m.user.nick]
@@ -159,6 +169,7 @@ module Cinch
     end
     
       def del_data(m)
+      	return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
         @storage.delete m.user.nick
         update_store
@@ -169,6 +180,7 @@ module Cinch
     end
   
     def rdel_data(m, user)
+    return if check_ignore(m.user)
       unless check_user(m.user)
         m.reply Format(:red, "You are not authorized to use that command!")
       return;
@@ -183,6 +195,7 @@ module Cinch
   end
   
     def set_gender(m, gender)
+      return if check_ignore(m.user)
       @storage[m.user.nick] ||= {}
       @storage[m.user.nick]['gender'] = gender
       update_store

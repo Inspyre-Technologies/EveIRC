@@ -1,4 +1,5 @@
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -43,6 +44,7 @@ module Cinch
 	  
       match /8ball (.+)/
       def execute(m, s)
+      	return if check_ignore(m.user)
           questions = s.split("? ")
           answers = [];
           questions.each {|question|

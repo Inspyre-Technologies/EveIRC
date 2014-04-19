@@ -3,6 +3,7 @@ require 'cinch'
 require 'cinch/toolbox'
 require 'yaml'
 require 'time-lord'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -50,6 +51,7 @@ module Cinch
       private
       
       def seen(nick)
+      	return if check_ignore(m.user)
         @storage[nick.downcase] ||= {}
         seen = @storage[nick.downcase]['seen']
         
@@ -62,6 +64,7 @@ module Cinch
       end
       
       def pm(m)
+       return if check_ignore(m.user)
        return false unless m.channel.nil?
        m.reply 'You must use that command in the main channel.'
        true

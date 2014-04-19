@@ -3,6 +3,7 @@ require 'ostruct'
 require 'open-uri'
 require 'json'
 require 'cgi'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -19,6 +20,7 @@ USAGE
       match /isitup (.+)/
       
       def execute(m, query)
+        return if check_ignore(m.user)
         data = check(query)
         return m.reply "There seems to be an issue, please contact my Master." if data.nil?
         isitup_result(m, data)

@@ -1,9 +1,8 @@
-	
-
     require 'cinch'
     require 'open-uri'
     require 'nokogiri'
     require 'cgi'
+    require_relative "config/check_ignore"
      
     module Cinch
       module Plugins
@@ -13,6 +12,7 @@
           match /youtube (.+)/
          
           def execute(m, query)
+            return if check_ignore(m.user)
             query.gsub! /\s/, '+'
             data = lookup(m, query)
             return m.reply "No results found for #{query}." if data.empty?

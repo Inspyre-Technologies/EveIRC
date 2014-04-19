@@ -1,5 +1,6 @@
 require 'calc'
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -16,6 +17,7 @@ USAGE
       match /calc (.+)/
     
       def execute(m, math)
+        return if check_ignore(m.user)
         m.reply calculate(math), true
       end
     

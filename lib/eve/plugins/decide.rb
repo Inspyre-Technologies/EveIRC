@@ -1,3 +1,5 @@
+require_relative "config/check_ignore"
+
 class Float
   def prettify
     to_i == self ? to_i : self
@@ -20,6 +22,7 @@ module Cinch
       USAGE
 		
       def decide!(list)
+      	return if check_ignore(m.user)
         list = list.gsub(/\x03([0-9]{2}(,[0-9]{2})?)?/,"") #strips IRC colors
         options = list.gsub(/ or /i, ",").split(",").map(&:strip).reject(&:empty?)
         options[Random.new.rand(1..options.length)-1]
@@ -29,11 +32,13 @@ module Cinch
       match /choose (.+)/, method: :execute_decision
       
       def execute_decision(m, list)
+      	return if check_ignore(m.user)
           m.safe_reply("I choose \"#{decide! list}\"!",true);
         end
 
       match "coin", method: :execute_coinflip
       def execute_coinflip(m)
+      	return if check_ignore(m.user)
           face = Random.new.rand(1..2) == 1 ? "heads" : "tails";
           m.safe_reply("The coin says: \"#{face}\"!",true);
         end
@@ -42,6 +47,7 @@ module Cinch
       
       match /rand (#{valid_number}) (#{valid_number})/, method: :execute_random
       def execute_random(m, x, y)
+      	return if check_ignore(m.user)
         x = x.to_f.prettify
         y = y.to_f.prettify
         xy = "(x=#{x}, y=#{y})"
@@ -53,8 +59,10 @@ module Cinch
       
       match /token (\d+)/, method: :execute_token
       def execute_token(m, length)
+      	return if check_ignore(m.user)
           max_length = 256
       def power_of_2?(number)
+      	return if check_ignore(m.user)
         (1..32).each { |bit| return true if number == (1 << bit) }
         false
       end

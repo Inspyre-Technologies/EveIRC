@@ -61,11 +61,31 @@ As of now there are only two dependencies needed for the plugins.
 
 2.) If you want to have Eve fetch tweets from any twitter account you need to install the Twitter gem:
 
-    gem install cinch-twitter
+    gem install twitter
 
 3.) Most of Eve's plugins rely on JSON:
 
     gem install json
+
+4.) We need OJ
+
+> gem install oj
+
+5.) We also need mechanize
+
+    gem install mechanize
+    
+6.) Can't run without time-lord
+
+    gem install time-lord
+
+7.) You need to get the Cinch toolbox
+
+    gem install cinch-toolbox
+
+8.) If you want to install all of them
+
+    gem install nokogiri && gem install json && gem install oj && gem install mechanize && gem install time-lord && gem install twitter && gem install cinch-toolbox
 
 ###-Section D: Getting Eve-
 

@@ -1,5 +1,6 @@
 require 'cinch'
 require_relative "config/check_master"
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class AdminHandler

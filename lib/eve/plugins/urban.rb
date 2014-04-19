@@ -2,6 +2,7 @@ require 'cinch'
 require 'open-uri'
 require 'nokogiri'
 require 'cgi'
+require_relative "config/check_ignore"
 
 # This plugin searches Urban Dictionary and prints the result to the IRC
 # channel. 
@@ -20,6 +21,7 @@ module Cinch::Plugins
     match /urban ([a-zA-Z ]+) ?(\d)?/
     
     def execute(m, word, number)
+      return if check_ignore(m.user)
       
       number ||= 0
 

@@ -82,6 +82,7 @@ module Cinch
         listen_to :join, :method => :hello
       
       def hello(m)
+        return if check_ignore(m.user)
         reload
         limit = ratelimit(:greeting, 60)
         return if limit > 0

@@ -16,6 +16,7 @@ USAGE
       match /calc (.+)/
     
       def execute(m, math)
+        return if check_ignore(m.user)
         m.reply calculate(math), true
       end
     

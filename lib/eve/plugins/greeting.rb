@@ -7,9 +7,9 @@
 require 'date'
 require 'cinch'
 require_relative "config/check_master"
-require_relative "config/check_friend"
-require_relative "config/check_foe"
+require_relative "config/check_relationship"
 require_relative "config/ratelimit"
+require_relative "config/check_ignore"
      
 module Cinch
   module Plugins
@@ -82,6 +82,7 @@ module Cinch
         listen_to :join, :method => :hello
       
       def hello(m)
+        return if check_ignore(m.user)
         reload
         limit = ratelimit(:greeting, 60)
         return if limit > 0

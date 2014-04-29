@@ -1,7 +1,7 @@
 require 'cinch'
 require_relative "config/check_master"
-require_relative "config/check_foe"
-require_relative "config/check_friend"
+require_relative "config/check_relationship"
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class ActAI
@@ -325,7 +325,7 @@ module Cinch::Plugins
     end
     
     ## Responses for hand-holding. Friend, foe, master, and neutral
-       
+      
     def handholdar_friend(m)
       [
         "holds #{m.user.nick}'s hand.",
@@ -439,6 +439,7 @@ module Cinch::Plugins
     
     
     def hug(m)
+      return if check_ignore(m.user)
       reload
         if check_friend(m.user)
           sleep config[:delay] || 3
@@ -468,6 +469,7 @@ module Cinch::Plugins
       end
     
     def kiss(m)
+      return if check_ignore(m.user)
       reload
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -497,6 +499,7 @@ module Cinch::Plugins
     end
     
     def dirty(m)
+      return if check_ignore(m.user)
       reload
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -526,6 +529,7 @@ module Cinch::Plugins
     end
     
     def cuddle(m)
+      return if check_ignore(m.user)
       reload
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -555,6 +559,7 @@ module Cinch::Plugins
     end
     
     def highfive(m)
+      return if check_ignore(m.user)
       reload
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -585,6 +590,7 @@ module Cinch::Plugins
       
     
     def handhold(m)
+      return if check_ignore(m.user)
       reload
       if check_friend(m.user)
         sleep config[:delay] || 3
@@ -615,6 +621,7 @@ module Cinch::Plugins
     
     
     def buttgrab(m)
+      return if check_ignore(m.user)
       reload
       unless check_master(m.user)
         sleep config[:delay] || 3

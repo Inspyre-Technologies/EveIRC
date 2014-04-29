@@ -5,6 +5,7 @@ require "twitter"
 require "cgi"
 require "time-lord"
 require "yaml"
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -22,6 +23,7 @@ module Cinch
       match /@(?:-(\d+))?$/, method: :execute_ctweet, prefix: /^~/
 
       def execute_tweet(m, username, offset)
+        return if check_ignore(m.user)
         offset ||= 0
 
         user = @client.user(username)
@@ -46,13 +48,15 @@ module Cinch
 
       match /t-search (.+)/, method: :execute_search, prefix: /^~/
 
-      def execute_search(m, term)    
+      def execute_search(m, term)
+        return if check_ignore(m.user)
         @client.search("#{term}", :result_type => "recent").take(3).each do |tweet|
         m.reply format_tweet(tweet)
       end
     end
 
       def execute_ctweet(m, offset)
+        return if check_ignore(m.user)
         loadfile
         offset ||= 0
 
@@ -96,6 +100,7 @@ module Cinch
       match /#(\d+)$/, method: :execute_id, prefix: /^@/
 
       def execute_id(m, id)
+        return if check_ignore(m.user)
         tweet = @client.status(id)
 
         m.reply format_tweet(tweet)

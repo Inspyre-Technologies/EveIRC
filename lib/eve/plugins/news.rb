@@ -9,6 +9,7 @@ require 'json'
 require 'cgi'
 require 'cinch/toolbox'
 require_relative "helpers/category_helper.rb"
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -42,12 +43,14 @@ module Cinch
       match /s-subcategory (.+?) (.+?) (.+)/, method: :search_subcategory
       
       def list_categories(m)
+        return if check_ignore(m.user)
         cat_list = categories
         ca_list = cat_list.join(", ")
         m.user.notice "#{ca_list}"
       end
       
       def list_subs(m, c_id)
+        return if check_ignore(m.user)
         sc_list = sub_categories(c_id)
         s_list = sc_list.join(", ")
         m.user.notice "#{s_list}"
@@ -55,6 +58,7 @@ module Cinch
     
       
       def search_category(m, id, terms)
+        return if check_ignore(m.user)
         terms.gsub! /\s/, '+'
         search_list = execute_c_search(id, terms)
         search_list[0..2].each{|i| m.reply i}
@@ -63,6 +67,7 @@ module Cinch
           end
 
       def search_subcategory(m, id, sc_id, terms)
+        return if check_ignore(m.user)
         terms.gsub! /\s/, '+'
         sc_search_list = execute_sc_search(id, sc_id, terms)
         sc_search_list[0..2].each{|i| m.reply i}
@@ -71,6 +76,7 @@ module Cinch
           end 
 
       def top_news(m)
+        return if check_ignore(m.user)
         news = fetch_news
         news[0..2].each{|i| m.reply i}
           rescue OpenURI::HTTPError
@@ -78,6 +84,7 @@ module Cinch
           end
 
       def c_topnews(m, id)
+        return if check_ignore(m.user)
         c_news = c_top_news(id)
         c_news[0..2].each{|i| m.reply i}
           rescue OpenURI::HTTPError
@@ -85,6 +92,7 @@ module Cinch
           end
 
       def sc_topnews(m, id, sc_id)
+        return if check_ignore(m.user)
         sc_news = sc_top_news(id, sc_id)
         sc_news[0..2].each{|i| m.reply i}
           rescue OpenURI::HTTPError

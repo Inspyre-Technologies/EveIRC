@@ -3,6 +3,7 @@ require 'ostruct'
 require 'open-uri'
 require 'json'
 require 'cgi'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -19,6 +20,7 @@ module Cinch
       match /define (.+)/i, method: :define
 
       def define(m, query)
+        return if check_ignore(m.user)
         data = fetch_definition(m, query)
         return m.reply Format(:red, "I'm sorry but I couldn't find the definition of #{query}.") if data.empty?
         definition(m, data)
@@ -41,6 +43,7 @@ module Cinch
       match /synonym (.+)/i, method: :synonym
 
       def synonym(m, word)
+        return if check_ignore(m.user)
         data = fetch_synonyms(m, word)
         list = data.join(", ")
         return m.reply Format(:red, "There are no thesaurus results for #{word}") if data.empty?
@@ -48,6 +51,7 @@ module Cinch
       end
       
       def fetch_synonyms(m, word)
+        return if check_ignore(m.user)
         data = JSON.parse(open("http://api.wordnik.com:80/v4/word.json/#{word}/relatedWords?useCanonical=false&relationshipTypes=synonym&limitPerRelationshipType=10&api_key=86454404519fadebdb90e06ef9a04381b87e620884ad40abd").read)
         list = []
         
@@ -62,6 +66,7 @@ module Cinch
       match /equivalent (.+)/i, method: :equivalent
 
       def equivalent(m, word)
+        return if check_ignore(m.user)
         data = fetch_equals(m, word)
         list = data.join(", ")
         return m.reply Format(:red, "There are no equal results for #{word}") if data.empty?
@@ -83,6 +88,7 @@ module Cinch
       match /variants (.+)/i, method: :variants
 
       def variants(m, word)
+        return if check_ignore(m.user)
         data = fetch_variants(m, word)
         list = data.join(", ")
         return m.reply Format(:red, "There are no variant results for #{word}") if data.empty?
@@ -104,6 +110,7 @@ module Cinch
       match /rhyme (.+)/i, method: :rhyme
 
       def rhyme(m, word)
+        return if check_ignore(m.user)
         data = fetch_rhymes(m, word)
         list = data.join(", ")
         return m.reply Format(:red, "There are no rhyming results for #{word}") if data.empty?

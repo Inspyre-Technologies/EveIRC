@@ -2,6 +2,7 @@
 # memos.yaml. Please be certain that this file is in your directory.
 
 require 'yaml'
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class Memo
@@ -39,6 +40,7 @@ module Cinch::Plugins
       end
 
     def execute(m, nick, message)
+      return if check_ignore(m.user)
       if nick == m.user.nick
         m.reply "You can't leave memos for yourself..."
       elsif nick == bot.nick

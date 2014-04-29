@@ -1,4 +1,5 @@
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch::Plugins
   class FactCore
@@ -84,6 +85,7 @@ module Cinch::Plugins
     match /fact/, method: :execute_fact
     
     def execute_fact(m)
+      return if check_ignore(m.user)
       m.reply fact(m)
     end
   end

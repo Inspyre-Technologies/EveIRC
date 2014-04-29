@@ -2,6 +2,7 @@ require 'cinch'
 require 'ostruct'
 require 'open-uri'
 require 'json'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -19,6 +20,7 @@ module Cinch
       match /btcv (\w{3})/
       
       def execute(m, currency)
+        return if check_ignore(m.user)
         data = JSON.parse(open("http://blockchain.info/ticker").read)
 
         coins = ['USD', 'CNY', 'JPY', 'SGD', 'HKD', 'CAD', 'NZD', 'AUD', 'CLP', 'GBP', 'HKK', 'SEK', 'ISK', 'CHF', 'BRL', 'EUR', 'RUB', 'PLN', 'THB', 'KRW', 'TWD']
@@ -40,9 +42,10 @@ module Cinch
           m.reply "Current value of 1 BTC in #{currency} is: #{symbol}#{value}", true
         end
 
-        match /btc (\w{3}) (.+)/, method: :conversion
+      match /btc (\w{3}) (.+)/, method: :conversion
 
       def conversion(m, currency, btc)
+        return if check_ignore(m.user)
         data = JSON.parse(open("http://blockchain.info/ticker").read)
 
         coins = ['USD', 'CNY', 'JPY', 'SGD', 'HKD', 'CAD', 'NZD', 'AUD', 'CLP', 'GBP', 'HKK', 'SEK', 'ISK', 'CHF', 'BRL', 'EUR', 'RUB', 'PLN', 'THB', 'KRW', 'TWD']

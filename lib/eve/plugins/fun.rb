@@ -1,4 +1,5 @@
 require 'cinch'
+require_relative "config/check_ignore"
 
 module Cinch
   module Plugins
@@ -8,6 +9,7 @@ module Cinch
     match /revive (.+)/i, method: :revive
     
   def revive(m, user)
+    return if check_ignore(m.user)
     if User(user) == m.bot
       samebot(m, user)
     return;

@@ -53,7 +53,7 @@ module Cinch
         rdata = data['responseData']['results']
         results = []
       
-        rdata.each{|i| results.push("%s: %s [ %s ]" % [logo, i['titleNoFormatting'], i['unescapedUrl']])}
+        rdata.each{|i| results.push("%s: %s [ %s ]" % [logo, CGI.unescapeHTML(i['titleNoFormatting']), i['unescapedUrl']])}
       
         return results
       end

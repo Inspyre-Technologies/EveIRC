@@ -33,6 +33,7 @@ require_relative "lib/eve/plugins/admin_handler"
 require_relative "lib/eve/plugins/four_chan"
 require_relative "lib/eve/plugins/dictionary"
 require_relative "lib/eve/plugins/news"
+require_relative "lib/eve/plugins/wolfram"
 
 
 # You should have something in the block below as it will have Eve report
@@ -51,11 +52,11 @@ Config.dispatch = ["foo", "bar", "you"]
 
 bot = Cinch::Bot.new do
   configure do |c|
-  c.server = "rawr.sinsira.net"
+  c.server = "irc.sinsira.net"
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 6.1.1"
+  c.realname = "Eve 6.2"
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
                        Cinch::Plugins::Urban,
                        Cinch::Plugins::Help,
@@ -88,7 +89,8 @@ bot = Cinch::Bot.new do
                        Cinch::Plugins::AdminHandler,
                        Cinch::Plugins::FourChan,
                        Cinch::Plugins::Dictionary,
-                       Cinch::Plugins::News];
+                       Cinch::Plugins::News],
+		       Cinch::Plugins::Wolfram];
   #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
   #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
@@ -105,6 +107,7 @@ bot = Cinch::Bot.new do
   #  access_token_secret: "foo" 
   #} 
 #}
+  c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
   c.plugins.options[Cinch::Plugins::Weather] = { key: 'foo' }
   c.password = "nspass"
   end

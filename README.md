@@ -118,3 +118,30 @@ So open docs/userinfo.yaml and place the following inside, save, and close
       auth: yourauthname
       master: true
 
+Plugins & Configuration
+=======
+The following section includes configuration options for some of the plugins that are not required but are enabled by default on the bot. Please read this before coming to IRC to ask questions.
+
+## Wolfram|Alpha ##
+For this plugin to operate it requires a dependancy to be installed. 
+
+    gem install wolfram-alpha
+    
+After installing that dependency you are fully able to use the plugin, the following is required to insert into Eve.rb for operation.
+
+At the beginning of Eve.rb in the required scripts section put this:
+
+    require_relative "lib/eve/plugins/wolfram"
+    
+In the c.plugins section of Eve.rb put this:
+
+    [Cinch::Plugins::Wolfram]
+    
+Finally in the configuration section of Eve.rb put this:
+
+    c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
+    
+The only thing that **must** be edited out of these lines is c.plugins.options and you must change the 'foo' to **your** Wolfram|Alpha API key, which you can get from [this website][1]. **You can not use the plugin if this option is not configured properly!**
+
+
+  [1]: https://developer.wolframalpha.com/portal/apisignup.html

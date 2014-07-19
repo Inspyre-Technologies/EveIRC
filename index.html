@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>Eve-bot by Namasteh</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Eve-bot</h1>
+        <h2>---EVE: A Project for a Top-Tier IRC Bot--- Eve was originally designed on an entirely different framework and language and has grown through the years. Now Eve is on Ruby and the Cinch IRC Framework. If you need help you can join #Eve on irc.sinsira.net</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/Namasteh/Eve-Bot/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/Namasteh/Eve-Bot/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/Namasteh/Eve-Bot" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="eve-bot" class="anchor" href="#eve-bot"><span class="octicon octicon-link"></span></a>Eve-Bot</h1>
+
+<h2>
+<a name="eve-a-project-for-a-top-tier-irc-bot" class="anchor" href="#eve-a-project-for-a-top-tier-irc-bot"><span class="octicon octicon-link"></span></a>EVE: A Project for a Top-Tier IRC Bot</h2>
+
+<p>Eve was originally designed on an entirely different framework and language and has grown through the years.</p>
+
+<p>Now Eve is on Ruby and the Cinch IRC Framework. </p>
+
+<h3>
+<a name="--installation--" class="anchor" href="#--installation--"><span class="octicon octicon-link"></span></a>--Installation--</h3>
+
+<p>Eve and several of it's plugins have some dependencies. The first of which are very important, you need Ruby, RVM, and RubyGems. If you already have those installed then you can skip ahead to: -Section B: Installing The Framework-.</p>
+
+<h3>
+<a name="-section-a-installing-ruby-rvm-and-rubygems-" class="anchor" href="#-section-a-installing-ruby-rvm-and-rubygems-"><span class="octicon octicon-link"></span></a>-Section A: Installing Ruby, RVM, and RubyGems-</h3>
+
+<p>1.) The first thing we need to do is make sure that your package manager is up to date:</p>
+
+<p><code>sudo apt-get update</code></p>
+
+<p>2.) If you don't have curl you need to install it now:</p>
+
+<p><code>sudo apt-get install curl</code></p>
+
+<p>3.) Now you need to install RVM:</p>
+
+<p><code>curl -L https://get.rvm.io | bash -s stable</code></p>
+
+<p>4.) Now you need to load RVM:</p>
+
+<p><code>source ~/.rvm/scripts/rvm</code></p>
+
+<p>5.) Now you need to install RVM's dependencies:</p>
+
+<p><code>rvm requirements</code></p>
+
+<p>6.) Now you need to install Ruby:</p>
+
+<p><code>rvm install ruby</code></p>
+
+<p>7.) Now you need to tell the system what version to use as default:</p>
+
+<p><code>rvm use ruby -default</code></p>
+
+<p>8.) Now you need to install RubyGems:</p>
+
+<p><code>rvm rubygems current</code></p>
+
+<p>Excellent. Now you are done installing RVM, Ruby, and RubyGems!</p>
+
+<h3>
+<a name="-section-b-installing-the-framework-" class="anchor" href="#-section-b-installing-the-framework-"><span class="octicon octicon-link"></span></a>-Section B: Installing the Framework-</h3>
+
+<p>1.) This is really easy:</p>
+
+<p><code>gem install cinch</code></p>
+
+<h3>
+<a name="-section-c-installing-plugin-dependencies-" class="anchor" href="#-section-c-installing-plugin-dependencies-"><span class="octicon octicon-link"></span></a>-Section C: Installing Plugin Dependencies-</h3>
+
+<p>As of now there are only two dependencies needed for the plugins. </p>
+
+<p>1.) If you want to have Eve do anything that has to do with web fetching you must install the Nokogiri gem:</p>
+
+<p><code>gem install nokogiri</code></p>
+
+<p>2.) If you want to have Eve fetch tweets from any twitter account you need to install the Twitter gem:</p>
+
+<p><code>gem install twitter</code></p>
+
+<p>3.) Most of Eve's plugins rely on JSON:</p>
+
+<p><code>gem install json</code></p>
+
+<p>4.) We need OJ</p>
+
+<p><code>gem install oj</code></p>
+
+<p>5.) We also need mechanize</p>
+
+<p><code>gem install mechanize</code></p>
+
+<p>6.) Can't run without time-lord</p>
+
+<p><code>gem install time-lord</code></p>
+
+<p>7.) You need to get the Cinch toolbox</p>
+
+<p><code>gem install cinch-toolbox</code></p>
+
+<p>8.) If you want to install all of them</p>
+
+<p><code>gem install nokogiri &amp;&amp; gem install json &amp;&amp; gem install oj &amp;&amp; gem install mechanize &amp;&amp; gem install time-lord &amp;&amp; gem install twitter &amp;&amp; gem install cinch-toolbox</code></p>
+
+<h3>
+<a name="-section-d-getting-eve-" class="anchor" href="#-section-d-getting-eve-"><span class="octicon octicon-link"></span></a>-Section D: Getting Eve-</h3>
+
+<p>Now you just need to get Eve from the repo:</p>
+
+<p><code>git clone https://github.com/Namasteh/Eve-Bot.git</code></p>
+
+<h3>
+<a name="-section-e-configuring-eve-" class="anchor" href="#-section-e-configuring-eve-"><span class="octicon octicon-link"></span></a>-Section E: Configuring Eve-</h3>
+
+<p>Alright now that you have Eve, and all the dependencies it takes to run her you must configure it. Use a code editor (I use Notepad ++) to open ~/Eve-Bot/Eve.rb it should be fairly easy to figure out the configuration. </p>
+
+<p>The first section is the include area, you need to put the plugins that you have in this area, if you're going to remove plugins you need to delete their require line.</p>
+
+<p>Then you need to configure the Server, Nick, and Channels.</p>
+
+<p>Next you need to make sure the plugins you want loaded are in the c.plugins.plugins section, the plugins won't work if you don't load it here, and if you load a plugin that doesn't exist the bot will not start!</p>
+
+<p>Next are your Twitter options, you need to put your API keys in this section or the Twitter plugin will not work!</p>
+
+<p>In c.password you need to put Eve's NickServ pass so she can identify upon connecting.</p>
+
+<h3>
+<a name="-section-f-adding-yourself-as-master-" class="anchor" href="#-section-f-adding-yourself-as-master-"><span class="octicon octicon-link"></span></a>-Section F: Adding Yourself As Master-</h3>
+
+<p>When you run Eve, you will need the bot to recognize you as master, and you must add yourself as a master to the bot's userinfo.yaml file in order for any of the userinfo dependent plugins to work.</p>
+
+<p>So open docs/userinfo.yaml and place the following inside, save, and close</p>
+
+<pre><code>---
+yourircnick:
+  auth: yourauthname
+  master: true
+</code></pre>
+
+<h1>
+<a name="plugins--configuration" class="anchor" href="#plugins--configuration"><span class="octicon octicon-link"></span></a>Plugins &amp; Configuration</h1>
+
+<p>The following section includes configuration options for some of the plugins that are not required but are enabled by default on the bot. Please read this before coming to IRC to ask questions.</p>
+
+<h2>
+<a name="wolframalpha" class="anchor" href="#wolframalpha"><span class="octicon octicon-link"></span></a>Wolfram|Alpha</h2>
+
+<p><strong><em>Configuration:</em></strong></p>
+
+<p>For this plugin to operate it requires a dependancy to be installed. </p>
+
+<pre><code>gem install wolfram-alpha
+</code></pre>
+
+<p>After installing that dependency you are fully able to use the plugin, the following is required to insert into Eve.rb for operation.</p>
+
+<p>At the beginning of Eve.rb in the required scripts section put this:</p>
+
+<pre><code>require_relative "lib/eve/plugins/wolfram"
+</code></pre>
+
+<p>In the c.plugins section of Eve.rb put this:</p>
+
+<pre><code>[Cinch::Plugins::Wolfram]
+</code></pre>
+
+<p>Finally in the configuration section of Eve.rb put this:</p>
+
+<pre><code>c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
+</code></pre>
+
+<p>The only thing that <strong>must</strong> be edited out of these lines is c.plugins.options and you must change the 'foo' to <strong>your</strong> Wolfram|Alpha API key, which you can get from <a href="https://developer.wolframalpha.com/portal/apisignup.html">this website</a>. <strong>You can not use the plugin if this option is not configured properly!</strong></p>
+
+<p><strong><em>Usage:</em></strong></p>
+
+<p>The bot comes with a comprehensive help system and the Wolfram|Alpha plugin was integrated into this system by default. To receive help in a personal message withe the bot (or even in a channel, though not advised) you can use the following command which will output information on how to use the plugin:</p>
+
+<pre><code>!help wolfram
+</code></pre>
+
+<p>To use the functions of the plugin you simply have to use the trigger !wa followed by the query you wish to send to Wolfram|Alpha for calculation and the bot will return with the results (if available).</p>
+
+<blockquote>
+<p>[04:44:23] &lt;<a href="https://github.com/Namaste" class="user-mention">@Namaste</a>&gt; !wa how old is boxxy?
+[04:44:25] &lt;<a href="https://github.com/Eve" class="user-mention">@Eve</a>&gt; age | of Boxxy |  today   = 22 years 2 months 21 days</p>
+</blockquote>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

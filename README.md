@@ -123,6 +123,9 @@ Plugins & Configuration
 The following section includes configuration options for some of the plugins that are not required but are enabled by default on the bot. Please read this before coming to IRC to ask questions.
 
 ## Wolfram|Alpha ##
+
+***Configuration:***
+
 For this plugin to operate it requires a dependancy to be installed. 
 
     gem install wolfram-alpha
@@ -143,5 +146,15 @@ Finally in the configuration section of Eve.rb put this:
     
 The only thing that **must** be edited out of these lines is c.plugins.options and you must change the 'foo' to **your** Wolfram|Alpha API key, which you can get from [this website][1]. **You can not use the plugin if this option is not configured properly!**
 
+***Usage:***
+
+The bot comes with a comprehensive help system and the Wolfram|Alpha plugin was integrated into this system by default. To receive help in a personal message withe the bot (or even in a channel, though not advised) you can use the following command which will output information on how to use the plugin:
+
+    !help wolfram
+
+To use the functions of the plugin you simply have to use the trigger !wa followed by the query you wish to send to Wolfram|Alpha for calculation and the bot will return with the results (if available).
+
+> [04:44:23] <@Namaste> !wa how old is boxxy?
+[04:44:25] <@Eve> age | of Boxxy |  today   = 22 years 2 months 21 days
 
   [1]: https://developer.wolframalpha.com/portal/apisignup.html

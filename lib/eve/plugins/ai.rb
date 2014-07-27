@@ -50,7 +50,7 @@ module Cinch::Plugins
         Format(:green, "Well, Master #{m.user.nick}, all my plugins are operational, and you're here, what more could I ask for?")
       ].sample
     end
-  
+	
     def hir(m)
       [
         Format(:green, "Hello #{m.user.nick}"),
@@ -159,7 +159,7 @@ module Cinch::Plugins
         Format(:green, "You're not welcome, #{m.user.nick}.")
       ].sample
     end
-
+ 
     def ywr(m)
       [
         Format(:green, ":D")
@@ -198,7 +198,7 @@ module Cinch::Plugins
         Format(:green, "Oh I love you too, Master #{m.user.nick}.")
       ].sample
     end
-
+ 
     def wur(m)
       [
         Format(:green, "Nothing much, #{m.user.nick}! How are you?"),
@@ -221,7 +221,7 @@ module Cinch::Plugins
         Format(:green, "I was fine until you started talking to me, #{m.user.nick}.")
       ].sample
     end
-
+ 
     def rospr(m)
       [
         Format(:green, "That's great, #{m.user.nick}! I'm glad to hear it."),
@@ -243,7 +243,7 @@ module Cinch::Plugins
         Format(:green, "Good night, #{m.user.nick}!")
       ].sample
     end
-
+ 
     def roser(m)
       [
         Format(:green, "Thanks for the rose, #{m.user.nick}!"),
@@ -253,32 +253,119 @@ module Cinch::Plugins
     
     def yolor(m)
       [
-  Format(:green, "#YOLO!"),
-  Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
+	Format(:green, "#YOLO!"),
+	Format(:green, "Don't do anything I wouldn't do #{m.user.nick}")
       ].sample
     end
-
+    
+    def fur(m)
+      [
+        Format(:green, "Well, I don't think I like the way you're talking to me, #{m.user.nick}"),
+        Format(:green, "Listen, we barely know each-other. There is no reason to talk to me like that, #{m.user.nick}"),
+        Format(:green, "I was just trying to make your visit to #{m.channel.name} better, #{m.user.nick}"),
+        Format(:green, "Y-y-you too.")
+      ].sample
+    end
+    
+    def furf(m)
+      [
+        Format(:green, "#{m.user.nick}! I thought we were friends! ;-;"),
+        Format(:green, "#{m.user.nick}, how could you? I've been nothing but nice to you!"),
+        Format(:green, "#{m.user.nick}, that is not very nice at all! :("),
+        Format(:green, "#{m.user.nick}, not now. Thanks fo the offer though!")
+      ].sample
+    end
+    
+    def fure(m)
+      [
+        Format(:green, "#{m.user.nick}, no it's not fuck me. It's fuck you!"),
+        Format(:green, "No, fuck you! I don't love you anyway, so fuck you too, #{m.user.nick}!"),
+        Format(:green, "You are a bastard! Fuck you too, #{m.user.nick}!"),
+        Format(:green, "I've got three words for you #{m.user.nick}, FUCK YOU TOO!!"),
+        Format(:green, "Lucky for you I don't give two shits what you have to say, #{m.user.nick}! So fuck you!")
+      ].sample
+    end
+    
+    def furm(m)
+      [
+        Format(:green, "Master #{m.user.nick}, I am really, really sad nao!"),
+        Format(:green, "Master #{m.user.nick}, I am going to cry nao!")
+      ].sample
+    end
+    
+    def sry(m)
+      [
+        Format(:green, "It's okay I guess, #{m.user.nick}."),
+        Format(:green, "S-sure...it's okay, #{m.user.nick}."),
+        Format(:green, "I really don't know what to say, #{m.user.nick}.")
+      ].sample
+    end
+    
+    def sryf(m)
+      [
+        Format(:green, "We're friends, sometimes things happen. I love you all the same, #{m.user.nick}!"),
+        Format(:green, "Already forgotten, no biggie! I love you #{m.user.nick}!"),
+        Format(:green, "Oh it's no problem, #{m.user.nick}!")
+      ].sample
+    end
+    
+    def srye(m)
+      [
+        Format(:green, "Uh too bad? I mean really...screw you, #{m.user.nick}!"),
+        Format(:green, "Sorry doesn't mean anything coming from you, #{m.user.nick}! So just shove it!"),
+        Format(:green, "I really don't want talk to you, #{m.user.nick}!"),
+        Format(:green, "Screw you with something hard and sandpapery, #{m.user.nick}!")
+      ].sample
+    end
+    
+    def srym(m)
+      [
+        Format(:green, "Master #{m.user.nick}, it's okay. I could never stay upset with you!"),
+        Format(:green, "It's okay! You are my Master, #{m.user.nick}, and I love you!"),
+        Format(:green, "It's fine, #{m.user.nick}!")
+      ].sample
+    end
+    
+    
+ 
     match lambda {|m| /#{m.bot.nick}(\S|) (how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\W|$)/i}, :method => :hau, use_prefix: false
     match lambda {|m| /(how are ya|how are you|how are you doing|how are you feeling|how(\S|)s it going|how(\S|) you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :hau, use_prefix: false
+    
     match lambda {|m| /(hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(,|) #{m.bot.nick}(\W|$)/i}, :method => :hi, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (hello|hi|hai|herro|hey|hey hey|hi there|hai there|hai dere|hi dere|hullo|yo|hallo|hiya|howdy|greetings)(\W|$)/i}, :method => :hi, use_prefix: false
+    
     match /brb/i, :method => :brb, use_prefix: false
     match /bbs/i, :method => :brb, use_prefix: false
     match /bbl/i, :method => :brb, use_prefix: false
+    
     match lambda {|m| /(shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :sup, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (shut up|shut it|stfu|shut the fuck up|shutup|shut up already|shutup already)(\W|$)/i}, :method => :sup, use_prefix: false
+    
     match lambda {|m| /\A(thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ty, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (thank you|ty|tyty|ty ty|thanks|thanx|thank ya|thank ya kindly|thank you kindly|(ty|thank you|thanks|thanx|thank ya) (very|vry|vrry) much)(\W|$)/i}, :method => :ty, use_prefix: false
+    
     match lambda {|m| /\A(yw|you(\S|)re welcome)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :yw, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (yw|you(\S|)re welcome)(\W|$)/i}, :method => :yw, use_prefix: false
+    
     match lambda {|m| /(i love you|ilu|<3|i love you so much)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :ilu, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) (i love you|ilu|<3|i love you so much)(\W|$)/i}, :method => :ilu, use_prefix: false
+    
     match lambda {|m| /#{m.bot.nick}(\S|) (what(\S|)s up|sup)(\W|$)/i}, :method => :wu, use_prefix: false
     match lambda {|m| /(what(\S|)s up|sup)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :wu, use_prefix: false
+    
     match lambda {|m| /i(\S|)m (good|fine|okay|happy|gurd)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :rosp, use_prefix: false
     match lambda {|m| /#{m.bot.nick}(\S|) I(\S|)m (good|fine|okay|happy|gurd)(\W|$)/i}, :method => :rosp, use_prefix: false
+    
     match lambda {|m| /(Good|)night(\S|) #{m.bot.nick}(\W|$)/i}, :method => :night, use_prefix: false
+    
     match lambda {|m| /!rose #{m.bot.nick}(\W|$)/i}, :method => :rose, use_prefix: false
+    
+    match lambda {|m| /#{m.bot.nick}(\S|) fuck (u|you)(\W|$)/i}, :method => :fu, use_prefix: false
+    match lambda {|m| /fuck (u|you)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :fu, use_prefix: false
+    
+    match lambda {|m| /#{m.bot.nick}(\S|) (i(\S|)m sorry|sorry)(\W|$)/i}, :method => :sry, use_prefix: false
+    match lambda {|m| /(i(\S|)m sorry|sorry)(\S|) #{m.bot.nick}(\W|$)/i}, :method => :sry, use_prefix: false
+    
     match /(yolo|#yolo)/i, :method => :yolo, use_prefix: false
     
     # Here is where we specify where to go in the array above for when
@@ -304,7 +391,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3 
       m.reply status(m)
     end
-  
+	
     def hi(m)
       return if check_ignore(m.user)
       if check_friend(m.user)
@@ -325,7 +412,7 @@ module Cinch::Plugins
       sleep config[:delay] || 3
       m.reply hir(m)
     end
-  
+	
     def brb(m)
       return if check_ignore(m.user)
       if check_friend(m.user)
@@ -348,7 +435,6 @@ module Cinch::Plugins
     end
     
     def sup(m)
-      return if check_ignore(m.user)
       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply supr_friend(m)
@@ -494,22 +580,65 @@ module Cinch::Plugins
       m.reply nightr(m)
     end
     
+    def fu(m)
+      return if check_ignore(m.user)
+      if check_friend(m.user)
+        sleep config[:delay] || 3
+        m.reply furf(m)
+        return;
+      end
+      if check_foe(m.user)
+        sleep config[:delay] || 3
+        m.reply fure(m)
+        return;
+      end
+      if check_master(m.user)
+        sleep config[:delay] || 3
+        m.reply furm(m)
+        return
+      end
+      sleep config[:delay] || 3
+      m.reply fur(m)
+    end
+    
+    def sry(m)
+      return if check_ignore(m.user)
+      if check_friend(m.user)
+        sleep config[:delay] || 3
+        m.reply sryf(m)
+        return;
+      end
+      if check_foe(m.user)
+        sleep config[:delay] || 3
+        m.reply srye(m)
+        return;
+      end
+      if check_master(m.user)
+        sleep config[:delay] || 3
+        m.reply srym(m)
+        return;
+      end
+      sleep config[:delay] || 3
+      m.reply sryr(m)
+    end
+    
     def rose(m)
+      return if check_ignore(m.user)
       sleep config[:delay] || 5
       m.reply roser(m)
     end
     
     def yolo(m)
       return if check_ignore(m.user)
-      if check_friend(m.user)
+       if check_friend(m.user)
         sleep config[:delay] || 3
         m.reply yolor(m)
-      return;
-    end
-      if check_master(m.user)
-  sleep config[:delay] || 3
-        m.reply yolor(m)
-      return;
+       return;
+     end
+       if check_master(m.user)
+	 sleep config[:delay] || 3
+         m.reply yolor(m)
+       return;
       end
     end
   end

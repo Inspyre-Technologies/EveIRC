@@ -13,35 +13,35 @@ Eve and several of it's plugins have some dependencies. The first of which are v
 
 1.) The first thing we need to do is make sure that your package manager is up to date:
 
-> sudo apt-get update
+`sudo apt-get update`
 
 2.) If you don't have curl you need to install it now:
 
-> sudo apt-get install curl
+`sudo apt-get install curl`
 
 3.) Now you need to install RVM:
 
-> \curl -L https://get.rvm.io | bash -s stable
+`curl -L https://get.rvm.io | bash -s stable`
 
 4.) Now you need to load RVM:
 
-> source ~/.rvm/scripts/rvm
+`source ~/.rvm/scripts/rvm`
 
 5.) Now you need to install RVM's dependencies:
 
-    rvm requirements 
+`rvm requirements`
 
 6.) Now you need to install Ruby:
 
-    rvm install ruby
+`rvm install ruby`
 
 7.) Now you need to tell the system what version to use as default:
 
-    rvm use ruby -default
+`rvm use ruby -default`
 
 8.) Now you need to install RubyGems:
 
-    rvm rubygems current
+`rvm rubygems current`
 
 Excellent. Now you are done installing RVM, Ruby, and RubyGems!
 
@@ -49,7 +49,7 @@ Excellent. Now you are done installing RVM, Ruby, and RubyGems!
 
 1.) This is really easy:
 
-    gem install cinch
+`gem install cinch`
 
 ###-Section C: Installing Plugin Dependencies-
 
@@ -57,41 +57,41 @@ As of now there are only two dependencies needed for the plugins.
 
 1.) If you want to have Eve do anything that has to do with web fetching you must install the Nokogiri gem:
 
-    gem install nokogiri
+`gem install nokogiri`
 
 2.) If you want to have Eve fetch tweets from any twitter account you need to install the Twitter gem:
 
-    gem install twitter
+`gem install twitter`
 
 3.) Most of Eve's plugins rely on JSON:
 
-    gem install json
+`gem install json`
 
 4.) We need OJ
 
-> gem install oj
+`gem install oj`
 
 5.) We also need mechanize
 
-    gem install mechanize
+`gem install mechanize`
     
 6.) Can't run without time-lord
 
-    gem install time-lord
+`gem install time-lord`
 
 7.) You need to get the Cinch toolbox
 
-    gem install cinch-toolbox
+`gem install cinch-toolbox`
 
 8.) If you want to install all of them
 
-    gem install nokogiri && gem install json && gem install oj && gem install mechanize && gem install time-lord && gem install twitter && gem install cinch-toolbox
+`gem install nokogiri && gem install json && gem install oj && gem install mechanize && gem install time-lord && gem install twitter && gem install cinch-toolbox`
 
 ###-Section D: Getting Eve-
 
 Now you just need to get Eve from the repo:
 
-    git clone https://github.com/Namasteh/Eve-Bot.git
+`git clone https://github.com/Namasteh/Eve-Bot.git`
 
 ###-Section E: Configuring Eve-
 
@@ -118,3 +118,43 @@ So open docs/userinfo.yaml and place the following inside, save, and close
       auth: yourauthname
       master: true
 
+Plugins & Configuration
+=======
+The following section includes configuration options for some of the plugins that are not required but are enabled by default on the bot. Please read this before coming to IRC to ask questions.
+
+## Wolfram|Alpha ##
+
+***Configuration:***
+
+For this plugin to operate it requires a dependancy to be installed. 
+
+    gem install wolfram-alpha
+    
+After installing that dependency you are fully able to use the plugin, the following is required to insert into Eve.rb for operation.
+
+At the beginning of Eve.rb in the required scripts section put this:
+
+    require_relative "lib/eve/plugins/wolfram"
+    
+In the c.plugins section of Eve.rb put this:
+
+    [Cinch::Plugins::Wolfram]
+    
+Finally in the configuration section of Eve.rb put this:
+
+    c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
+    
+The only thing that **must** be edited out of these lines is c.plugins.options and you must change the 'foo' to **your** Wolfram|Alpha API key, which you can get from [this website][1]. **You can not use the plugin if this option is not configured properly!**
+
+***Usage:***
+
+The bot comes with a comprehensive help system and the Wolfram|Alpha plugin was integrated into this system by default. To receive help in a personal message withe the bot (or even in a channel, though not advised) you can use the following command which will output information on how to use the plugin:
+
+    !help wolfram
+
+To use the functions of the plugin you simply have to use the trigger !wa followed by the query you wish to send to Wolfram|Alpha for calculation and the bot will return with the results (if available).
+
+> [04:44:23] <@Namaste> !wa how old is boxxy?
+[04:44:25] <@Eve> age | of Boxxy |  today   = 22 years 2 months 21 days
+
+  [1]: https://developer.wolframalpha.com/portal/apisignup.html

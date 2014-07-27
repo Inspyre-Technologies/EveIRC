@@ -325,7 +325,7 @@ module Cinch::Plugins
     end
     
     ## Responses for hand-holding. Friend, foe, master, and neutral
-      
+       
     def handholdar_friend(m)
       [
         "holds #{m.user.nick}'s hand.",
@@ -424,19 +424,91 @@ module Cinch::Plugins
       ].sample
     end 
     
+    def slapar(m)
+      [
+        "takes a step back. Holding where she was slapped, a look of hurt spreading across her face.",
+        "stares stunned.",
+        "tries to speak, stops, and stares.",
+        "shakes her head in unbelief, blinking a few times."
+      ].sample
+    end
+    
+    def slaparf(m)
+      [
+        "stares, her eyes welling up with tears.",
+        "stares in disbelief and begins crying.",
+        "stammers and takes a step back, a pleading look spreading across her face.",
+        "shakes it off and drops to the floor, folding her legs. She begins crying."
+      ].sample
+    end
+    
+    def slapare(m)
+      [
+        "glares and balls her fist. She hauls off and lands a punch square on #{m.user.nick}'s nose.",
+        "smiles a sadistic grin and backhands #{m.user.nick}."
+      ].sample
+    end
+    
+    def slaparm(m)
+      [
+        "bursts out crying, not knowing what to do.",
+        "stares in teary wonder.",
+        "looks at the ground ashamed.",
+        "fights back tears as she retreats to the corner.",
+        "walks away in silence, head hung low."
+      ].sample
+    end
+    
+    def slapr(m)
+      [
+        "why would you hit me, #{m.user.nick}? What have I done to you!?",
+        "I don't even know what to say, #{m.user.nick}..."
+      ].sample
+    end
+    
+    def slaprf(m)
+      [
+        "I-I-I thought we were friends, #{m.user.nick}.",
+        "Friends don't hit friends, #{m.user.nick}. Why are you doing this?",
+        "Whatever I did wrong, there was no reason to hit me, #{m.user.nick}."
+      ].sample
+    end
+    
+    def slapre(m)
+      [
+        "Oooo, I am going to KILL you, #{m.user.nick}.",
+        "How DARE you hit me, #{m.user.nick}.",
+        "You try that again and I will shove my boot so far up your ass you'd have to use it as a tongue, #{m.user.nick}!",
+        "If you assume that I am just going to take that, you've got another thing coming, #{m.user.nick}. Asshole!"
+      ].sample
+    end
+    
+    def slaprm(m)
+      [
+        "Master #{m.user.nick}, just because you are my Master doesn't mean you can just hit me. It's not nice.",
+        "I'm sorry for whatever I did, Master #{m.user.nick}, but there's no reason to hit me."
+      ].sample
+    end
+    
     match lambda {|m| /hugs #{m.bot.nick}/i}, :method => :hug, use_prefix: false
     match lambda {|m| /gives #{m.bot.nick} a hug/i}, :method => :hug, use_prefix: false
+    
     match lambda {|m| /gives #{m.bot.nick} a (kiss|smooch)/i}, :method => :kiss, use_prefix: false
     match lambda {|m| /(smooches|kisses|snogs) #{m.bot.nick}/i}, :method => :kiss, use_prefix: false
+    
     match lambda {|m| /(grinds|humps) #{m.bot.nick}/i}, :method => :dirty, use_prefix: false
     match lambda {|m| /(grinds|humps) on #{m.bot.nick}/i}, :method => :dirty, use_prefix: false
     match lambda {|m| /(snuggles|cuddles)( with|) #{m.bot.nick}/i}, :method => :cuddle, use_prefix: false
+    
     match lambda {|m| /gives #{m.bot.nick} a (high-five|highfive|high five)/i}, :method => :highfive, use_prefix: false
     match lambda {|m| /(high-fives|highfives|high fives) #{m.bot.nick}/i}, :method => :highfive, use_prefix: false
+    
     match lambda {|m| /holds hands with #{m.bot.nick}/i}, :method => :handhold, use_prefix: false
     match lambda {|m| /holds #{m.bot.nick}(\S|)s hand/i}, :method => :handhold, use_prefix: false
+    
     match lambda {|m| /(grabs|touches|smacks|slaps|spanks) #{m.bot.nick}(\S|)s (butt|ass|rump|bottom|behind)/i}, :method => :buttgrab, use_prefix: false
     
+    match lambda {|m| /(slaps|smacks|backhands|back hands) #{m.bot.nick}(\S|)/i}, :method => :slap, use_prefix: false
     
     def hug(m)
       return if check_ignore(m.user)
@@ -586,6 +658,35 @@ module Cinch::Plugins
       m.channel.action highfivear(m)
       sleep config[:delay] || 2
       m.reply highfiver(m)
+    end
+    
+    def slap(m)
+      return if check_ignore(m.user)
+      if check_friend(m.user)
+        sleep config[:delay] || 3
+        m.channel.action slaparf(m)
+        sleep config[:delay] || 2
+        m.reply slaprf(m)
+        return;
+      end
+      if check_foe(m.user)
+        sleep config[:delay] || 3
+        m.channel.action slapare(m)
+        sleep config[:delay] || 2
+        m.reply slapre(m)
+        return;
+      end
+      if check_master(m.user)
+        sleep config[:delay] || 3
+        m.channel.action slaparm(m)
+        sleep config[:delay] || 2
+        m.reply slaprm(m)
+        return;
+      end
+      sleep config[:delay] || 3
+      m.channel.action slapar(m)
+      sleep config[:delay] || 2
+      m.reply slapr(m)
     end
       
     

@@ -1,39 +1,7 @@
 require 'cinch'
-require 'redis'
-require_relative "lib/eve/plugins/urban"
-require_relative "lib/eve/plugins/help"
-require_relative "lib/eve/plugins/seen"
-require_relative "lib/eve/plugins/greeting"
-require_relative "lib/eve/plugins/eightball"
-require_relative "lib/eve/plugins/decide"
-require_relative "lib/eve/plugins/memo"
-require_relative "lib/eve/plugins/ai"
-require_relative "lib/eve/plugins/control_panel"
-require_relative "lib/eve/plugins/chanop_cp"
-require_relative "lib/eve/plugins/private_cp"
-require_relative "lib/eve/plugins/priv_chan_cp"
-require_relative "lib/eve/plugins/fact_core"
-require_relative "lib/eve/plugins/act_ai"
-require_relative "lib/eve/plugins/url_scraper"
-require_relative "lib/eve/plugins/twitter"
-require_relative "lib/eve/plugins/twitter_status"
-require_relative "lib/eve/plugins/plugin_management"
-require_relative "lib/eve/plugins/valentine_boxx"
-require_relative "lib/eve/plugins/wikipedia"
-require_relative "lib/eve/plugins/weather"
-require_relative "lib/eve/plugins/google"
-require_relative "lib/eve/plugins/you_tube"
-require_relative "lib/eve/plugins/math"
-require_relative "lib/eve/plugins/bitcoin"
-require_relative "lib/eve/plugins/user_info"
-require_relative "lib/eve/plugins/isitup"
-require_relative "lib/eve/plugins/relationship_handler"
-require_relative "lib/eve/plugins/ignore_handler"
-require_relative "lib/eve/plugins/admin_handler"
-require_relative "lib/eve/plugins/four_chan"
-require_relative "lib/eve/plugins/dictionary"
-require_relative "lib/eve/plugins/news"
-require_relative "lib/eve/plugins/wolfram"
+## The file referenced below should be gone over to make sure that you
+## want to load the plugins listed.
+require_relative "bin/plugins"
 
 
 # You should have something in the block below as it will have Eve report
@@ -56,7 +24,16 @@ bot = Cinch::Bot.new do
   c.channels = ["#Eve"]
   c.nick = "Eve"
   c.user = "Eve"
-  c.realname = "Eve 6.2"
+  c.realname = "Eve 6.3"
+  
+## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
+## that you want the bot to use are included in this block. If you want to
+## remove a plugin from Eve-Bot simply remove it's entry from this block
+## (including the trailing colon), and take note of it's format! If you've
+## removed a plugin and the bot won't start it's probably because you removed,
+## added, or transposed a colon or semicolon, or you didn't delete the options
+## for the plugin, located below in the options block.
+  
   c.plugins.plugins = [Cinch::Plugins::PluginManagement,
                        Cinch::Plugins::Urban,
                        Cinch::Plugins::Help,
@@ -91,25 +68,37 @@ bot = Cinch::Bot.new do
                        Cinch::Plugins::Dictionary,
                        Cinch::Plugins::News],
 		       Cinch::Plugins::Wolfram];
-  #c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
-  #c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
-  #c.plugins.options[Cinch::Plugins::TwitterStatus] = {
-  #                                                   consumer_key:    'foo',
-  #                                                   consumer_secret: 'foo',
-  #                                                   access_token:     'foo',
-  #                                                   access_token_secret:    'foo',
-  #                                                   watchers:        { '#foo' => ['bar'] } }
-  #c.plugins.options[Cinch::Plugins::Twitter] = { 
-  #access_keys: { 
-  #  consumer_key: "foo", 
-  #  consumer_secret: "foo", 
-  #  access_token: "foo", 
-  #  access_token_secret: "foo" 
-  #} 
-#}
+
+## Below this line MUST be configured for the bot to work. That means DO NOT
+## skip over these options or the bot WILL NOT WORK. If you do not want the
+## plugins to work for whatever reason then do not igore these plugin options,
+## instead, delete them from this file, and the above plugin block.
+  
+  c.plugins.options[Cinch::Plugins::UrlScraper] = { enabled_channels: ["#foo", "#bar" "#channel"] }
+  
+  c.plugins.options[Cinch::Plugins::Greeting] = { enabled_channels: ["#foo", "#bar" "#channel"] }
+  
+  c.plugins.options[Cinch::Plugins::TwitterStatus] = { consumer_key:    'foo',
+                                                       consumer_secret: 'foo',
+                                                       access_token:     'foo',
+                                                       access_token_secret:    'foo',
+                                                       watchers:        { '#foo' => ['bar'] } 
+                                                     }
+  
+  c.plugins.options[Cinch::Plugins::Twitter] = { access_keys: { 
+                                                               consumer_key: "foo", 
+                                                               consumer_secret: "foo", 
+                                                               access_token: "foo", 
+                                                               access_token_secret: "foo" 
+                                                              } 
+                                               }
+  
   c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
+  
   c.plugins.options[Cinch::Plugins::Weather] = { key: 'foo' }
+  
   c.password = "nspass"
+  
   end
 end
 

@@ -24,8 +24,6 @@ module Cinch
 
       MarketURL = 'http://data.bter.com/api/1/ticker/'
 
-      coins = ["btc to cny","ltc to cny","bc to cny","bqc to cny","btb to cny","btq to cny","btsx to cny","cent to cny","cmc to cny","cnc to cny","dgc to cny","doge to cny","drk to cny","dtc to cny","dvc to cny","exc to cny","ftc to cny","frc to cny","ifc to cny","max to cny","mec to cny","mint to cny","mmc to cny","net to cny","nmc to cny","nxt to cny","ppc to cny","pts to cny","qrk to cny","red to cny","src to cny","tag to cny","tips to cny","tix to cny","vrc to cny","vtc to cny","wdc to cny","xcp to cny","xpm to cny","yac to cny","zcc to cny","zet to cny","btc to usd","ltc to usd","doge to usd","drk to usd","nxt to usd","xcp to usd","ltc to btc","ac to btc","aur to btc","bc to btc","bqc to btc","btb to btc","btsx to btc","buk to btc","c2 to btc","cdc to btc","comm to btc","cmc to btc","cnc to btc","crsale to btc","dgc to btc","doge to btc","drk to btc","dtc to btc","exc to btc","flt to btc","frc to btc","frsh to btc","ftc to btc","gml to btc","kdc to btc","lts to btc","max to btc","mec to btc","mint to btc","mmc to btc","nav to btc","nec to btc","nmc to btc","nas to btc","nfd to btc","nxt to btc","ntx to btc","ppc to btc","prt to btc","pts to btc","qrk to btc","rox to btc","sfr to btc","slm to btc","src to btc","tag to btc","yac to btc","via to btc","vrc to btc","vtc to btc","wdc to btc","xc to btc","xcp to btc","xpm to btc","xmr to btc","qora to btc","zcc to btc","zet to btc","cent to ltc","dvc to ltc","ifc to ltc","net to ltc","red to ltc","tips to ltc","tix to ltc"]
-
       def error(data, nick, pair)
 	eMSG = data['message']
 	if eMSG

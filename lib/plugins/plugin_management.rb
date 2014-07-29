@@ -26,7 +26,7 @@ module Cinch
           $1 + "_" + $2
         }.downcase # we downcase here to also catch the first letter
 
-        file_name = "lib/eve/plugins/#{mapping}.rb"
+        file_name = "lib/plugins/#{mapping}.rb"
           if check_master(m.user) == true
             unless File.exist?(file_name)
               m.reply Format(:red, "Could not load #{plugin} because #{file_name} does not exist.")

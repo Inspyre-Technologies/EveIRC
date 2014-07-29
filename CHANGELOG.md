@@ -2,6 +2,16 @@
 #### [Current]
 
 #### 
+ * [05abd2e](../../commit/05abd2e) - __(Namasteh)__ Added bin directory for storage of require block, it just looks better
+ * [f76ee36](../../commit/f76ee36) - __(Namasteh)__ Updated Eve.rb to reflect addition of Reddit, WordGame, and Tag, as well as the deletion of BitCoin. Removed long require block and moved to bin/plugins.rb
+ * [fb34cc1](../../commit/fb34cc1) - __(Namasteh)__ Updated README to reflect addition of Reddit, WordGame, and Tag
+ * [a48989c](../../commit/a48989c) - __(Namasteh)__ Updated help to reflect removal of Bitcoin, and addition of Reddit, WordGame, and Tag
+ * [0166e89](../../commit/0166e89) - __(Namasteh)__ Added Reddit plugin.
+ * [c50810c](../../commit/c50810c) - __(Namasteh)__ Added WordGame plugin
+ * [0f25140](../../commit/0f25140) - __(Namasteh)__ Added Tag game plugin
+ * [dd93022](../../commit/dd93022) - __(Namasteh)__ Added CoinQuery to replace BitCoin as it queries and returns results for most cryptocoins
+ * [322af95](../../commit/322af95) - __(Namasteh)__ Removed BitCoin plugin as it is yanked from project
+ * [c5904a4](../../commit/c5904a4) - __(Namasteh)__ Added Changelog to project
  * [420f1f6](../../commit/420f1f6) - __(Namasteh)__ Added usage information for Wolfram|Alpha plugin in README
  * [0461d5d](../../commit/0461d5d) - __(Namasteh)__ Added Wolfram|Alpha plugin and cleaned up some code
  * [bdd8e24](../../commit/bdd8e24) - __(Namasteh)__ Added negatives to AI

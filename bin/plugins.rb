@@ -38,6 +38,10 @@ require_relative "../lib/plugins/four_chan"
 require_relative "../lib/plugins/dictionary"
 require_relative "../lib/plugins/news"
 require_relative "../lib/plugins/wolfram"
+require_relative "../lib/plugins/reddit"
+require_relative "../lib/plugins/word_game"
+require_relative "../lib/plugins/tag"
+require_relative "../lib/plugins/coin_query"
 
 ## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
 ## E-mail: namaste@rawrnet.net

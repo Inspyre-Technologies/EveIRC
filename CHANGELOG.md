@@ -2,6 +2,7 @@
 #### [Current]
 
 #### 
+ * [00c151a](../../commit/00c151a) - __(Namasteh)__ Added CHANGELOG for better management of commits
  * [05abd2e](../../commit/05abd2e) - __(Namasteh)__ Added bin directory for storage of require block, it just looks better
  * [f76ee36](../../commit/f76ee36) - __(Namasteh)__ Updated Eve.rb to reflect addition of Reddit, WordGame, and Tag, as well as the deletion of BitCoin. Removed long require block and moved to bin/plugins.rb
  * [fb34cc1](../../commit/fb34cc1) - __(Namasteh)__ Updated README to reflect addition of Reddit, WordGame, and Tag

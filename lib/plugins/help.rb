@@ -15,6 +15,8 @@ module Cinch::Plugins
     match "!help"
 
     def execute(m)
+      return if check_ignore(m.user)
+
       list = @bot.plugins.map {|p| p.class.plugin_name}
 
       list = list.sort.join(', ')
@@ -22,7 +24,6 @@ module Cinch::Plugins
       m.user.send Format(:green, "Hello, #{m.user.nick}")
       m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
       m.user.send Format(:orange, "#{list}")
-      return;
     end
   end
 end

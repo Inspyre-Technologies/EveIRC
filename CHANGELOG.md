@@ -2,6 +2,22 @@
 #### [Current]
 
 #### 
+ * [5708044](../../commit/5708044) - __(Namasteh)__ Fixed Eve.rb to support new plugins
+ * [bbd5709](../../commit/bbd5709) - __(Namasteh)__ Cleaned up some code, and added case-insensitive commands
+ * [e99167c](../../commit/e99167c) - __(Namasteh)__ Added BotInfo plugin
+ * [640dba1](../../commit/640dba1) - __(Namasteh)__ Made Help plugin dynamic and cleaned up some code
+ * [a7c21cd](../../commit/a7c21cd) - __(Namasteh)__ Update
+ * [bae705c](../../commit/bae705c) - __(Namasteh)__ Removed useless code, added ignore check
+ * [7e341bc](../../commit/7e341bc) - __(Namasteh)__ Removed useless code, and stripped custom prefix
+ * [7b7ddcf](../../commit/7b7ddcf) - __(Namasteh)__ Changed help to dynamic help, also added version return
+ * [5fa4ecb](../../commit/5fa4ecb) - __(Namasteh)__ Removed useless coin array
+ * [0b1f545](../../commit/0b1f545) - __(Richard Banks)__ Merge pull request [#31](../../issues/31) from Namasteh/devel
+
+Devel
+ * [ecb06a6](../../commit/ecb06a6) - __(Richard Banks)__ Merge pull request [#30](../../issues/30) from Namasteh/master
+
+v6.3
+ * [0910429](../../commit/0910429) - __(Namasteh)__ Updated changelog
  * [00c151a](../../commit/00c151a) - __(Namasteh)__ Added CHANGELOG for better management of commits
  * [05abd2e](../../commit/05abd2e) - __(Namasteh)__ Added bin directory for storage of require block, it just looks better
  * [f76ee36](../../commit/f76ee36) - __(Namasteh)__ Updated Eve.rb to reflect addition of Reddit, WordGame, and Tag, as well as the deletion of BitCoin. Removed long require block and moved to bin/plugins.rb
@@ -13,6 +29,9 @@
  * [dd93022](../../commit/dd93022) - __(Namasteh)__ Added CoinQuery to replace BitCoin as it queries and returns results for most cryptocoins
  * [322af95](../../commit/322af95) - __(Namasteh)__ Removed BitCoin plugin as it is yanked from project
  * [c5904a4](../../commit/c5904a4) - __(Namasteh)__ Added Changelog to project
+ * [7155741](../../commit/7155741) - __(Zach)__ Merge pull request [#29](../../issues/29) from Namasteh/master
+
+Get devel up to date
  * [420f1f6](../../commit/420f1f6) - __(Namasteh)__ Added usage information for Wolfram|Alpha plugin in README
  * [0461d5d](../../commit/0461d5d) - __(Namasteh)__ Added Wolfram|Alpha plugin and cleaned up some code
  * [bdd8e24](../../commit/bdd8e24) - __(Namasteh)__ Added negatives to AI

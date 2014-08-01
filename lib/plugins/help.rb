@@ -7,11 +7,12 @@
 
 require 'cinch'
 require_relative "config/check_ignore"
+require_relative "config/check_master"
 
 module Cinch::Plugins
   class Help
     include Cinch::Plugin
-    
+
     match "help"
 
     def execute(m)
@@ -19,16 +20,32 @@ module Cinch::Plugins
 
       list = @bot.plugins.map {|p| p.class.plugin_name}
 
-      for i in list
-	if i !="ai"
+      exList = ["ai",
+                "actai",
+                "help"
+              ]
 
-	  list = i.sort.join(', ')
+      mList  = ["controlpanel",
+                "ignorehandler",
+                "pluginmanagement",
+                "privatecp",
+                "privchancp",
+                "relationshiphandler",
+                "adminhandler"
+              ]
 
-	  m.user.send Format(:green, "Hello, #{m.user.nick}")
-	  m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
-	  m.user.send Format(:orange, "#{list}")
-	end
+      newList = list - exList - mList
+
+      if check_master(m.user)
+        m.user.send Format(:green, "Hello, #{m.user.nick}")
+        m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
+        m.user.send Format(:orange, "#{newList.sort.join(", ")}")
+        m.user.send Format(:red, "The following commands are for Masters of the bot only! #{mList.sort.join(", ")}")
+        return
       end
+      m.user.send Format(:green, "Hello, #{m.user.nick}")
+      m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
+      m.user.send Format(:orange, "#{newList.sort.join(", ")}")
     end
   end
 end

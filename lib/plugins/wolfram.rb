@@ -4,7 +4,7 @@ module Cinch
   module Plugins
     class Wolfram
       include Cinch::Plugin
-      
+
       set :required_options, [:key]
       set :plugin_name, 'wolfram'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
@@ -12,23 +12,23 @@ module Cinch
       Usage:
       !wa <query>: The bot will query Wolfram|Alpha and return with results (if there are any).
       USAGE
-      
-      match /wa (.+)/
-      
-      def execute(m, search)
-	key = config[:key]
-	
-	options = { "format" => "plaintext" }
 
-	client = WolframAlpha::Client.new "#{key}", options
-	response = client.query "#{search}"
-	
-	input = response["Input"]
-	result = response.find { |pod| pod.title == "Result" }
-	
-	return m.reply "Error: Result not found" if result.nil?
-	
-	m.reply "#{input.subpods[0].plaintext} = #{result.subpods[0].plaintext}"
+      match /wa (.+)/
+
+      def execute(m, search)
+        key = config[:key]
+
+        options = { "format" => "plaintext" }
+
+        client = WolframAlpha::Client.new "#{key}", options
+        response = client.query "#{search}"
+
+        input = response["Input"]
+        result = response.find { |pod| pod.title == "Result" }
+
+        return m.reply "Error: Result not found" if result.nil?
+
+        m.reply "#{input.subpods[0].plaintext} = #{result.subpods[0].plaintext}"
       end
     end
   end

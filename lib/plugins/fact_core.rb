@@ -4,15 +4,15 @@ require_relative "config/check_ignore"
 module Cinch::Plugins
   class FactCore
     include Cinch::Plugin
-    
+
     set :prefix, /^~/
     set :plugin_name, 'factcore'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Gives a funny, and sometimes true fact
       Usage:
-      - ~fact: This will cause me to return with a funny (and sometimes true) fact!
+      - !fact: This will cause me to return with a funny (and sometimes true) fact!
       USAGE
-    
+
     def fact(m)
       [
         Format(:green, "Fact: Space does not exist."),
@@ -81,9 +81,9 @@ module Cinch::Plugins
         Format(:green, "Dreams are the subconscious mind's way of reminding people to go to school naked and have their teeth fall out.")
       ].sample
     end
-      
-    match /fact/, method: :execute_fact
-    
+
+    match /fact/i, method: :execute_fact
+
     def execute_fact(m)
       return if check_ignore(m.user)
       m.reply fact(m)
@@ -91,8 +91,9 @@ module Cinch::Plugins
   end
 end
 
-# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
-# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
-# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net        
-        
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip       

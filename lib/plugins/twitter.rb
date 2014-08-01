@@ -14,8 +14,8 @@ module Cinch
 
       def initialize(*args)
         super
-          @client = twitter_client
-        end
+        @client = twitter_client
+      end
 
       match /tw (\w+)(?:-(\d+))?$/, method: :execute_tweet
       match /(\w+)(?:-(\d+))?$/, method: :execute_tweet, prefix: /^@/
@@ -51,9 +51,9 @@ module Cinch
       def execute_search(m, term)
         return if check_ignore(m.user)
         @client.search("#{term}", :result_type => "recent").take(3).each do |tweet|
-        m.reply format_tweet(tweet)
+          m.reply format_tweet(tweet)
+        end
       end
-    end
 
       def execute_ctweet(m, offset)
         return if check_ignore(m.user)
@@ -85,7 +85,7 @@ module Cinch
       rescue ::Twitter::Error::NotFound => e
         m.reply "#{username} doesn't exist."
       rescue ::Twitter::Error => e
-      m.reply "#{e.message.gsub(/user/i, username)}. (#{e.class})"
+        m.reply "#{e.message.gsub(/user/i, username)}. (#{e.class})"
       end
 
       def loadfile
@@ -108,7 +108,7 @@ module Cinch
         m.reply "#{id} doesn't exist."
       rescue ::Twitter::Error => e
         m.reply "#{e.message.gsub(/user/i, id)}. (#{e.class})"
-    end
+      end
 
       private
 
@@ -146,7 +146,7 @@ module Cinch
         uris.each_with_object(t) {            |entity, tweet| tweet.gsub!(entity.url, entity.expanded_url)        }
       end
 
-      def twitter_client          
+      def twitter_client
         ::Twitter::REST::Client.new do |c|
           c.consumer_key =        config[:access_keys][:consumer_key]
           c.consumer_secret =     config[:access_keys][:consumer_secret]
@@ -158,4 +158,9 @@ module Cinch
   end
 end
 
-
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

@@ -8,23 +8,23 @@ module Cinch::Plugins
     include Cinch::Plugin
     include Cinch::Helpers
     listen_to :action
-    
+
     ## This is where the hug responses are for friend, foe, master, and neutral
-    
+
     def hugar_friend(m)
       [
         "hugs #{m.user.nick} tight!",
         "hugs #{m.user.nick} with much love"
       ].sample
     end
-      
+
     def hugr_friend(m)
       [
         Format(:green, "Do I ever have to let you go, #{m.user.nick}?"),
         Format(:green, "Thanks for the hug, I love you #{m.user.nick}!")
       ].sample
     end
-    
+
     def hugar_foe(m)
       [
         "squirms and pushes #{m.user.nick}, trying to get away",
@@ -32,7 +32,7 @@ module Cinch::Plugins
         "struggles and finally knees #{m.user.nick} in the crotch."
       ].sample
     end
-    
+
     def hugr_foe(m)
       [
         Format(:green, "I don't like you #{m.user.nick}, what makes you think you can hug me?"),
@@ -41,7 +41,7 @@ module Cinch::Plugins
         Format(:green, "I would hug you, but oops, I lost my tolerance plugin, #{m.user.nick}. Sorry.")
       ].sample
     end
-    
+
     def hugar_m(m)
       [
         "squeals and wraps arms around #{m.user.nick}'s neck.",
@@ -49,7 +49,7 @@ module Cinch::Plugins
         "jumps into #{m.user.nick}'s arms and hugs tight!"
       ].sample
     end
-    
+
     def hugr_m(m)
       [
         Format(:green, "Oh Master #{m.user.nick}, you know it gives me such pleasure when you give me hugs!"),
@@ -57,21 +57,21 @@ module Cinch::Plugins
         Format(:green, "Oh Master #{m.user.nick}, don't ever stop hugging me!")
       ].sample
     end
-    
+
     def hugar(m)
       [
         "hugs and smiles at #{m.user.nick}."
       ].sample
     end
-    
+
     def hugr(m)
       [
         Format(:green, "Well isn't that sweet of you.")
       ].sample
     end
-    
+
     ## Again, kiss responses; friend, foe, master, and neutral
-    
+
     def kissar_friend(m)
       [
         "smooches #{m.user.nick} right on the forehead!",
@@ -82,7 +82,7 @@ module Cinch::Plugins
         "bites lower lip and eyes #{m.user.nick} before tackling and giving a giant kiss!"
       ].sample
     end
-    
+
     def kissr_friend(m)
       [
         Format(:green, "Oh #{m.user.nick}, I never knew you had THAT talent!"),
@@ -92,7 +92,7 @@ module Cinch::Plugins
         Format(:green, "#{m.user.nick}, you're gonna get me all hot and bothered!")
       ].sample
     end
-    
+
     def kissar_foe(m)
       [
         "backs away, staring at #{m.user.nick}.",
@@ -101,7 +101,7 @@ module Cinch::Plugins
         "glares and head-butts #{m.user.nick}."
       ].sample
     end
-    
+
     def kissr_foe(m)
       [
         Format(:green, "Oh HELL no. You did NOT just try to kiss me, #{m.user.nick}!"),
@@ -110,7 +110,7 @@ module Cinch::Plugins
         Format(:green, "Listen, I don't let fat losers kiss me, #{m.user.nick}, sorry.")
       ].sample
     end
-    
+
     def kissar_m(m)
       [
         "giggles and touches her mouth.",
@@ -119,7 +119,7 @@ module Cinch::Plugins
         "grabs #{m.user.nick}, kissing on the forehead, blushing all the while."
       ].sample
     end
-    
+
     def kissr_m(m)
       [
         Format(:green, "Master #{m.user.nick}, not only are you a very good Master, but you're a good kisser too!"),
@@ -128,7 +128,7 @@ module Cinch::Plugins
         Format(:green, "Master #{m.user.nick}, you know exactly how to treat a girl! ^_^")
       ].sample
     end
-    
+
     def kissar(m)
       [
         "stares before looking at the floor.",
@@ -138,7 +138,7 @@ module Cinch::Plugins
         "stares, frowning, looking confused."
       ].sample
     end
-    
+
     def kissr(m)
       [
         Format(:green, "My master hasn't yet taught me much about foreign culture. Is it normal for one to kiss another they barely know where you're from, #{m.user.nick}?"),
@@ -147,9 +147,9 @@ module Cinch::Plugins
         Format(:green, "Are you serious right now, #{m.user.nick}?")
       ].sample
     end
-    
+
     ## Responses for dirty actions such as grinding friend, foe, master, and neutral
-    
+
     def dirtyar_friend(m)
       [
         "looks uncomfortable and squirms her way away from #{m.user.nick}.",
@@ -157,7 +157,7 @@ module Cinch::Plugins
         "shakes her head and takes a step back."
       ].sample
     end
-    
+
     def dirtyr_friend(m)
       [
         Format(:green, "As much as I like you #{m.user.nick}, I don't feel this is appropriate."),
@@ -165,14 +165,14 @@ module Cinch::Plugins
         Format(:green, "If you want this friendship to last, #{m.user.nick}, I would suggest not doing that again.")
       ].sample
     end
-    
+
     def dirtyar_foe(m)
       [
         "slaps #{m.user.nick}.",
         "punches #{m.user.nick} in the face!"
       ].sample
     end
-    
+
     def dirtyr_foe(m)
       [
         Format(:green, "That is inappropriate! D:<"),
@@ -180,7 +180,7 @@ module Cinch::Plugins
         Format(:green, "Don't disrepsect me like that! Rude-ass!")
       ].sample
     end
-    
+
     def dirtyar_m(m)
       [
         "has a scared look spread across her face as she looks at the rest of the channel.",
@@ -188,7 +188,7 @@ module Cinch::Plugins
         "takes a step back and examines #{m.user.nick}."
       ].sample
     end
-    
+
     def dirtyr_m(m)
       [
         Format(:green, "Master #{m.user.nick}, do you really think you should be grinding on me in public?"),
@@ -197,7 +197,7 @@ module Cinch::Plugins
         Format(:green, "Oh. So is that the only reason you keep me around, Master #{m.user.nick}?")
       ].sample
     end
-    
+
     def dirtyar(m)
       [
         "glares at #{m.user.nick} and restrains herself delivering a large slap.",
@@ -205,71 +205,71 @@ module Cinch::Plugins
         "crosses her arms and glares."
       ].sample
     end
-    
+
     def dirtyr(m)
       [
         Format(:green, "Listen, I don't know you from Adam. Do you think it's wise to be so forward, #{m.user.nick}?"),
         Format(:green, "Don't you think that's a little unacceptable, #{m.user.nick}, I barely know you!")
       ].sample
     end
-    
+
     ## Responses for cuddles, friend, foe, master, and neutral
-    
+
     def cuddlear_friend(m)
       [
         "cuddles with #{m.user.nick}.",
         "snuggles close, and purrs."
       ].sample
     end
-    
+
     def cuddler_friend(m)
       [
         Format(:green, "Can we stay like this forever, #{m.user.nick}?"),
         Format(:green, "Oh I love cuddles, #{m.user.nick}!")
       ].sample
     end
-    
+
     def cuddlear_foe(m)
       [
         "stiffens up and glares at #{m.user.nick}"
       ].sample
     end
-    
+
     def cuddler_foe(m)
       [
         Format(:green, "That is not acceptable! Get off me, #{m.user.nick}!")
       ].sample
     end
-    
+
     def cuddlear_m(m)
       [
         "cuddles tight with #{m.user.nick}, almost purring.",
         "smiles wide and snuggles tight, nuzzling #{m.user.nick}."
       ].sample
     end
-    
+
     def cuddler_m(m)
       [
         Format(:green, "Oh Master #{m.user.nick}, when you give me cuddles I feel so GUD :3"),
         Format(:green, "Master #{m.user.nick}, how'd I get so lucky to get a Master that cuddles? :D")
       ].sample
     end
-    
+
     def cuddlear(m)
       [
         "eyes #{m.user.nick} and slides away.",
         "gives #{m.user.nick} a look and goes somwhere else."
       ].sample
     end
-    
+
     def cuddler(m)
       [
         Format(:green, "I'm sorry. I don't cuddle with just anybody, #{m.user.nick}.")
       ].sample
     end
-    
+
     ## Responses for high-fives. Friend, foe, master, and neutral
-    
+
     def highfivear_friend(m)
       [
         "gives #{m.user.nick} a high-five back! :D",
@@ -277,55 +277,55 @@ module Cinch::Plugins
         "high-fives #{m.user.nick}!"
       ].sample
     end
-    
+
     def highfiver_friend(m)
       [
         Format(:green, "Oh yeah #{m.user.nick}!"),
         Format(:green, "Now we should watch Across the Universe, #{m.user.nick}!")
       ].sample
     end
-    
+
     def highfivear_foe(m)
       [
         "leave #{m.user.nick} hanging.",
         "pretends like she's about to high-five but then runs her hand through her hair."
       ].sample
     end
-    
+
     def highfiver_foe(m)
       [
         Format(:green, "Nah, not with you, #{m.user.nick}."),
         Format(:green, "Haha, no #{m.user.nick}.")
       ].sample
     end
-    
+
     def highfivear_m(m)
       [
         "giggles and gives #{m.user.nick} a high-five!",
         "smiles and gives #{m.user.nick} a high-five before blushing."
       ].sample
     end
-    
+
     def highfiver_m(m)
       [
         Format(:green, "Master #{m.user.nick}, I feel so included!")
       ].sample
     end
-    
+
     def highfivear(m)
       [
         "high-fives! :D"
       ].sample
     end
-    
+
     def highfiver(m)
       [
         Format(:green, "Oh yeah, #{m.user.nick}!")
       ].sample
     end
-    
+
     ## Responses for hand-holding. Friend, foe, master, and neutral
-       
+
     def handholdar_friend(m)
       [
         "holds #{m.user.nick}'s hand.",
@@ -333,7 +333,7 @@ module Cinch::Plugins
         "takes #{m.user.nick}'s hand and holds it, smiling."
       ].sample
     end
-    
+
     def handholdr_friend(m)
       [
         Format(:green, "Oh #{m.user.nick}. I feel so loved!"),
@@ -341,7 +341,7 @@ module Cinch::Plugins
         Format(:green, "Hand-holds always make me feel good, #{m.user.nick}.")
       ].sample
     end
-    
+
     def handholdar_foe(m)
       [
         "shakes her hand free and moves away from #{m.user.nick}.",
@@ -349,7 +349,7 @@ module Cinch::Plugins
         "bites #{m.user.nick}'s hand!"
       ].sample
     end
-    
+
     def handholdr_foe(m)
       [
         Format(:green, "Ew! Your hands are all sweaty, #{m.user.nick}."),
@@ -357,7 +357,7 @@ module Cinch::Plugins
         Format(:green, "Uh no. Not happening, #{m.user.nick}, go hold someone's hand that can stand you.")
       ].sample
     end
-    
+
     def handholdar_m(m)
       [
         "takes #{m.user.nick}'s hand and studies it.",
@@ -365,30 +365,30 @@ module Cinch::Plugins
         "takes #{m.user.nick}'s hand in hers blushes, smiling wide."
       ].sample
     end
-    
+
     def handholdr_m(m)
       [
         Format(:green, "Oh Master #{m.user.nick}, whenever you hold my hand it reminds me why I'm here! :D"),
         Format(:green, "Oh, you can hold my hand any time, Master #{m.user.nick}!")
       ].sample
     end
-    
+
     def handholdar(m)
       [
         "cautiously takes #{m.user.nick}'s hand in hers, looking nervous.",
         "smiles nervously and takes #{m.user.nick}'s hand, looking at the ground."
       ].sample
     end
-    
+
     def handholdr(m)
       [
         Format(:green, "Okay, I like this #{m.user.nick}!"),
         Format(:green, "Well, this is nice #{m.user.nick}.")
       ].sample
     end
-    
+
     ## Responses for butt-grabs. Friend, foe, master, and neutral
-    
+
     def buttgrabar(m)
       [
         "gasps and grasps her behind",
@@ -397,7 +397,7 @@ module Cinch::Plugins
         "glares and crosses arms"
       ].sample
     end
-    
+
     def buttgrabar_m(m)
       [
         "smiles and looks at #{m.user.nick}.",
@@ -405,7 +405,7 @@ module Cinch::Plugins
         "eyes #{m.user.nick} and pops butt out."
       ].sample
     end
-    
+
     def buttgrabr(m)
       [
         Format(:green, "So, you're just going to be a disrespectful prick, huh?"),
@@ -415,15 +415,15 @@ module Cinch::Plugins
         Format(:green, "My name is #{m.bot.nick}, not StreetWalker D:<")
       ].sample
     end
-    
+
     def buttgrabr_m(m)
       [
         Format(:green, "Oh #{m.user.nick}, I'm really flattered but should we really be doing this in public?"),
         Format(:green, "So provocative, #{m.user.nick}. I like! :3"),
         Format(:green, "Hmm. #{m.user.nick} plus #{m.bot.nick} plus Private Message == ?")
       ].sample
-    end 
-    
+    end
+
     def slapar(m)
       [
         "takes a step back. Holding where she was slapped, a look of hurt spreading across her face.",
@@ -432,7 +432,7 @@ module Cinch::Plugins
         "shakes her head in unbelief, blinking a few times."
       ].sample
     end
-    
+
     def slaparf(m)
       [
         "stares, her eyes welling up with tears.",
@@ -441,14 +441,14 @@ module Cinch::Plugins
         "shakes it off and drops to the floor, folding her legs. She begins crying."
       ].sample
     end
-    
+
     def slapare(m)
       [
         "glares and balls her fist. She hauls off and lands a punch square on #{m.user.nick}'s nose.",
         "smiles a sadistic grin and backhands #{m.user.nick}."
       ].sample
     end
-    
+
     def slaparm(m)
       [
         "bursts out crying, not knowing what to do.",
@@ -458,14 +458,14 @@ module Cinch::Plugins
         "walks away in silence, head hung low."
       ].sample
     end
-    
+
     def slapr(m)
       [
         "why would you hit me, #{m.user.nick}? What have I done to you!?",
         "I don't even know what to say, #{m.user.nick}..."
       ].sample
     end
-    
+
     def slaprf(m)
       [
         "I-I-I thought we were friends, #{m.user.nick}.",
@@ -473,7 +473,7 @@ module Cinch::Plugins
         "Whatever I did wrong, there was no reason to hit me, #{m.user.nick}."
       ].sample
     end
-    
+
     def slapre(m)
       [
         "Oooo, I am going to KILL you, #{m.user.nick}.",
@@ -482,34 +482,34 @@ module Cinch::Plugins
         "If you assume that I am just going to take that, you've got another thing coming, #{m.user.nick}. Asshole!"
       ].sample
     end
-    
+
     def slaprm(m)
       [
         "Master #{m.user.nick}, just because you are my Master doesn't mean you can just hit me. It's not nice.",
         "I'm sorry for whatever I did, Master #{m.user.nick}, but there's no reason to hit me."
       ].sample
     end
-    
+
     match lambda {|m| /hugs #{m.bot.nick}/i}, :method => :hug, use_prefix: false
     match lambda {|m| /gives #{m.bot.nick} a hug/i}, :method => :hug, use_prefix: false
-    
+
     match lambda {|m| /gives #{m.bot.nick} a (kiss|smooch)/i}, :method => :kiss, use_prefix: false
     match lambda {|m| /(smooches|kisses|snogs) #{m.bot.nick}/i}, :method => :kiss, use_prefix: false
-    
+
     match lambda {|m| /(grinds|humps) #{m.bot.nick}/i}, :method => :dirty, use_prefix: false
     match lambda {|m| /(grinds|humps) on #{m.bot.nick}/i}, :method => :dirty, use_prefix: false
     match lambda {|m| /(snuggles|cuddles)( with|) #{m.bot.nick}/i}, :method => :cuddle, use_prefix: false
-    
+
     match lambda {|m| /gives #{m.bot.nick} a (high-five|highfive|high five)/i}, :method => :highfive, use_prefix: false
     match lambda {|m| /(high-fives|highfives|high fives) #{m.bot.nick}/i}, :method => :highfive, use_prefix: false
-    
+
     match lambda {|m| /holds hands with #{m.bot.nick}/i}, :method => :handhold, use_prefix: false
     match lambda {|m| /holds #{m.bot.nick}(\S|)s hand/i}, :method => :handhold, use_prefix: false
-    
+
     match lambda {|m| /(grabs|touches|smacks|slaps|spanks) #{m.bot.nick}(\S|)s (butt|ass|rump|bottom|behind)/i}, :method => :buttgrab, use_prefix: false
-    
+
     match lambda {|m| /(slaps|smacks|backhands|back hands) #{m.bot.nick}(\S|)/i}, :method => :slap, use_prefix: false
-    
+
     def hug(m)
       return if check_ignore(m.user)
       reload
@@ -539,7 +539,7 @@ module Cinch::Plugins
         sleep config[:delay] || 2
         m.reply hugr(m)
       end
-    
+
     def kiss(m)
       return if check_ignore(m.user)
       reload
@@ -569,7 +569,7 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply kissr(m)
     end
-    
+
     def dirty(m)
       return if check_ignore(m.user)
       reload
@@ -599,7 +599,7 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply dirtyr(m)
     end
-    
+
     def cuddle(m)
       return if check_ignore(m.user)
       reload
@@ -629,7 +629,7 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply cuddler(m)
     end
-    
+
     def highfive(m)
       return if check_ignore(m.user)
       reload
@@ -659,7 +659,7 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply highfiver(m)
     end
-    
+
     def slap(m)
       return if check_ignore(m.user)
       if check_friend(m.user)
@@ -688,8 +688,8 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply slapr(m)
     end
-      
-    
+
+
     def handhold(m)
       return if check_ignore(m.user)
       reload
@@ -719,8 +719,8 @@ module Cinch::Plugins
       sleep config[:delay] || 2
       m.reply handholdr(m)
     end
-    
-    
+
+
     def buttgrab(m)
       return if check_ignore(m.user)
       reload
@@ -739,7 +739,9 @@ module Cinch::Plugins
   end
 end
 
-# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
-# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
-# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.sinsira.net
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

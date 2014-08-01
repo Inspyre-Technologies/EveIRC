@@ -7,26 +7,26 @@ require_relative "config/check_ignore"
 module Cinch::Plugins
   class Memo
     include Cinch::Plugin
-    
+
     set :plugin_name, 'memo'
-    set :help, <<-USAGE.gsub(/^ {6}/, '') 
-      Sometimes MemoServ can be confusing or some users just don't notice that they have messages. This is a good way to leave messages for users! Please use this command in a PM with me.
-      Usage:
-      * !memo <nick> <message>: I will store a message for the specified nick until they speak again in a channel I am in, then I will PM them your memo!
+    set :help, <<-USAGE.gsub(/^ {6}/, '')
+    Sometimes MemoServ can be confusing or some users just don't notice that they have messages. This is a good way to leave messages for users! Please use this command in a PM with me.
+    Usage:
+    * !memo <nick> <message>: I will store a message for the specified nick until they speak again in a channel I am in, then I will PM them your memo!
     USAGE
 
     def initialize(*args)
       super
-        if File.exist?('docs/memos.yaml')
-          @memos = YAML.load_file('docs/memos.yaml')
-        else
-          @memos = {}
-        end
+      if File.exist?('docs/memos.yaml')
+        @memos = YAML.load_file('docs/memos.yaml')
+      else
+        @memos = {}
       end
+    end
 
     listen_to :message
 
-    match /memo (.+?) (.+)/
+    match /memo (.+?) (.+)/i
 
     def listen(m)
       if @memos.key?(m.user.nick) and @memos[m.user.nick].size > 0
@@ -34,10 +34,10 @@ module Cinch::Plugins
           msg = @memos[m.user.nick].shift
           m.user.send msg
         end
-          @memos.delete m.user.nick
-          update_store
-        end
+        @memos.delete m.user.nick
+        update_store
       end
+    end
 
     def execute(m, nick, message)
       return if check_ignore(m.user)
@@ -61,11 +61,11 @@ module Cinch::Plugins
 
     def update_store
       synchronize(:update) do
-      File.open('docs/memos.yaml', 'w') do |fh|
-      YAML.dump(@memos, fh)
+        File.open('docs/memos.yaml', 'w') do |fh|
+          YAML.dump(@memos, fh)
+        end
+      end
     end
-  end
-end
 
     def make_msg(nick, channel, text, time)
       t = time.strftime("%Y-%m-%d")
@@ -74,7 +74,9 @@ end
   end
 end
 
-# EVE is a project for a Top-Tier IRC bot, and the project could always use more help.
-# Feel free to contribute at the github:  https://github.com/Namasteh/Eve-Bot
-# For help with the Cinch framework you can always visit #Cinch at irc.freenode.net
-# For help with EVE you can always visit #Eve at rawr.coreirc.org
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

@@ -10,13 +10,13 @@ require_relative "config/check_master"
 require_relative "config/check_relationship"
 require_relative "config/ratelimit"
 require_relative "config/check_ignore"
-     
+
 module Cinch
   module Plugins
     class Greeting
       include Cinch::Plugin
       include Cinch::Helpers
-       
+
       def greet(m)
         [
           Format(:green, "Hi #{m.user.nick}!"),
@@ -27,7 +27,7 @@ module Cinch
           Format(:green, "Hello, and welcome to #{m.channel}, #{m.user.nick}. Cake, and grief counselling, will be available at the conclusion of your visit.")
         ].sample
       end
-      
+
       def greet_friend(m)
         [
           Format(:green, "#{m.user.nick}, I love you!"),
@@ -39,7 +39,7 @@ module Cinch
           Format(:green, "Guys, my friend #{m.user.nick} is here, show some respect, pls!")
         ].sample
       end
-        
+
       def greet_foe(m)
         [
           Format(:green, "Oh it's #{m.user.nick}, look what the cat dragged in."),
@@ -48,13 +48,13 @@ module Cinch
           Format(:green, "Oh. It's you, #{m.user.nick}.")
         ].sample
       end
-      
+
       def greet_m(m)
         [
           Format(:green, "Greetings, Master #{m.user.nick}.")
         ].sample
       end
-                  
+
       def leave(m)
         [
           Format(:green, "Well fine then #{m.user.nick}, we didn't want to talk to you anyway"),
@@ -67,7 +67,7 @@ module Cinch
           Format(:green, "#{m.user.nick} there you go with my heart again.")
         ].sample
       end
-      
+
       def botgreet(m)
         [
           Format(:green, "I'm different"),
@@ -78,9 +78,9 @@ module Cinch
           Format(:green, "It's been a long time. How have you been? I've been *really* busy being dead. You know, after you MURDERED ME?")
         ].sample
       end
-          
+
         listen_to :join, :method => :hello
-      
+
       def hello(m)
         return if check_ignore(m.user)
         reload
@@ -120,9 +120,9 @@ module Cinch
           m.reply greet(m)
         end
       end
-      
+
       listen_to :join, :method => :botj
-        
+
       def botj(m)
         return unless config[:enabled_channels].include?(m.channel.name)
         if m.user.nick == bot.nick
@@ -130,9 +130,9 @@ module Cinch
           m.reply botgreet(m)
         end
       end
-      
+
       listen_to :leaving, :method => :goodbye
-        
+
       def goodbye(m, channel)
         bye = limit = ratelimit(:goodbye, 60)
         return if bye > 0
@@ -142,7 +142,7 @@ module Cinch
         return;
       end
     end
-    
+
     def reload
       if File.exist?('docs/userinfo.yaml')
        @storage = YAML.load_file('docs/userinfo.yaml')
@@ -152,32 +152,31 @@ module Cinch
     end
 
 
-    
-    set :prefix, /^~/
-    match /greeting (on|off)$/
-    
+
+    match /greeting (on|off)$/i
+
     def execute(m, option)
       begin
         return unless check_master(m.user)
-        
+
         @greeting = option == "on"
-        
+
         case option
           when "on"
             config[:enabled_channels] << m.channel.name
           else
             config[:enabled_channels].delete(m.channel.name)
           end
-          
+
           m.reply Format(:green, "Greetings for #{m.channel} are now #{@greeting ? 'enabled' : 'disabled'}!")
-          
+
           @bot.debug("#{self.class.name} ? #{config[:enabled_channels].inspect}");
-          
-        rescue 
+
+        rescue
           m.reply Format(:red, "Error: #{$!}")
         end
       end
-        
+
       def isBirthday(dob)
         date = Date.parse(dob)
         return Date.today.day == date.day && Date.today.month == date.month
@@ -185,3 +184,10 @@ module Cinch
     end
   end
 end
+
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

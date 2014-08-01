@@ -33,7 +33,7 @@ module Cinch
 	m.reply "I'm sorry, there's been an unspecified error, #{nick}."
       end
 
-      match /coin (.+?) (.+)/, method: :value
+      match /coin (.+?) (.+)/i, method: :value
 
       def value(m, cur1, cur2)
 	return if check_ignore(m.user)
@@ -74,7 +74,7 @@ module Cinch
 	return cValue
       end
 
-      match /coin pairs/, method: :list_pairs
+      match /coin pairs/i, method: :list_pairs
 
       def list_pairs(m)
 	return if check_ignore(m.user)
@@ -86,7 +86,7 @@ module Cinch
 	m.user.notice "If you are trying to compare a cryptocoin to a conventional currency try \"!coin market <cryptocurrency> <conventional currency>\""
       end
 
-      match /coin market (.+?) (.+)/, method: :market
+      match /coin market (.+?) (.+)/i, method: :market
 
       def market(m, cur1, cur2)
 	return if check_ignore(m.user)
@@ -149,3 +149,10 @@ module Cinch
     end
   end
 end
+
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

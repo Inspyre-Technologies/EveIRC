@@ -5,7 +5,7 @@ require 'twitter'
 module Cinch::Plugins
   class TwitterStatus
     include Cinch::Plugin
-    
+
       TWITTER_URL_BASE = 'https://twitter.com/'
       ERROR_TPL = Cinch::Formatting.format(:bold, 'Uhoh! »') + ' %s'
 
@@ -39,13 +39,13 @@ module Cinch::Plugins
 
       @watched.keys.each do |chan|
         @watched[chan].keys.each do |user|
-          begin 
+          begin
             # Just check the last tweet, if they are posting more than once
-            # every timer tick I don't want to spam the channel. 
+            # every timer tick I don't want to spam the channel.
             tweet = @client.user_timeline(user).first
             unless @watched[chan][user].include?(tweet.id)
               @watched[chan][user] << tweet.id
-              
+
               msg = "New tweet from #{format_tweet(tweet)} "
               Channel(chan).send msg unless msg.nil?
             end
@@ -82,28 +82,28 @@ module Cinch::Plugins
         if tweet.retweet?
           head << (tweet.retweeted_status.user.nil? ? "(RT)" : ("(RT from %s)" % tweet.retweeted_status.user.screen_name))
         end
-        
+
         # Tweet tweet
         body = expand_uris(CGI.unescapeHTML(!!tweet.retweet? ? tweet.retweeted_status.full_text : tweet.full_text).gsub("\n", " ").squeeze(" "), tweet.urls)
-        
+
         # Metadata
         tail = []
         tail << tweet.created_at.strftime("at %b %-d %Y, %-l:%M %p %Z")
         tail << "from #{tweet.place.full_name}" if !!tweet.place
         tail << "via #{tweet.source.gsub( %r{</?[^>]+?>}, '' )}"
-        
+
         # URLs for tweet and replied to:
         urls = []
         urls << "#{TWITTER_URL_BASE}#{tweet.user.screen_name}/status/#{tweet.id}"
         urls << "in reply to #{format_reply_url(tweet.in_reply_to_screen_name, tweet.in_reply_to_status_id)}" if tweet.reply?
-        
+
         [Format(:bold, [*head, '»'] * ' '), body, ['(', tail * ' · ', ')'].join, urls * ' '].join(' ')
       end
-      
+
       def format_reply_url(username, id)
         "#{TWITTER_URL_BASE}#{username}#{"/status/#{id}" if !!id}"
       end
-      
+
       def expand_uris(t, uris)
         uris.each_with_object(t) {|entity,tweet| tweet.gsub!(entity.url, entity.expanded_url) }
       end
@@ -118,3 +118,10 @@ module Cinch::Plugins
     end
   end
 end
+
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

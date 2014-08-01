@@ -27,7 +27,7 @@ module Cinch
       RedditURL = "http://www.reddit.com"
 
       def client(target)
-	open(target, "User-Agent" => "eve-bot").read
+        open(target, "User-Agent" => "eve-bot").read
       end
 
       def pluralJoin(array)
@@ -35,104 +35,104 @@ module Cinch
         array[0..-2].join(", ") + ", and " + array[-1]
       end
 
-      match /reddit karma (.+)/, method: :karma
+      match /reddit karma (.+)/i, method: :karma
 
       def karma(m, user)
-	return if check_ignore(m.user)
+        return if check_ignore(m.user)
 
-	url = "%s/user/%s/about.json" % [RedditURL, user]
-	data = JSON.parse(client url)["data"] rescue nil
+        url = "%s/user/%s/about.json" % [RedditURL, user]
+        data = JSON.parse(client url)["data"] rescue nil
 
-	if data
-	  link_karma = data["link_karma"]
-	  link_karma = link_karma.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        if data
+          link_karma = data["link_karma"]
+          link_karma = link_karma.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	  comment_karma = data["comment_karma"]
-	  comment_karma = comment_karma.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+          comment_karma = data["comment_karma"]
+          comment_karma = comment_karma.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	  name = data["name"]
+          name = data["name"]
 
-	  m.reply "%s has %s link karma, and %s comment karma" % ["3#{name}", "#{link_karma}", "#{comment_karma}"]
-	else
-	  m.reply "I'm sorry, I can't find #{user} on Reddit!"
-	end
+          m.reply "%s has %s link karma, and %s comment karma" % ["3#{name}", "#{link_karma}", "#{comment_karma}"]
+        else
+          m.reply "I'm sorry, I can't find #{user} on Reddit!"
+        end
       end
 
-      match /reddit moderators (.+)/, method: :moderators
-      match /reddit mods (.+)/, method: :moderators
+      match /reddit moderators (.+)/i, method: :moderators
+      match /reddit mods (.+)/i, method: :moderators
 
       def moderators(m, subreddit)
-	return if check_ignore(m.user)
+        return if check_ignore(m.user)
 
-	url = "%s/r/%s/about/moderators.json" % [RedditURL, subreddit]
-	data = JSON.parse(client url)["data"]["children"] rescue nil
+        url = "%s/r/%s/about/moderators.json" % [RedditURL, subreddit]
+        data = JSON.parse(client url)["data"]["children"] rescue nil
 
-	if data
-	  mods = []
-	  data.each { |mod| mods << mod["name"] }
+        if data
+          mods = []
+          data.each { |mod| mods << mod["name"] }
 
-	  numMods = data.count
+          numMods = data.count
 
-	  m.reply "/r/%s has %s moderator(s): %s" % ["#{subreddit}", "#{numMods}", pluralJoin(mods)]
-	else
-	  m.reply "I'm sorry, I can't find #{subreddit} on Reddit!"
-	end
+          m.reply "/r/%s has %s moderator(s): %s" % ["#{subreddit}", "#{numMods}", pluralJoin(mods)]
+        else
+          m.reply "I'm sorry, I can't find #{subreddit} on Reddit!"
+        end
       end
 
-      match /reddit subscribers (\w+)/, method: :subscribers
-      match /reddit subs (\w+)/, method: :subscribers
+      match /reddit subscribers (\w+)/i, method: :subscribers
+      match /reddit subs (\w+)/i, method: :subscribers
 
       def subscribers(m, subreddit)
-	return if check_ignore(m.user)
+        return if check_ignore(m.user)
 
-	url = "%s/r/%s/about.json" % [RedditURL, subreddit]
-	data = JSON.parse(client url)["data"]["subscribers"] rescue nil
+        url = "%s/r/%s/about.json" % [RedditURL, subreddit]
+        data = JSON.parse(client url)["data"]["subscribers"] rescue nil
 
-	subscribers = data.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        subscribers = data.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	if data
-	  m.reply "/r/%s has %s subscribers!" % ["#{subreddit}", "#{subscribers}"]
-	else
-	  m.reply "I'm sorry, I can't find #{subreddit} on Reddit!"
-	end
+        if data
+          m.reply "/r/%s has %s subscribers!" % ["#{subreddit}", "#{subscribers}"]
+        else
+          m.reply "I'm sorry, I can't find #{subreddit} on Reddit!"
+        end
       end
 
-      match /reddit lookup (\S+)/, method: :lookup
+      match /reddit lookup (\S+)/i, method: :lookup
 
       def lookup(m, query)
-	return if check_ignore(m.user)
+        return if check_ignore(m.user)
 
         url = "%s/api/info.json?url=%s" % [RedditURL, query]
         data = JSON.parse(client url)["data"]["children"][0]["data"] rescue nil
 
-	score = data['score']
-	score = score.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        score = data['score']
+        score = score.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	ups = data['ups']
-	ups = ups.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        ups = data['ups']
+        ups = ups.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	downs = data['downs']
-	downs = downs.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        downs = data['downs']
+        downs = downs.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
         if data
           m.reply("%s - \"%.100s\" %s(%s|%s) by %s, %s ago, to /r/%s" % [
-	                                                                 "http://redd.it/#{data['id']}",
-	                                                                 Format(:bold, data['title']),
-	                                                                 Format(:grey, score),
-	                                                                 Format(:orange, "+" + ups),
-	                                                                 Format(:blue, "-" + downs),
-	                                                                 data['author'],
-	                                                                 time_ago_in_words(DateTime.strptime(data['created'].to_s,'%s')),
-	                                                                 data['subreddit']
-	                                                                ])
-	else
+                                                                         "http://redd.it/#{data['id']}",
+                                                                         Format(:bold, data['title']),
+                                                                         Format(:grey, score),
+                                                                         Format(:orange, "+" + ups),
+                                                                         Format(:blue, "-" + downs),
+                                                                         data['author'],
+                                                                         time_ago_in_words(DateTime.strptime(data['created'].to_s,'%s')),
+                                                                         data['subreddit']
+                                                                        ])
+        else
           m.reply("I couldn't find that for some reason. It might be my fault, or it might be reddit's")
         end
       end
 
-      match /reddit link (\S+)/, method: :linkLookup
+      match /reddit link (\S+)/i, method: :linkLookup
       def linkLookup(m, query)
-	return if check_ignore(m.user)
+        return if check_ignore(m.user)
 
         return nil unless URI.parse(query).host.end_with?('reddit.com')
 
@@ -140,31 +140,37 @@ module Cinch
         url = "%s/api/info.json?id=t3_%s" % [RedditURL, thing_id]
         data = JSON.parse(client url)["data"]["children"][0]["data"] rescue nil
 
-	score = data['score']
-	score = score.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        score = data['score']
+        score = score.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	ups = data['ups']
-	ups = ups.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        ups = data['ups']
+        ups = ups.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	downs = data['downs']
-	downs = downs.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
+        downs = data['downs']
+        downs = downs.to_s.reverse.gsub(/(\d{3})(?=\d)/, '\\1,').reverse
 
-	if data
+        if data
           m.reply("|\"%.100s\"| %s(%s|%s) by %s, %s ago, to /r/%s | %s |" % [
-	                                                                 Format(:bold, data['title']),
-	                                                                 Format(:orange, score),
-	                                                                 Format(:green, "+" + ups),
-	                                                                 Format(:red, "-" + downs),
-	                                                                 data['author'],
-	                                                                 time_ago_in_words(DateTime.strptime(data['created'].to_s,'%s')),
-	                                                                 data['subreddit'],
-	                                                                 "http://redd.it/#{data['id']}"
-	                                                                ])
-	else
+                                                                             Format(:bold, data['title']),
+                                                                             Format(:orange, score),
+                                                                             Format(:green, "+" + ups),
+                                                                             Format(:red, "-" + downs),
+                                                                             data['author'],
+                                                                             time_ago_in_words(DateTime.strptime(data['created'].to_s,'%s')),
+                                                                             data['subreddit'],
+                                                                             "http://redd.it/#{data['id']}"
+                                                                            ])
+        else
           m.reply("I couldn't find that for some reason. It might be my fault, or it might be reddit's")
         end
       end
-
     end
   end
 end
+
+## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
+## E-mail: namaste@rawrnet.net
+## Github: Namasteh
+## Website: www.rawrnet.net
+## IRC: irc.sinsira.net #Eve
+## If you like this plugin please consider tipping me on gittip

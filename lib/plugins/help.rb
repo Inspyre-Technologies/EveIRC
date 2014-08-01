@@ -36,16 +36,13 @@ module Cinch::Plugins
 
       newList = list - exList - mList
 
-      if check_master(m.user)
-        m.user.send Format(:green, "Hello, #{m.user.nick}")
-        m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
-        m.user.send Format(:orange, "#{newList.sort.join(", ")}")
-        m.user.send Format(:red, "The following commands are for Masters of the bot only! #{mList.sort.join(", ")}")
-        return
-      end
+
       m.user.send Format(:green, "Hello, #{m.user.nick}")
       m.user.send Format(:green, "The following is a list of plugins for #{@bot.realname}! To get usage information on a plugin just type ~help <plugin name>")
       m.user.send Format(:orange, "#{newList.sort.join(", ")}")
+      if check_master(m.user)
+        m.user.send Format(:red, "The following commands are for Masters of the bot only! #{mList.sort.join(", ")}")
+      end
     end
   end
 end

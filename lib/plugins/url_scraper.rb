@@ -64,17 +64,22 @@ module Cinch
           # Check host
           case uri.host
           when "www.imdb.com"
+            # Logo
+            imdb_logo = "1,8IMDb"
+            
             # Get user rating
             rating = page.search("//strong/span[@itemprop='ratingValue']").text
 
             # Get votes
             votes = page.search("//a/span[@itemprop='ratingCount']").text
 
-            m.reply "#{m.user.nick}'s IMDB Title: %s (Rating: %s/10 from %s users)" % [
-              title, rating, votes
+            m.reply "#{m.user.nick}'s %s Title: %s (Rating: %s/10 from %s users)" % [
+              imdb_logo, title, rating, votes
             ]
 
           when "www.youtube.com"
+            # Youtube logo
+            yt_logo = "0,4You1,0Tube"
             # Reload with nofeather
             page = @agent.get(link + "&nofeather=True")
 
@@ -90,8 +95,8 @@ module Cinch
             dislikes = page.search("//span[@class='dislikes-count']")
             dislikes = dislikes.text.gsub(/[.,]/, ",")
 
-            m.reply "#{m.user.nick}'s YT Title: %s (Views: %s, Likes: %s || Dislikes: %s)" % [
-              title, hits.strip, likes.strip, dislikes.strip
+            m.reply "#{m.user.nick}'s %s Title: %s (Views: %s, Likes: %s || Dislikes: %s)" % [
+              yt_logo, title, hits.strip, likes.strip, dislikes.strip
             ]
 
 
@@ -126,12 +131,15 @@ module Cinch
             m.reply "Title: %s (at %s)" % [ title, uri.host ]
 
           when "twitter.com"
+            # twitter logo
+            t_logo = "0,10twitter"
+            
             if link =~ /\/status\/(\d+)$/
               json      = @agent.get("https://api.twitter.com/1/statuses/show/#{$1}.json?trim_user=1").body
               tweet     = JSON.parse(json)
               unescaped = CGI.unescapeHTML(tweet["text"])
 
-              m.reply "@%s: %s" % [ tweet["user"]["screen_name"], unescaped ]
+              m.reply "%s @%s: %s" % [t_logo, tweet["user"]["screen_name"], unescaped ]
             else
               m.reply "Broken twitter link: %s (at %s)" % [ title, uri.host ] if title
             end

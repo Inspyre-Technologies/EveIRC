@@ -29,7 +29,7 @@ module Cinch
 
       def search(m, board, terms)
         chan_logo = "3::5 4chan:"
-        data = JSON.parse(open("https://api.4chan.org/#{board}/catalog.json").read)
+        data = JSON.parse(open("https://a.4cdn.org/#{board}/catalog.json").read)
         results = []
 
 

@@ -15,6 +15,8 @@ Config = OpenStruct.new
 
 Config.dispatch = ["foo", "bar", "you"]
 
+Config.owner = ["Namaste"]
+
 # In the block below make sure to enter your server information as well as
 # the channels that you want it to join. Don't be lazy!
 
@@ -24,7 +26,7 @@ bot = Cinch::Bot.new do
     c.channels = ["#Eve"]
     c.nick = "Eve"
     c.user = "Eve"
-    c.realname = "Eve 6.3.1"
+    c.realname = "Eve 6.4"
 
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
     ## that you want the bot to use are included in this block. If you want to
@@ -52,7 +54,6 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::UrlScraper,
                          Cinch::Plugins::Twitter,
                          Cinch::Plugins::TwitterStatus,
-                         Cinch::Plugins::ValentineBoxx,
                          Cinch::Plugins::Wikipedia,
                          Cinch::Plugins::Weather,
                          Cinch::Plugins::Google,

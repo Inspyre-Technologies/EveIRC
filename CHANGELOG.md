@@ -2,6 +2,10 @@
 #### [Current]
 
 #### 
+ * [a936bed](../../commit/a936bed) - __(Richard Banks)__ Merge pull request [#37](../../issues/37) from Namasteh/devel
+
+6.4 Version update
+ * [bc55e35](../../commit/bc55e35) - __(Namasteh)__ Added new CHANGELOG
  * [28b0ac0](../../commit/28b0ac0) - __(Namasteh)__ Added rose functionality to fun.rb
  * [02db048](../../commit/02db048) - __(Namasteh)__ Added Owner field in config for later use
  * [b8feb59](../../commit/b8feb59) - __(Namasteh)__ Call me a bad programmer but I have no idea what changed

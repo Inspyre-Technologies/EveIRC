@@ -41,6 +41,23 @@ module Cinch
         sleep config[:delay] || 3
         m.reply Format(:green, "That's you!")
       end
+
+      match /rose (.+)/, method: :rose
+
+      def rose(m, user)
+        usernick = User(user).nick
+        return if check_ignore(m.user)
+
+        return notinchan(m, user) if m.channel.users.has_key?(User(user)) == false
+
+        if User(user) == m.user
+          m.channel.action "gives #{usernick} a rose."
+          m.reply Format(:green, "--<--<--{%s" % [Format(:red, "@")])
+        else
+          m.channel.action "gives #{usernick} a rose from #{m.user.nick}."
+          m.reply Format(:green, "--<--<--{%s" % [Format(:red, "@")])
+        end
+      end
     end
   end
 end

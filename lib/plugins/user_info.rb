@@ -1,7 +1,12 @@
 require 'cinch'
+require 'ostruct'
+require 'open-uri'
+require 'json'
 require 'yaml'
-require_relative "config/check_master"
+require 'cinch/toolbox'
+require_relative "config/check_auth"
 require_relative "config/check_ignore"
+require_relative "config/check_master"
 
 module Cinch
   module Plugins
@@ -33,39 +38,48 @@ module Cinch
         end
       end
 
-      match /set-w (.+)/i, method: :set_w
+      match /set-w (.+)/, method: :set_w
 
-      match /set-twitter (.+)/i, method: :set_twitter
+      match /set-twitter (.+)/, method: :set_twitter
 
-      match /set-greeting (.+)/i, method: :set_greeting
+      match /set-greeting (.+)/, method: :set_greeting
 
-      match /set-rgreeting (.+?) (.+)/i, method: :set_rgreeting
+      match /set-rgreeting (.+?) (.+)/, method: :set_rgreeting
 
-      match /set-birthday ((\d{4})-(0[1-9]|1[012]|[1-9])-([12]\d|3[01]|[1-9]|0[1-9]))/i, method: :set_birthday
+      match /set-birthday ((\d{4})-(0[1-9]|1[012]|[1-9])-([12]\d|3[01]|[1-9]|0[1-9]))/, method: :set_birthday
 
-      match /set-gender (male|female)/i, method: :set_gender
+      match /set-gender (male|female)/, method: :set_gender
 
 
-      match /del-w/i, method: :del_w
+      match /del-w/, method: :del_w
 
-      match /del-twitter/i, method: :del_twitter
+      match /del-twitter/, method: :del_twitter
 
-      match /del-greeting/i, method: :del_greeting
+      match /del-greeting/, method: :del_greeting
 
-      match /del-birthday/i, method: :del_birthday
+      match /del-birthday/, method: :del_birthday
 
-      match /del-data/i, method: :del_data
+      match /del-data/, method: :del_data
 
-      match /rdel-data (.+)/i, method: :rdel_data
+      match /rdel-data (.+)/, method: :rdel_data
 
 
       def set_w(m, zc)
         return if check_ignore(m.user)
         zc.gsub! /\s/, '+'
+
+        geoData = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?address=#{zc}&sensor=true").read)
+
+        location = geoData['results'][0]['geometry']['location']
+        lat = location['lat']
+        lng = location['lng']
+        fAddress = geoData['results'][0]['formatted_address']
+
         @storage[User(m.user).nick] ||= {}
-        @storage[m.user.nick]['zipcode'] = zc
+        @storage[m.user.nick]['wLocation'] = "#{lat},#{lng}"
+        @storage[m.user.nick]['wAddress'] = fAddress
         @storage[m.user.nick]['auth'] = User(m.user).authname
-        m.reply "Updated your weather location to #{zc}!"
+        m.reply "Updated your weather location to: \"#{fAddress}\"!"
         update_store
       rescue
         m.reply Format(:red, "Error: #{$!}")
@@ -74,9 +88,10 @@ module Cinch
       def del_w(m)
         return if check_ignore(m.user)
         if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'zipcode'
+          if @storage[m.user.nick].key? 'wLocation'
             w = @storage[m.user.nick]
-            w.delete('zipcode')
+            w.delete('wLocation')
+            w.delete('wAddress')
             update_store
             m.reply "Successfully deleted your location data!"
             return;
@@ -214,10 +229,3 @@ module Cinch
     end
   end
 end
-
-## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
-## E-mail: namaste@rawrnet.net
-## Github: Namasteh
-## Website: www.rawrnet.net
-## IRC: irc.sinsira.net #Eve
-## If you like this plugin please consider tipping me on gittip

@@ -20,7 +20,7 @@ module Cinch
       * !weather <location>: The bot will check the current weather for the location you provide!
       * !hourly <hour(s)> <location>: The bot will check the projected forecast for how many <hour(s)> away!
       * !daily <day(s)> <location>: The bot will check the projected forecast for how many <day(s)> away!
-      **If you have your location set with the bot you can use the following commands:
+      ** If you have your location set with the bot you can use the following commands:
       * !w: Returns the weather for your saved location
       * !h <hour(s)>: Returns the projected forecast for how many hour(s) away, based on your saved location
       * !d <day(s)>: Returns the projected forecast for how many day(s) away, based on your saved location
@@ -99,16 +99,14 @@ module Cinch
       def custom_w(m)
         return if check_ignore(m.user)
         reload
-        puts @storage
         if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'zipcode'
+          if @storage[m.user.nick].key? 'wLocation'
 
-            geo = @storage[m.user.nick]['zipcode']
+            geometry = @storage[m.user.nick]['wLocation']
 
-            geometry = geolookup(geo)
-            return m.reply "No results found for #{geo}." if geometry.nil?
+            address = @storage[m.user.nick]['wAddress']
 
-            locale = location_r(geo)
+            locale = address
 
             data = get_current(geometry, locale, false) # false means we dont want locale printed
 
@@ -121,21 +119,20 @@ module Cinch
             return c_alert
           end
         end
-        return m.reply "You have no custom data set. You can PM me with ~set-w <location>"
+        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
       end
 
       def check_custom(m, user)
+        return if check_ignore(m.user)
         reload
-        puts @storage
         if @storage.key?(user)
-          if @storage[user].key? 'zipcode'
+          if @storage[user].key? 'wLocation'
 
-            geo = @storage[user]['zipcode']
+            geometry = @storage[user]['wLocation']
 
-            geometry = geolookup(geo)
-            return m.reply "No results found for #{geo}." if geometry.nil?
+            address = @storage[user]['wAddress']
 
-            locale = location_r(geo)
+            locale = address
 
             data = get_current(geometry, locale, false) # Again, we don't want locale printed, especially with this function
 
@@ -151,14 +148,13 @@ module Cinch
         return if check_ignore(m.user)
         reload
         if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'zipcode'
+          if @storage[m.user.nick].key? 'wLocation'
 
-            geo = @storage[m.user.nick]['zipcode']
+            geometry = @storage[m.user.nick]['wLocation']
 
-            geometry = geolookup(geo)
-            return m.reply "No results found for #{geo}." if geometry.nil?
+            address = @storage[m.user.nick]['wAddress']
 
-            locale = location_r(geo)
+            locale = address
 
             data = get_hourly(hour, geometry, locale, false)
 
@@ -167,21 +163,20 @@ module Cinch
             return m.reply hourly_summary(data, hour)
           end
         end
-        return m.reply "You have no custom data set. You can PM me with ~set-w <location>"
+        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
       end
 
       def custom_d(m, day)
         return if check_ignore(m.user)
         reload
         if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'zipcode'
+          if @storage[m.user.nick].key? 'wLocation'
 
-            geo = @storage[m.user.nick]['zipcode']
+            geometry = @storage[m.user.nick]['wLocation']
 
-            geometry = geolookup(geo)
-            return m.reply "No results found for #{geo}." if geometry.nil?
+            address = @storage[m.user.nick]['wAddress']
 
-            locale = location_r(geo)
+            locale = address
 
             data = get_daily(day, geometry, locale, false)
 
@@ -190,7 +185,7 @@ module Cinch
             return m.reply daily_summary(data, day)
           end
         end
-        return m.reply "You have no custom data set. You can PM me with ~set-w <location>"
+        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
       end
 
       def reload
@@ -259,9 +254,7 @@ module Cinch
       def alert(geometry, locale, authed)
         key = config[:key]
         data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
-        puts data
         warning = data['alerts'][0]
-        puts warning
 
         title = warning['title']
         time = warning['time']
@@ -377,10 +370,3 @@ module Cinch
     end
   end
 end
-
-## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
-## E-mail: namaste@rawrnet.net
-## Github: Namasteh
-## Website: www.rawrnet.net
-## IRC: irc.sinsira.net #Eve
-## If you like this plugin please consider tipping me on gittip

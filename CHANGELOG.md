@@ -2,6 +2,14 @@
 #### [Current]
 
 #### 
+ * [28b0ac0](../../commit/28b0ac0) - __(Namasteh)__ Added rose functionality to fun.rb
+ * [02db048](../../commit/02db048) - __(Namasteh)__ Added Owner field in config for later use
+ * [b8feb59](../../commit/b8feb59) - __(Namasteh)__ Call me a bad programmer but I have no idea what changed
+ * [03793ab](../../commit/03793ab) - __(Namasteh)__ Removed geolocalisation redundancy. Now stores lat, long, and fomatted address
+ * [fda3514](../../commit/fda3514) - __(b0nk)__ added irc colored site logos (YT, imdb, twitter)
+ * [f50f5bf](../../commit/f50f5bf) - __(b0nk)__ updated 4chan API location
+ * [13d4c97](../../commit/13d4c97) - __(b0nk)__ removed duplicate code
+ * [aba6c70](../../commit/aba6c70) - __(Namasteh)__ Updated CHANGELOG
  * [5708044](../../commit/5708044) - __(Namasteh)__ Fixed Eve.rb to support new plugins
  * [bbd5709](../../commit/bbd5709) - __(Namasteh)__ Cleaned up some code, and added case-insensitive commands
  * [e99167c](../../commit/e99167c) - __(Namasteh)__ Added BotInfo plugin

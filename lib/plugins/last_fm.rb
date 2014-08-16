@@ -46,8 +46,14 @@ module Cinch
         end
 
         uPlays = trackInfo['track']['userplaycount']
+        
+        topTags = trackInfo['track']['toptags']
+        tags = []
+        for i in topTags['tag']
+          tags << i['name']
+        end
 
-        m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} "
+        m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
       end
 
       def reload

@@ -2,6 +2,19 @@
 #### [Current]
 
 #### 
+ * [c322aba](../../commit/c322aba) - __(Namasteh)__ Fixed typo in reply line
+ * [6cd88bd](../../commit/6cd88bd) - __(b0nk)__ fixed youtube views
+ * [7b26284](../../commit/7b26284) - __(Namasteh)__ GitHub messed up the last commit. Fixing
+ * [c514bbb](../../commit/c514bbb) - __(Namasteh)__ Finalized Last.FM plugin. Compares users and fetches \"Now Playing\" information from the web
+ * [177865d](../../commit/177865d) - __(Namasteh)__ Finalized Last.FM plugin. Compares users and fetches \"Now Playing\" information from the web
+ * [5207857](../../commit/5207857) - __(b0nk)__ when track has no tags get the artist tags
+ * [bc72c45](../../commit/bc72c45) - __(b0nk)__ added track tags
+ * [64a1cab](../../commit/64a1cab) - __(Namasteh)__ Added play count
+ * [6998a7b](../../commit/6998a7b) - __(b0nk)__ check if user loved the track
+ * [90b8f43](../../commit/90b8f43) - __(Namasteh)__ Added LastFM to plugins.rb so that it will load in bot
+ * [d3f1d06](../../commit/d3f1d06) - __(Namasteh)__ Added LastFM to Eve.rb, including config fields
+ * [f4dc575](../../commit/f4dc575) - __(Namasteh)__ Added LastFM plugin.
+ * [bc55e35](../../commit/bc55e35) - __(Namasteh)__ Added new CHANGELOG
  * [28b0ac0](../../commit/28b0ac0) - __(Namasteh)__ Added rose functionality to fun.rb
  * [02db048](../../commit/02db048) - __(Namasteh)__ Added Owner field in config for later use
  * [b8feb59](../../commit/b8feb59) - __(Namasteh)__ Call me a bad programmer but I have no idea what changed

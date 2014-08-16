@@ -84,7 +84,7 @@ module Cinch
             page = @agent.get(link + "&nofeather=True")
 
             # Get page hits
-            hits = page.search("//span[@class='watch-view-count ']")
+            hits = page.search("//div[@class='watch-view-count']")
             hits = hits.text.gsub(/[.,]/, ",")
 
             # Get likes

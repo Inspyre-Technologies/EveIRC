@@ -6,7 +6,22 @@ module Cinch
     class LastFm
       include Cinch::Plugin
 
+      set :required_options, [:key]
+      set :plugin_name, 'lastfm'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+      Check the weather right from the IRC channel!
+      Usage:
+      * !np: This will return what you're currently listening to via Last.FM
+      * !compare <nick|username>: Using an IRC nick of someone who has their information stored in my databases or just a Last.FM username you can compare your tastes!
+      USAGE
+
       BaseURL = "http://ws.audioscrobbler.com/2.0/"
+
+      CmpBars = ["[4====            ]",
+                  "[4====7====        ]",
+                  "[4====7====8====    ]",
+                  "[4====7====8====9====]",
+                  "[                ]"]
 
       def initialize(*args)
         super
@@ -20,6 +35,7 @@ module Cinch
       match /np/, method: :nowPlaying
 
       def nowPlaying(m)
+        key = config[:key]
         reload
         return m.reply "You have no information saved in my database. To save your lastfm username type !set-lastfm <username>" if !@storage.key?(m.user.nick)
         return m.reply "Your database table has no LastFM username saved. To save a LastFM username type !set-lastfm <username>" if !@storage[m.user.nick].key? 'lastfm'
@@ -47,7 +63,79 @@ module Cinch
 
         uPlays = trackInfo['track']['userplaycount']
 
-        m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} "
+        if uPlays.nil?
+          uPlays = "1"
+        else
+          uPlays = uPlays.to_i + 1
+        end
+
+        topTags = trackInfo['track']['toptags']
+        tags = []
+        if !topTags.is_a?(String)# when there are no tags on a track it returns a string (no keys)
+          for i in topTags['tag']
+            tags << i['name']
+          end
+          # sometimes tracks have no tags so lets fetch the artist's tags
+        else
+          artistInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=artist.getInfo&artist=#{artist}&api_key=#{key}&format=json")).read)
+          topTags = artistInfo['artist']['tags']
+          for i in topTags['tag']
+            tags << i['name']
+          end
+        end
+
+        m.reply "(0,5Last.FM)#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
+      end
+
+      match /compare (.+)/, method: :compare
+
+      def compare(m, user)
+        key = config[:key]
+        reload
+
+        return m.reply "You have no information saved in my database. To save your lastfm username type !set-lastfm <username>" if !@storage.key?(m.user.nick)
+        return m.reply "Your database table has no LastFM username saved. To save a LastFM username type !set-lastfm <username>" if !@storage[m.user.nick].key? 'lastfm'
+
+        user1 = @storage[m.user.nick]['lastfm']
+
+        if !@storage.key?(user)
+          m.reply "#{user} has no information in my database. Trying LastFM username..."
+
+          user2 = user
+        else
+          if !@storage[user].key? 'lastfm'
+            m.reply "#{user} has no LastFM username set in my database. Trying LastFM username..."
+
+            user2 = user
+          else
+            user2 = @storage[user]['lastfm']
+          end
+        end
+
+        compareInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=tasteometer.compare&type1=user&type2=user&value1=#{user1}&value2=#{user2}&api_key=#{key}&format=json")).read)
+
+        return m.reply "Invalid username #{user2}." if compareInfo['error']
+
+        index = (compareInfo['comparison']['result']['score'].to_f * 100).to_i
+
+        bar = CmpBars[4]
+        if index >= 1
+          bar = CmpBars[(index / 25.01).to_i]
+        end
+
+        artists = []
+
+        raw_artists = compareInfo['comparison']['result']['artists']
+
+        if !raw_artists.key? '@attr'
+          artists = ["N/A"]
+        else
+          for i in raw_artists['artist']
+            artists << i['name']
+          end
+        end
+
+        m.reply "(0,5Last.FM) Comparison: #{m.user.nick} #{bar} #{user} | Similarity #{index}% | Common artists: #{artists.join(", ")}"
       end
 
       def reload

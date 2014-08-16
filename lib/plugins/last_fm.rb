@@ -38,8 +38,17 @@ module Cinch
         trackURL = rTracks[0]['url']
 
         trackURL = trackURL.gsub('\\', '')
+        
+        # If we send the username with the track.getInfo request we get additional info such as userLoved
+        # we have to URI.encode because of tracks with special characters and spaces
+        trackInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track}&api_key=#{key}&format=json")).read)
+        
+        loved = ":("
+        if (trackInfo['track']['userloved'] == "1")
+          loved = "4<3"
+        end
 
-        m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Listen to this now: #{trackURL}"
+        m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Listen to this now: #{trackURL}"
       end
 
       def reload

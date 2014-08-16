@@ -2,6 +2,7 @@
 #### [Current]
 
 #### 
+ * [a77ca25](../../commit/a77ca25) - __(Namasteh)__ Changed CHANGELOG
  * [f5beccc](../../commit/f5beccc) - __(Namasteh)__ Fixing merge
  * [599b6f0](../../commit/599b6f0) - __(Namasteh)__ Changed CHANGELOG
  * [184ca8f](../../commit/184ca8f) - __(Namasteh)__ Changed README, moved plugin docs to wiki

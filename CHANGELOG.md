@@ -2,7 +2,8 @@
 #### [Current]
 
 #### 
-<<<<<<< HEAD
+ * [f5beccc](../../commit/f5beccc) - __(Namasteh)__ Fixing merge
+ * [599b6f0](../../commit/599b6f0) - __(Namasteh)__ Changed CHANGELOG
  * [184ca8f](../../commit/184ca8f) - __(Namasteh)__ Changed README, moved plugin docs to wiki
  * [580a0d5](../../commit/580a0d5) - __(Namasteh)__ Updated CHANGELOG.md
  * [c322aba](../../commit/c322aba) - __(Namasteh)__ Fixed typo in reply line
@@ -17,11 +18,10 @@
  * [90b8f43](../../commit/90b8f43) - __(Namasteh)__ Added LastFM to plugins.rb so that it will load in bot
  * [d3f1d06](../../commit/d3f1d06) - __(Namasteh)__ Added LastFM to Eve.rb, including config fields
  * [f4dc575](../../commit/f4dc575) - __(Namasteh)__ Added LastFM plugin.
-=======
+ * [15d8f56](../../commit/15d8f56) - __(Namasteh)__ Updated CHANGELOG after version release
  * [a936bed](../../commit/a936bed) - __(Richard Banks)__ Merge pull request [#37](../../issues/37) from Namasteh/devel
 
 6.4 Version update
->>>>>>> master
  * [bc55e35](../../commit/bc55e35) - __(Namasteh)__ Added new CHANGELOG
  * [28b0ac0](../../commit/28b0ac0) - __(Namasteh)__ Added rose functionality to fun.rb
  * [02db048](../../commit/02db048) - __(Namasteh)__ Added Owner field in config for later use

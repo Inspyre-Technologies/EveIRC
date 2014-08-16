@@ -49,10 +49,21 @@ module Cinch
         
         topTags = trackInfo['track']['toptags']
         tags = []
-        for i in topTags['tag']
-          tags << i['name']
+        
+        if !topTags.is_a?(String)# when there are no tags on a track it returns a string (no keys)
+          for i in topTags['tag']
+            tags << i['name']
+          end
+        # sometimes tracks have no tags so lets fetch the artist's tags
+        else
+          artistInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=artist.getInfo&artist=#{artist}&api_key=#{key}&format=json")).read)
+          
+          topTags = artistInfo['artist']['tags']
+          for i in topTags['tag']
+            tags << i['name']
+          end
         end
-
+        
         m.reply "#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
       end
 

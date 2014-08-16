@@ -2,6 +2,8 @@
 #### [Current]
 
 #### 
+ * [184ca8f](../../commit/184ca8f) - __(Namasteh)__ Changed README, moved plugin docs to wiki
+ * [580a0d5](../../commit/580a0d5) - __(Namasteh)__ Updated CHANGELOG.md
  * [c322aba](../../commit/c322aba) - __(Namasteh)__ Fixed typo in reply line
  * [6cd88bd](../../commit/6cd88bd) - __(b0nk)__ fixed youtube views
  * [7b26284](../../commit/7b26284) - __(Namasteh)__ GitHub messed up the last commit. Fixing

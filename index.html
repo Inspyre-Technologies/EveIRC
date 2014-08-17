@@ -4,9 +4,9 @@
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
 
     <title>Eve-bot by Namasteh</title>
   </head>
@@ -158,54 +158,6 @@ yourircnick:
   auth: yourauthname
   master: true
 </code></pre>
-
-<h1>
-<a name="plugins--configuration" class="anchor" href="#plugins--configuration"><span class="octicon octicon-link"></span></a>Plugins &amp; Configuration</h1>
-
-<p>The following section includes configuration options for some of the plugins that are not required but are enabled by default on the bot. Please read this before coming to IRC to ask questions.</p>
-
-<h2>
-<a name="wolframalpha" class="anchor" href="#wolframalpha"><span class="octicon octicon-link"></span></a>Wolfram|Alpha</h2>
-
-<p><strong><em>Configuration:</em></strong></p>
-
-<p>For this plugin to operate it requires a dependancy to be installed. </p>
-
-<pre><code>gem install wolfram-alpha
-</code></pre>
-
-<p>After installing that dependency you are fully able to use the plugin, the following is required to insert into Eve.rb for operation.</p>
-
-<p>At the beginning of Eve.rb in the required scripts section put this:</p>
-
-<pre><code>require_relative "lib/eve/plugins/wolfram"
-</code></pre>
-
-<p>In the c.plugins section of Eve.rb put this:</p>
-
-<pre><code>[Cinch::Plugins::Wolfram]
-</code></pre>
-
-<p>Finally in the configuration section of Eve.rb put this:</p>
-
-<pre><code>c.plugins.options[Cinch::Plugins::Wolfram] = { key: 'foo' }
-</code></pre>
-
-<p>The only thing that <strong>must</strong> be edited out of these lines is c.plugins.options and you must change the 'foo' to <strong>your</strong> Wolfram|Alpha API key, which you can get from <a href="https://developer.wolframalpha.com/portal/apisignup.html">this website</a>. <strong>You can not use the plugin if this option is not configured properly!</strong></p>
-
-<p><strong><em>Usage:</em></strong></p>
-
-<p>The bot comes with a comprehensive help system and the Wolfram|Alpha plugin was integrated into this system by default. To receive help in a personal message withe the bot (or even in a channel, though not advised) you can use the following command which will output information on how to use the plugin:</p>
-
-<pre><code>!help wolfram
-</code></pre>
-
-<p>To use the functions of the plugin you simply have to use the trigger !wa followed by the query you wish to send to Wolfram|Alpha for calculation and the bot will return with the results (if available).</p>
-
-<blockquote>
-<p>[04:44:23] &lt;<a href="https://github.com/Namaste" class="user-mention">@Namaste</a>&gt; !wa how old is boxxy?
-[04:44:25] &lt;<a href="https://github.com/Eve" class="user-mention">@Eve</a>&gt; age | of Boxxy |  today   = 22 years 2 months 21 days</p>
-</blockquote>
       </section>
     </div>
 

@@ -9,7 +9,7 @@ module Cinch
       set :required_options, [:key]
       set :plugin_name, 'lastfm'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
-      Check the weather right from the IRC channel!
+      The LastFM plugin queries Last.FM when you trigger it. Using the Last.FM API the user can get "now playing" information and use the "TasteOMeter" to compare their tastes with other IRC users or usernames on Last.FM.
       Usage:
       * !np: This will return what you're currently listening to via Last.FM
       * !compare <nick|username>: Using an IRC nick of someone who has their information stored in my databases or just a Last.FM username you can compare your tastes!

@@ -6,6 +6,14 @@ module Cinch
     class Fun
       include Cinch::Plugin
 
+      set :plugin_name, 'fun'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+      This plugin simply contains some fun things that you can use in the channel.
+      Usage:
+      * !revive <user>: Calling this command will cause the bot to throw a "Phoenix Down" on <user>, reviving them.
+      * !rose <user>: Calling this command will cause the bot to give a rose to <user> from you!
+      USAGE
+
       match /revive (.+)/i, method: :revive
 
       def revive(m, user)

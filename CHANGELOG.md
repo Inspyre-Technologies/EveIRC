@@ -2,6 +2,18 @@
 #### [Current]
 
 #### 
+ * [8c1e23f](../../commit/8c1e23f) - __(Namasteh)__ Fixed type in UserInfo
+ * [0f5c447](../../commit/0f5c447) - __(Namasteh)__ Added help information to Dictionary plugin
+ * [cb4337e](../../commit/cb4337e) - __(Namasteh)__ Fixed typo in Dictionary plugin
+ * [8352656](../../commit/8352656) - __(Namasteh)__ Added help to Fun plugin
+ * [a4f4330](../../commit/a4f4330) - __(Namasteh)__ Changed typo in LastFm and added more information in the decription of the plugin
+ * [1db3faf](../../commit/1db3faf) - __(Namasteh)__ Added help to Wikipedia plugin
+ * [fb4957b](../../commit/fb4957b) - __(Namasteh)__ Added help to YouTube plugin
+ * [fd1d8a1](../../commit/fd1d8a1) - __(Richard Banks)__ Update README.md
+
+IRC hyperlinks weren't showing up. Switched to plan-text.
+ * [949db80](../../commit/949db80) - __(Namasteh)__ Cleaned up README and pointed users toward wiki
+ * [350c03c](../../commit/350c03c) - __(Namasteh)__ Changed CHANGELOG for version 6.5 release
  * [a77ca25](../../commit/a77ca25) - __(Namasteh)__ Changed CHANGELOG
  * [f5beccc](../../commit/f5beccc) - __(Namasteh)__ Fixing merge
  * [599b6f0](../../commit/599b6f0) - __(Namasteh)__ Changed CHANGELOG

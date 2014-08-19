@@ -14,7 +14,11 @@ module Cinch
       set :help, <<-USAGE.gsub(/^ {6}/, '')
       This plugin searches for definitions.
       Usage:
-      * ~define <word>: Fetches and returns the definition for the given word.
+      * !define <word>: Fetches and returns the definition for the given word.
+      * !synonym <word>: Returns synonyms of <word>.
+      * !equivalent <word>: Returns equivalents of <word>.
+      * !variants <word>: Returns variants of <word>.
+      * !rhyme <word>: Returns words that rhyme with <word>.
       USAGE
 
       match /define (.+)/i, method: :define

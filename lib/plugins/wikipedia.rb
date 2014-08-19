@@ -7,6 +7,13 @@ module Cinch
     class Wikipedia
       include Cinch::Plugin
 
+      set :plugin_name, 'wikipedia'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+      The Wikipedia plugin searches Wikipedia for the terms provided and returns with the closest matching article.
+      Usage:
+      - !(wiki(pedia)) <terms>: Returns with the article most closely matching your terms.
+      USAGE
+
       match /wiki (.*)/i
       match /wikipedia (.*)/i
 

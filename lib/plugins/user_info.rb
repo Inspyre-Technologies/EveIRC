@@ -20,7 +20,7 @@ module Cinch
       Usage:
       * !set-w <location>: Save your location to the bot for future use in calling weather.
       * !set-greeting <custom-greeting>: Save a custom greeting for the bot to use when you enter the channel.
-      * !set-twitter <handle>: Save your Twitter handle to the bot for use with the Twitter plugin! (use ~@ to call your own Twitter information!)
+      * !set-twitter <handle>: Save your Twitter handle to the bot for use with the Twitter plugin! (use !@ to call your own Twitter information!)
       * !set-birthday <YYYY-MM-DD>: Save your birthday to the bot for special surprises!
       There are delete commands as well:
       * !del-w: Delete your location data from the bot.

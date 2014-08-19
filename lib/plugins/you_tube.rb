@@ -9,6 +9,13 @@ module Cinch
     class YouTube
       include Cinch::Plugin
 
+      set :plugin_name, 'youtube'
+      set :help, <<-USAGE.gsub(/^ {6}/, '')
+      The YouTube plugin will search YouTube for videos matching the terms you provide.
+      Usage:
+      - !youtube <query>: This will call a search of YouTube and return the results matching your terms in the channel.
+      USAGE
+
       match /youtube (.+)/i
 
       def execute(m, query)

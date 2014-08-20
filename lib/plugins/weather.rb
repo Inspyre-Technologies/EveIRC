@@ -305,6 +305,7 @@ module Cinch
           feels_temp = i['apparentTemperature']
           wind = i['windSpeed']
           bear = i['windBearing']
+          direction = getDirection(bear.to_i)
 
           temp_c = (temp - 32) * 5 / 9
           feels_temp_c = (feels_temp - 32) * 5 / 9
@@ -314,9 +315,9 @@ module Cinch
           wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
 
           if withLocale
-            hourly.push(("%s - #{locale}: Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear]))
+            hourly.push(("%s - #{locale}: Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s (%s)]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear, direction]))
           else
-            hourly.push(("%s - Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear]))
+            hourly.push(("%s - Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s  (%s)]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear, direction]))
           end
         end
         return hourly
@@ -342,6 +343,7 @@ module Cinch
           appmax = i['apparentTemperatureMax']
           wind = i['windSpeed']
           bear = i['windBearing']
+          direction = getDirection(bear.to_i)
 
           # We're going to convert it to metric as well, because IRC.
 
@@ -357,9 +359,9 @@ module Cinch
           wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
 
           if withLocale
-            daily.push(("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s (%s)]" % [logo, sum, min, max, appmin, appmax, wind, bear, direction]))
           else
-            daily.push(("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s (%s)]" % [logo, sum, min, max, appmin, appmax, wind, bear, direction]))
           end
         end
         return daily

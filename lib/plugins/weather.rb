@@ -1,4 +1,4 @@
-require 'cinch'
+﻿require 'cinch'
 require 'ostruct'
 require 'open-uri'
 require 'json'
@@ -225,24 +225,27 @@ module Cinch
         current = data['currently']
 
         conditions = current['summary']
-        temp = current['temperature']
-        feels_like = current['apparentTemperature']
-        wind_speed = current['windSpeed']
-        wind_bearing = current['windBearing']
+        temp           = current['temperature']
+        feels_like     = current['apparentTemperature']
+        wind_speed     = current['windSpeed']
+        humidity       = current['humidity']
+        wind_bearing   = current['windBearing']
         wind_direction = getDirection(wind_bearing.to_i)
 
-        temp_c = (temp - 32) * 5 / 9
-        feels_temp_c = (feels_like - 32) * 5 / 9
+        temp_c         = (temp - 32) * 5 / 9
+        feels_temp_c   = (feels_like - 32) * 5 / 9
         wind_speed_kph = wind_speed * 1.6
-        temp_c = (temp_c * 10).ceil / 10.0
-        feels_temp_c = (feels_temp_c * 10).ceil / 10.0
+        temp_c         = (temp_c * 10).ceil / 10.0
+        feels_temp_c   = (feels_temp_c * 10).ceil / 10.0
         wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
+        humidity       = humidity * 100
+        humidity       = sprintf("%.2f", humidity)
 
         if withLocale
-          return "10Weather: #{locale} | Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
+          return "10Weather: #{locale} | Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Humidity: #{humidity}% | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
         end
 
-        return "10Weather: Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
+        return "10Weather: Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Humidity: #{humidity}% | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
       rescue
         nil
       end

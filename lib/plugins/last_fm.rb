@@ -15,7 +15,7 @@ module Cinch
       * !compare <nick|username>: Using an IRC nick of someone who has their information stored in my databases or just a Last.FM username you can compare your tastes!
       USAGE
 
-      BaseURL = "http://ws.audioscrobbler.com/2.0/"
+      baseURL = "http://ws.audioscrobbler.com/2.0/"
 
       CmpBars = ["[4====            ]",
                   "[4====7====        ]",
@@ -44,17 +44,30 @@ module Cinch
 
         key = config[:key]
 
-        rTracks   = JSON.parse(open("#{BaseURL}?method=user.getrecenttracks&user=#{userName}&api_key=#{key}&format=json").read)['recenttracks']['track']
+        track = nil
 
-        return m.reply "You don't seem to be playing anything right now. Check back again later!" if rTracks[0]['@attr'].nil?
+        rTracks   = JSON.parse(open("#{baseURL}?method=user.getrecenttracks&user=#{userName}&api_key=#{key}&format=json").read)['recenttracks']['track']
 
-        artist   = rTracks[0]['artist']['#text']
-        track    = rTracks[0]['name']
-        album    = rTracks[0]['album']['#text']
+        if rTracks.length > 0
+          track = rTracks[0]
+          ts_track = track['date']['uts'].to_i
+          ts_now = Time.now.to_i
+          diff = ts_now - ts_track
+          if diff > 240 # last 4 minutes
+            return m.reply "You haven't scrobbled anything in a while!"
+          end
+        end
+
+        artist   = track['artist']['#text']
+        track    = track['name']
+        album    = "N/A"
+        if !track['album'].nil?
+          album = track['album']['#text']
+        end
 
         # If we send the username with the track.getInfo request we get additional info such as userLoved
         # we have to URI.encode because of tracks with special characters and spaces
-        trackInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track}&api_key=#{key}&format=json")).read)
+        trackInfo = JSON.parse(open(URI.encode("#{baseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track}&api_key=#{key}&format=json")).read)
 
         loved = ":("
         if (trackInfo['track']['userloved'] == "1")
@@ -77,7 +90,7 @@ module Cinch
           end
           # sometimes tracks have no tags so lets fetch the artist's tags
         else
-          artistInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=artist.getInfo&artist=#{artist}&api_key=#{key}&format=json")).read)
+          artistInfo = JSON.parse(open(URI.encode("#{baseURL}?method=artist.getInfo&artist=#{artist}&api_key=#{key}&format=json")).read)
           topTags = artistInfo['artist']['tags']
           for i in topTags['tag']
             tags << i['name']
@@ -112,7 +125,7 @@ module Cinch
           end
         end
 
-        compareInfo = JSON.parse(open(URI.encode("#{BaseURL}?method=tasteometer.compare&type1=user&type2=user&value1=#{user1}&value2=#{user2}&api_key=#{key}&format=json")).read)
+        compareInfo = JSON.parse(open(URI.encode("#{baseURL}?method=tasteometer.compare&type1=user&type2=user&value1=#{user1}&value2=#{user2}&api_key=#{key}&format=json")).read)
 
         return m.reply "Invalid username #{user2}." if compareInfo['error']
 

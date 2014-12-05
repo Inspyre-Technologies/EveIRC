@@ -50,24 +50,20 @@ module Cinch
 
         if rTracks.length > 0
           track = rTracks[0]
-          ts_track = track['date']['uts'].to_i
-          ts_now = Time.now.to_i
-          diff = ts_now - ts_track
-          if diff > 240 # last 4 minutes
-            return m.reply "You haven't scrobbled anything in a while!"
-          end
+        else
+          return m.reply "User has empty library"
         end
 
-        artist   = track['artist']['#text']
-        track    = track['name']
-        album    = "N/A"
+        artist = track['artist']['#text']
+        track_title = track['name']
+        album = "N/A"
         if !track['album'].nil?
           album = track['album']['#text']
         end
 
         # If we send the username with the track.getInfo request we get additional info such as userLoved
         # we have to URI.encode because of tracks with special characters and spaces
-        trackInfo = JSON.parse(open(URI.encode("#{baseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track}&api_key=#{key}&format=json")).read)
+        trackInfo = JSON.parse(open(URI.encode("#{baseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track_title}&api_key=#{key}&format=json")).read)
 
         loved = ":("
         if (trackInfo['track']['userloved'] == "1")
@@ -97,7 +93,16 @@ module Cinch
           end
         end
 
-        m.reply "(0,5Last.FM)#{m.user.nick} - Track: \"4#{track}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
+        if track["@attr"].nil?
+          ts_track = track['date']['uts'].to_i
+          ts_now = Time.now.to_i
+          diff = ts_now - ts_track
+          if diff > 240 # last 4 minutes
+            return m.reply "You haven't scrobbled anything in a while!"
+          end
+        end
+
+        m.reply "(0,5Last.FM)#{m.user.nick} - Track: \"4#{track_title}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
       end
 
       match /compare (.+)/, method: :compare

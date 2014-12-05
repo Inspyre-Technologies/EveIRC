@@ -99,6 +99,8 @@ module Cinch
           diff = ts_now - ts_track
           if diff > 240 # last 4 minutes
             return m.reply "You haven't scrobbled anything in a while!"
+          else
+            return m.reply "(0,5Last.FM)#{m.user.nick} - Track: \"4#{track_title}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
           end
         end
 

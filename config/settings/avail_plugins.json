@@ -1,0 +1,16 @@
+{
+  "plugins": {
+    "Google": {
+      "keyRequired": false,
+      "constant": "Cinch::Plugins::Google",
+      "file": "google.rb",
+      "apiURL": ""
+    },
+    "Eightball": {
+      "keyRequired": false,
+      "constant": "Cinch::Plugins::Eightball",
+      "file": "eightball.rb",
+      "apiURL": ""
+    }
+  }
+}

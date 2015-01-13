@@ -1,4 +1,3 @@
-require_relative 'config/settings/plugins.rb'
 require 'cinch'
 require 'active_support'
 require_relative "config/admin_handler"

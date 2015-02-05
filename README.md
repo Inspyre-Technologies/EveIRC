@@ -9,4 +9,7 @@ Here's what you can look forward to with Eve 7:
   - Greater customization of the bot directly from IRC!
   - Master levels, for greater control of master privileges!
   - Automatic dependency installation!
-
+  - Associate the bot with a gender!
+  - The bot can record a user's gender!
+  - **eveMotion** will give the bot a "fuzzy logic" feel and even moodswings!
+  - Restart the bot from IRC without having to log into an SSH session!

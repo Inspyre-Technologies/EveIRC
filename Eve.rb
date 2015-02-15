@@ -2,6 +2,7 @@ require 'cinch'
 require 'active_support'
 require_relative 'lib/utils/config_checks'
 require_relative 'plugins/admin_handler'
+require_relative 'plugins/core/bot_info'
 
 bot = Cinch::Bot.new do
   configure do |c|

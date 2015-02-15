@@ -3,7 +3,6 @@ require 'yaml'
 require_relative '../lib/helpers/determine_master'
 require_relative '../lib/helpers/geolocation'
 require_relative '../lib/helpers/logger'
-require_relative '../lib/helpers/prefix'
 
 module Cinch
   module Plugins

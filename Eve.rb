@@ -1,13 +1,12 @@
 require 'cinch'
 require 'active_support'
-require_relative "config/admin_handler"
-require_relative "config/plugin_handler"
+require_relative 'lib/utils/config_checks'
 
 bot = Cinch::Bot.new do
   configure do |c|
     c.server = "irc.sinsira.net"
     c.channels = [
-                  
+                  "#Eve"
                  ]
     c.nick = "Eve"
     c.user = "Eve"

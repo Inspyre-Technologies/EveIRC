@@ -7,7 +7,7 @@ require_relative '../helpers/geolocation'
 
 module Cinch
   module Plugins
-    class UserInfo
+    class UIFirstRun
       include Cinch::Plugin
       
       def initialize(*args)

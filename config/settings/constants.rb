@@ -1,2 +1,1 @@
-Cinch::Plugins::AdminHandler
-Cinch::Plugins::PluginHandler
+Cinch::Plugins::ConfigChecks

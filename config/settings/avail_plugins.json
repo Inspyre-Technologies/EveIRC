@@ -1,15 +1,21 @@
 {
   "plugins": {
-    "Google": {
+    "eveMotion": {
       "keyRequired": false,
-      "constant": "Cinch::Plugins::Google",
-      "file": "google.rb",
+      "constant": "Cinch::Plugins::EveMotion",
+      "file": "eve_motion.rb",
       "apiURL": ""
     },
-    "Eightball": {
+    "UserInfo": {
       "keyRequired": false,
-      "constant": "Cinch::Plugins::Eightball",
-      "file": "eightball.rb",
+      "constant": "Cinch::Plugins::UserInfo",
+      "file": "user_info.rb",
+      "apiURL": ""
+    },
+    "Greet": {
+      "keyRequired": false,
+      "constant": "Cinch::Plugins::Greet",
+      "file": "greet.rb",
       "apiURL": ""
     }
   }

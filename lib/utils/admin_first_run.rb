@@ -7,7 +7,6 @@ module Cinch
         super
         @masterFile = {}
         @masterHistory = {}
-        puts "Hello, I am Eve!"
         if agree("We are now going to run a first-run configuration, are you ready? [yes/no]: ")
           nickname = ask("First off, tell me what nickname you use on IRC: ") { |q| 
                                                                                 q.validate = /\A\w+\Z/ 

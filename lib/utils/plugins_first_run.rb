@@ -42,6 +42,27 @@ module Cinch
           sleep config[:delay] || 2
         end
       end
+      
+      def core_plugins
+        log_message("message", "Preparing to write core plugins...")
+        log_message("message", "Writing core plugins to plugins file...")
+        open('config/settings/plugins.rb', 'a') {|f|
+          f.puts "require_relative '../../plugins/core/admin_handler'"
+          f.puts "require_relative '../../plugins/core/bot_info'"
+        }
+        log_message("message", "Core plugins written to plugins file! Proceeding...")
+        log_message("message", "Writing core plugins to constants file...")
+        open('config/settings/constants.rb', 'a') {|f|
+          f.puts "Cinch::Plugins::AdminHandler"
+          f.puts "Cinch::Plugins::BotInfo"
+        }
+        log_message("message", "Core plugins written to constants file! Core plugins written.")
+        log_message("message", "Registering plugins with the bot...")
+        load 'config/settings/plugins.rb'
+        @bot.plugins.register_plugin(Cinch::Plugins::AdminHandler)
+        @bot.plugins.register_plugin(Cinch::Plugins::BotInfo)
+        log_message("message", "Core plugins registered with bot!")
+      end
     
       def update_plugins(data)
         log_message("message", "Creating plugins file...")
@@ -75,6 +96,7 @@ module Cinch
           end
         end
         update_main
+        core_plugins
         puts "Fantastic! Starting bot..."
         sleep config[:delay] || 2
       end

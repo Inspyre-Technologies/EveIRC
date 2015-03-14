@@ -5,7 +5,7 @@ module Cinch
     class FirstRun
       include Cinch::Helpers
       include Cinch::Plugin
-      
+            
       def initialize(*args)
         super
         @settings = {} unless @settings

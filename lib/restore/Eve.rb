@@ -8,10 +8,10 @@ bot = Cinch::Bot.new do
     c.channels = [
                   "#Eve"
                  ]
-    c.nick = "eveSeven"
+    c.nick = "Eve"
     c.user = "Eve"
     c.realname = "Eve 7"
-    c.password = "b0xxy5476"
+    c.password = "foo"
     c.encoding = "UTF-8"
     f = open("config/settings/constants.rb")
     c.plugins.plugins = []

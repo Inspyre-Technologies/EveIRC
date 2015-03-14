@@ -213,3 +213,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#############
+## Eve-7
+#############
+
+/config/settings/*
+!/config/settings/bot_info.json
+!/config/settings/avail_plugins.json
+release-notes.txt

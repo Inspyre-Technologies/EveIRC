@@ -10,6 +10,8 @@ module Cinch
       include Cinch::Plugin
       include Cinch::Helpers
       
+      set :prefix, eval(YAML.load_file('config/settings/settings.yaml')['prefix'])
+      
       def initialize(*args)
         super
         if File.exist?('config/settings/user_info.yaml')
@@ -77,10 +79,10 @@ module Cinch
       match /set (.+?) (.+)/i, method: :set
       
       def set(m, key, value)
-        acceptable_keys = ["twitter", "lastfm", "gender", "location", "birthdate", "greeting"]
+        acceptable_keys = ["twitter", "lastfm", "gender", "location", "birthdate", "greeting", "name"]
         if acceptable_keys.include?(key.downcase)
           key   = key.downcase
-          value = value.downcase unless key == "greeting"
+          value = value.downcase unless key == "greeting" or "name"
           case key
             
           when "twitter"
@@ -100,6 +102,10 @@ module Cinch
             
           when "greeting"
             set_greeting(m, value)
+            
+          when "name"
+            set_name(m, value)
+            
           end
           update_settings
         else

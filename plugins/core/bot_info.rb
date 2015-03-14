@@ -1,3 +1,4 @@
+require 'yaml'
 require 'cinch'
 
 module Cinch
@@ -5,6 +6,7 @@ module Cinch
     class BotInfo
       include Cinch::Plugin
       
+      set :prefix, eval(YAML.load_file('config/settings/settings.yaml')['prefix'])
       set :plugin_name, "botinfo"
       set :help, <<-USAGE.gsub(/^ {6}/, '')
 The BotInfo plugin can be used to get more information about me.
@@ -20,18 +22,18 @@ USAGE
         r_platform     = RUBY_PLATFORM
         r_release      = RUBY_RELEASE_DATE
         b_version      = @bot.realname
-        channels      = @bot.channels.sort.join(', ')
+        channels       = @bot.channels.sort.join(', ')
         channels_count = @bot.channels.length
-        name          = @bot.nick
+        name           = @bot.nick
         plugin_count   = @bot.plugins.count
         cinch_version  = Cinch::VERSION
-        users         = proc {
+        users          = proc {
           users = [];
-        @bot.channels.each {|c|
-                            c.users.each {|u| users << u[0].nick
-                                          }
-                           };
-        users.uniq.size
+          @bot.channels.each {|c|
+            c.users.each {|u| users << u[0].nick
+            }
+          };
+          users.uniq.size
         }.call
 
         m.user.send "Hello #{m.user.nick},"

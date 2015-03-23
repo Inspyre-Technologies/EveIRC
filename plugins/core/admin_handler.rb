@@ -19,7 +19,6 @@ module Cinch
           abort("Critical error")
         end
       end
-
               
       match /status/i, method: :status
       
@@ -151,7 +150,6 @@ module Cinch
           abort("Eror creating file: logged.yaml")
         end
       end
-      
     end
   end
 end

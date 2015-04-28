@@ -72,7 +72,7 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::WordGame,
                          Cinch::Plugins::Reddit,
                          Cinch::Plugins::Tag,
-                         Cinch::Plugins::LastFm];
+                         Cinch::Plugins::LastFm;
 
     ## Below this line MUST be configured for the bot to work. That means DO NOT
     ## skip over these options or the bot WILL NOT WORK. If you do not want the

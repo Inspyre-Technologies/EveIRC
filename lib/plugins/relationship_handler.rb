@@ -1,7 +1,5 @@
 require 'cinch'
-require_relative "config/check_master"
-require_relative "config/check_friend"
-require_relative "config/check_foe"
+require_relative "config/check_relationship"
 
 module Cinch
   module Plugins

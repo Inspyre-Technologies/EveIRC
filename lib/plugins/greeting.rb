@@ -133,12 +133,12 @@ module Cinch
 
       listen_to :leaving, :method => :goodbye
 
-      def goodbye(m, channel)
+      def goodbye(m, user)
         bye = limit = ratelimit(:goodbye, 60)
         return if bye > 0
         return unless config[:enabled_channels].include?(m.channel.name)
             unless m.user.nick == bot.nick
-          m.channel.send leave(m)
+          m.reply leave(m)
         return;
       end
     end

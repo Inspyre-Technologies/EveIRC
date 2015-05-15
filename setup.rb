@@ -26,5 +26,5 @@ puts "Checking if 'activesupport' is installed..."
 install_check("activesupport")
 puts "Required dependencies for eve7 now installed."
 puts "Opening install script..."
-system("kill #{Process.pid} && ruby install.rb")
+system("kill #{Process.pid}")
 

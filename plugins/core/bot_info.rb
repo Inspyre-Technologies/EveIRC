@@ -5,7 +5,7 @@ module Cinch
   module Plugins
     class BotInfo
       include Cinch::Plugin
-      
+
       set :prefix, eval(YAML.load_file('config/settings/settings.yaml')['prefix'])
       set :plugin_name, "botinfo"
       set :help, <<-USAGE.gsub(/^ {6}/, '')
@@ -13,7 +13,7 @@ The BotInfo plugin can be used to get more information about me.
 Usage:
 * !info: This will deliver an extensive list of information to you about me.
 USAGE
-      
+
       match "info"
 
       def execute(m)

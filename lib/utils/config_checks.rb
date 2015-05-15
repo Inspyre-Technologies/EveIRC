@@ -1,8 +1,5 @@
 require 'yaml'
-require 'bcrypt'
-require 'highline/import'
 require 'json'
-require 'fileutils'
 require 'tempfile'
 
 module Cinch
@@ -10,6 +7,14 @@ module Cinch
     class ConfigChecks
       include Cinch::Plugin
       
+      # This block checks for several files, and
+      # if they are not there it will run the first-
+      # run wizard for the associated core plugin.
+      #
+      # The files checked are as follows
+      # - settings.yaml (basic bot settings)
+      # - masters.yaml (administrator settings)
+      # - plugins.rb (the final require script)
       def initialize(*args)
         super
         if File.exist?('config/settings/settings.yaml')

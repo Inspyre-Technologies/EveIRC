@@ -12,10 +12,9 @@ module Cinch
 
       def off(m)
         return unless authentication(m)
-        quit_safely
         plugin_name = "BotControl"
         log_message("message", "Received 'off' command from #{m.user.nick}...", plugin_name)
-        exit_normally
+        quit_safely
         bot.quit("on command of #{m.user.nick}. Exiting normally...")
       end
 

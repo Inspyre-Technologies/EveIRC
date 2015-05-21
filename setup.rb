@@ -25,6 +25,6 @@ install_check("highline")
 puts "Checking if 'activesupport' is installed..."
 install_check("activesupport")
 puts "Required dependencies for eve7 now installed."
-puts "Opening install script..."
+puts "You can now run the Install Wizard by typing: ruby install.rb"
 system("kill #{Process.pid}")
 

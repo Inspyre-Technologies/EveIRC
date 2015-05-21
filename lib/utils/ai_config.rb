@@ -1,10 +1,12 @@
 require_relative '../helpers/logger'
+require_relative '../helpers/file_handler'
 
 module Cinch
   module Plugins
     class AiConfig
       include Cinch::Plugin
-      
+
+      Plugin_Name = "EveMotion::AIConfig"
       def initialize(*args)
         super
         @aiConf = {} unless @aiConf
@@ -20,15 +22,9 @@ module Cinch
           gender.confirm = "\nAre you sure? [yes/no]: "
           gender.responses[:ask_on_error] = gender
         end
-        default_nick = "Adam" if @aiConf['gender'] == "male"
-        default_nick = "Eve" if @aiConf['gender'] == "female"
-        botnick = ask("What will be the name of your bot?: ") { |n|
-                                                                n.validate = /\A\w+\Z/
-                                                              n.default = "#{default_nick}"
-                                                              n.responses[:ask_on_error] = "What will be the name of your bot?: "
-                                                              n.confirm = "\nAre you sure you wish to set the bot's nickname to <%= @answer %>? [yes/no]: "
-                                                              }
-        @aiConf['nick'] = botnick.to_s
+
+        botnick = $settings_file['nick'].to_s
+
         choose do |sexuality|
           sexuality.prompt = "What will be #{botnick}'s sexuality?: "
           sexuality.default = "Bisexual"
@@ -50,9 +46,9 @@ module Cinch
         end
         store_conf
       end
-      
+
       def store_conf
-        log_message("message", "Writing eveMotion file...")
+        log_message("message", "Writing eveMotion file...", Plugin_Name)
         begin
           synchronize(:update) do
             File.open('config/settings/eveMotion.yaml', 'w') do |fh|
@@ -61,23 +57,23 @@ module Cinch
           end
         rescue
           puts "#{$!}"
-          log_message("error", "Error: #{$!}")
+          log_message("error", "Error: #{$!}", Plugin_Name)
           abort("Exiting due to above error!")
         end
-        log_message("message", "eveMotion file written!")
+        log_message("message", "eveMotion file written!", Plugin_Name)
         say("Master file written!")
       end
-      
+
       def delete_conf
-        log_message("warn", "Deleting eveMotion.yaml...")
+        log_message("warn", "Deleting eveMotion.yaml...", Plugin_Name)
         begin
           if File.exist?('config/settings/eveMotion.yaml')
             File.delete('config/settings/eveMotion.yaml')
           else
-            log_message("warn", "The eveMotion.yaml file does not exist")
+            log_message("warn", "The eveMotion.yaml file does not exist", Plugin_Name)
           end
         rescue
-          log_message("error", "There seems to have been an issue deleting eveMotion.yaml: #{$!}")
+          log_message("error", "There seems to have been an issue deleting eveMotion.yaml: #{$!}", Plugin_Name)
         end
       end
     end

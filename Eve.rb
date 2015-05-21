@@ -3,8 +3,9 @@ require 'yaml'
 require 'active_support'
 require_relative 'lib/utils/config_checks'
 require_relative 'lib/helpers/file_handler'
+require_relative 'lib/helpers/to_bool'
 
-$eve_version = "7.0alpha2.1.0"
+$eve_version = "7.0alpha2.2.0"
 
 # Find out of there is a config file, if
 # there is a config file then it pulls
@@ -21,8 +22,8 @@ if $settings_file.nil?
 else
   irc_server  = $settings_file['irc_server'].to_s
   server_port = $settings_file['server_port'].to_s
-  server_ssl  = $settings_file['server_ssl'].to_s
-  ssl_verify  = $settings_file['ssl_verify'].to_s
+  server_ssl  = $settings_file['server_ssl']
+  ssl_verify  = $settings_file['ssl_verify']
   botnick     = $settings_file['nick']
 end
 
@@ -30,8 +31,8 @@ bot = Cinch::Bot.new do
   configure do |c|
     c.server          = "#{irc_server}"
     c.port            = "#{server_port}"
-    c.ssl.use         = server_ssl
-    c.ssl.verify      = false
+    c.ssl.use         = server_ssl.to_bool
+    c.ssl.verify      = ssl_verify.to_bool
     c.channels        = [
                          "#Eve"
                         ]

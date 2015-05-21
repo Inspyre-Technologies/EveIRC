@@ -6,7 +6,7 @@ module Cinch
   module Plugins
     class ConfigChecks
       include Cinch::Plugin
-      
+
       # This block checks for several files, and
       # if they are not there it will run the first-
       # run wizard for the associated core plugin.
@@ -35,6 +35,8 @@ module Cinch
         else
           load 'lib/utils/plugins_first_run.rb'
           PluginsFirstRun.new(*args)
+          puts "Restarting bot to apply first run changes..."
+          system("kill #{Process.pid}&& ruby Eve.rb")
         end
       end
     end

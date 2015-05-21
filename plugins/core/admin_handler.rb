@@ -25,7 +25,7 @@ module Cinch
       match /login$/i, method: :login
 
       def login(m)
-        if authentication
+        if authentication(m)
           m.reply "You are currently logged into the bot."
           timeout_handler(m)
         else

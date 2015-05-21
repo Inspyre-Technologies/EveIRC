@@ -46,6 +46,29 @@ module Cinch
           pf = "~"
         end
 
+        irc_server = ask("Please enter the server address you would like the bot to connect to: ") {|server|
+          server.responses[:ask_on_error] = "Please specify the IRC server address you'd like the bot to connect to: "
+          server.confirm = "Are you sure that you'd like to set <%= @answer %> as the IRC server the bot will connect to? [yes/no]: "
+          }
+        @settings['irc_server'] = irc_server.to_s
+
+        server_port = ask("What port would you like the bot to connect through? [6667]") {|port|
+          port.default = "6667"
+          port.responses[:ask_on_error] = "Please specify a port that you'd like the bot to connect through: "
+          port.confirm = "Are you sure you want to set connect to #{irc_server} through port <%= @answer %>?"
+          }
+        @settings['server_port'] = server_port.to_s
+
+        if agree("Does #{irc_server}'s port #{server_port} use SSL? [yes/no]: ")
+          @settings['server_ssl'] = true
+          if agree("Does #{irc_server} use a self-signed SSL certificate? [yes/no]: ")
+            @settings['ssl_verify'] = false
+          else
+            @settings['ssl_verify'] = true
+          end
+        else
+          @settings['server_ssl'] = false
+        end
 
         # Attempt to get e-mail from user for NickServ registration
         say("#{botnick} will need an e-mail for certain things, like registering for NickServ. Please take note that the e-mail won't necessarily be publicly available, but that option is available for support!")

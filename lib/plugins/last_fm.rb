@@ -1,5 +1,6 @@
 require 'cinch'
 require 'json'
+require 'addressable/uri'
 
 module Cinch
   module Plugins
@@ -9,19 +10,12 @@ module Cinch
       set :required_options, [:key]
       set :plugin_name, 'lastfm'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
-      The LastFM plugin queries Last.FM when you trigger it. Using the Last.FM API the user can get "now playing" information and use the "TasteOMeter" to compare their tastes with other IRC users or usernames on Last.FM.
+      The LastFM plugin queries Last.FM when you trigger it.
       Usage:
       * !np: This will return what you're currently listening to via Last.FM
-      * !compare <nick|username>: Using an IRC nick of someone who has their information stored in my databases or just a Last.FM username you can compare your tastes!
       USAGE
 
-      baseURL = "http://ws.audioscrobbler.com/2.0/"
-
-      CmpBars = ["[4====            ]",
-                  "[4====7====        ]",
-                  "[4====7====8====    ]",
-                  "[4====7====8====9====]",
-                  "[                ]"]
+      BASEURL = "http://ws.audioscrobbler.com/2.0/"
 
       def initialize(*args)
         super
@@ -46,7 +40,7 @@ module Cinch
 
         track = nil
 
-        rTracks   = JSON.parse(open("#{baseURL}?method=user.getrecenttracks&user=#{userName}&api_key=#{key}&format=json").read)['recenttracks']['track']
+        rTracks   = JSON.parse(open("#{BASEURL}?method=user.getrecenttracks&user=#{userName}&api_key=#{key}&format=json").read)['recenttracks']['track']
 
         if rTracks.length > 0
           track = rTracks[0]
@@ -54,16 +48,36 @@ module Cinch
           return m.reply "User has empty library"
         end
 
+        # Set aside a couple of human-readable versions of the artist and track names
+
         artist = track['artist']['#text']
         track_title = track['name']
+
+        # Encode artist and track names for proper searching on LastFM
+        
+        artist_encoded = Addressable::URI.encode_component(artist)
+        if artist_encoded.include?('&')
+          artist_encoded.gsub!('&', '%26')
+        end
+        track_title_encoded = Addressable::URI.encode_component(track_title)
+        if track_title_encoded.include?('&')
+          track_title_encoded.gsub!('&', '%26')
+        end
+
+        # As of this time I don't see a need to encode the artist
+
         album = "N/A"
         if !track['album'].nil?
           album = track['album']['#text']
         end
 
-        # If we send the username with the track.getInfo request we get additional info such as userLoved
-        # we have to URI.encode because of tracks with special characters and spaces
-        trackInfo = JSON.parse(open(URI.encode("#{baseURL}?method=track.getInfo&username=#{userName}&artist=#{artist}&track=#{track_title}&api_key=#{key}&format=json")).read)
+        # Now we search LastFM for more information on the song.
+        
+        lastfm_url = "#{BASEURL}?method=track.getInfo&username=#{userName}&artist=#{artist_encoded}&track=#{track_title_encoded}&api_key=#{key}&format=json"
+        if lastfm_url.include?('%2625')
+          lastfm_url.gsub!('%26')
+        end
+        trackInfo = JSON.parse(open(lastfm_url).read)
 
         loved = ":("
         if (trackInfo['track']['userloved'] == "1")
@@ -86,7 +100,7 @@ module Cinch
           end
           # sometimes tracks have no tags so lets fetch the artist's tags
         else
-          artistInfo = JSON.parse(open(URI.encode("#{baseURL}?method=artist.getInfo&artist=#{artist}&api_key=#{key}&format=json")).read)
+          artistInfo = JSON.parse(open(URI.encode("#{BASEURL}?method=artist.getInfo&artist=#{artist_encoded}&api_key=#{key}&format=json")).read)
           topTags = artistInfo['artist']['tags']
           for i in topTags['tag']
             tags << i['name']
@@ -105,57 +119,7 @@ module Cinch
         end
 
         m.reply "(0,5Last.FM)#{m.user.nick} - Track: \"4#{track_title}\" | Artist: 7#{artist} | Album: \"10#{album}\" | Loved #{loved} | Plays: #{uPlays} | #{tags.join(", ")}"
-      end
-
-      match /compare (.+)/, method: :compare
-
-      def compare(m, user)
-        key = config[:key]
-        reload
-
-        return m.reply "You have no information saved in my database. To save your lastfm username type !set-lastfm <username>" if !@storage.key?(m.user.nick)
-        return m.reply "Your database table has no LastFM username saved. To save a LastFM username type !set-lastfm <username>" if !@storage[m.user.nick].key? 'lastfm'
-
-        user1 = @storage[m.user.nick]['lastfm']
-
-        if !@storage.key?(user)
-          m.reply "#{user} has no information in my database. Trying LastFM username..."
-
-          user2 = user
-        else
-          if !@storage[user].key? 'lastfm'
-            m.reply "#{user} has no LastFM username set in my database. Trying LastFM username..."
-
-            user2 = user
-          else
-            user2 = @storage[user]['lastfm']
-          end
-        end
-
-        compareInfo = JSON.parse(open(URI.encode("#{baseURL}?method=tasteometer.compare&type1=user&type2=user&value1=#{user1}&value2=#{user2}&api_key=#{key}&format=json")).read)
-
-        return m.reply "Invalid username #{user2}." if compareInfo['error']
-
-        index = (compareInfo['comparison']['result']['score'].to_f * 100).to_i
-
-        bar = CmpBars[4]
-        if index >= 1
-          bar = CmpBars[(index / 25.01).to_i]
-        end
-
-        artists = []
-
-        raw_artists = compareInfo['comparison']['result']['artists']
-
-        if !raw_artists.key? '@attr'
-          artists = ["N/A"]
-        else
-          for i in raw_artists['artist']
-            artists << i['name']
-          end
-        end
-
-        m.reply "(0,5Last.FM) Comparison: #{m.user.nick} #{bar} #{user} | Similarity #{index}% | Common artists: #{artists.join(", ")}"
+      rescue; m.reply("Something went wrong, try again with a different song!")
       end
 
       def reload

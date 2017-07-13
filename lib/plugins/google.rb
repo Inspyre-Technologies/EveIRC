@@ -17,59 +17,77 @@ module Cinch
   module Plugins
     class Google
       include Cinch::Plugin
-
+      
       set :plugin_name, 'google'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
-        Searches Google for results on image and web entries.
-          Usage:
-            * !google <terms>: This will execute a Google WEB search, and return the top three results.
-            * !images <terms>: This will execute a Google Image search and returns the top three results.
-          USAGE
-
-      match /google (.+)/i, method: :execute_w
-      match /images (.+)/i, method: :execute_i
-
+      Use this plugin to search Google for a webpage or image.
+        !google <query>: Searches for <query>. You can optionally use the -image or -i flag to search for images.
+      USAGE
+      
+      
+      APIKEY = config[:key]
+      
+      ENGINEID = config[:engineid]
+      
+      match /google( -image| -i)? (.+)/i
+      
       # Execute the web search.
-      def execute_w(m, query)
+      def execute(m, type, query)
         return if check_ignore(m.user)
         query.gsub! /\s/, '+'
-        data = search_w(m, query)
+        
+        case type
+        when " -image", " -i"
+          type = "image"
+        else
+          type = "web"
+        end
+        
+        data = lookup(m, type, query)
         return m.reply "No results found for #{query}." if data.empty?
-        search_result(m, data)
+        result(m, data)
       end
-
-      #Execute the image search.
-      def execute_i(m, query)
-        return if check_ignore(m.user)
-        query.gsub! /\s/, '+'
-        data = search_i(m, query)
-        return m.reply "No results found for #{query}." if data.empty?
-        search_result(m, data)
-      end
-
-      def search_w(m, terms)
-        logo = "12G4o8o12g9l4e"
-        data = JSON.parse(open("http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=#{terms}").read)
-        rdata = data['responseData']['results']
+      
+      def lookup(m, type, query)
+        
+        case type
+        when "image"
+          logo = "12I4m8a12g9e4s"
+          data = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{query}&cx=#{ENGINEID}&num=3&searchType=image&key=#{APIKEY}").read)
+        else
+          logo = "12G4o8o12g9l4e"
+          data = JSON.parse(open("https://www.googleapis.com/customsearch/v1?q=#{query}&cx=#{ENGINEID}&num=3&key=#{APIKEY}").read)
+        end
+        
+        data = data['items']
         results = []
-
-        rdata.each{|i| results.push("%s: %s [ %s ]" % [logo, CGI.unescapeHTML(i['titleNoFormatting']), i['unescapedUrl']])}
-
+        
+        for i in data
+          title = i['title']
+          title = title[0..100]
+          if type == "web"
+            snippet = i['snippet']
+            snippet = snippet[0..50]
+          end
+          link = i['link']
+          if type == "image"
+            height = i['image']['height']
+            width  = i['image']['width']
+            size   = i['image']['byteSize']
+          end
+          
+          case type
+          when "web"
+            results.push("%s |-| Title: %s |-| %s |-| %s" % [logo, title, snippet, link])
+            
+          when "image"
+            results.push("%s |-| Image Title: %s |-| Size: %s x %s |-| File Size: %sbytes |-| %s" % [logo, title, width, height, size, link])
+          end
+        end
         return results
       end
-
-      def search_i(m, terms)
-        logo = "12I4m8a12g9e4s"
-        data = JSON.parse(open("http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=#{terms}").read)
-        rdata = data['responseData']['results']
-        results = []
-
-        rdata.each{|i| results.push("%s: %s (%sx%s)" % [logo, i['unescapedUrl'], i['width'], i['height']])}
-
-        return results
-      end
-
-      def search_result(m, data)
+      
+      def result(m, data)
         data[0..2].each{|i| m.reply i}
       end
     end

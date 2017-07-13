@@ -50,6 +50,8 @@ module Cinch
 
       match /set-gender (male|female)/, method: :set_gender
 
+      match /set-lastfm (.+)/, method: :set_lastfm
+
 
       match /del-w/, method: :del_w
 
@@ -60,6 +62,8 @@ module Cinch
       match /del-birthday/, method: :del_birthday
 
       match /del-data/, method: :del_data
+
+      match /del-lastfm/, method: :del_lastfm
 
       match /rdel-data (.+)/, method: :rdel_data
 
@@ -217,6 +221,34 @@ module Cinch
         m.reply "Updated your gender to #{gender}!"
       rescue
         m.reply Format(:red, "Error: #{$!}")
+      end
+
+      # Added LastFM username storage for the LastFM plugin (lastfm.rb) to use
+
+      def set_lastfm(m, username)
+        return if check_ignore(m.user)
+        @storage[m.user.nick] ||= {}
+        @storage[m.user.nick]['lastfm'] = username
+        update_store
+        m.reply "Updated your LastFM username to #{username}!"
+      rescue
+        m.reply Format(:red, "Error: #{$!}")
+      end
+
+      # Added delete function for LastFM information
+
+      def del_lastfm(m)
+        return if check_ignore(m.user)
+        if @storage.key?(m.user.nick)
+          if @storage[m.user.nick].key? 'lastfm'
+            l = @storage[m.user.nick]
+            l.delete('lastfm')
+            update_store
+            m.reply "Successfully deleted your LastFM information!"
+            return;
+          end
+          m.reply "You don't have that value set!"
+        end
       end
 
       def update_store

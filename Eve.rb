@@ -56,7 +56,7 @@ bot = Cinch::Bot.new do
 #                         Cinch::Plugins::TwitterStatus,
                          Cinch::Plugins::Wikipedia,
                          Cinch::Plugins::Weather,
-                         Cinch::Plugins::Google,
+#                         Cinch::Plugins::Google,
                          Cinch::Plugins::YouTube,
                          Cinch::Plugins::Math,
                          Cinch::Plugins::UserInfo,
@@ -69,7 +69,7 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::News,
                          Cinch::Plugins::Wolfram,
                          Cinch::Plugins::CoinQuery,
-                         Cinch::Plugins::WordGame,
+#                         Cinch::Plugins::WordGame,
                          Cinch::Plugins::Reddit,
                          Cinch::Plugins::Tag,
                          Cinch::Plugins::LastFm];
@@ -104,9 +104,9 @@ bot = Cinch::Bot.new do
 
     c.plugins.options[Cinch::Plugins::LastFm]  = { key: 'foo' }
 
-    c.plugins.options[Cinch::Plugins::Google]  = { key: 'foo',
-                                                   engineid: 'bar'
-                                               }
+#    c.plugins.options[Cinch::Plugins::Google]  = { key: 'foo',
+#                                                   engineid: 'bar'
+#                                               }
 
     c.password = "nspass"
 

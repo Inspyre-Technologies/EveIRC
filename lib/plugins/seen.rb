@@ -43,9 +43,12 @@ module Cinch
 
       def execute(m, nick)
         return if pm(m)
-        unless m.user.nick.downcase == nick.downcase
-          m.reply seen(m, nick), true
-        end
+
+        return m.reply "Silly #{m.user.nick}, that's you!" if nick.downcase == m.user.nick.downcase
+
+        return m.reply "#{m.user.nick} I'm right here! Silly!" if nick == bot.nick
+
+        m.reply seen(m, nick), true
       end
 
       private

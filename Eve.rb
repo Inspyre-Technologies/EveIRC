@@ -26,7 +26,7 @@ bot = Cinch::Bot.new do
     c.channels = ["#Eve"]
     c.nick = "Eve"
     c.user = "Eve"
-    c.realname = "Eve 6.5.8"
+    c.realname = "Eve 6.5.9.1"
 
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
     ## that you want the bot to use are included in this block. If you want to
@@ -36,7 +36,8 @@ bot = Cinch::Bot.new do
     ## added, or transposed a colon or semicolon, or you didn't delete the options
     ## for the plugin, located below in the options block.
 
-    c.plugins.plugins = [Cinch::Plugins::PluginManagement,
+    c.plugins.plugins = [Cinch::Plugins::BotInfo,
+                         Cinch::Plugins::PluginManagement,
                          Cinch::Plugins::Urban,
                          Cinch::Plugins::Help,
                          Cinch::Plugins::Seen,
@@ -50,6 +51,7 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::PrivateCP,
                          Cinch::Plugins::PrivChanCP,
                          Cinch::Plugins::FactCore,
+                         Cinch::Plugins::Fun,
                          Cinch::Plugins::ActAI,
                          Cinch::Plugins::UrlScraper,
 #                         Cinch::Plugins::Twitter,

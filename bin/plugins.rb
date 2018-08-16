@@ -4,6 +4,7 @@
 ## constant"
 
 require 'redis'
+require_relative "../lib/plugins/bot_info"
 require_relative "../lib/plugins/urban"
 require_relative "../lib/plugins/help"
 require_relative "../lib/plugins/seen"
@@ -17,6 +18,7 @@ require_relative "../lib/plugins/chanop_cp"
 require_relative "../lib/plugins/private_cp"
 require_relative "../lib/plugins/priv_chan_cp"
 require_relative "../lib/plugins/fact_core"
+require_relative "../lib/plugins/fun"
 require_relative "../lib/plugins/act_ai"
 require_relative "../lib/plugins/url_scraper"
 require_relative "../lib/plugins/twitter"

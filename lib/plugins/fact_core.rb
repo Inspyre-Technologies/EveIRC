@@ -5,7 +5,6 @@ module Cinch::Plugins
   class FactCore
     include Cinch::Plugin
 
-    set :prefix, /^~/
     set :plugin_name, 'factcore'
     set :help, <<-USAGE.gsub(/^ {6}/, '')
       Gives a funny, and sometimes true fact

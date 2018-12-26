@@ -26,7 +26,7 @@ bot = Cinch::Bot.new do
     c.channels = ["#Eve"]
     c.nick = "Eve"
     c.user = "Eve"
-    c.realname = "Eve 6.5.9.1"
+    c.realname = "Eve 6.6.6"
 
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
     ## that you want the bot to use are included in this block. If you want to
@@ -74,7 +74,8 @@ bot = Cinch::Bot.new do
 #                         Cinch::Plugins::WordGame,
                          Cinch::Plugins::Reddit,
                          Cinch::Plugins::Tag,
-                         Cinch::Plugins::LastFm];
+                         Cinch::Plugins::LastFm,
+                         Cinch::Plugins::NameGenerator];
 
     ## Below this line MUST be configured for the bot to work. That means DO NOT
     ## skip over these options or the bot WILL NOT WORK. If you do not want the

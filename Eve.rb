@@ -26,7 +26,7 @@ bot = Cinch::Bot.new do
     c.channels = ["#Eve"]
     c.nick = "Eve"
     c.user = "Eve"
-    c.realname = "Eve 6.6.6"
+    c.realname = "Eve 6.6.7"
 
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
     ## that you want the bot to use are included in this block. If you want to

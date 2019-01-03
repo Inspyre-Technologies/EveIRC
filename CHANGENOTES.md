@@ -2,7 +2,7 @@
 * Added CHANGENOTES 870d6e49f2ff9b43b1f84b49648969f67c497b82
 * Deleted CHANGELOG.md b412a5f66a4bd48b132ead94cf14fba6444c3b34
 * Fixed CoinQuery plugin not stripping queries. 15979d67920bbc4f586e3036a0a003302f54404b
-  * This was in response to issue #92
+  * This was in response to issue [#92](/../../issues/92)
   * Plugin is still left broken (see #103)
 * Changed CHANGENOTES to CHANGENOTES.md
 * Fixed issue #101
@@ -10,3 +10,5 @@
   * Added documentation to script
   * Changed regex hook to something more sane
 * Updated CHANGENOTES.md 1/3/19
+* Updated CHANGENOTES.md 1/3/19 (2)
+  * Testing issue reference fix

@@ -21,7 +21,10 @@ module Cinch
       * !seen <user>: The bot searches for the last time <user> spoke and returns with the results.
       USAGE
 
-      match /seen ([^\s]+)\z/i
+     # Upon this plugin file loading it will
+     # check if the appropriate files exist.
+     # If they do not exist it will then create
+     # the necessary files.
 
       def initialize(*args)
         super
@@ -32,6 +35,15 @@ module Cinch
         end
       end
 
+      # Below, Cinch uses match to catch commands.
+
+      match /seen (.+)/i
+
+      # The listen block below logs the last thing
+      # any user said. This is stored in a YAML
+      # db which is written every time a user
+      # speaks via the update_store block.
+
       def listen(m)
         nick = m.user.nick
         channel = m.channel.name
@@ -41,21 +53,46 @@ module Cinch
         update_store
       end
 
+      # Upon receiving the !seen query command
+      # the below block will execute a search
+      # of the YAML database for the query's
+      # nick.
+
       def execute(m, nick)
+        # Stripping the end of the query string
+        # so that we may search a case sensitive
+        # database
+        nick   = nick.strip
+        
+        # Creating variable to hold a downcased 
+        # version of the query string.
+        nickDown = nick.downcase
+        
+        # Return if the command if received in
+        # a private message. 
+        
         return if pm(m)
 
-        return m.reply "Silly #{m.user.nick}, that's you!" if nick.downcase == m.user.nick.downcase
+        # If the user is searching themselves,
+        # return.
 
-        return m.reply "#{m.user.nick} I'm right here! Silly!" if nick == bot.nick
+        return m.reply "Silly #{m.user.nick}, that's you!" if nickDown == m.user.nick.downcase
+        
+        # Return if the target of the query
+        # matches the bot's nick.
 
-        m.reply seen(m, nick), true
+        return m.reply "#{m.user.nick} I'm right here! Silly!" if nickDown == bot.nick
+        
+        # Pass query to seen block
+
+        m.reply seen(m, nick, nickDown), true
       end
 
       private
 
-      def seen(m, nick)
-        @storage[nick.downcase] ||= {}
-        seen = @storage[nick.downcase]['seen']
+      def seen(m, nick, nickDown)
+        @storage[nickDown] ||= {}
+        seen = @storage[nickDown]['seen']
 
         if seen.nil?
           "I have no record of seeing #{nick} before!"
@@ -90,9 +127,8 @@ module Cinch
   end
 end
 
-## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
-## E-mail: namaste@rawrnet.net
-## Github: Namasteh
-## Website: www.rawrnet.net
+## Written by Taylor Blackstone for EveIRC - An Inspyre Technologies Project
+## E-mail: taylor@inspyre.tech
+## Github: tayjaybabee
+## Website: http://inspyre.tech
 ## IRC: irc.sinsira.net #Eve
-## If you like this plugin please consider tipping me on gittip

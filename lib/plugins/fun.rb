@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 require 'cinch'
 require_relative "config/check_ignore"
 
@@ -17,6 +18,11 @@ module Cinch
       match /revive (.+)/i, method: :revive
 
       def revive(m, user)
+        
+        # We need to strip whitespace
+        
+        user = user.strip
+        
         return if check_ignore(m.user)
         if User(user) == m.bot
           samebot(m, user)
@@ -53,6 +59,9 @@ module Cinch
       match /rose (.+)/, method: :rose
 
       def rose(m, user)
+        
+        user = user.strip
+        
         usernick = User(user).nick
         return if check_ignore(m.user)
 
@@ -70,9 +79,8 @@ module Cinch
   end
 end
 
-## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
-## E-mail: namaste@rawrnet.net
-## Github: Namasteh
-## Website: www.rawrnet.net
+## Written by Taylor Blackstone for EveIRC - An Inpsyre Technologies Project
+## E-mail: taylor@sinsira.net
+## Github: tayjaybabee
+## Website: http://inspyre.tech
 ## IRC: irc.sinsira.net #Eve
-## If you like this plugin please consider tipping me on gittip

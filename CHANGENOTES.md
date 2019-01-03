@@ -5,3 +5,8 @@
   * This was in response to issue #92
   * Plugin is still left broken (see #103)
 * Changed CHANGENOTES to CHANGENOTES.md
+* Fixed issue #101
+  * Added new variable to hold stripped query
+  * Added documentation to script
+  * Changed regex hook to something more sane
+* Updated CHANGENOTES.md 1/3/19

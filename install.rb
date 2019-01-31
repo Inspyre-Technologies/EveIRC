@@ -70,7 +70,7 @@ say "Checking basic dependencies..."
 
 install_check("bundler")
 say "Using Bundler to install needed gems..."
-system *%W[bundler install --system]
+system *%W[bundle]
 
 say "Required dependencies for eve6 now installed."
 say "Once you've configured Eve you can start it using: ruby Eve.rb"

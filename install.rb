@@ -68,11 +68,17 @@ end
 # Start checking for bundler, and then install based on Gemfile
 say "Checking basic dependencies..."
 
-install_check("bundler")
+install_check("bundle")
 say "Using Bundler to install needed gems..."
 system *%W[bundle]
 
 say "Required dependencies for eve6 now installed."
+
+# Now we've got to build a userinfo.yaml file so that
+# the user may properly access the bot on first run
+
+name = cli.ask("What is your IRC services authname?"
+
 say "Once you've configured Eve you can start it using: ruby Eve.rb"
 
 system("kill #{Process.pid}") # End program

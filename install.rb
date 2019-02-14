@@ -33,8 +33,6 @@ end
 
 install_highline
 
-install_check("highline")
-
 require 'highline/import'
 cli = HighLine.new
 system("clear")

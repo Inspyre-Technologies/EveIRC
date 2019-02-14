@@ -31,17 +31,8 @@ def install_highline
   end
 end
 
-# Here we check to see if highline is installed
-puts "Checking to see if 'highline' is installed..."
-if system('gem list -i "^highline$"')
-  puts "Looks like 'highline' is already installed, good!"
-  sleep 2
-else
-  puts "Looks like 'highline' is NOT installed"
-  install_highline # Install highline if it's not
-end
+install_check("highline")
 
-# Prepare script to use highline
 require 'highline/import'
 cli = HighLine.new
 system("clear")
@@ -69,15 +60,11 @@ end
 say "Checking basic dependencies..."
 
 install_check("bundle")
+
 say "Using Bundler to install needed gems..."
 system *%W[bundle]
 
 say "Required dependencies for eve6 now installed."
-
-# Now we've got to build a userinfo.yaml file so that
-# the user may properly access the bot on first run
-
-name = cli.ask("What is your IRC services authname?"
 
 say "Once you've configured Eve you can start it using: ruby Eve.rb"
 

@@ -16,8 +16,6 @@ def install_check(gem)
   end
 end
 
-install_highline
-
 # This function is for installing highline to make output pretty
 def install_highline
   puts "In order to continue with automatic installation 'highline' is required!"
@@ -32,6 +30,8 @@ def install_highline
     system("gem install highline")
   end
 end
+
+install_highline
 
 install_check("highline")
 

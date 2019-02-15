@@ -242,4 +242,8 @@ tmp
 .directory
 .vscode/launch.json
 Gemfile.lock
+
+# Eve specific files
 docs/userinfo.yaml
+docs/memos.yaml
+docs/seen.yaml

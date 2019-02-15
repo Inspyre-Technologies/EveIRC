@@ -64,10 +64,15 @@ def create_userfile
   puts "What is your IRC nickname? "
   answer = gets.chomp
   puts "Thank you, #{answer}"
-  @storage = {}
   @storage[answer] ||= {}
   @storage[answer]['adminLevel'] = 0
   puts "Writing to config file..."
+end
+
+def update_store
+  File.open('docs/userinfo.yaml', 'w') do |fh|
+    YAML.dump(@storage, fh)
+  end
 end
 
 create_userfile

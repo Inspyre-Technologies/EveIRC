@@ -64,12 +64,15 @@ def create_userfile
   puts "What is your IRC nickname? "
   answer = gets.chomp
   puts "Thank you, #{answer}"
+  @storage = {}
   @storage[answer] ||= {}
   @storage[answer]['adminLevel'] = 0
   puts "Writing to config file..."
 end
 
 create_userfile
+
+config_check
 
 install_highline
 

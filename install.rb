@@ -1,15 +1,40 @@
 require 'yaml'
 # The script is for easy install of the gems Eve requires
 
+# Below we are going to initialize this install script
+
+
 def initialize(*args)
 super
-  if File.exist?('docs/userinfo.yaml')
-    @storage = YAML.load_file('docs/userinfo.yaml')
-  else
-    @storage = {}
-    puts"Creating user config file..."
-    system("touch docs/userinfo.yaml")
-    puts"User config file added..."
+  puts "Checking if default config files exist..."
+  begin
+    if File.exist?('docs/userinfo.yaml')
+      @storage = YAML.load_file('docs/userinfo.yaml')
+    else
+      @storage = {}
+      puts "Creating user config file..."
+      system("touch docs/userinfo.yaml")
+      puts "User config file created! (userinfo.yaml)"
+    end
+    if File.exist?('docs/seen.yaml')
+      puts "No need to write seen.yaml, already exists!"
+    else
+      puts "Seen.yaml not found, creating file..."
+      system("touch docs/seen.yaml")
+      puts "Seen.yaml created!"
+    if File.exist?('docs/memos.yaml')
+      puts "No need to write memos.yaml, already exists!"
+    else
+      puts "Memoes.yaml not found, creating file..."
+      system("touch docs/memos.yaml")
+      puts "Memoes.yaml created!"
+    rescue => e
+      puts "There seems to have been an issue! Please restart this script or file an issue!"
+      puts "Exception Class: #{ e.class.name }"
+      puts "Exception Message: #{ e.message }"
+      puts "Exception Backtrace: #{ e.backtrace }"
+    end
+    puts"Finished checking for default config files."
   end
 end
 

@@ -47,15 +47,19 @@ end
 
 # This function is for installing highline to make output pretty
 def install_highline
-  puts "In order to continue with automatic installation 'highline' is required!"
-  puts "Should I install the 'highline' gem now? [y/n]:"
-  answer = gets.chomp
-  if answer.downcase != 'y'
-    puts "Highline is needed to proceed! Exiting in 3 seconds..."
-    puts "Please see documentation for manual install."
-    sleep 3
-    system("kill #{Process.pid}")
+  puts "Checking to see if Highline is installed..."
+  if system ('gem list -i "^highline$"')
+    puts "Found highline, proceeding...."
   else
+    puts "In order to continue with automatic installation 'highline' is required!"
+    puts "Should I install the 'highline' gem now? [y/n]:"
+    answer = gets.chomp
+    if answer.downcase != 'y'
+      puts "Highline is needed to proceed! Exiting in 3 seconds..."
+      puts "Please see documentation for manual install."
+      sleep 3
+      system("kill #{Process.pid}")
+    else
     system("gem install highline")
   end
 end

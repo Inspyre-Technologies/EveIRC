@@ -5,7 +5,7 @@ require 'yaml'
 # by first checking that the needed files exist and if
 # they don't create them.
 
-@storage = nil
+@storage = {}
 
 def config_check
   puts "Checking if default config files exist..."

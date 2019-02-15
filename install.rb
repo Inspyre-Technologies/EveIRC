@@ -60,7 +60,8 @@ def install_highline
       sleep 3
       system("kill #{Process.pid}")
     else
-    system("gem install highline")
+      system("gem install highline")
+    end
   end
 end
 

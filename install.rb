@@ -1,7 +1,9 @@
 require 'yaml'
 # The script is for easy install of the gems Eve requires
 
-# Below we are going to initialize this install script
+# Below we are going to initialize this install script,
+# by first checking that the needed files exist and if
+# they don't create them.
 
 
 def initialize(*args)
@@ -33,6 +35,7 @@ super
       puts "Exception Class: #{ e.class.name }"
       puts "Exception Message: #{ e.message }"
       puts "Exception Backtrace: #{ e.backtrace }"
+      system("kill #{Process.pid}")
     end
     puts"Finished checking for default config files."
   end

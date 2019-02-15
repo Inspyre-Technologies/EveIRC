@@ -30,6 +30,7 @@ super
       puts "Memoes.yaml not found, creating file..."
       system("touch docs/memos.yaml")
       puts "Memoes.yaml created!"
+    end
     rescue => e
       puts "There seems to have been an issue! Please restart this script or file an issue!"
       puts "Exception Class: #{ e.class.name }"

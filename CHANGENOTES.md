@@ -30,3 +30,18 @@
 * Updated fun.rb
   * Fixed issue [#95](/../../issues/95)
   * Changed watermark to relevant info
+
+#### dev6 - Push #2 2/20/19
+**Reason**: Bugfix, critical
+
+* Updated .gitignore
+ * Added userinfo.yaml
+ * Added seen.yaml
+ * Added memos.yaml
+ * Dev Note on change: These files shouldn't exist as they interfere with first run of Eve.
+
+* Removed docs/userinfo.yaml
+* Removed docs/memos.yaml
+* Removed docs/seen.yaml
+
+* Updated CHANGENOTES.md to reflect changes

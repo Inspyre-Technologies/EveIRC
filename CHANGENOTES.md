@@ -52,3 +52,16 @@
 * Updated Gemfile to require ruby 2.6.0 as it was requiring 2.6.1 previously
 
 * Updated CHANGENOTES.md to reflect changes
+
+#### dev6 - Push #4 02/28/19
+*Reason**: Bugflix (Critical)
+  Bot refused to start due to malfunction of the tag plugin. Disabled tag plugin.
+
+* Updated Eve.rb
+  * Commented out loading of tag plugin
+  * Updated version checking system
+
+* Updated plugins.rb
+  * Commented out requirement of tag.rb
+
+* Updated CHANGENOTES.md to reflect above changes

@@ -11,6 +11,8 @@ require_relative "bin/plugins"
 # masters see output maybe it is wise to only put your nick in here and
 # make sure no one steals it!
 
+version = File.read('VERSION')
+
 Config = OpenStruct.new
 
 Config.dispatch = ["foo", "bar", "you"]
@@ -26,7 +28,7 @@ bot = Cinch::Bot.new do
     c.channels = ["#Eve"]
     c.nick = "Eve"
     c.user = "Eve"
-    c.realname = "Eve 6.7.1(rc)"
+    c.realname = "Eve 6.7(#{version})"
     c.verbose
     
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins
@@ -74,7 +76,7 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::CoinQuery,
 #                         Cinch::Plugins::WordGame,
                          Cinch::Plugins::Reddit,
-                         Cinch::Plugins::Tag,
+#                         Cinch::Plugins::Tag,
                          Cinch::Plugins::LastFm,
                          Cinch::Plugins::NameGenerator];
 

@@ -54,7 +54,7 @@
 * Updated CHANGENOTES.md to reflect changes
 
 #### dev6 - Push #4 02/28/19
-*Reason**: Bugflix (Critical)
+**Reason**: Bugflix (Critical)
   Bot refused to start due to malfunction of the tag plugin. Disabled tag plugin.
 
 * Updated Eve.rb

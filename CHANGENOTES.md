@@ -45,3 +45,10 @@
 * Removed docs/seen.yaml
 
 * Updated CHANGENOTES.md to reflect changes
+
+#### dev6 - Push #3 02/27/19
+**Reason**: Bugfix (Critical)
+
+* Updated Gemfile to require ruby 2.6.0 as it was requiring 2.6.1 previously
+
+* Updated CHANGENOTES.md to reflect changes

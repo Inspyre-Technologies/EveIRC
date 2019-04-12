@@ -17,6 +17,7 @@ module Cinch
         
       def coin(m, query)
         
+        query   = query.downcase.strip
         results = basicInfo(m, query)
         
         if results == "error"
@@ -32,7 +33,8 @@ module Cinch
       
       def transaction(m, coin, txHash)
         
-        coin = coin.downcase
+        txHash = txHash.strip
+        coin   = coin.downcase
         
         results = txInfo(m, coin, txHash)
         
@@ -53,6 +55,7 @@ module Cinch
           return
         end
         
+        addr = addr.strip # Strip whitespace from query for sanity's sake
         coin = coin.downcase
         
         results = addressInfo(m, coin, addr, verbose)
@@ -70,6 +73,7 @@ module Cinch
       
       def verboseAddr(m, verbose, coin, addr)
         
+        addr    = addr.stripf
         verbose = "yes"
         
         address(m, coin, addr, verbose)
@@ -81,7 +85,7 @@ module Cinch
       def convert(m, qAmount, qSym, target)
         
         qSym    = qSym.upcase
-        target  = target.upcase
+        target  = target.upcase.strip
         
         result  = converter(m, qAmount, qSym, target)
         

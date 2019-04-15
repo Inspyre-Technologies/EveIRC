@@ -240,6 +240,7 @@ test/tmp
 test/version_tmp
 tmp
 .directory
+.vscode
 .vscode/launch.json
 Gemfile.lock
 

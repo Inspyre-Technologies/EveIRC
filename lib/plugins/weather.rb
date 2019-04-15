@@ -1,16 +1,20 @@
-﻿require 'cinch'
+﻿# frozen_string_literal: true
+
+require 'cinch'
 require 'ostruct'
 require 'open-uri'
 require 'json'
 require 'yaml'
 require 'cinch/toolbox'
-require_relative "config/check_auth"
-require_relative "config/check_ignore"
+require_relative 'config/check_auth'
+require_relative 'config/check_ignore'
+require_relative 'helpers/geolookup'
 
 module Cinch
   module Plugins
     class Weather
       include Cinch::Plugin
+      include Cinch::Helpers
 
       set :required_options, [:key]
       set :plugin_name, 'weather'
@@ -28,11 +32,11 @@ module Cinch
 
       def initialize(*args)
         super
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
+        @storage = if File.exist?('docs/userinfo.yaml')
+                     YAML.load_file('docs/userinfo.yaml')
+                   else
+                     {}
+                   end
       end
 
       match /weather (.+)/i, method: :current
@@ -45,18 +49,36 @@ module Cinch
 
       match /cw (.+)/i, method: :check_custom
 
+      def get_data(m, _query)
+        data = geolookup(m, _query)
+        if !data
+          return false
+        else
+          @coords = data[0]
+          @name   = data[1]
+        end
+      end
+
       def current(m, query)
         return if check_ignore(m.user)
-        query.gsub! /\s/, '+'
-        geometry = geolookup(query)
-        return m.reply "No results found for #{query}." if geometry.nil?
-        locale = location_r(query)
-        data = get_current(geometry, locale, true) # true means we want locale printed
-        return m.reply 'Uh oh, there was a problem getting the specified weather data. Try again later.' if data.nil?
+
+        get_data(m, query)
+
+        unless @coords
+          m.reply 'There seems to have been a problem fetching your location data. Please try again later.'
+        end
+
+        data = get_current(@coords, @name, true) # true means we want locale printed
+
+        unless data
+          m.reply 'There seems to have been a problem fetching your weather data. Please try again later.'
+        end
+
         m.reply(data)
 
-        alerts = alert(geometry, locale, true)
-        return m.user.notice "You have no alerts." if alerts.nil?
+        alerts = alert(@coords, @name, true)
+        return m.user.notice 'You have no alerts.' if alerts.nil?
+
         m.user.notice(alerts)
       end
 
@@ -64,53 +86,53 @@ module Cinch
 
       def hourly(m, hour, query)
         return if check_ignore(m.user)
-        query.gsub! /\s/, '+'
-        geometry = geolookup(query)
-        return m.reply "No results found for #{query}." if geometry.nil?
 
-        locale = location_r(query)
+        get_data(m, query)
 
-        data = get_hourly(hour, geometry, locale, true)
+        return m.reply "No results found for #{query}." if @coords.nil?
+
+        data = get_hourly(hour, @coords, @name, true)
 
         return m.reply 'Oh no! There was a problem fetching the specified weather data. Please try again later.' if data.empty?
 
-        m.reply(hourly_summary(data,hour))
+        m.reply(hourly_summary(data, hour))
       end
 
       # Now we introduce a method to get the daily forecast.
 
       def daily(m, day, query)
         return if check_ignore(m.user)
-        query.gsub! /\s/, '+'
-        geometry = geolookup(query)
-        return m.reply "No results found for #{query}." if geometry.nil?
 
-        locale = location_r(query)
+        get_data(m, query)
 
-        data = get_daily(day, geometry, locale, true)
+        return m.reply "No results found for #{query}." if @coords.nil?
+
+        data = get_daily(day, @coords, @name, true)
 
         return m.reply 'Oh no! There was a problem fetching the specified weather data. Please try again later.' if data.empty?
 
-        m.reply(daily_summary(data,day))
+        m.reply(daily_summary(data, day))
       end
 
       # Fetch the location from Google Maps for the area the user is looking for to be passed into get_current.
 
       def custom_w(m)
         return if check_ignore(m.user)
+
+        w_user = m.user.nick
         reload
-        if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'wLocation'
+        if @storage.key?(w_user)
+          stored_user = @storage[w_user]
+          if stored_user.key? 'location_data'
+            location_data = stored_user['location_data']
 
-            geometry = @storage[m.user.nick]['wLocation']
+            coords = location_data['coords']
 
-            address = @storage[m.user.nick]['wAddress']
+            name = location_data['name']
 
-            locale = address
+            data = get_current(coords, name, false) # false means we dont want locale printed
 
-            data = get_current(geometry, locale, false) # false means we dont want locale printed
-
-            c_alert = ifAlert(m, geometry, locale)
+            c_alert = ifAlert(m, coords, name)
 
             return m.reply 'Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.' if data.nil?
 
@@ -119,109 +141,99 @@ module Cinch
             return c_alert
           end
         end
-        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
+        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
       end
 
       def check_custom(m, user)
         return if check_ignore(m.user)
+
         reload
         if @storage.key?(user)
           if @storage[user].key? 'wLocation'
 
-            geometry = @storage[user]['wLocation']
+            coords = @storage[user]['wLocation']
 
             address = @storage[user]['wAddress']
 
             locale = address
 
-            data = get_current(geometry, locale, false) # Again, we don't want locale printed, especially with this function
+            data = get_current(coords, locale, false) # Again, we don't want locale printed, especially with this function
 
             return m.reply 'On no! There was a problem fetching the specified weather data for this user. Please try again later!.' if data.nil?
 
             return m.reply(data)
           end
         end
-        return m.reply "This user has no custom data set."
+        m.reply 'This user has no custom data set.'
       end
 
       def custom_h(m, hour)
         return if check_ignore(m.user)
+
         reload
         if @storage.key?(m.user.nick)
           if @storage[m.user.nick].key? 'wLocation'
 
-            geometry = @storage[m.user.nick]['wLocation']
+            coords = @storage[m.user.nick]['wLocation']
 
             address = @storage[m.user.nick]['wAddress']
 
             locale = address
 
-            data = get_hourly(hour, geometry, locale, false)
+            data = get_hourly(hour, coords, locale, false)
 
             return m.reply 'Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.' if data.nil?
 
             return m.reply hourly_summary(data, hour)
           end
         end
-        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
+        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
       end
 
       def custom_d(m, day)
         return if check_ignore(m.user)
+
         reload
         if @storage.key?(m.user.nick)
-          if @storage[m.user.nick].key? 'wLocation'
+          w_user = @storage[m.user.nick]
+          if w_user.key? 'location_data'
+            location_data = w_user['location_data']
+            coords = location_data['coords']
 
-            geometry = @storage[m.user.nick]['wLocation']
+            name = location_data['name']
 
-            address = @storage[m.user.nick]['wAddress']
-
-            locale = address
-
-            data = get_daily(day, geometry, locale, false)
+            data = get_daily(day, name, locale, false)
 
             return m.reply 'Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.' if data.nil?
 
             return m.reply daily_summary(data, day)
           end
         end
-        return m.reply "You have no custom data set. You can PM me with !set-w <location>"
+        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
       end
 
       def reload
-        if File.exist?('docs/userinfo.yaml')
-          @storage = YAML.load_file('docs/userinfo.yaml')
-        else
-          @storage = {}
-        end
+        @storage = if File.exist?('docs/userinfo.yaml')
+                     YAML.load_file('docs/userinfo.yaml')
+                   else
+                     {}
+                   end
       end
 
       # Converts degrees to direction
 
       def getDirection(deg)
-        deg = ((deg/22.5)+0.5).to_i
-        directions = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE",
-                      "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"]
-        return directions[(deg % 16)]
-      end
-
-      def geolookup(zipcode)
-        raw_location = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?address=#{zipcode}&sensor=true").read)
-        location = raw_location['results'][0]['geometry']['location']
-        lat = location['lat']
-        lng = location['lng']
-
-        geometry = "#{lat},#{lng}"
-        return geometry
-      rescue
-        nil
+        deg = ((deg / 22.5) + 0.5).to_i
+        directions = %w[N NNE NE ENE E ESE SE SSE
+                        S SSW SW WSW W WNW NW NNW]
+        directions[(deg % 16)]
       end
 
       # Fetch the current weather data for the location found in geolookup.
 
-      def get_current(geometry, locale, withLocale)
+      def get_current(coords, locale, withLocale)
         key = config[:key]
-        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{coords}").read)
         current = data['currently']
 
         conditions = current['summary']
@@ -238,35 +250,35 @@ module Cinch
         temp_c         = (temp_c * 10).ceil / 10.0
         feels_temp_c   = (feels_temp_c * 10).ceil / 10.0
         wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
-        humidity       = humidity * 100
-        humidity       = sprintf("%.2f", humidity)
+        humidity *= 100
+        humidity = format('%.2f', humidity)
 
         if withLocale
           return "10Weather: #{locale} | Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Humidity: #{humidity}% | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
         end
 
-        return "10Weather: Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Humidity: #{humidity}% | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
-      rescue
+        "10Weather: Current Weather: #{conditions} | Temp: #{temp} °F (#{temp_c} °C) - Feels like: #{feels_like} °F (#{feels_temp_c} °C) | Humidity: #{humidity}% | Wind: #{wind_speed} MPH (#{wind_speed_kph} KPH) - Bearing: #{wind_bearing} (#{wind_direction})"
+      rescue StandardError
         nil
       end
 
+      def ifAlert(m, coords, locale)
+        alerts = alert(coords, locale, true)
+        return m.user.notice 'There are no alerts for this area.' if alerts.nil?
 
-      def ifAlert(m, geometry, locale)
-        alerts = alert(geometry, locale, true)
-        return m.user.notice "There are no alerts for this area." if alerts.nil?
         if check_auth(m.user)
-          m.user.notice alert(geometry, locale, true)
+          m.user.notice alert(coords, locale, true)
           return
         end
-        if !check_auth(m.user)
-          m.user.notice alert(geometry, locale, false)
+        unless check_auth(m.user)
+          m.user.notice alert(coords, locale, false)
           return
         end
       end
 
-      def alert(geometry, locale, authed)
+      def alert(coords, _locale, authed)
         key = config[:key]
-        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{coords}").read)
         warning = data['alerts'][0]
 
         title = warning['title']
@@ -278,7 +290,7 @@ module Cinch
         time = Time.at(time.to_i)
         expires = Time.at(expires.to_i)
 
-        content.gsub! /\n/, ' '
+        content.tr! "\n", ' '
 
         content = content[0..200]
 
@@ -288,21 +300,20 @@ module Cinch
           return "WEATHER ALERT || #{title}: #{content}... [Read More: #{url}] || Time: #{time} - Expires: #{expires}"
         end
 
-        return "4THERE IS A WEATHER ALERT IN THIS AREA, PLEASE AUTH WITH NICKSERV AND TRIGGER AGAIN TO READ."
-      rescue
+        "\u00034\u0002THERE IS A WEATHER ALERT IN THIS AREA, PLEASE AUTH WITH NICKSERV AND TRIGGER AGAIN TO READ."
+      rescue StandardError
         nil
       end
 
-
       # Now we are going to fetch the hourly data.
 
-      def get_hourly(hour, geometry, locale, withLocale)
+      def get_hourly(hour, coords, locale, withLocale)
         key = config[:key]
-        logo = "10Hourly Fore4cast:"
-        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
+        logo = "\u0002\u000310Hourly Fore\u000F\u0002\u00034cast\u000F:"
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{coords}").read)
         raw_hourly = data['hourly']['data']
         hourly = []
-        for i in raw_hourly
+        raw_hourly.each do |i|
           sum = i['summary']
           temp = i['temperature']
           feels_temp = i['apparentTemperature']
@@ -317,27 +328,27 @@ module Cinch
           wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
 
           if withLocale
-            hourly.push(("%s - #{locale}: Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear]))
+            hourly.push(format("%s - #{locale}: Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]", logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear))
           else
-            hourly.push(("%s - Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]" % [logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear]))
+            hourly.push(format("%s - Forecast Predicted in #{hour} hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]", logo, sum, temp, temp_c, feels_temp, feels_temp_c, wind, wind_speed_kph, bear))
           end
         end
-        return hourly
+        hourly
       end
 
       def hourly_summary(data, hour)
-        return data[hour.to_i - 1]
+        data[hour.to_i - 1]
       end
 
       # Now we are going to fetch the daily data.
 
-      def get_daily(day, geometry, locale, withLocale)
+      def get_daily(day, coords, locale, withLocale)
         key = config[:key]
-        logo = "10Daily Fore4cast:"
-        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{geometry}").read)
+        logo = "\u0002\u000310Daily Fore\u000F\u0002\u00034cast\u000F:"
+        data = JSON.parse(open("https://api.forecast.io/forecast/#{key}/#{coords}").read)
         raw_daily = data['daily']['data']
         daily = []
-        for i in raw_daily
+        raw_daily.each do |i|
           sum = i['summary']
           min = i['temperatureMin']
           max = i['temperatureMax']
@@ -360,25 +371,16 @@ module Cinch
           wind_speed_kph = (wind_speed_kph * 10).ceil / 10.0
 
           if withLocale
-            daily.push(("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(format("%s - #{locale}: Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]", logo, sum, min, max, appmin, appmax, wind, bear))
           else
-            daily.push(("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]" % [logo, sum, min, max, appmin, appmax, wind, bear]))
+            daily.push(format("%s - Forecast Predicted in #{day} day(s): %s | Temp: [ 10Low: %s °F (10#{temp_c_min} °C) | 4High: %s °F (4#{temp_c_max} °C) ] - Will Feel Like: [ 10Low: %s °F (10#{feels_temp_c_min} °C) | 4High: %s °F (4#{feels_temp_c_max} °C) ] | Wind: [ Speed: %s MPH (#{wind_speed_kph} KPH) | Bearing: %s ]", logo, sum, min, max, appmin, appmax, wind, bear))
           end
         end
-        return daily
+        daily
       end
 
       def daily_summary(data, day)
-        return data[day.to_i - 1]
-      end
-
-      # We're gonna fetch the location data again so we can pass it into the results. Primitive, but it works.
-
-      def location_r(location)
-        raw_locale = JSON.parse(open("http://maps.googleapis.com/maps/api/geocode/json?address=#{location}&sensor=true").read)
-        locale_data = raw_locale['results'][0]['formatted_address']
-
-        locale = "#{locale_data}"
+        data[day.to_i - 1]
       end
     end
   end

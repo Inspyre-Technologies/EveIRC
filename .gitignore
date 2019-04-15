@@ -241,7 +241,6 @@ test/version_tmp
 tmp
 .directory
 .vscode
-.vscode/launch.json
 Gemfile.lock
 
 # Eve specific files

@@ -141,7 +141,7 @@ module Cinch
             return c_alert
           end
         end
-        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
+        m.reply 'You have no custom data set. You can PM me with !set-l <location>'
       end
 
       def check_custom(m, user)
@@ -187,7 +187,7 @@ module Cinch
             return m.reply hourly_summary(data, hour)
           end
         end
-        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
+        m.reply 'You have no custom data set. You can PM me with !set-l <location>'
       end
 
       def custom_d(m, day)
@@ -209,7 +209,7 @@ module Cinch
             return m.reply daily_summary(data, day)
           end
         end
-        m.reply 'You have no custom data set. You can PM me with !set-w <location>'
+        m.reply 'You have no custom data set. You can PM me with !set-l <location>'
       end
 
       def reload

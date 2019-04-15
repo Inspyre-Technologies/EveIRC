@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 require 'cinch'
-require_relative "config/check_ignore"
+require_relative 'config/check_ignore'
 
 module Cinch
   module Plugins
     class BotInfo
       include Cinch::Plugin
 
-      set :plugin_name, "botinfo"
+      set :plugin_name, 'botinfo'
       set :help, <<-USAGE.gsub(/^ {6}/, '')
       You can use this plugin to get more information about me!
       Usage:
       * !info: I will give you information about myself.
       USAGE
 
-      match "info"
+      match 'info'
 
       def execute(m)
         return if check_ignore(m.user)
@@ -28,12 +30,13 @@ module Cinch
         pluginCount   = @bot.plugins.count
         cinchVersion  = Cinch::VERSION
         users         = proc {
-          users = [];
-        @bot.channels.each {|c|
-                            c.users.each {|u| users << u[0].nick
-                                          }
-                           };
-        users.uniq.size
+          users = []
+          @bot.channels.each do |c|
+            c.users.each do |u|
+              users << u[0].nick
+            end
+          end
+          users.uniq.size
         }.call
 
         m.user.send "Hello #{m.user.nick},"
@@ -46,6 +49,3 @@ module Cinch
     end
   end
 end
-
-
-

@@ -27,96 +27,106 @@ There will (read: should) be a difference in the way developers log changes in C
     * NEGLIGIBLE: A patch marked with this tag will contain simple changes to EveIRC plugins, documentation, or help information. Can be ignored with no loss of application stability.
     * FEATURE: (This tag may be used in conjunction with others) A patch tagged with this label has one or more features (bits of usable functionality) that was not in the previous release. If this tag is used alone, that patch was only pushed to release the feature (though some negligible bugfixes might be contained)
     
-## PATCHNOTES 6.8.0 -> 6.9 [FEATURE] 08/02/19 (rc date)
+## PATCHNOTES 6.8.0 -> 6.9(rc1.0) [FEATURE] 08/02/19 (rc date)
 
-### Bugfixes (Negligible)
-  * Made changes to Gemfile
-    * Removed Ruby version restriction. Let us know if you are running older versions of Ruby and run into problems!
-      * NOTE - It is IMPORTANT that you use Ruby 2.5.5 or greater for EveIRC. We will not support this, but it helps to know where a hard line may be.
-    * Rearranged gem lines into alphabetical order
+  - ### Release Notes
+    * #### Bugfixes (Negligible)
+      * Made changes to Gemfile
+      * Removed Ruby version restriction. Let us know if you are running older versions of Ruby and run into problems!
+        * NOTE - It is IMPORTANT that you use Ruby 2.5.5 or greater for EveIRC. We will not support this, but it helps to know where a hard line may be.
+      * Rearranged gem lines into alphabetical order
     
-    
-### FEATURE
-  * Added utilities plugin with one function thus far; converting temperatures between Celsius and Fahrenheit
+    * #### FEATURE
+      * Added utilities plugin with one function thus far; converting temperatures between Celsius and Fahrenheit
+      * ##### USAGE:            
+                               
+        ``` irc                
+          <dave> !temp-to-f -40
+          <Eve> -40°F          
+          <dave> !temp-to-c -40
+          <Eve> -40°C          
+        ```                    
   
-#### Installation
-  - If you installed EveIRC using `bundle install` and chose the option where all plugins are installed for you, you don't have to take further action; the plugin should already be installed when you update from Github
+  - ### Installation
+    * If you installed EveIRC using `bundle install` and chose the option where all plugins are installed for you, you don't have to take further action; the plugin should already be installed when you update from Github
   
-  - If you chose the "picky install" then after pulling the new release from Github, find the folder EveIRC is actually run from. In the following example my  EveIRC git folder is `~/Documents/src/EveIRC` and I'm running the bot from `~/Documents/src/eveInstalled`
-    * Firstly you'll want to copy the actual plugin file from the EveIRC github folder: 
-    ``` console
-    taylor@laptop:~$ cd Documents/src
-    taylor@laptop:~/Documents/src$ cp EveIRC/lib/plugins/utilities.rb eveInstalled/lib/plugins/utilities.rb
-    ```
-    * Next you'll want to edit Eve.rb in the folder you run EveIRC from:
-    ``` console
-    taylor@laptop:~/Documents/src$ nano eveInstalled/Eve.rb
-    ```
-    You'll see a list of plugins, yours might be slightly different:
-    
-    ``` ruby
-    c.plugins.plugins = [Cinch::Plugins::BotInfo,
-                             Cinch::Plugins::PluginManagement,
-                             Cinch::Plugins::Urban,
-                             Cinch::Plugins::Help,
-                             # ...
-                             # plugin list continues...
-                             # ...
-                             Cinch::Plugins::NameGenerator]
-    ```
-    
-    Just add the new Utilities plugin in the list. If you insert it at the end of the list do not forget to add a coma after the preceding plugin initialization. Like so:
-    
-    ``` ruby
-    c.plugins.plugins = [Cinch::Plugins::BotInfo,
-                                 Cinch::Plugins::PluginManagement,
-                                 Cinch::Plugins::Urban,
-                                 Cinch::Plugins::Help,
-                                 # ...
-                                 # plugin list continues...
-                                 # ...
-                                 Cinch::Plugins::NameGenerator, # Note new comma
-                                 Cinch::Plugins::Utilities] # Add plugin, don't forget closing brace!
-    ```
-    _If you are using nano, Ctrl+x will exit the file. It will ask if you want to save. Hit 'y' and 'enter' when it asks you if you want to save it with that filename._
-    * The final step is to add utilities.rb to the file load list:
-    
-    ``` console
-    taylor@laptop:~/Documents/src$ nano bin/plugins.rb
-    ```
-    
-      You will see a list of files that looks similar to this:
-      
-      ``` ruby
-      require_relative "../lib/plugins/weather"
-      #require_relative "../lib/plugins/google"
-      require_relative "../lib/plugins/you_tube"
-      #...cont....
-      require_relative "../lib/plugins/news"
-      require_relative "../lib/plugins/wolfram"
-      require_relative "../lib/plugins/reddit"
-      ```
-      
-      Just go ahead and add the file like so:
-      
-      ``` ruby
-      require_relative "../lib/plugins/weather"
-      #require_relative "../lib/plugins/google"
-      require_relative "../lib/plugins/you_tube"
-      #...cont....
-      require_relative "../lib/plugins/news"
-      require_relative "../lib/plugins/wolfram"
-      require_relative "../lib/plugins/reddit"
-      require_relative "../lib/plugins/utilities" # Note the new plugin!
-      ```
-     * Save, run `ruby Eve.rb` in the folder you usually do, and profit!
-#### USAGE
-
-**Example Usage**
-
-  ``` irc
-   <dave> !temp-to-f -40
-   <Eve> -40°F
-   <dave> !temp-to-c -40
-   <Eve> -40°C
-   ```
+    * If you chose the "picky install" then after pulling the new release from Github, find the folder EveIRC is actually run from. In the following example my  EveIRC git folder is `~/Documents/src/EveIRC` and I'm running the bot from `~/Documents/src/eveInstalled`
+      * Firstly you'll want to copy the actual plugin file from the EveIRC github folder: 
+        ``` console
+        taylor@laptop:~$ cd Documents/src
+        taylor@laptop:~/Documents/src$ cp EveIRC/lib/plugins/utilities.rb eveInstalled/lib/plugins/utilities.rb
+        ```
+        * Next you'll want to edit Eve.rb in the folder you run EveIRC from:
+            
+          ``` console
+          taylor@laptop:~/Documents/src$ nano eveInstalled/Eve.rb
+          ```
+          You'll see a list of plugins, yours might be slightly different:
+        
+          ``` ruby
+          c.plugins.plugins = [Cinch::Plugins::BotInfo,
+                               Cinch::Plugins::PluginManagement,
+                               Cinch::Plugins::Urban,
+                               Cinch::Plugins::Help,
+                               # ...
+                               # plugin list continues...
+                               # ...
+                               Cinch::Plugins::NameGenerator]
+          ```
+        
+          Just add the new Utilities plugin in the list. If you insert it at the end of the list do not forget to add a comma after the preceding plugin initialization. Like so:
+        
+          ``` ruby
+          c.plugins.plugins = [Cinch::Plugins::BotInfo,
+                               Cinch::Plugins::PluginManagement,
+                               Cinch::Plugins::Urban,
+                               Cinch::Plugins::Help,
+                               # ...
+                               # plugin list continues...
+                               # ...
+                               Cinch::Plugins::NameGenerator, # Note new comma
+                               Cinch::Plugins::Utilities] # Add plugin, don't forget closing brace!
+           ```
+          _If you are using nano, Ctrl+x will exit the file. It will ask if you want to save. Hit 'y' and 'enter' when it asks you if you want to save it with that filename._
+       * The final step is to add utilities.rb to the file load list:
+        
+        ``` console
+        taylor@laptop:~/Documents/src$ nano bin/plugins.rb
+        ```
+        
+          You will see a list of files that looks similar to this:
+          
+          ``` ruby
+          require_relative "../lib/plugins/weather"
+          #require_relative "../lib/plugins/google"
+          require_relative "../lib/plugins/you_tube"
+          #...cont....
+          require_relative "../lib/plugins/news"
+          require_relative "../lib/plugins/wolfram"
+          require_relative "../lib/plugins/reddit"
+          ```
+          
+          Just go ahead and add the file like so:
+          
+          ``` ruby
+          require_relative "../lib/plugins/weather"
+          #require_relative "../lib/plugins/google"
+          require_relative "../lib/plugins/you_tube"
+          #...cont....
+          require_relative "../lib/plugins/news"
+          require_relative "../lib/plugins/wolfram"
+          require_relative "../lib/plugins/reddit"
+          require_relative "../lib/plugins/utilities" # Note the new plugin!
+          ```
+         * Save, run `ruby Eve.rb` in the folder you usually do, and profit!
+  - ### Changes since initial RC version:
+    * #### Release v6.9(rc1.1)
+      * ##### Bug fixes:
+      * ##### Enhancements:
+      * ##### Other:
+        * Modified PATCHNOTES.md:
+          * Fixed typo
+          * Added notes for RC version bump
+          * Reformatted for readability
+        * Modified utilities.rb:
+          * Removed un-needed require line

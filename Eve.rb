@@ -25,10 +25,10 @@ Config.owner = ['Namaste']
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.server = 'irc.sinsira.net'
+    c.server   = 'irc.sinsira.net'
     c.channels = ['#Eve']
-    c.nick = 'Eve'
-    c.user = 'Eve'
+    c.nick     = 'tester'
+    c.user     = 'Eve'
     c.realname = "Eve #{version}"
     c.verbose
 
@@ -79,7 +79,8 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::Reddit,
                          #                         Cinch::Plugins::Tag,
                          Cinch::Plugins::LastFm,
-                         Cinch::Plugins::NameGenerator]
+                         Cinch::Plugins::NameGenerator,
+                         Cinch::Plugins::Utilities]
 
     ## Below this line MUST be configured for the bot to work. That means DO NOT
     ## skip over these options or the bot WILL NOT WORK. If you do not want the

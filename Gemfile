@@ -1,17 +1,16 @@
-ruby '2.6.0'
-
 source 'https://rubygems.org'
 
+gem "activesupport"
 gem "cinch"
 gem "highline"
-gem "activesupport"
 gem "redis"
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
-gem 'cinch-toolbox'
-gem 'time-lord'
-gem 'mechanize'
-gem 'oj'
-gem 'twitter'
-gem 'calc'
-gem 'wolfram-alpha'
 gem 'actionview'
+gem 'calc'
+gem 'cinch-toolbox'
+gem 'mechanize'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'oj'
+gem 'ruby-units'
+gem 'time-lord'
+gem 'twitter'
+gem 'wolfram-alpha'

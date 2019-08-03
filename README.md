@@ -2,6 +2,8 @@
 
 ## EVE: A Project for a Top-Tier IRC Bot
 
+(MAKE SURE YOU READ PATCH NOTES)
+
 Eve was originally designed on an entirely different framework and language and has grown through the years.
 
 Now Eve is on Ruby and the Cinch IRC Framework.

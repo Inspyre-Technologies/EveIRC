@@ -36,8 +36,8 @@ module Cinch
 
         data.each do |i|
           definitiontextfield = i['text']
-          # TODO manipulate textfield here
-          results.push("s: (%s) - %s" % [i.['word'], i['partOfSpeech'], definitiontextfield])
+          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'')
+          results.push("%s: (%s) - %s" % [i['word'], i['partOfSpeech'], definitiontextfield])
         end
         return results
       end

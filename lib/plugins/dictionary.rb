@@ -35,10 +35,10 @@ module Cinch
         results = []
 
         # @author David H. (doubledave) <devyo@sinsira.net>
-        # Made update to the below block of code.
+        # 8/24/2019 - The below block contains the .gsub string method which removes html-style tags surrounded by < and >.
         data.each do |i|
           definitiontextfield = i['text']
-          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'') # doubledave 8/24/2019 - This .gsub method removes html-style tags.
+          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'')
           results.push("%s: (%s) - %s" % [i['word'], i['partOfSpeech'], definitiontextfield])
         end
         return results

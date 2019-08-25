@@ -34,9 +34,11 @@ module Cinch
         data = JSON.parse(open("http://api.wordnik.com:80/v4/word.json/#{word}/definitions?limit=2&includeRelated=true&sourceDictionaries=wiktionary&useCanonical=true&includeTags=false&api_key=86454404519fadebdb90e06ef9a04381b87e620884ad40abd").read)
         results = []
 
+        # @author David H. (doubledave) <devyo@sinsira.net>
+        # Made update to the below block of code.
         data.each do |i|
           definitiontextfield = i['text']
-          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'')
+          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'') # doubledave 8/24/2019 - This .gsub method removes html-style tags.
           results.push("%s: (%s) - %s" % [i['word'], i['partOfSpeech'], definitiontextfield])
         end
         return results

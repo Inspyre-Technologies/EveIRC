@@ -34,8 +34,13 @@ module Cinch
         data = JSON.parse(open("http://api.wordnik.com:80/v4/word.json/#{word}/definitions?limit=2&includeRelated=true&sourceDictionaries=wiktionary&useCanonical=true&includeTags=false&api_key=86454404519fadebdb90e06ef9a04381b87e620884ad40abd").read)
         results = []
 
-        data.each{|i| results.push("%s: (%s) - %s" % [i['word'], i['partOfSpeech'], i['text']])}
-
+        # @author David H. (doubledave) <devyo@sinsira.net>
+        # 8/24/2019 - The below block contains the .gsub string method which removes html-style tags surrounded by < and >.
+        data.each do |i|
+          definitiontextfield = i['text']
+          definitiontextfield = definitiontextfield.gsub(/<[^>]*>/ui,'')
+          results.push("%s: (%s) - %s" % [i['word'], i['partOfSpeech'], definitiontextfield])
+        end
         return results
       end
 

@@ -116,6 +116,11 @@ bot = Cinch::Bot.new do
     #                                                   engineid: 'bar'
     #                                               }
 
+    c.plugins.options[Cinch::Plugins::Yourls] = { yourls_server: 'foo.com/yourls',
+                                                  secret_id: 'bar',
+                                                  enabled_channels: 'docs/yourls.conf',
+                                                  scrape_title: 'never' }
+    
     c.password = 'nspass'
   end
 end

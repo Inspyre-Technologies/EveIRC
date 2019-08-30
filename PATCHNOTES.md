@@ -130,3 +130,8 @@ There will (read: should) be a difference in the way developers log changes in C
           * Reformatted for readability
         * Modified utilities.rb:
           * Removed un-needed require line
+    * #### Release v6.9(rc1.2)
+      * ##### Bug Fixes:
+        * Modified lib/plugins/dictionary.rb
+          * Added code to remove \<xref\> tags from returned results
+    * #### Release v6.9(rc1.3)

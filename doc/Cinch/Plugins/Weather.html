@@ -1,0 +1,2318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Class: Cinch::Plugins::Weather
+
+        &mdash; Documentation by YARD 0.9.20
+
+    </title>
+
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8"/>
+
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+
+    <script type="text/javascript" charset="utf-8">
+        pathId = "Cinch::Plugins::Weather";
+        relpath = '../../';
+    </script>
+
+
+    <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+</head>
+<body>
+<div class="nav_wrap">
+    <iframe id="nav" src="../../class_list.html?1"></iframe>
+    <div id="resizer"></div>
+</div>
+
+<div id="main" tabindex="-1">
+    <div id="header">
+        <div id="menu">
+
+            <a href="../../_index.html">Index (W)</a> &raquo;
+            <span class='title'><span class='object_link'><a href="../../Cinch.html"
+                                                             title="Cinch (module)">Cinch</a></span></span> &raquo;
+            <span class='title'><span class='object_link'><a href="../Plugins.html" title="Cinch::Plugins (module)">Plugins</a></span></span>
+            &raquo;
+            <span class="title">Weather</span>
+
+        </div>
+
+        <div id="search">
+
+            <a class="full_list_link" id="class_list_link"
+               href="../../class_list.html">
+
+                <svg width="24" height="24">
+                    <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="content"><h1>Class: Cinch::Plugins::Weather
+
+
+    </h1>
+        <div class="box_info">
+
+            <dl>
+                <dt>Inherits:</dt>
+                <dd>
+                    <span class="inheritName">Object</span>
+
+                    <ul class="fullTree">
+                        <li>Object</li>
+
+                        <li class="next">Cinch::Plugins::Weather</li>
+
+                    </ul>
+                    <a href="#" class="inheritanceTree">show all</a>
+
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Includes:</dt>
+                <dd><span class='object_link'><a href="../Helpers.html"
+                                                 title="Cinch::Helpers (module)">Helpers</a></span>, Cinch::Plugin
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Defined in:</dt>
+                <dd>lib/plugins/weather.rb</dd>
+            </dl>
+
+        </div>
+
+
+        <h2>
+            Instance Method Summary
+            <small><a href="#" class="summary_toggle">collapse</a></small>
+        </h2>
+
+        <ul class="summary">
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alert-instance_method" title="#alert (instance method)">#<strong>alert</strong>(coords, _locale, authed)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#check_custom-instance_method" title="#check_custom (instance method)">#<strong>check_custom</strong>(m, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#current-instance_method" title="#current (instance method)">#<strong>current</strong>(m, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#custom_d-instance_method" title="#custom_d (instance method)">#<strong>custom_d</strong>(m, day)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#custom_h-instance_method" title="#custom_h (instance method)">#<strong>custom_h</strong>(m, hour)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#custom_w-instance_method" title="#custom_w (instance method)">#<strong>custom_w</strong>(m)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Fetch the location from Google Maps for the area the user is looking for to
+be passed into get_current.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#daily-instance_method" title="#daily (instance method)">#<strong>daily</strong>(m, day, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Now we introduce a method to get the daily forecast.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#daily_summary-instance_method" title="#daily_summary (instance method)">#<strong>daily_summary</strong>(data, day)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_current-instance_method" title="#get_current (instance method)">#<strong>get_current</strong>(coords, locale, withLocale)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Fetch the current weather data for the location found in geolookup.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_daily-instance_method" title="#get_daily (instance method)">#<strong>get_daily</strong>(day, coords, locale, withLocale)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Now we are going to fetch the daily data.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_data-instance_method" title="#get_data (instance method)">#<strong>get_data</strong>(m, _query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_hourly-instance_method" title="#get_hourly (instance method)">#<strong>get_hourly</strong>(hour, coords, locale, withLocale)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Now we are going to fetch the hourly data.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#getDirection-instance_method" title="#getDirection (instance method)">#<strong>getDirection</strong>(deg)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Converts degrees to direction.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hourly-instance_method" title="#hourly (instance method)">#<strong>hourly</strong>(m, hour, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>Now we introduce a method to get the hourly up to 24hrs.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hourly_summary-instance_method"
+         title="#hourly_summary (instance method)">#<strong>hourly_summary</strong>(data, hour)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ifAlert-instance_method" title="#ifAlert (instance method)">#<strong>ifAlert</strong>(m, coords, locale)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(*args)  &#x21d2; Weather </a>
+    
+
+    
+  </span>
+
+
+                <span class="note title constructor">constructor</span>
+
+
+                <span class="summary_desc"><div class='inline'>
+<p>A new instance of Weather.</p>
+</div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reload-instance_method" title="#reload (instance method)">#<strong>reload</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+        </ul>
+
+
+        <h3 class="inherited">Methods included from <span class='object_link'><a href="../Helpers.html"
+                                                                                 title="Cinch::Helpers (module)">Helpers</a></span>
+        </h3>
+        <p class="inherited"><span class='object_link'><a href="../Helpers.html#c_top_news-instance_method"
+                                                          title="Cinch::Helpers#c_top_news (method)">#c_top_news</a></span>,
+            <span class='object_link'><a href="../Helpers.html#categories-instance_method"
+                                         title="Cinch::Helpers#categories (method)">#categories</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_auth-instance_method"
+                                           title="Cinch::Helpers#check_auth (method)">#check_auth</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_bff-instance_method"
+                                           title="Cinch::Helpers#check_bff (method)">#check_bff</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_foe-instance_method"
+                                           title="Cinch::Helpers#check_foe (method)">#check_foe</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_friend-instance_method"
+                                           title="Cinch::Helpers#check_friend (method)">#check_friend</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_ignore-instance_method"
+                                           title="Cinch::Helpers#check_ignore (method)">#check_ignore</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_master-instance_method"
+                                           title="Cinch::Helpers#check_master (method)">#check_master</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#execute_c_search-instance_method"
+                                           title="Cinch::Helpers#execute_c_search (method)">#execute_c_search</a></span>,
+            <span class='object_link'><a href="../Helpers.html#execute_sc_search-instance_method"
+                                         title="Cinch::Helpers#execute_sc_search (method)">#execute_sc_search</a></span>,
+            <span class='object_link'><a href="../Helpers.html#fetch_news-instance_method"
+                                         title="Cinch::Helpers#fetch_news (method)">#fetch_news</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#geolookup-instance_method"
+                                           title="Cinch::Helpers#geolookup (method)">#geolookup</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#ratelimit-instance_method"
+                                           title="Cinch::Helpers#ratelimit (method)">#ratelimit</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#sc_top_news-instance_method"
+                                           title="Cinch::Helpers#sc_top_news (method)">#sc_top_news</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#sub_categories-instance_method"
+                                           title="Cinch::Helpers#sub_categories (method)">#sub_categories</a></span></p>
+
+        <div id="constructor_details" class="method_details_list">
+            <h2>Constructor Details</h2>
+
+            <div class="method_details first">
+                <h3 class="signature first" id="initialize-instance_method">
+
+                    #<strong>initialize</strong>(*args) &#x21d2; <tt><span class='object_link'><a href=""
+                                                                                                  title="Cinch::Plugins::Weather (class)">Weather</a></span></tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Returns a new instance of Weather</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span
+                  class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='kw'>super</span>
+  <span class='ivar'>@storage</span> <span class='op'>=</span> <span class='kw'>if</span> <span
+                  class='const'>File</span><span class='period'>.</span><span
+                  class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>docs/userinfo.yaml</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+               <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>docs/userinfo.yaml</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+             <span class='kw'>else</span>
+               <span class='lbrace'>{</span><span class='rbrace'>}</span>
+             <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+
+        <div id="instance_method_details" class="method_details_list">
+            <h2>Instance Method Details</h2>
+
+
+            <div class="method_details first">
+                <h3 class="signature first" id="alert-instance_method">
+
+                    #<strong>alert</strong>(coords, _locale, authed) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301
+302
+303
+304
+305
+306</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 279</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid__locale'>_locale</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_authed'>authed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span
+                  class='lbracket'>[</span><span class='symbol'>:key</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.forecast.io/forecast/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coords'>coords</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warning'>warning</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>alerts</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span
+                  class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_title'>title</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_warning'>warning</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>title</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_warning'>warning</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>time</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_expires'>expires</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_warning'>warning</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>expires</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_warning'>warning</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>description</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_warning'>warning</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>uri</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_time'>time</span> <span class='op'>=</span> <span class='const'>Time</span><span
+                  class='period'>.</span><span class='id identifier rubyid_at'>at</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_time'>time</span><span
+                  class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_expires'>expires</span> <span class='op'>=</span> <span
+                  class='const'>Time</span><span class='period'>.</span><span
+                  class='id identifier rubyid_at'>at</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_expires'>expires</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_i'>to_i</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span
+                  class='id identifier rubyid_tr!'>tr!</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'> </span><span class='tstring_end'>&#39;</span></span>
+
+  <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='op'>..</span><span class='int'>200</span><span
+                  class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='const'><span
+                  class='object_link'><a href="../../Cinch.html" title="Cinch (module)">Cinch</a></span></span><span
+                  class='op'>::</span><span class='const'>Toolbox</span><span class='period'>.</span><span
+                  class='id identifier rubyid_shorten'>shorten</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_authed'>authed</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>WEATHER ALERT || </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_title'>title</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_content'>content</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>... [Read More: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>] || Time: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_time'>time</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> - Expires: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_expires'>expires</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\u00034\u0002THERE IS A WEATHER ALERT IN THIS AREA, PLEASE AUTH WITH NICKSERV AND TRIGGER AGAIN TO READ.</span><span
+          class='tstring_end'>&quot;</span></span>
+<span class='kw'>rescue</span> <span class='const'>StandardError</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="check_custom-instance_method">
+
+                    #<strong>check_custom</strong>(m, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 147</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_check_custom'>check_custom</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_reload'>reload</span>
+  <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rbracket'>]</span><span
+                  class='period'>.</span><span class='id identifier rubyid_key?'>key?</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>wLocation</span><span
+                  class='tstring_end'>&#39;</span></span>
+
+      <span class='id identifier rubyid_coords'>coords</span> <span class='op'>=</span> <span
+                  class='ivar'>@storage</span><span class='lbracket'>[</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>wLocation</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span
+                  class='ivar'>@storage</span><span class='lbracket'>[</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>wAddress</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_address'>address</span>
+
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_current'>get_current</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>false</span><span class='rparen'>)</span> <span class='comment'># Again, we don&#39;t want locale printed, especially with this function
+</span>
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>On no! There was a problem fetching the specified weather data for this user. Please try again later!.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>This user has no custom data set.</span><span
+                  class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="current-instance_method">
+
+                    #<strong>current</strong>(m, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_current'>current</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_get_data'>get_data</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+
+  <span class='kw'>unless</span> <span class='ivar'>@coords</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>There seems to have been a problem fetching your location data. Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_current'>get_current</span><span class='lparen'>(</span><span
+                  class='ivar'>@coords</span><span class='comma'>,</span> <span class='ivar'>@name</span><span
+                  class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span> <span
+                  class='comment'># true means we want locale printed
+</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>There seems to have been a problem fetching your weather data. Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span
+                  class='rparen'>)</span>
+
+  <span class='id identifier rubyid_alerts'>alerts</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span
+                  class='ivar'>@coords</span><span class='comma'>,</span> <span class='ivar'>@name</span><span
+                  class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>You have no alerts.</span><span class='tstring_end'>&#39;</span></span> <span
+                  class='kw'>if</span> <span class='id identifier rubyid_alerts'>alerts</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_alerts'>alerts</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="custom_d-instance_method">
+
+                    #<strong>custom_d</strong>(m, day) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 193</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_custom_d'>custom_d</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_day'>day</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_reload'>reload</span>
+  <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_w_user'>w_user</span> <span class='op'>=</span> <span class='ivar'>@storage</span><span
+                  class='lbracket'>[</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_w_user'>w_user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>location_data</span><span
+                  class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_location_data'>location_data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_w_user'>w_user</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>location_data</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_coords'>coords</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_location_data'>location_data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>coords</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_location_data'>location_data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_daily'>get_daily</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_day'>day</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>false</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='id identifier rubyid_daily_summary'>daily_summary</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_day'>day</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>You have no custom data set. You can PM me with !set-l &lt;location&gt;</span><span
+                  class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="custom_h-instance_method">
+
+                    #<strong>custom_h</strong>(m, hour) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 170</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_custom_h'>custom_h</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_hour'>hour</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_reload'>reload</span>
+  <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='rparen'>)</span>
+    <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='rbracket'>]</span><span
+                  class='period'>.</span><span class='id identifier rubyid_key?'>key?</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>wLocation</span><span
+                  class='tstring_end'>&#39;</span></span>
+
+      <span class='id identifier rubyid_coords'>coords</span> <span class='op'>=</span> <span
+                  class='ivar'>@storage</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='rbracket'>]</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>wLocation</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_address'>address</span> <span class='op'>=</span> <span
+                  class='ivar'>@storage</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='rbracket'>]</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>wAddress</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_locale'>locale</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_address'>address</span>
+
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_hourly'>get_hourly</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_hour'>hour</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>false</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='id identifier rubyid_hourly_summary'>hourly_summary</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_hour'>hour</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>You have no custom data set. You can PM me with !set-l &lt;location&gt;</span><span
+                  class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="custom_w-instance_method">
+
+                    #<strong>custom_w</strong>(m) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Fetch the location from Google Maps for the area the user is looking for to
+                            be passed into get_current.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_custom_w'>custom_w</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_w_user'>w_user</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span>
+  <span class='id identifier rubyid_reload'>reload</span>
+  <span class='kw'>if</span> <span class='ivar'>@storage</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_w_user'>w_user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_stored_user'>stored_user</span> <span class='op'>=</span> <span class='ivar'>@storage</span><span
+                  class='lbracket'>[</span><span class='id identifier rubyid_w_user'>w_user</span><span
+                  class='rbracket'>]</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_stored_user'>stored_user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_key?'>key?</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>location_data</span><span
+                  class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_location_data'>location_data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_stored_user'>stored_user</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>location_data</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_coords'>coords</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_location_data'>location_data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>coords</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_location_data'>location_data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>name</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_current'>get_current</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span
+                  class='kw'>false</span><span class='rparen'>)</span> <span class='comment'># false means we dont want locale printed
+</span>
+      <span class='id identifier rubyid_c_alert'>c_alert</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_ifAlert'>ifAlert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Oh no! There was a problem fetching the specified weather data for your custom location! Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+
+      <span class='kw'>return</span> <span class='id identifier rubyid_c_alert'>c_alert</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>You have no custom data set. You can PM me with !set-l &lt;location&gt;</span><span
+                  class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="daily-instance_method">
+
+                    #<strong>daily</strong>(m, day, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Now we introduce a method to get the daily forecast.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 103</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_daily'>daily</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_day'>day</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_get_data'>get_data</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>No results found for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_query'>query</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span
+                  class='ivar'>@coords</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_daily'>get_daily</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_day'>day</span><span class='comma'>,</span> <span
+                  class='ivar'>@coords</span><span class='comma'>,</span> <span class='ivar'>@name</span><span
+                  class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Oh no! There was a problem fetching the specified weather data. Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_daily_summary'>daily_summary</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_day'>day</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="daily_summary-instance_method">
+
+                    #<strong>daily_summary</strong>(data, day) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+382
+383
+384</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 382</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_daily_summary'>daily_summary</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_day'>day</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_day'>day</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span
+                  class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="get_current-instance_method">
+
+                    #<strong>get_current</strong>(coords, locale, withLocale) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Fetch the current weather data for the location found in geolookup.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 234</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_current'>get_current</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_coords'>coords</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_locale'>locale</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_withLocale'>withLocale</span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span
+                  class='lbracket'>[</span><span class='symbol'>:key</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.forecast.io/forecast/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coords'>coords</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_current'>current</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>currently</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_conditions'>conditions</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>summary</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_temp'>temp</span>           <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>temperature</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_feels_like'>feels_like</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>apparentTemperature</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_wind_speed'>wind_speed</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>windSpeed</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_humidity'>humidity</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>humidity</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_wind_bearing'>wind_bearing</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_current'>current</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>windBearing</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_wind_direction'>wind_direction</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_getDirection'>getDirection</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_wind_bearing'>wind_bearing</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_i'>to_i</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_temp_c'>temp_c</span>         <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_temp'>temp</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+  <span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span>   <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_feels_like'>feels_like</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+  <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_wind_speed'>wind_speed</span> <span class='op'>*</span> <span
+                  class='float'>1.6</span>
+  <span class='id identifier rubyid_temp_c'>temp_c</span>         <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_temp_c'>temp_c</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+  <span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span>   <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+  <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+  <span class='id identifier rubyid_humidity'>humidity</span> <span class='op'>*=</span> <span class='int'>100</span>
+  <span class='id identifier rubyid_humidity'>humidity</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>%.2f</span><span
+                  class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_humidity'>humidity</span><span class='rparen'>)</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_withLocale'>withLocale</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>10Weather: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_locale'>locale</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Current Weather: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_conditions'>conditions</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Temp: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_temp'>temp</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> °F (</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_temp_c'>temp_c</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> °C) - Feels like: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_like'>feels_like</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> °F (</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_temp_c'>feels_temp_c</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> °C) | Humidity: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_humidity'>humidity</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>% | Wind: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_wind_speed'>wind_speed</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> MPH (</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> KPH) - Bearing: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_wind_bearing'>wind_bearing</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_wind_direction'>wind_direction</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>)</span><span
+                  class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>10Weather: Current Weather: </span><span
+          class='embexpr_beg'>#{</span><span class='id identifier rubyid_conditions'>conditions</span><span
+          class='embexpr_end'>}</span><span class='tstring_content'> | Temp: </span><span
+          class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp'>temp</span><span
+          class='embexpr_end'>}</span><span class='tstring_content'> °F (</span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_temp_c'>temp_c</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> °C) - Feels like: </span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_feels_like'>feels_like</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> °F (</span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_feels_temp_c'>feels_temp_c</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> °C) | Humidity: </span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_humidity'>humidity</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'>% | Wind: </span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_wind_speed'>wind_speed</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> MPH (</span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> KPH) - Bearing: </span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_wind_bearing'>wind_bearing</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span
+          class='id identifier rubyid_wind_direction'>wind_direction</span><span class='embexpr_end'>}</span><span
+          class='tstring_content'>)</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>rescue</span> <span class='const'>StandardError</span>
+  <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="get_daily-instance_method">
+
+                    #<strong>get_daily</strong>(day, coords, locale, withLocale) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Now we are going to fetch the daily data.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 345</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_daily'>get_daily</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_day'>day</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_coords'>coords</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_locale'>locale</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_withLocale'>withLocale</span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span
+                  class='lbracket'>[</span><span class='symbol'>:key</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_logo'>logo</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>\u0002\u000310Daily Fore\u000F\u0002\u00034cast\u000F:</span><span
+                  class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.forecast.io/forecast/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coords'>coords</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raw_daily'>raw_daily</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>daily</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_daily'>daily</span> <span class='op'>=</span> <span class='lbracket'>[</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_raw_daily'>raw_daily</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>summary</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_min'>min</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>temperatureMin</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_max'>max</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>temperatureMax</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_appmin'>appmin</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>apparentTemperatureMin</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_appmax'>appmax</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>apparentTemperatureMax</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_wind'>wind</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>windSpeed</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_bear'>bear</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>windBearing</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+    <span class='comment'># We&#39;re going to convert it to metric as well, because IRC.
+</span>
+    <span class='id identifier rubyid_temp_c_max'>temp_c_max</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_max'>max</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_temp_c_min'>temp_c_min</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_min'>min</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_feels_temp_c_min'>feels_temp_c_min</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_appmin'>appmin</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_feels_temp_c_max'>feels_temp_c_max</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_appmax'>appmax</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_wind'>wind</span> <span class='op'>*</span> <span class='float'>1.6</span>
+    <span class='id identifier rubyid_temp_c_max'>temp_c_max</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_temp_c_max'>temp_c_max</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+    <span class='id identifier rubyid_temp_c_min'>temp_c_min</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_temp_c_min'>temp_c_min</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+    <span class='id identifier rubyid_feels_temp_c_min'>feels_temp_c_min</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span
+                  class='id identifier rubyid_feels_temp_c_min'>feels_temp_c_min</span> <span class='op'>*</span> <span
+                  class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_ceil'>ceil</span> <span class='op'>/</span> <span
+                  class='float'>10.0</span>
+    <span class='id identifier rubyid_feels_temp_c_max'>feels_temp_c_max</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span
+                  class='id identifier rubyid_feels_temp_c_max'>feels_temp_c_max</span> <span class='op'>*</span> <span
+                  class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_ceil'>ceil</span> <span class='op'>/</span> <span
+                  class='float'>10.0</span>
+    <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_withLocale'>withLocale</span>
+      <span class='id identifier rubyid_daily'>daily</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>%s - </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_locale'>locale</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>: Forecast Predicted in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_day'>day</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> day(s): %s | Temp: [ 10Low: %s °F (10</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp_c_min'>temp_c_min</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) | 4High: %s °F (4</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp_c_max'>temp_c_max</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) ] - Will Feel Like: [ 10Low: %s °F (10</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_temp_c_min'>feels_temp_c_min</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) | 4High: %s °F (4</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_temp_c_max'>feels_temp_c_max</span><span
+                  class='embexpr_end'>}</span><span
+                  class='tstring_content'> °C) ] | Wind: [ Speed: %s MPH (</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> KPH) | Bearing: %s ]</span><span
+                  class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_logo'>logo</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_appmin'>appmin</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_appmax'>appmax</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind'>wind</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_bear'>bear</span><span class='rparen'>)</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_daily'>daily</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s - Forecast Predicted in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_day'>day</span><span
+                  class='embexpr_end'>}</span><span
+                  class='tstring_content'> day(s): %s | Temp: [ 10Low: %s °F (10</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp_c_min'>temp_c_min</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) | 4High: %s °F (4</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_temp_c_max'>temp_c_max</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) ] - Will Feel Like: [ 10Low: %s °F (10</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_temp_c_min'>feels_temp_c_min</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> °C) | 4High: %s °F (4</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_feels_temp_c_max'>feels_temp_c_max</span><span
+                  class='embexpr_end'>}</span><span
+                  class='tstring_content'> °C) ] | Wind: [ Speed: %s MPH (</span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> KPH) | Bearing: %s ]</span><span
+                  class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_logo'>logo</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_min'>min</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_max'>max</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_appmin'>appmin</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_appmax'>appmax</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind'>wind</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_bear'>bear</span><span class='rparen'>)</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_daily'>daily</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="get_data-instance_method">
+
+                    #<strong>get_data</strong>(m, _query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_data'>get_data</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid__query'>_query</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_geolookup'>geolookup</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid__query'>_query</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_data'>data</span>
+    <span class='kw'>return</span> <span class='kw'>false</span>
+  <span class='kw'>else</span>
+    <span class='ivar'>@coords</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+    <span class='ivar'>@name</span>   <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="get_hourly-instance_method">
+
+                    #<strong>get_hourly</strong>(hour, coords, locale, withLocale) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Now we are going to fetch the hourly data.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322
+323
+324
+325
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 310</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_get_hourly'>get_hourly</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_hour'>hour</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_withLocale'>withLocale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_key'>key</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span
+                  class='lbracket'>[</span><span class='symbol'>:key</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_logo'>logo</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>\u0002\u000310Hourly Fore\u000F\u0002\u00034cast\u000F:</span><span
+                  class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.forecast.io/forecast/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_key'>key</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>/</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coords'>coords</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raw_hourly'>raw_hourly</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>hourly</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_hourly'>hourly</span> <span class='op'>=</span> <span class='lbracket'>[</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_raw_hourly'>raw_hourly</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span>
+    <span class='id identifier rubyid_sum'>sum</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>summary</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_temp'>temp</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>temperature</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_feels_temp'>feels_temp</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>apparentTemperature</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_wind'>wind</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>windSpeed</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_bear'>bear</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>windBearing</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_temp_c'>temp_c</span> <span class='op'>=</span> <span class='lparen'>(</span><span
+                  class='id identifier rubyid_temp'>temp</span> <span class='op'>-</span> <span
+                  class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_feels_temp'>feels_temp</span> <span
+                  class='op'>-</span> <span class='int'>32</span><span class='rparen'>)</span> <span class='op'>*</span> <span
+                  class='int'>5</span> <span class='op'>/</span> <span class='int'>9</span>
+    <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_wind'>wind</span> <span class='op'>*</span> <span class='float'>1.6</span>
+    <span class='id identifier rubyid_temp_c'>temp_c</span> <span class='op'>=</span> <span class='lparen'>(</span><span
+                  class='id identifier rubyid_temp_c'>temp_c</span> <span class='op'>*</span> <span
+                  class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_ceil'>ceil</span> <span class='op'>/</span> <span
+                  class='float'>10.0</span>
+    <span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_feels_temp_c'>feels_temp_c</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+    <span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span class='op'>=</span> <span
+                  class='lparen'>(</span><span class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span> <span
+                  class='op'>*</span> <span class='int'>10</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ceil'>ceil</span> <span
+                  class='op'>/</span> <span class='float'>10.0</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_withLocale'>withLocale</span>
+      <span class='id identifier rubyid_hourly'>hourly</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>%s - </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_locale'>locale</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>: Forecast Predicted in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_hour'>hour</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]</span><span
+                  class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_logo'>logo</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_temp'>temp</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_temp_c'>temp_c</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_feels_temp'>feels_temp</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_feels_temp_c'>feels_temp_c</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind'>wind</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_bear'>bear</span><span class='rparen'>)</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_hourly'>hourly</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_format'>format</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s - Forecast Predicted in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_hour'>hour</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> hour(s): %s | Temp: [ %s °F (%s °C) | Will feel like: %s °F (%s °C) ] | Wind: [ Speed: %s MPH (%s KPH) | Bearing: %s ]</span><span
+                  class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_logo'>logo</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_temp'>temp</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_temp_c'>temp_c</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_feels_temp'>feels_temp</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_feels_temp_c'>feels_temp_c</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind'>wind</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_wind_speed_kph'>wind_speed_kph</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_bear'>bear</span><span class='rparen'>)</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_hourly'>hourly</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="getDirection-instance_method">
+
+                    #<strong>getDirection</strong>(deg) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Converts degrees to direction</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+225
+226
+227
+228
+229
+230</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 225</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_getDirection'>getDirection</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_deg'>deg</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_deg'>deg</span> <span class='op'>=</span> <span class='lparen'>(</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_deg'>deg</span> <span
+                  class='op'>/</span> <span class='float'>22.5</span><span class='rparen'>)</span> <span
+                  class='op'>+</span> <span class='float'>0.5</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='id identifier rubyid_directions'>directions</span> <span class='op'>=</span> <span
+                  class='qwords_beg'>%w[</span><span class='tstring_content'>N</span><span
+                  class='words_sep'> </span><span class='tstring_content'>NNE</span><span
+                  class='words_sep'> </span><span class='tstring_content'>NE</span><span class='words_sep'> </span><span
+                  class='tstring_content'>ENE</span><span class='words_sep'> </span><span
+                  class='tstring_content'>E</span><span class='words_sep'> </span><span
+                  class='tstring_content'>ESE</span><span class='words_sep'> </span><span
+                  class='tstring_content'>SE</span><span class='words_sep'> </span><span
+                  class='tstring_content'>SSE</span><span class='words_sep'>
+                  </span><span class='tstring_content'>S</span><span class='words_sep'> </span><span
+                  class='tstring_content'>SSW</span><span class='words_sep'> </span><span
+                  class='tstring_content'>SW</span><span class='words_sep'> </span><span
+                  class='tstring_content'>WSW</span><span class='words_sep'> </span><span
+                  class='tstring_content'>W</span><span class='words_sep'> </span><span
+                  class='tstring_content'>WNW</span><span class='words_sep'> </span><span
+                  class='tstring_content'>NW</span><span class='words_sep'> </span><span
+                  class='tstring_content'>NNW</span><span class='tstring_end'>]</span></span>
+          <span class='id identifier rubyid_directions'>directions</span><span class='lbracket'>[</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_deg'>deg</span> <span
+                  class='op'>%</span> <span class='int'>16</span><span class='rparen'>)</span><span
+                  class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="hourly-instance_method">
+
+                    #<strong>hourly</strong>(m, hour, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <div class="docstring">
+                    <div class="discussion">
+
+                        <p>Now we introduce a method to get the hourly up to 24hrs.</p>
+
+
+                    </div>
+                </div>
+                <div class="tags">
+
+
+                </div>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hourly'>hourly</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_hour'>hour</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_get_data'>get_data</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>No results found for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_query'>query</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span
+                  class='ivar'>@coords</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_get_hourly'>get_hourly</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_hour'>hour</span><span class='comma'>,</span> <span
+                  class='ivar'>@coords</span><span class='comma'>,</span> <span class='ivar'>@name</span><span
+                  class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Oh no! There was a problem fetching the specified weather data. Please try again later.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_empty?'>empty?</span>
+
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_hourly_summary'>hourly_summary</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_hour'>hour</span><span class='rparen'>)</span><span
+                  class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="hourly_summary-instance_method">
+
+                    #<strong>hourly_summary</strong>(data, hour) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+339
+340
+341</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 339</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hourly_summary'>hourly_summary</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_data'>data</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_hour'>hour</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='id identifier rubyid_hour'>hour</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_i'>to_i</span> <span class='op'>-</span> <span
+                  class='int'>1</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="ifAlert-instance_method">
+
+                    #<strong>ifAlert</strong>(m, coords, locale) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+265
+266
+267
+268
+269
+270
+271
+272
+273
+274
+275
+276
+277</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 265</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ifAlert'>ifAlert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_alerts'>alerts</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>true</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>There are no alerts for this area.</span><span
+                  class='tstring_end'>&#39;</span></span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_alerts'>alerts</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_check_auth'>check_auth</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span
+                  class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>true</span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_auth'>check_auth</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_notice'>notice</span> <span
+                  class='id identifier rubyid_alert'>alert</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_coords'>coords</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_locale'>locale</span><span class='comma'>,</span> <span
+                  class='kw'>false</span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="reload-instance_method">
+
+                    #<strong>reload</strong> &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+215
+216
+217
+218
+219
+220
+221</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/weather.rb', line 215</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reload'>reload</span>
+  <span class='ivar'>@storage</span> <span class='op'>=</span> <span class='kw'>if</span> <span
+                  class='const'>File</span><span class='period'>.</span><span
+                  class='id identifier rubyid_exist?'>exist?</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>docs/userinfo.yaml</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+               <span class='const'>YAML</span><span class='period'>.</span><span class='id identifier rubyid_load_file'>load_file</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>docs/userinfo.yaml</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+             <span class='kw'>else</span>
+               <span class='lbrace'>{</span><span class='rbrace'>}</span>
+             <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Generated on Sun Aug 25 00:26:29 2019 by
+        <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+        0.9.20 (ruby-2.5.5).
+    </div>
+
+</div>
+</body>
+</html>

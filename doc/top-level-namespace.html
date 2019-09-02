@@ -1,0 +1,1856 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Top Level Namespace
+
+        &mdash; Documentation by YARD 0.9.20
+
+    </title>
+
+    <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
+
+    <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8"/>
+
+    <script type="text/javascript" charset="utf-8">
+        pathId = "";
+        relpath = '';
+    </script>
+
+
+    <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+</head>
+<body>
+<div class="nav_wrap">
+    <iframe id="nav" src="class_list.html?1"></iframe>
+    <div id="resizer"></div>
+</div>
+
+<div id="main" tabindex="-1">
+    <div id="header">
+        <div id="menu">
+
+            <a href="_index.html">Index</a> &raquo;
+
+
+            <span class="title">Top Level Namespace</span>
+
+        </div>
+
+        <div id="search">
+
+            <a class="full_list_link" id="class_list_link"
+               href="class_list.html">
+
+                <svg width="24" height="24">
+                    <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="content"><h1>Top Level Namespace
+
+
+    </h1>
+        <div class="box_info">
+
+
+        </div>
+
+        <h2>Defined Under Namespace</h2>
+        <p class="children">
+
+
+            <strong class="modules">Modules:</strong> <span class='object_link'><a href="Cinch.html"
+                                                                                   title="Cinch (module)">Cinch</a></span>
+
+
+            <strong class="classes">Classes:</strong> <span class='object_link'><a href="Float.html"
+                                                                                   title="Float (class)">Float</a></span>
+
+
+        </p>
+
+
+        <h2>
+            Constant Summary
+            <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+        </h2>
+
+        <dl class="constants">
+
+            <dt id="CoinList-constant" class="">CoinList =
+
+            </dt>
+            <dd>
+                <pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                        class='tstring_content'>https://min-api.cryptocompare.com/data/all/coinlist</span><span
+                        class='tstring_end'>&#39;</span></span></pre>
+            </dd>
+
+            <dt id="PriceData-constant" class="">PriceData =
+
+            </dt>
+            <dd>
+                <pre class="code"><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                        class='tstring_content'>https://min-api.cryptocompare.com/data/</span><span class='tstring_end'>&#39;</span></span></pre>
+            </dd>
+
+        </dl>
+
+
+        <h2>
+            Instance Method Summary
+            <small><a href="#" class="summary_toggle">collapse</a></small>
+        </h2>
+
+        <ul class="summary">
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#addressInfo-instance_method" title="#addressInfo (instance method)">#<strong>addressInfo</strong>(m, coin, address, verbose = &quot;no&quot;)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#basicInfo-instance_method" title="#basicInfo (instance method)">#<strong>basicInfo</strong>(m, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#commify-instance_method"
+         title="#commify (instance method)">#<strong>commify</strong>(number)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#converter-instance_method" title="#converter (instance method)">#<strong>converter</strong>(m, qAmount, qSym, target)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="top-level-namespace.html#txInfo-instance_method"
+         title="#txInfo (instance method)">#<strong>txInfo</strong>(m, coin, txHash)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+        </ul>
+
+
+        <div id="instance_method_details" class="method_details_list">
+            <h2>Instance Method Details</h2>
+
+
+            <div class="method_details first">
+                <h3 class="signature first" id="addressInfo-instance_method">
+
+                    #<strong>addressInfo</strong>(m, coin, address, verbose = &quot;no&quot;) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/coin_query/addr_info.rb', line 1</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_addressInfo'>addressInfo</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coin'>coin</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_address'>address</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_verbose'>verbose</span><span class='op'>=</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>no</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='comment'># Always downcase the coin
+</span>
+  <span class='kw'>if</span> <span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>-v</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>--verbose</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_coin'>coin</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='id identifier rubyid_coin'>coin</span><span
+                  class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+
+  <span class='comment'># To add a bit of ease for the user
+</span>  <span class='comment'># we&#39;ll go ahead and put some if
+</span>  <span class='comment'># statements to convert full coin
+</span>  <span class='comment'># names to their symbol.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>ethereum</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>eth</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>litecoin</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>ltc</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>bitcoin</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>btc</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>dogecoin</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>doge</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='op'>!</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>btc</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>eth</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>dash</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>ltc</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_coin'>coin</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, I currently only support the following coins when querying addresses:</span><span
+                  class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Bitcoin (BTC), Litecoin (LTC), Ethereum (ETH), and Dash (DASH)</span><span
+                  class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='comment'># We put a begin here because we
+</span>  <span class='comment'># want to be able to recover from
+</span>  <span class='comment'># any OpenURI errors we enounter.
+</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.blockcypher.com/v1/</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_coin'>coin</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>/main/addrs/</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_address'>address</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>?limit=3</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span> <span class='const'>OpenURI</span><span class='op'>::</span><span class='const'>HTTPError</span> <span
+                  class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span
+                  class='id identifier rubyid_message'>message</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>404 Not Found</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, there&#39;s either a problem with the API or your request.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please check your address or currency spelling, or please try again later.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span
+                  class='id identifier rubyid_message'>message</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>400 Bad Request</span><span class='tstring_end'>&#39;</span></span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, there&#39;s either a problem with the API or your request.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please check your address or currency spelling, or please try again later.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+      <span class='id identifier rubyid_eMsg'>eMsg</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>error</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_eMsg'>eMsg</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span>
+      <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Gather the address, truncate it,
+</span>    <span class='comment'># and then append &#39;...&#39; to it.
+</span>
+    <span class='id identifier rubyid_address'>address</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>address</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_address'>address</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_address'>address</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='op'>..</span><span class='int'>7</span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_address'>address</span>       <span class='op'>&lt;&lt;</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span
+                  class='tstring_end'>&quot;</span></span>
+
+    <span class='comment'># Gather other information
+</span>
+    <span class='id identifier rubyid_totalReceived'>totalReceived</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>total_received</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_totalSent'>totalSent</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>total_sent</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_balance'>balance</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>balance</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+    <span class='comment'># In order to get a human-readable
+</span>    <span class='comment'># amount of coin, we will need to do
+</span>    <span class='comment'># some math according to the coin&#39;s
+</span>    <span class='comment'># lowest increment.
+</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>eth</span><span
+                  class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_totalReceived'>totalReceived</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalReceived'>totalReceived</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+      <span class='id identifier rubyid_totalSent'>totalSent</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalSent'>totalSent</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+      <span class='id identifier rubyid_balance'>balance</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_balance'>balance</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_totalReceived'>totalReceived</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalReceived'>totalReceived</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+      <span class='id identifier rubyid_totalSent'>totalSent</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalSent'>totalSent</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+      <span class='id identifier rubyid_balance'>balance</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_balance'>balance</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Now let&#39;s round and commify
+</span>
+    <span class='id identifier rubyid_totalReceived'>totalReceived</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalReceived'>totalReceived</span><span class='period'>.</span><span
+                  class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>5</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_totalReceived'>totalReceived</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_totalReceived'>totalReceived</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_totalSent'>totalSent</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_totalSent'>totalSent</span><span class='period'>.</span><span
+                  class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>5</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_totalSent'>totalSent</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_totalSent'>totalSent</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_balance'>balance</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_balance'>balance</span><span class='period'>.</span><span
+                  class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>5</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_balance'>balance</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_balance'>balance</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_numberTx'>numberTx</span>      <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>n_tx</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_numberTx'>numberTx</span>      <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_numberTx'>numberTx</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_unconfirmedTx'>unconfirmedTx</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>unconfirmed_n_tx</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_unconfirmedTx'>unconfirmedTx</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_unconfirmedTx'>unconfirmedTx</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_finalNumberTx'>finalNumberTx</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>final_n_tx</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_finalNumberTx'>finalNumberTx</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_finalNumberTx'>finalNumberTx</span><span
+                  class='rparen'>)</span>
+
+    <span class='id identifier rubyid_txRefs'>txRefs</span>        <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>txrefs</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+    <span class='comment'># Create an array to push the
+</span>    <span class='comment'># information contained in txrefs
+</span>    <span class='comment'># to.
+</span>
+    <span class='id identifier rubyid_formattedRefs'>formattedRefs</span>  <span class='op'>=</span> <span
+                  class='lbracket'>[</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_verboseResults'>verboseResults</span> <span class='op'>=</span> <span
+                  class='lbracket'>[</span><span class='rbracket'>]</span>
+
+    <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span
+                  class='id identifier rubyid_txRefs'>txRefs</span>
+
+      <span class='id identifier rubyid_txHash'>txHash</span>        <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>tx_hash</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+      <span class='id identifier rubyid_txHash'>txHash</span>        <span class='op'>=</span> <span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='op'>..</span><span class='int'>7</span><span
+                  class='rbracket'>]</span>
+      <span class='id identifier rubyid_txHash'>txHash</span>        <span class='op'>&lt;&lt;</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span
+                  class='tstring_end'>&quot;</span></span>
+
+      <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>confirmations</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_confirmations'>confirmations</span><span
+                  class='rparen'>)</span>
+
+      <span class='comment'># To make things a litter easier we
+</span>      <span class='comment'># go ahead and make the address red
+</span>      <span class='comment'># or green depending on the confirmation
+</span>      <span class='comment'># status of each transaction.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_i'>i</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>confirmed</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>confirmed</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='const'>Time</span><span class='period'>.</span><span
+                  class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_timeConfirmed'>timeConfirmed</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Unconfirmed</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='kw'>if</span> <span class='id identifier rubyid_confirmations'>confirmations</span><span
+                  class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span
+                  class='op'>&gt;=</span> <span class='int'>6</span>
+        <span class='id identifier rubyid_txHash'>txHash</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_txHash'>txHash</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_value'>value</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>value</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+      <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>eth</span><span
+                  class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_value'>value</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_value'>value</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Round and commify
+</span>
+      <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_value'>value</span><span class='period'>.</span><span
+                  class='id identifier rubyid_round'>round</span><span class='lparen'>(</span><span class='int'>5</span><span
+                  class='rparen'>)</span>
+      <span class='id identifier rubyid_value'>value</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span
+                  class='rparen'>)</span>
+
+      <span class='comment'># Puuuuuuush!
+</span>
+      <span class='id identifier rubyid_formattedRefs'>formattedRefs</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> (</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_value'>value</span><span class='embexpr_end'>}</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coin'>coin</span><span
+                  class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>)</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+      <span class='id identifier rubyid_verboseResults'>verboseResults</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Tx Hash: %s | Value: %s | Confirmations: %s | Confirmed: %s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='id identifier rubyid_txHash'>txHash</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_confirmations'>confirmations</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span><span
+                  class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+    <span class='kw'>end</span>
+
+    <span class='comment'># Join!
+</span>
+    <span class='id identifier rubyid_formattedRefs'>formattedRefs</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_formattedRefs'>formattedRefs</span><span class='period'>.</span><span
+                  class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_verboseReply'>verboseReply</span>  <span class='op'>=</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Address: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_address'>address</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Coin: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_coin'>coin</span><span class='period'>.</span><span
+                  class='id identifier rubyid_upcase'>upcase</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Total Sent: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_totalSent'>totalSent</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Total Received: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_totalReceived'>totalReceived</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Balance: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_balance'>balance</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | No. of Tx: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_numberTx'>numberTx</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | No. of Unconfirmed Tx: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_unconfirmedTx'>unconfirmedTx</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span>
+
+    <span class='comment'># Send to user!
+</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span> <span
+                  class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>yes</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_verboseResults'>verboseResults</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span><span class='lbrace'>{</span><span
+                  class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span> <span class='id identifier rubyid_v'>v</span><span
+                  class='rbrace'>}</span>
+      <span class='kw'>return</span><span class='lparen'>(</span><span class='id identifier rubyid_verboseReply'>verboseReply</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='kw'>return</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>Address: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_address'>address</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | Coin: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coin'>coin</span><span
+                  class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | Total Sent: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_totalSent'>totalSent</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | Total Received: </span><span
+                  class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_totalReceived'>totalReceived</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Balance: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_balance'>balance</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | No. of Tx: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_finalNumberTx'>finalNumberTx</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Recent Tx(s): </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_formattedRefs'>formattedRefs</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="basicInfo-instance_method">
+
+                    #<strong>basicInfo</strong>(m, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/coin_query/coin_info.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_basicInfo'>basicInfo</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+
+  <span class='comment'># First we open the CoinList API and parse it
+</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a
+                  href="#CoinList-constant" title="CoinList (constant)">CoinList</a></span></span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+
+  <span class='comment'># If we received an error response, we want
+</span>  <span class='comment'># to handle that and let the end-user know.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>Response</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_eMsg'>eMsg</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>Message</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, there&#39;s been an error: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_eMsg'>eMsg</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span
+                  class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='comment'># Now we gather the information on the page
+</span>  <span class='comment'># to get the information for the query.
+</span>
+  <span class='kw'>for</span> <span class='id identifier rubyid_p'>p</span> <span class='kw'>in</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Data</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_symbol'>symbol</span>    <span class='op'>=</span> <span
+                  class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>0</span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_coinName'>coinName</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>1</span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>CoinName</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_url'>url</span>       <span class='op'>=</span> <span
+                  class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>1</span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Url</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_algorithm'>algorithm</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_p'>p</span><span class='lbracket'>[</span><span class='int'>1</span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Algorithm</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_url'>url</span>       <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://www.cryptocompare.com</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_url'>url</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_symbol'>symbol</span><span class='period'>.</span><span
+                  class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='period'>.</span><span
+                  class='id identifier rubyid_downcase'>downcase</span> <span class='kw'>or</span> <span
+                  class='id identifier rubyid_coinName'>coinName</span><span class='period'>.</span><span
+                  class='id identifier rubyid_downcase'>downcase</span> <span class='op'>==</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='period'>.</span><span
+                  class='id identifier rubyid_downcase'>downcase</span>
+
+      <span class='comment'># If we&#39;re able to find a result, we
+</span>      <span class='comment'># grab the price as well, and add it.
+</span>      <span class='kw'>begin</span>
+        <span class='id identifier rubyid_priceSheet'>priceSheet</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a
+                  href="#PriceData-constant" title="PriceData (constant)">PriceData</a></span></span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>price?fsym=</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_symbol'>symbol</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>&amp;tsyms=USD,EUR</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_read'>read</span><span class='rparen'>)</span>
+      <span class='kw'>rescue</span> <span class='const'>OpenURI</span><span class='op'>::</span><span class='const'>HTTPError</span> <span
+                  class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span
+                  class='id identifier rubyid_message'>message</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>502 Bad Gateway</span><span class='tstring_end'>&quot;</span></span>
+          <span class='id identifier rubyid_priceSheet'>priceSheet</span> <span class='op'>=</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span
+                  class='tstring_end'>&quot;</span></span>
+          <span class='id identifier rubyid_priceUsd'>priceUsd</span>   <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span>
+          <span class='id identifier rubyid_priceEur'>priceEur</span>   <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>?</span><span class='tstring_end'>&quot;</span></span>
+        <span class='kw'>end</span>
+      <span class='kw'>else</span>
+
+        <span class='id identifier rubyid_priceUsd'>priceUsd</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_priceSheet'>priceSheet</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>USD</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_priceUsd'>priceUsd</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_priceUsd'>priceUsd</span><span
+                  class='rparen'>)</span>
+        <span class='id identifier rubyid_priceEur'>priceEur</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_priceSheet'>priceSheet</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>EUR</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_priceEur'>priceEur</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_priceEur'>priceEur</span><span
+                  class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>%s (%s) - Algorithm: %s | USD: $%s - EUR: €%s | More Info: %s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='id identifier rubyid_coinName'>coinName</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_symbol'>symbol</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_algorithm'>algorithm</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_priceUsd'>priceUsd</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_priceEur'>priceEur</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rbracket'>]</span><span
+                  class='rparen'>)</span>
+
+    <span class='kw'>end</span>
+
+  <span class='kw'>end</span>
+
+  <span class='comment'># Now we check our results, if there are
+</span>  <span class='comment'># results then we let the end-user see
+</span>  <span class='comment'># the infomation we&#39;ve gathered.
+</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span
+                  class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span
+                  class='int'>0</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_results'>results</span>
+  <span class='kw'>else</span>
+
+    <span class='comment'># If we found nothing, then we should
+</span>    <span class='comment'># tell the user that.
+</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I am unable to find information for </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_query'>query</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>. Please try again later.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="commify-instance_method">
+
+                    #<strong>commify</strong>(number) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+1
+2
+3
+4
+5</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/helpers/commify.rb', line 1</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_commify'>commify</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_number'>number</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_whole'>whole</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_decimal'>decimal</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_number'>number</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_whole_with_commas'>whole_with_commas</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_whole'>whole</span><span class='period'>.</span><span
+                  class='id identifier rubyid_chars'>chars</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each_slice'>each_slice</span><span class='lparen'>(</span><span
+                  class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span
+                  class='op'>&amp;</span><span class='symbol'>:join</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_join'>join</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>,</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+  <span class='lbracket'>[</span><span class='id identifier rubyid_whole_with_commas'>whole_with_commas</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_decimal'>decimal</span><span
+                  class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span
+                  class='period'>.</span><span class='id identifier rubyid_join'>join</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="converter-instance_method">
+
+                    #<strong>converter</strong>(m, qAmount, qSym, target) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/coin_query/coin_converter.rb', line 3</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_converter'>converter</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_qAmount'>qAmount</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_qSym'>qSym</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+  
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='const'><span class='object_link'><a
+                  href="#PriceData-constant" title="PriceData (constant)">PriceData</a></span></span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>price?fsym=</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_qSym'>qSym</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>&amp;tsyms=</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_target'>target</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_read'>read</span><span
+                  class='rparen'>)</span>
+  
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>Response</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_eMsg'>eMsg</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>Message</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_error'>error</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_error'>error</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_eMsg'>eMsg</span>
+  <span class='kw'>end</span>
+  
+  <span class='id identifier rubyid_tPrice'>tPrice</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_target'>target</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  
+  <span class='id identifier rubyid_total'>total</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_tPrice'>tPrice</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>*</span> <span
+                  class='id identifier rubyid_qAmount'>qAmount</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span>
+  <span class='id identifier rubyid_total'>total</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_total'>total</span><span
+                  class='rparen'>)</span>
+  
+  <span class='kw'>return</span> <span class='id identifier rubyid_total'>total</span>
+  
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="txInfo-instance_method">
+
+                    #<strong>txInfo</strong>(m, coin, txHash) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/coin_query/tx_info.rb', line 1</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_txInfo'>txInfo</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_coin'>coin</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='id identifier rubyid_coin'>coin</span><span
+                  class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span>
+
+  <span class='comment'># This case statement detects what
+</span>  <span class='comment'># the user inputs and allows us to
+</span>  <span class='comment'># properly handle the request.
+</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_coin'>coin</span>
+
+  <span class='kw'>when</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>btc</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>bitcoin</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>doge</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>dogecoin</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>dash</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>ltc</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>litecoin</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>eth</span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>ethereum</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='comment'># If a user types the entirety of
+</span>    <span class='comment'># the coin name, we can shorten it
+</span>    <span class='comment'># to it&#39;s symbol.
+</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>bitcoin</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>btc</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>dogecoin</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>doge</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>litecoin</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>ltc</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>ethereum</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_coin'>coin</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>eth</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='comment'># Now we take the information provided
+</span>    <span class='comment'># and make a query to the BlockCypher
+</span>    <span class='comment'># API
+</span>
+    <span class='kw'>begin</span>
+      <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_open'>open</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>https://api.blockcypher.com/v1/</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_coin'>coin</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>/main/txs/</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_read'>read</span><span
+                  class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='const'>OpenURI</span><span class='op'>::</span><span class='const'>HTTPError</span> <span
+                  class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span
+                  class='id identifier rubyid_message'>message</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>404 Not Found</span><span class='tstring_end'>&#39;</span></span>
+        <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, there&#39;s either a problem with the API or your request.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reply'>reply</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Please check your hash or currency spelling, or please try again later.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>error</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+    <span class='kw'>else</span>
+
+      <span class='comment'># After a little error handling above
+</span>      <span class='comment'># we gather all the information we need.
+</span>
+      <span class='id identifier rubyid_toAddress'>toAddress</span>     <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>outputs</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+      <span class='id identifier rubyid_fromAddress'>fromAddress</span>   <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>inputs</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_total'>total</span>         <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>total</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+
+      <span class='comment'># Including the confirmations, and then
+</span>      <span class='comment'># we commify those
+</span>
+      <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>confirmations</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+      <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_confirmations'>confirmations</span><span
+                  class='rparen'>)</span>
+
+      <span class='id identifier rubyid_fee'>fee</span>           <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>fees</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_timeReceived'>timeReceived</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>received</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+
+      <span class='comment'># Ethereum is the only coin on this API
+</span>      <span class='comment'># that requires a different method to
+</span>      <span class='comment'># make the amounts more readable. Therefore
+</span>      <span class='comment'># we will change it up if &#39;eth&#39; is slected.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_coin'>coin</span> <span class='op'>==</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>eth</span><span
+                  class='tstring_end'>&quot;</span></span>
+        <span class='id identifier rubyid_fee'>fee</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_fee'>fee</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+        <span class='id identifier rubyid_total'>total</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_total'>total</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='int'>1000000000000000000</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_fee'>fee</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_fee'>fee</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+        <span class='id identifier rubyid_total'>total</span>  <span class='op'>=</span> <span
+                  class='id identifier rubyid_total'>total</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span
+                  class='int'>100000000</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Then finally that fee gets commified
+</span>
+      <span class='id identifier rubyid_fee'>fee</span>    <span class='op'>=</span> <span
+                  class='id identifier rubyid_commify'><span class='object_link'><a href="#commify-instance_method"
+                                                                                    title="#commify (method)">commify</a></span></span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_fee'>fee</span><span class='rparen'>)</span>
+
+      <span class='comment'># Just to add a bit more readability we
+</span>      <span class='comment'># have the code determine if there are
+</span>      <span class='comment'># six or more confirmations. Red if there
+</span>      <span class='comment'># are not, green if there are.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_confirmations'>confirmations</span><span
+                  class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span
+                  class='op'>&gt;=</span> <span class='int'>6</span>
+        <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_confirmations'>confirmations</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_confirmations'>confirmations</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_confirmations'>confirmations</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># The &#39;confirmed&#39; key does not exist on the
+</span>      <span class='comment'># API if the tx has gotten no confirmations
+</span>      <span class='comment'># we have to handle that or the code breaks.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>confirmed</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>confirmed</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='const'>Time</span><span class='period'>.</span><span
+                  class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_timeConfirmed'>timeConfirmed</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>=</span> <span
+                  class='kw'>nil</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># Same with preference, we have to handle it
+</span>      <span class='comment'># or it might break.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_key?'>key?</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>preference</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_preference'>preference</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>preference</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_preference'>preference</span> <span class='op'>=</span> <span
+                  class='kw'>nil</span>
+      <span class='kw'>end</span>
+
+      <span class='comment'># And again with the &#39;confirmed&#39; key.
+</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_timeConfirmed'>timeConfirmed</span> <span class='op'>==</span> <span
+                  class='kw'>nil</span>
+        <span class='id identifier rubyid_confirmedAnswer'>confirmedAnswer</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Unconfirmed</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='id identifier rubyid_confirmedAnswer'>confirmedAnswer</span> <span class='op'>=</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_timeConfirmed'>timeConfirmed</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_timeReceived'>timeReceived</span> <span class='op'>=</span> <span class='const'>Time</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_timeReceived'>timeReceived</span><span
+                  class='rparen'>)</span>
+
+      <span class='comment'># Now that we have the information we
+</span>      <span class='comment'># need, it&#39;s safe to truncate the hash
+</span>      <span class='comment'># so we don&#39;t have to spit the whole thing
+</span>      <span class='comment'># back out into IRC.
+</span>
+      <span class='id identifier rubyid_txHash'>txHash</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_txHash'>txHash</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='op'>..</span><span class='int'>15</span><span
+                  class='rbracket'>]</span>
+
+      <span class='comment'># We set up the arrays to dump the info
+</span>      <span class='comment'># info...
+</span>
+      <span class='id identifier rubyid_finalAddress'>finalAddress</span> <span class='op'>=</span> <span
+                  class='lbracket'>[</span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_finalFrom'>finalFrom</span>    <span class='op'>=</span> <span class='lbracket'>[</span><span
+                  class='rbracket'>]</span>
+
+      <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span
+                  class='id identifier rubyid_toAddress'>toAddress</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>addresses</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='int'>2</span><span
+                  class='op'>..</span><span class='int'>9</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+
+        <span class='id identifier rubyid_finalAddress'>finalAddress</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_finalAddress'>finalAddress</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_finalAddress'>finalAddress</span><span class='period'>.</span><span
+                  class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+
+      <span class='kw'>for</span> <span class='id identifier rubyid_i'>i</span> <span class='kw'>in</span> <span
+                  class='id identifier rubyid_fromAddress'>fromAddress</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>addresses</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_i'>i</span><span class='lbracket'>[</span><span class='int'>2</span><span
+                  class='op'>..</span><span class='int'>9</span><span class='rbracket'>]</span>
+        <span class='id identifier rubyid_i'>i</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>...</span><span class='tstring_end'>&quot;</span></span>
+
+        <span class='id identifier rubyid_finalFrom'>finalFrom</span><span class='period'>.</span><span
+                  class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_i'>i</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+      <span class='kw'>end</span>
+
+      <span class='id identifier rubyid_finalFrom'>finalFrom</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_finalFrom'>finalFrom</span><span class='period'>.</span><span
+                  class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+
+      <span class='comment'># Then finally we give the info
+</span>      <span class='comment'># to the IRC user
+</span>      
+      <span class='kw'>return</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>Tx Hash: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_txHash'>txHash</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>... | Coin: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_coin'>coin</span><span
+                  class='period'>.</span><span class='id identifier rubyid_upcase'>upcase</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | To: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_finalAddress'>finalAddress</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | From: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_finalFrom'>finalFrom</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | Received: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_timeReceived'>timeReceived</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> | Value: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_total'>total</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Fee: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_fee'>fee</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Confirmations: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_confirmations'>confirmations</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Confirmed: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_confirmedAnswer'>confirmedAnswer</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Generated on Sun Aug 25 00:26:27 2019 by
+        <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+        0.9.20 (ruby-2.5.5).
+    </div>
+
+</div>
+</body>
+</html>

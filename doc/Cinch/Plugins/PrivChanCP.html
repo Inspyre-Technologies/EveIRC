@@ -1,0 +1,2435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Class: Cinch::Plugins::PrivChanCP
+
+        &mdash; Documentation by YARD 0.9.20
+
+    </title>
+
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8"/>
+
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+
+    <script type="text/javascript" charset="utf-8">
+        pathId = "Cinch::Plugins::PrivChanCP";
+        relpath = '../../';
+    </script>
+
+
+    <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+</head>
+<body>
+<div class="nav_wrap">
+    <iframe id="nav" src="../../class_list.html?1"></iframe>
+    <div id="resizer"></div>
+</div>
+
+<div id="main" tabindex="-1">
+    <div id="header">
+        <div id="menu">
+
+            <a href="../../_index.html">Index (P)</a> &raquo;
+            <span class='title'><span class='object_link'><a href="../../Cinch.html"
+                                                             title="Cinch (module)">Cinch</a></span></span> &raquo;
+            <span class='title'><span class='object_link'><a href="../Plugins.html" title="Cinch::Plugins (module)">Plugins</a></span></span>
+            &raquo;
+            <span class="title">PrivChanCP</span>
+
+        </div>
+
+        <div id="search">
+
+            <a class="full_list_link" id="class_list_link"
+               href="../../class_list.html">
+
+                <svg width="24" height="24">
+                    <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="content"><h1>Class: Cinch::Plugins::PrivChanCP
+
+
+    </h1>
+        <div class="box_info">
+
+            <dl>
+                <dt>Inherits:</dt>
+                <dd>
+                    <span class="inheritName">Object</span>
+
+                    <ul class="fullTree">
+                        <li>Object</li>
+
+                        <li class="next">Cinch::Plugins::PrivChanCP</li>
+
+                    </ul>
+                    <a href="#" class="inheritanceTree">show all</a>
+
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Includes:</dt>
+                <dd><span class='object_link'><a href="../Helpers.html"
+                                                 title="Cinch::Helpers (module)">Helpers</a></span>, Cinch::Plugin
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Defined in:</dt>
+                <dd>lib/plugins/priv_chan_cp.rb</dd>
+            </dl>
+
+        </div>
+
+
+        <h2>
+            Instance Method Summary
+            <small><a href="#" class="summary_toggle">collapse</a></small>
+        </h2>
+
+        <ul class="summary">
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_ban-instance_method" title="#execute_ban (instance method)">#<strong>execute_ban</strong>(m, channel, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_kban-instance_method" title="#execute_kban (instance method)">#<strong>execute_kban</strong>(m, channel, user, reason)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_kick-instance_method" title="#execute_kick (instance method)">#<strong>execute_kick</strong>(m, channel, knick, reason)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_rdop-instance_method" title="#execute_rdop (instance method)">#<strong>execute_rdop</strong>(m, channel, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_rdv-instance_method" title="#execute_rdv (instance method)">#<strong>execute_rdv</strong>(m, channel, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_rop-instance_method" title="#execute_rop (instance method)">#<strong>execute_rop</strong>(m, channel, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_rv-instance_method" title="#execute_rv (instance method)">#<strong>execute_rv</strong>(m, channel, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_topic-instance_method" title="#execute_topic (instance method)">#<strong>execute_topic</strong>(m, channel, topic)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_unban-instance_method" title="#execute_unban (instance method)">#<strong>execute_unban</strong>(m, channel, mask)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#topic_append-instance_method" title="#topic_append (instance method)">#<strong>topic_append</strong>(m, channel, new_topic)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+        </ul>
+
+
+        <h3 class="inherited">Methods included from <span class='object_link'><a href="../Helpers.html"
+                                                                                 title="Cinch::Helpers (module)">Helpers</a></span>
+        </h3>
+        <p class="inherited"><span class='object_link'><a href="../Helpers.html#c_top_news-instance_method"
+                                                          title="Cinch::Helpers#c_top_news (method)">#c_top_news</a></span>,
+            <span class='object_link'><a href="../Helpers.html#categories-instance_method"
+                                         title="Cinch::Helpers#categories (method)">#categories</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_auth-instance_method"
+                                           title="Cinch::Helpers#check_auth (method)">#check_auth</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_bff-instance_method"
+                                           title="Cinch::Helpers#check_bff (method)">#check_bff</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_foe-instance_method"
+                                           title="Cinch::Helpers#check_foe (method)">#check_foe</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_friend-instance_method"
+                                           title="Cinch::Helpers#check_friend (method)">#check_friend</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_ignore-instance_method"
+                                           title="Cinch::Helpers#check_ignore (method)">#check_ignore</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#check_master-instance_method"
+                                           title="Cinch::Helpers#check_master (method)">#check_master</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#execute_c_search-instance_method"
+                                           title="Cinch::Helpers#execute_c_search (method)">#execute_c_search</a></span>,
+            <span class='object_link'><a href="../Helpers.html#execute_sc_search-instance_method"
+                                         title="Cinch::Helpers#execute_sc_search (method)">#execute_sc_search</a></span>,
+            <span class='object_link'><a href="../Helpers.html#fetch_news-instance_method"
+                                         title="Cinch::Helpers#fetch_news (method)">#fetch_news</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#geolookup-instance_method"
+                                           title="Cinch::Helpers#geolookup (method)">#geolookup</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#ratelimit-instance_method"
+                                           title="Cinch::Helpers#ratelimit (method)">#ratelimit</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#reload-instance_method"
+                                           title="Cinch::Helpers#reload (method)">#reload</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#sc_top_news-instance_method"
+                                           title="Cinch::Helpers#sc_top_news (method)">#sc_top_news</a></span>, <span
+                    class='object_link'><a href="../Helpers.html#sub_categories-instance_method"
+                                           title="Cinch::Helpers#sub_categories (method)">#sub_categories</a></span></p>
+
+
+        <div id="instance_method_details" class="method_details_list">
+            <h2>Instance Method Details</h2>
+
+
+            <div class="method_details first">
+                <h3 class="signature first" id="execute_ban-instance_method">
+
+                    #<strong>execute_ban</strong>(m, channel, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_ban'>execute_ban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid ban command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;ban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;ban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t ban </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;ban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not ban </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;ban&#39; command to ban </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid ban command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_mask'>mask</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>*!*@%h</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ban'>ban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;ban&#39; command in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>. Banned mask: </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_kban-instance_method">
+
+                    #<strong>execute_kban</strong>(m, channel, user, reason) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_kban'>execute_kban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_reason'>reason</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_sleep'>sleep</span> <span class='id identifier rubyid_config'>config</span><span
+                  class='lbracket'>[</span><span class='symbol'>:delay</span><span class='rbracket'>]</span> <span
+                  class='op'>||</span> <span class='int'>10</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid kban command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t kban </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not kick/ban </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kban&#39; command to kick/ban </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid kban command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_mask'>mask</span> <span class='op'>=</span> <span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>*!*@%h</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_ban'>ban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='rparen'>)</span>
+  <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_kick'>kick</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_reason'>reason</span><span class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;kban&#39; command to kick and ban </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>. Reason: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_reason'>reason</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> | Banned mask: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_mask'>mask</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_kick-instance_method">
+
+                    #<strong>execute_kick</strong>(m, channel, knick, reason) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_kick'>execute_kick</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_knick'>knick</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_reason'>reason</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid kick command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kick&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kick&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t make a kick because I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kick&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_knick'>knick</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not kick </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_knick'>knick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_knick'>knick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;kick&#39; command to kick </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_knick'>knick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_knick'>knick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid kick command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_kick'>kick</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_knick'>knick</span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_reason'>reason</span><span
+                  class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;kick&#39; command to kick </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_knick'>knick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>. Reason: </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_reason'>reason</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_rdop-instance_method">
+
+                    #<strong>execute_rdop</strong>(m, channel, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_rdop'>execute_rdop</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid deop command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>. User attempted to op </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;deop&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;deop&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t deop </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>Valid deop command failed because I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;deop&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t deop </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> does not have op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>. Perhaps you meant to use the &#39;op&#39; command?</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;deop&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> does not have op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not deop </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;deop&#39; command to deop </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid deop command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>MODE </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> -o </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;op&#39; command to take +o from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_rdv-instance_method">
+
+                    #<strong>execute_rdv</strong>(m, channel, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+270
+271
+272
+273
+274
+275
+276
+277
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 270</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_rdv'>execute_rdv</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid devoice command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;devoice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;devoice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t take voice from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;devoice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not devoice </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;devoice&#39; command to devoice </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid devoice command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>MODE </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> -v </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;devoice&#39; command to take +v from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_rop-instance_method">
+
+                    #<strong>execute_rop</strong>(m, channel, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 162</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_rop'>execute_rop</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid op command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;op&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;op&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t op </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;op&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span> <span class='op'>==</span> <span class='kw'>false</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t op </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because they already have op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> Perhaps you meant to use the &#39;deop&#39; command?</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;op&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> already has op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not op </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;op&#39; command to op </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid op command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>MODE </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> +o </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;op&#39; command to give +o to </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_rv-instance_method">
+
+                    #<strong>execute_rv</strong>(m, channel, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 238</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_rv'>execute_rv</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid voice command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;voice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;voice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t give voice to </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;voice&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_users'>users</span><span
+                  class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span
+                  class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can not voice </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;voice&#39; command to voice </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> is not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid voice command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>MODE </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> +v </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_user'>user</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;voice&#39; command to give +v to </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_topic-instance_method">
+
+                    #<strong>execute_topic</strong>(m, channel, topic) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+304
+305
+306
+307
+308
+309
+310
+311
+312
+313
+314
+315
+316
+317
+318
+319
+320
+321
+322</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 304</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_topic'>execute_topic</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_topic'>topic</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid topic command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t change the topic in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> because I am not op.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_topic'>topic</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid topic command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>TOPIC </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> :</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_topic'>topic</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="execute_unban-instance_method">
+
+                    #<strong>execute_unban</strong>(m, channel, mask) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_unban'>execute_unban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_mask'>mask</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid unban command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;unban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but was not authorized.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;unban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t unban </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_mask'>mask</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> because I am not op in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> attempted to use the &#39;unban&#39; command for </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> but I am not op in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_info'>info</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received valid unban command from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_m'>m</span><span
+                  class='period'>.</span><span class='id identifier rubyid_user'>user</span><span
+                  class='period'>.</span><span class='id identifier rubyid_nick'>nick</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_unban'>unban</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='rparen'>)</span>
+  <span class='const'>Config</span><span class='period'>.</span><span
+                  class='id identifier rubyid_dispatch'>dispatch</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span
+                  class='const'>User</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_notice'>notice</span><span class='lparen'>(</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> used the &#39;unban&#39; command to unban </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_mask'>mask</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> from </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'>.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="topic_append-instance_method">
+
+                    #<strong>topic_append</strong>(m, channel, new_topic) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+326
+327
+328
+329
+330
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341
+342
+343</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/priv_chan_cp.rb', line 326</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_topic_append'>topic_append</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_channel'>channel</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_new_topic'>new_topic</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_check_master'>check_master</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:red</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>You are not authorized to use this command! This incident will be reported!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_info'>info</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Received invalid topic command from </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='period'>.</span><span
+                  class='id identifier rubyid_nick'>nick</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span
+                  class='id identifier rubyid_channels'>channels</span><span class='period'>.</span><span
+                  class='id identifier rubyid_include?'>include?</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I&#39;m sorry. I am not in </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'>, please have me join that channel and op me in order for me to complete this action!</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='kw'>unless</span> <span class='const'>Channel</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_opped?'>opped?</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_bot'>bot</span><span class='rparen'>)</span> <span
+                  class='op'>==</span> <span class='kw'>true</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I can&#39;t change the topic in </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> because I am not op.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>return</span><span class='semicolon'>;</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_c_topic'>c_topic</span> <span class='op'>=</span> <span class='const'>Channel</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_channel'>channel</span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_topic'>topic</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>Very well...</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span>
+  <span class='id identifier rubyid_bot'>bot</span><span class='period'>.</span><span class='id identifier rubyid_irc'>irc</span><span
+                  class='period'>.</span><span class='id identifier rubyid_send'>send</span> <span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>TOPIC </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_channel'>channel</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> :</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_c_topic'>c_topic</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_new_topic'>new_topic</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Generated on Sun Aug 25 00:26:30 2019 by
+        <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+        0.9.20 (ruby-2.5.5).
+    </div>
+
+</div>
+</body>
+</html>

@@ -130,3 +130,12 @@ There will (read: should) be a difference in the way developers log changes in C
           * Reformatted for readability
         * Modified utilities.rb:
           * Removed un-needed require line
+    * #### Release v6.9(rc1.2)
+      * ##### Bug fixes:
+        * MODIFIED plugins/dictionary.rb:
+          * Created function to strip \<xref\> tags from resulting string (implemented by David H. to fix issue #113 in commit 01d7b71e10e765d3f5156265ab9f6438e88763f8)
+      * ##### Enhancements:
+        * CREATED plugins/helpers/string_clean.rb
+          * Created helper for manipulating strings as needed throughout the bot's functionality
+          * Moved some of the code added by David H @doubledave in commit 01d7b71e10e765d3f5156265ab9f6438e88763f8 into this helper's functionality in an effort to fit DRY convention
+          * NOTE TO FUTURE DEVELOPERS: It is advised that you use StringClean::TagStrip.stripper(string) to strip tags from strings the bot needs to output.

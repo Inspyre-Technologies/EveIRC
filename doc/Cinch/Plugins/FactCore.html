@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Class: Cinch::Plugins::FactCore
+
+        &mdash; Documentation by YARD 0.9.20
+
+    </title>
+
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8"/>
+
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+
+    <script type="text/javascript" charset="utf-8">
+        pathId = "Cinch::Plugins::FactCore";
+        relpath = '../../';
+    </script>
+
+
+    <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+</head>
+<body>
+<div class="nav_wrap">
+    <iframe id="nav" src="../../class_list.html?1"></iframe>
+    <div id="resizer"></div>
+</div>
+
+<div id="main" tabindex="-1">
+    <div id="header">
+        <div id="menu">
+
+            <a href="../../_index.html">Index (F)</a> &raquo;
+            <span class='title'><span class='object_link'><a href="../../Cinch.html"
+                                                             title="Cinch (module)">Cinch</a></span></span> &raquo;
+            <span class='title'><span class='object_link'><a href="../Plugins.html" title="Cinch::Plugins (module)">Plugins</a></span></span>
+            &raquo;
+            <span class="title">FactCore</span>
+
+        </div>
+
+        <div id="search">
+
+            <a class="full_list_link" id="class_list_link"
+               href="../../class_list.html">
+
+                <svg width="24" height="24">
+                    <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="content"><h1>Class: Cinch::Plugins::FactCore
+
+
+    </h1>
+        <div class="box_info">
+
+            <dl>
+                <dt>Inherits:</dt>
+                <dd>
+                    <span class="inheritName">Object</span>
+
+                    <ul class="fullTree">
+                        <li>Object</li>
+
+                        <li class="next">Cinch::Plugins::FactCore</li>
+
+                    </ul>
+                    <a href="#" class="inheritanceTree">show all</a>
+
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Includes:</dt>
+                <dd>Cinch::Plugin</dd>
+            </dl>
+
+
+            <dl>
+                <dt>Defined in:</dt>
+                <dd>lib/plugins/fact_core.rb</dd>
+            </dl>
+
+        </div>
+
+
+        <h2>
+            Instance Method Summary
+            <small><a href="#" class="summary_toggle">collapse</a></small>
+        </h2>
+
+        <ul class="summary">
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#execute_fact-instance_method" title="#execute_fact (instance method)">#<strong>execute_fact</strong>(m)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fact-instance_method" title="#fact (instance method)">#<strong>fact</strong>(m)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+        </ul>
+
+
+        <div id="instance_method_details" class="method_details_list">
+            <h2>Instance Method Details</h2>
+
+
+            <div class="method_details first">
+                <h3 class="signature first" id="execute_fact-instance_method">
+
+                    #<strong>execute_fact</strong>(m) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+86
+87
+88
+89</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/fact_core.rb', line 86</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_execute_fact'>execute_fact</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='id identifier rubyid_fact'>fact</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="fact-instance_method">
+
+                    #<strong>fact</strong>(m) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/fact_core.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fact'>fact</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='rparen'>)</span>
+  <span class='lbracket'>[</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Fact: Space does not exist.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The square root of rope is string.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>While the submarine is vastly superior to the boat in every way, over 97% of people still use boats for aquatic transportation.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Cellular phones will not give you cancer. Only hepatitis.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Pants were invented in the 16th century to avoid Poseidon&#39;s wrath. It was believed that the sight of naked sailors angered the sea god.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The atomic weight of Germanium is 72.64.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>89% of magic tricks are not magic. Technically, they are sorcery.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>An ostrich&#39;s eye is bigger than its brain.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In Greek myth, the craftsman Daedalus invented human flight so a group of Minotaurs would stop teasing him about it.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Humans can survive underwater, but not for very long.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Raseph, the Semetic god of war and plague, had a gazelle growing out of his forehead.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The plural of Surgeon General is Surgeons General. The past tense of Surgeons General is Surgeonsed General.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Polymerase I polypeptide A is a human gene.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Rats cannot throw up.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Iguanas can stay underwater for 28.7 minutes.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Human tapeworms can grow up to 22.9 meters.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Schrodinger&#39;s cat paradox outlines a situation in which a cat in a box must be considered, for all intents and purposes, simultaneously alive and dead. Schrodinger created this paradox as a justification for killing cats.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Every square inch of the human body has 32 million bacteria on it.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Sun is 330,330 times the size of Earth.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The average life expectancy of a rhinoceros living in captivity is 15 years.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Volcano-ologists are experts in the study of volcanoes.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Avocados have the highest fiber and calories of any fruit. They are found in Australia.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Moon orbits the Earth every 27.32 days.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The billionth digit of pi is nine.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>If you have trouble with simple counting, use the following mneumonic device: One, comes before two, comes before sixty, comes after twelve, comes before six-trillion, comes after five-hundred-and-four. This will make your earlier counting difficulties seem like no big deal.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A gallon of water weighs 8.34 pounds.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hot water freezes quicker than cold water.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Honey does not spoil.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The average adult human body contains half a pound of salt.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A nanosecond lasts one-billionth of a second.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>According to Norse legend, thunder god Thor&#39;s chariot was pulled across the sky by two goats.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>China produces the world&#39;s second largest crop of soybeans.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Tungsten has the highest melting point of any metal, at 3,410 degrees Celsius.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Gently cleaning the tongue twice a day is the most effective way to fight bad breath.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Roman toothpaste was made with urine. Urine is an ingredient in toothpaste continued to be used up until the 18th century.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Tariff Act of 1789, established to protect domestic manufacture, was the second statute ever enacted by the United States government.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The value of Pi is the ratio of any circle&#39;s circumference to its diameter in Euclidean space.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The Mexican-American War ended in 1838 with the signing of the Treaty of Guadelupe Hidalgo.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In 1879, Sandford Fleming first produced the adoption of worldwide standardized time zones at the Royal Canadian Institute.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Marie Curie invented the theory of radioactivity, the treatment of radioactivity, and dying of radioactivity.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>At the end of The Seagull by Anton Chekhov, Konstantin kills himself.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Contrary to popular belief, the Eskimo does not have 100 different words for snow. They do, however, have 234 words for fudge.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In Victorian England, a commoner was not allowed to look directly at the Queen, due to a belief at the time that the poor had the ability to steal thoughts. Science now believes that less than 4% of poor people are able to do this.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In 1862, Abraham Lincoln signed the Emancipation Proclamation, freeing the slaves. Like everything he did, Lincoln freed the slaves while sleepwalking, and later had no memory of the event.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In 1948, at the request of a dying boy, baseball legend Babe Ruth at 75 hot dogs, then died of hot dog poisoning.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>William Shakespeare did not exist. His plays were masterminded in 1589 by Francis Bacon, who used a Ouiji board to enslave playwriting ghosts.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>It is incorrectly noted that Thomas Edison invented push-ups in 1878. Nikolai Tesla had in fact patented the activity three years earlier, under the name Tesla-cize.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Whales are twice as intelligent and three times as delicious as humans.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The automobile brake was not invented until 1895. Before this, someone had to be in the car at all times, driving in circles until passengers returned from their errands.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Edmund Hilary, the first person to climb Mt. Everest, did so accidentally, while chasing a bird.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Diamonds are made when coal is put under intense pressure. Diamonds put under intense pressure become foam pellets, commonly used today as packing material.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The most poisonous fish in the world is the orange ruffy. Everything on its body is made of a deadly poison. The ruffy&#39;s eyes are composed of a less harmful deadly poison.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The occupation of court jester was invented accidentally, when a vassal&#39;s epilepsy was mistaken for capering.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Halley&#39;s Comet can be viewed orbiting Earth every seventy-six years. For the other seventy-five, it retreats to the heart of the Sun, where it hibernates undisturbed.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The first commercial air flight took place in 1914. Everyone involved screamed the entire way.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>In Greek myth, Prometheus stole fire from the gods and gave it to humankind. The jewellery he kept for himself.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The first person to prove that cow&#39;s milk is drinkable was very, very thirsty.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Before the Wright Brothers invented the airplane, anyone wanting to fly anywhere was required to eat 200 pounds of helium.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Before the invention of scrambled eggs in 1912, the typical breakfast was either whole eggs still in the shell, or scrambled rocks.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>During the Great Depression, the Tennessee Valley Authority outlawed pet rabbits, forcing many to hot glue-gun long ears onto their pet mice.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>At some point in their lives 1 in 6 children will be abducted by the Dutch.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>According to most advanced algorithms, the world&#39;s best name is Craig.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>To make a photocopier, simply photocopy a mirror.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='const'>Format</span><span class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Dreams are the subconscious mind&#39;s way of reminding people to go to school naked and have their teeth fall out.</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_sample'>sample</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Generated on Sun Aug 25 00:26:29 2019 by
+        <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+        0.9.20 (ruby-2.5.5).
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Class: Cinch::Plugins::Reddit
+
+        &mdash; Documentation by YARD 0.9.20
+
+    </title>
+
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8"/>
+
+    <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8"/>
+
+    <script type="text/javascript" charset="utf-8">
+        pathId = "Cinch::Plugins::Reddit";
+        relpath = '../../';
+    </script>
+
+
+    <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+    <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+</head>
+<body>
+<div class="nav_wrap">
+    <iframe id="nav" src="../../class_list.html?1"></iframe>
+    <div id="resizer"></div>
+</div>
+
+<div id="main" tabindex="-1">
+    <div id="header">
+        <div id="menu">
+
+            <a href="../../_index.html">Index (R)</a> &raquo;
+            <span class='title'><span class='object_link'><a href="../../Cinch.html"
+                                                             title="Cinch (module)">Cinch</a></span></span> &raquo;
+            <span class='title'><span class='object_link'><a href="../Plugins.html" title="Cinch::Plugins (module)">Plugins</a></span></span>
+            &raquo;
+            <span class="title">Reddit</span>
+
+        </div>
+
+        <div id="search">
+
+            <a class="full_list_link" id="class_list_link"
+               href="../../class_list.html">
+
+                <svg width="24" height="24">
+                    <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+                    <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+                </svg>
+            </a>
+
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="content"><h1>Class: Cinch::Plugins::Reddit
+
+
+    </h1>
+        <div class="box_info">
+
+            <dl>
+                <dt>Inherits:</dt>
+                <dd>
+                    <span class="inheritName">Object</span>
+
+                    <ul class="fullTree">
+                        <li>Object</li>
+
+                        <li class="next">Cinch::Plugins::Reddit</li>
+
+                    </ul>
+                    <a href="#" class="inheritanceTree">show all</a>
+
+                </dd>
+            </dl>
+
+
+            <dl>
+                <dt>Includes:</dt>
+                <dd>ActionView::Helpers::DateHelper, Cinch::Plugin</dd>
+            </dl>
+
+
+            <dl>
+                <dt>Defined in:</dt>
+                <dd>lib/plugins/reddit.rb</dd>
+            </dl>
+
+        </div>
+
+
+        <h2>
+            Constant Summary
+            <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+        </h2>
+
+        <dl class="constants">
+
+            <dt id="RedditURL-constant" class="">RedditURL =
+
+            </dt>
+            <dd>
+                <pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                        class='tstring_content'>http://www.reddit.com</span><span
+                        class='tstring_end'>&quot;</span></span></pre>
+            </dd>
+
+        </dl>
+
+
+        <h2>
+            Instance Method Summary
+            <small><a href="#" class="summary_toggle">collapse</a></small>
+        </h2>
+
+        <ul class="summary">
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#client-instance_method" title="#client (instance method)">#<strong>client</strong>(target)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#karma-instance_method" title="#karma (instance method)">#<strong>karma</strong>(m, user)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#linkLookup-instance_method" title="#linkLookup (instance method)">#<strong>linkLookup</strong>(m, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#lookup-instance_method" title="#lookup (instance method)">#<strong>lookup</strong>(m, query)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#moderators-instance_method" title="#moderators (instance method)">#<strong>moderators</strong>(m, subreddit)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pluralJoin-instance_method" title="#pluralJoin (instance method)">#<strong>pluralJoin</strong>(array)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+            <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscribers-instance_method" title="#subscribers (instance method)">#<strong>subscribers</strong>(m, subreddit)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+
+
+                <span class="summary_desc"><div class='inline'></div></span>
+
+            </li>
+
+
+        </ul>
+
+
+        <div id="instance_method_details" class="method_details_list">
+            <h2>Instance Method Details</h2>
+
+
+            <div class="method_details first">
+                <h3 class="signature first" id="client-instance_method">
+
+                    #<strong>client</strong>(target) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_client'>client</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>User-Agent</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>eve-bot</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_read'>read</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="karma-instance_method">
+
+                    #<strong>karma</strong>(m, user) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_karma'>karma</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>%s/user/%s/about.json</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='const'><span class='object_link'><a href="#RedditURL-constant"
+                                                                                            title="Cinch::Plugins::Reddit::RedditURL (constant)">RedditURL</a></span></span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_user'>user</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_client'>client</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span> <span class='kw'>rescue</span> <span class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_link_karma'>link_karma</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>link_karma</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_link_karma'>link_karma</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_link_karma'>link_karma</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+    <span class='id identifier rubyid_comment_karma'>comment_karma</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>comment_karma</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_comment_karma'>comment_karma</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_comment_karma'>comment_karma</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+    <span class='id identifier rubyid_name'>name</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%s has %s link karma, and %s comment karma</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>3</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span
+                  class='tstring_content'></span><span class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_link_karma'>link_karma</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_comment_karma'>comment_karma</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, I can&#39;t find </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_user'>user</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on Reddit!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="linkLookup-instance_method">
+
+                    #<strong>linkLookup</strong>(m, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 134</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_linkLookup'>linkLookup</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span
+                  class='const'>URI</span><span class='period'>.</span><span
+                  class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_host'>host</span><span
+                  class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>reddit.com</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span>
+
+  <span class='id identifier rubyid_thing_id'>thing_id</span> <span class='op'>=</span> <span
+                  class='const'>URI</span><span class='period'>.</span><span
+                  class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span><span
+                  class='period'>.</span><span class='id identifier rubyid_path'>path</span><span
+                  class='period'>.</span><span class='id identifier rubyid_split'>split</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>/</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>4</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>%s/api/info.json?id=t3_%s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='const'><span class='object_link'><a href="#RedditURL-constant"
+                                                                                            title="Cinch::Plugins::Reddit::RedditURL (constant)">RedditURL</a></span></span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_thing_id'>thing_id</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_client'>client</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>children</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span
+                  class='kw'>nil</span>
+
+  <span class='id identifier rubyid_score'>score</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>score</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_score'>score</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_score'>score</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='id identifier rubyid_ups'>ups</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>ups</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ups'>ups</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_ups'>ups</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='id identifier rubyid_downs'>downs</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>downs</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_downs'>downs</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_downs'>downs</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>|\&quot;%.100s\&quot;| %s(%s|%s) by %s, %s ago, to /r/%s | %s |</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+                                                                       <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>title</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span
+                  class='rparen'>)</span><span class='comma'>,</span>
+                                                                       <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:orange</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_score'>score</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                       <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:green</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span
+                  class='id identifier rubyid_ups'>ups</span><span class='rparen'>)</span><span class='comma'>,</span>
+                                                                       <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:red</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span
+                  class='id identifier rubyid_downs'>downs</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                       <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>author</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span><span class='comma'>,</span>
+                                                                       <span class='id identifier rubyid_time_ago_in_words'>time_ago_in_words</span><span
+                  class='lparen'>(</span><span class='const'>DateTime</span><span class='period'>.</span><span
+                  class='id identifier rubyid_strptime'>strptime</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>created</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>%s</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                       <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>subreddit</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span><span class='comma'>,</span>
+                                                                       <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                                                                               class='tstring_content'>http://redd.it/</span><span
+                                                                               class='embexpr_beg'>#{</span><span
+                                                                               class='id identifier rubyid_data'>data</span><span
+                                                                               class='lbracket'>[</span><span
+                                                                               class='tstring'><span
+                                                                               class='tstring_beg'>&#39;</span><span
+                                                                               class='tstring_content'>id</span><span
+                                                                               class='tstring_end'>&#39;</span></span><span
+                                                                               class='rbracket'>]</span><span
+                                                                               class='embexpr_end'>}</span><span
+                                                                               class='tstring_end'>&quot;</span></span>
+                                                                      <span class='rbracket'>]</span><span
+                  class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I couldn&#39;t find that for some reason. It might be my fault, or it might be reddit&#39;s</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="lookup-instance_method">
+
+                    #<strong>lookup</strong>(m, query) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_lookup'>lookup</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_query'>query</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>%s/api/info.json?url=%s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='const'><span class='object_link'><a href="#RedditURL-constant"
+                                                                                            title="Cinch::Plugins::Reddit::RedditURL (constant)">RedditURL</a></span></span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_query'>query</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_client'>client</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>children</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='lbracket'>[</span><span
+                  class='int'>0</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>data</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span
+                  class='kw'>nil</span>
+
+  <span class='id identifier rubyid_score'>score</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>score</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_score'>score</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_score'>score</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='id identifier rubyid_ups'>ups</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>ups</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_ups'>ups</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_ups'>ups</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='id identifier rubyid_downs'>downs</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>downs</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_downs'>downs</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_downs'>downs</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>%s - \&quot;%.100s\&quot; %s(%s|%s) by %s, %s ago, to /r/%s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span class='lbracket'>[</span>
+                                                                   <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                                                                           class='tstring_content'>http://redd.it/</span><span
+                                                                           class='embexpr_beg'>#{</span><span
+                                                                           class='id identifier rubyid_data'>data</span><span
+                                                                           class='lbracket'>[</span><span
+                                                                           class='tstring'><span class='tstring_beg'>&#39;</span><span
+                                                                           class='tstring_content'>id</span><span
+                                                                           class='tstring_end'>&#39;</span></span><span
+                                                                           class='rbracket'>]</span><span
+                                                                           class='embexpr_end'>}</span><span
+                                                                           class='tstring_end'>&quot;</span></span><span
+                  class='comma'>,</span>
+                                                                   <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:bold</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>title</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span
+                  class='rparen'>)</span><span class='comma'>,</span>
+                                                                   <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:grey</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_score'>score</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                   <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:orange</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>+</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span
+                  class='id identifier rubyid_ups'>ups</span><span class='rparen'>)</span><span class='comma'>,</span>
+                                                                   <span class='const'>Format</span><span
+                  class='lparen'>(</span><span class='symbol'>:blue</span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>-</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>+</span> <span
+                  class='id identifier rubyid_downs'>downs</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                   <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>author</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span><span class='comma'>,</span>
+                                                                   <span class='id identifier rubyid_time_ago_in_words'>time_ago_in_words</span><span
+                  class='lparen'>(</span><span class='const'>DateTime</span><span class='period'>.</span><span
+                  class='id identifier rubyid_strptime'>strptime</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span
+                  class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>created</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='comma'>,</span><span class='tstring'><span
+                  class='tstring_beg'>&#39;</span><span class='tstring_content'>%s</span><span
+                  class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='rparen'>)</span><span
+                  class='comma'>,</span>
+                                                                   <span class='id identifier rubyid_data'>data</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>subreddit</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rbracket'>]</span>
+                                                                  <span class='rbracket'>]</span><span
+                  class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>I couldn&#39;t find that for some reason. It might be my fault, or it might be reddit&#39;s</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="moderators-instance_method">
+
+                    #<strong>moderators</strong>(m, subreddit) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_moderators'>moderators</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_subreddit'>subreddit</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>%s/r/%s/about/moderators.json</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='const'><span class='object_link'><a href="#RedditURL-constant"
+                                                                                            title="Cinch::Plugins::Reddit::RedditURL (constant)">RedditURL</a></span></span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_client'>client</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>children</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span
+                  class='kw'>nil</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_mods'>mods</span> <span class='op'>=</span> <span class='lbracket'>[</span><span
+                  class='rbracket'>]</span>
+    <span class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span> <span
+                  class='op'>|</span><span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span> <span
+                  class='id identifier rubyid_mods'>mods</span> <span class='op'>&lt;&lt;</span> <span
+                  class='id identifier rubyid_mod'>mod</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>name</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_numMods'>numMods</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_count'>count</span>
+
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/r/%s has %s moderator(s): %s</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_numMods'>numMods</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_pluralJoin'>pluralJoin</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_mods'>mods</span><span class='rparen'>)</span><span
+                  class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, I can&#39;t find </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on Reddit!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="pluralJoin-instance_method">
+
+                    #<strong>pluralJoin</strong>(array) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pluralJoin'>pluralJoin</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_array'>array</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_array'>array</span><span
+                  class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span> <span class='kw'>unless</span> <span
+                  class='id identifier rubyid_array'>array</span><span class='period'>.</span><span
+                  class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span
+                  class='int'>1</span>
+  <span class='id identifier rubyid_array'>array</span><span class='lbracket'>[</span><span class='int'>0</span><span
+                  class='op'>..</span><span class='op'>-</span><span class='int'>2</span><span class='rbracket'>]</span><span
+                  class='period'>.</span><span class='id identifier rubyid_join'>join</span><span
+                  class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span><span
+                  class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>, and </span><span class='tstring_end'>&quot;</span></span> <span
+                  class='op'>+</span> <span class='id identifier rubyid_array'>array</span><span
+                  class='lbracket'>[</span><span class='op'>-</span><span class='int'>1</span><span
+                  class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="method_details ">
+                <h3 class="signature " id="subscribers-instance_method">
+
+                    #<strong>subscribers</strong>(m, subreddit) &#x21d2; <tt>Object</tt>
+
+
+                </h3>
+                <table class="source_code">
+                    <tr>
+                        <td>
+      <pre class="lines">
+
+
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98</pre>
+                        </td>
+                        <td>
+      <pre class="code"><span class="info file"># File 'lib/plugins/reddit.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subscribers'>subscribers</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span
+                  class='id identifier rubyid_subreddit'>subreddit</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span
+                  class='id identifier rubyid_check_ignore'>check_ignore</span><span class='lparen'>(</span><span
+                  class='id identifier rubyid_m'>m</span><span class='period'>.</span><span
+                  class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_url'>url</span> <span class='op'>=</span> <span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>%s/r/%s/about.json</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='const'><span class='object_link'><a href="#RedditURL-constant"
+                                                                                            title="Cinch::Plugins::Reddit::RedditURL (constant)">RedditURL</a></span></span><span
+                  class='comma'>,</span> <span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='rbracket'>]</span>
+  <span class='id identifier rubyid_data'>data</span> <span class='op'>=</span> <span class='const'>JSON</span><span
+                  class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span
+                  class='lparen'>(</span><span class='id identifier rubyid_client'>client</span> <span
+                  class='id identifier rubyid_url'>url</span><span class='rparen'>)</span><span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='tstring_content'>data</span><span class='tstring_end'>&quot;</span></span><span
+                  class='rbracket'>]</span><span class='lbracket'>[</span><span class='tstring'><span
+                  class='tstring_beg'>&quot;</span><span class='tstring_content'>subscribers</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='kw'>rescue</span> <span
+                  class='kw'>nil</span>
+
+  <span class='id identifier rubyid_subscribers'>subscribers</span> <span class='op'>=</span> <span
+                  class='id identifier rubyid_data'>data</span><span class='period'>.</span><span
+                  class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span
+                  class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span
+                  class='regexp_beg'>/</span><span class='tstring_content'>(\d{3})(?=\d)</span><span class='regexp_end'>/</span></span><span
+                  class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span
+                  class='tstring_content'>\\1,</span><span class='tstring_end'>&#39;</span></span><span
+                  class='rparen'>)</span><span class='period'>.</span><span
+                  class='id identifier rubyid_reverse'>reverse</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/r/%s has %s subscribers!</span><span
+                  class='tstring_end'>&quot;</span></span> <span class='op'>%</span> <span
+                  class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span
+                  class='id identifier rubyid_subscribers'>subscribers</span><span class='embexpr_end'>}</span><span
+                  class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_reply'>reply</span> <span
+                  class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>I&#39;m sorry, I can&#39;t find </span><span
+                  class='embexpr_beg'>#{</span><span class='id identifier rubyid_subreddit'>subreddit</span><span
+                  class='embexpr_end'>}</span><span class='tstring_content'> on Reddit!</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="footer">
+        Generated on Sun Aug 25 00:26:28 2019 by
+        <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+        0.9.20 (ruby-2.5.5).
+    </div>
+
+</div>
+</body>
+</html>

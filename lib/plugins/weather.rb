@@ -28,6 +28,7 @@ module Cinch
       * !w: Returns the weather for your saved location
       * !h <hour(s)>: Returns the projected forecast for how many hour(s) away, based on your saved location
       * !d <day(s)>: Returns the projected forecast for how many day(s) away, based on your saved location
+      ** NOTE: If you don't have your location saved with the bot see !help userinfo for information on how to do so!
       USAGE
 
       def initialize(*args)

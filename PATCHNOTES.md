@@ -139,3 +139,52 @@ There will (read: should) be a difference in the way developers log changes in C
           * Created helper for manipulating strings as needed throughout the bot's functionality
           * Moved some of the code added by David H @doubledave in commit 01d7b71e10e765d3f5156265ab9f6438e88763f8 into this helper's functionality in an effort to fit DRY convention
           * NOTE TO FUTURE DEVELOPERS: It is advised that you use StringClean::TagStrip.stripper(string) to strip tags from strings the bot needs to output.
+    * #### Release v6.9(rc2.0)
+      * ##### Bug fixes:
+      * ##### Enhancements:
+        * ###### Feature:
+          * INTRODUCED: EveInstaller
+            * **What is it**: 
+              Applet
+            
+            * **Purpose**: 
+              Provide a method through which to update, backup, reinstall, install, and purge EveIRC Bot
+            
+            * **Features**: 
+              * _**install wizard**_:
+                
+                By running the command
+                
+                ```shell
+                  eve_installer wizard --verbose --interactive --install-path=path/to/installation
+                ```
+                
+                One can start the EveInstaller install wizard and be involved in the entire install process of EveIRC Bot
+                
+                _Please see documentation of EveInstaller for more information on the install wizard_
+                
+              * **_Smart plugin chooser_**: 
+              
+                Of the wizard's many features and tasks the smart plugin chooser will allow you to specify each and every plugin (sans some necessary 'core' ones) that EveIRC Bot uses. This smart chooser will also keep track of plugins that depend on each-other.
+                
+                _See the EveIRC wiki for more details regarding the smart plugin chooser!_
+              
+              * **_smart updater_**: 
+              
+                The smart self-updater will also have a corresponding plugin on the bot itself that will allow the bot to be issued an update command from IRC. This will update your EveIRC version with as little intervention (or cleanup) from you as possible!
+                
+                _Please see the EveIRC wiki for more information about the smart updater!_
+              
+              * _**manage several EveIRC instances**_:
+                
+                _Please see the EveIRC wiki for more information about managing EveIRC instances_
+      
+      ###### Plugin Enhancements:
+        * **Weather**:
+          * _File_: 
+          
+            lib/plugins/weather.rb
+          
+          * _Changed_:
+            
+            Added line to help output advising users to check help for UserInfo plugin to learn how to save location data (should they need it)

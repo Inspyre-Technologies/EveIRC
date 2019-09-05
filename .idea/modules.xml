@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/EveIRC.iml" filepath="$PROJECT_DIR$/.idea/EveIRC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/eve_installer.iml" filepath="$PROJECT_DIR$/.idea/modules/eve_installer.iml" />
     </modules>
   </component>
 </project>

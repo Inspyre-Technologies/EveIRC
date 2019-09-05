@@ -12,7 +12,7 @@
     <orderEntry type="library" scope="PROVIDED" name="addressable (v2.6.0, RVM: ruby-2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="buftok (v0.2.0, RVM: ruby-2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.3, RVM: ruby-2.5.5) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v2.0.1, RVM: ruby-2.5.5) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.17.3, RVM: ruby-2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="calc (v1.0.0, RVM: ruby-2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cinch (v2.3.4, RVM: ruby-2.5.5) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="cinch-toolbox (v1.1.6, RVM: ruby-2.5.5) [gem]" level="application" />

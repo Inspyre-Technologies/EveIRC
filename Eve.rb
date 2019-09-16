@@ -80,7 +80,8 @@ bot = Cinch::Bot.new do
                          #                         Cinch::Plugins::Tag,
                          Cinch::Plugins::LastFm,
                          Cinch::Plugins::NameGenerator,
-                         Cinch::Plugins::Utilities]
+                         Cinch::Plugins::Utilities,
+                         Cinch::Plugins::Yourls]
 
     ## Below this line MUST be configured for the bot to work. That means DO NOT
     ## skip over these options or the bot WILL NOT WORK. If you do not want the
@@ -116,10 +117,12 @@ bot = Cinch::Bot.new do
     #                                                   engineid: 'bar'
     #                                               }
 
-    c.plugins.options[Cinch::Plugins::Yourls] = { yourls_server: 'foo.com/yourls',
-                                                  secret_id: 'bar',
-                                                  enabled_channels: 'docs/yourls.conf',
-                                                  scrape_title: 'never' }
+    c.plugins.options[Cinch::Plugins::Yourls] = { yourls_server:      'https://example.net/yourls/yourls-api.php?signature=',
+                                                  secret_id:          'foo',
+                                                  disabled_channels:  %w(#foo #bar),
+                                                  scrape_title:       'never',
+                                                  collection_channel: '#foo'
+    }
     
     c.password = 'nspass'
   end

@@ -45,6 +45,7 @@ require_relative "../lib/plugins/coin_query"
 require_relative "../lib/plugins/last_fm"
 require_relative "../lib/plugins/name_generator"
 require_relative '../lib/plugins/utilities'
+require_relative '../lib/plugins/yourls'
 
 ## Written by Taylor-Jayde Blackstone for EveIRC; "The Project for a Top-Tier IRC bot.
 ## E-mail: t.blackstone@inspyre.tech

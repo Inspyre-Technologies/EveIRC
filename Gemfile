@@ -1,4 +1,4 @@
-ruby '2.6.0'
+ruby '~>2.5.1'
 
 source 'https://rubygems.org'
 
@@ -15,3 +15,22 @@ gem 'twitter'
 gem 'calc'
 gem 'wolfram-alpha'
 gem 'actionview'
+
+# Required to daemonize
+
+gem 'daemons'
+
+gem 'solargraph', :group => :development
+
+gem "ruboto", :group => :development
+ 
+
+group :test do
+  gem 'faker'
+  gem 'rspec'
+end
+
+group :test, :development do
+  gem 'capybara'
+  gem 'rspec-rails'
+end

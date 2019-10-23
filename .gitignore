@@ -247,3 +247,4 @@ Gemfile.lock
 docs/userinfo.yaml
 docs/memos.yaml
 docs/seen.yaml
+*.output

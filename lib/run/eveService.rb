@@ -1,18 +1,23 @@
 # frozen_string_literal: true
 
 require 'cinch'
+
 ## The file referenced below should be gone over to make sure that you
 ## want to load the plugins listed.
-require_relative 'bin/plugins'
+require_relative '../../bin/plugins'
 
-# You should have something in the block below as it will have Eve report
-# invalid or unauthorized use of her commands to the nicks you place in it
-# Note: Please keep in mind that this doesn't check if the dispatch nick
-# is authed so if for some reason it is imperative that no one but the bot
-# masters see output maybe it is wise to only put your nick in here and
-# make sure no one steals it!
+=begin
 
-version = File.read('VERSION')
+ You should have something in the block below as it will have Eve report
+ invalid or unauthorized use of her commands to the nicks you place in it
+ Note: Please keep in mind that this doesn't check if the dispatch nick
+ is authed so if for some reason it is imperative that no one but the bot
+ masters see output maybe it is wise to only put your nick in here and
+ make sure no one steals it!
+
+=end
+
+VERSION = File.expand_path('../../VERSION', __FILE__)
 
 Config = OpenStruct.new
 
@@ -29,7 +34,7 @@ bot = Cinch::Bot.new do
     c.channels = ['#Eve']
     c.nick = 'Eve'
     c.user = 'Eve'
-    c.realname = "Eve #{version}"
+    c.realname = "Eve #{VERSION}"
     c.verbose
 
     ## Below is the plugin block for Eve-Bot. Please be sure that all the plugins

@@ -44,10 +44,12 @@ require_relative "../lib/plugins/reddit"
 require_relative "../lib/plugins/coin_query"
 require_relative "../lib/plugins/last_fm"
 require_relative "../lib/plugins/name_generator"
+require_relative '../lib/plugins/utilities'
+require_relative '../lib/plugins/yourls'
 
-## Written by Richard Banks for Eve-Bot "The Project for a Top-Tier IRC bot.
-## E-mail: namaste@rawrnet.net
-## Github: Namasteh
-## Website: www.rawrnet.net
+## Written by Taylor-Jayde Blackstone for EveIRC; "The Project for a Top-Tier IRC bot.
+## E-mail: t.blackstone@inspyre.tech
+## Github: tayjaybabee
+## Website: www.inspyre.tech
 ## IRC: irc.sinsira.net #Eve
 ## If you like Eve-Bot please consider tipping me on gittip

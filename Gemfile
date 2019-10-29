@@ -2,17 +2,19 @@ ruby '~>2.5.1'
 
 source 'https://rubygems.org'
 
+gem "activesupport"
 gem "cinch"
 gem "highline"
-gem "activesupport"
 gem "redis"
-gem 'nokogiri', '~> 1.6', '>= 1.6.8'
-gem 'cinch-toolbox'
-gem 'time-lord'
-gem 'mechanize'
-gem 'oj'
-gem 'twitter'
+gem 'actionview'
 gem 'calc'
+gem 'cinch-toolbox'
+gem 'mechanize'
+gem 'nokogiri', '~> 1.6', '>= 1.6.8'
+gem 'oj'
+gem 'ruby-units'
+gem 'time-lord'
+gem 'twitter'
 gem 'wolfram-alpha'
 gem 'actionview'
 
@@ -20,8 +22,9 @@ gem 'actionview'
 
 gem 'daemons'
 
-gem 'solargraph', :group => :development
+# Useful gems for developing eveIRC
 
+gem 'solargraph', :group => :development
 gem "ruboto", :group => :development
  
 

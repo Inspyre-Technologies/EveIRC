@@ -30,7 +30,7 @@ Config.owner = ['Namaste']
 
 bot = Cinch::Bot.new do
   configure do |c|
-    c.server = 'irc.sinsira.net'
+    c.server   = 'irc.sinsira.net'
     c.channels = ['#Eve']
     c.nick = 'Eve'
     c.user = 'Eve'
@@ -84,7 +84,9 @@ bot = Cinch::Bot.new do
                          Cinch::Plugins::Reddit,
                          #                         Cinch::Plugins::Tag,
                          Cinch::Plugins::LastFm,
-                         Cinch::Plugins::NameGenerator]
+                         Cinch::Plugins::NameGenerator,
+                         Cinch::Plugins::Utilities,
+                         Cinch::Plugins::Yourls]
 
     ## Below this line MUST be configured for the bot to work. That means DO NOT
     ## skip over these options or the bot WILL NOT WORK. If you do not want the
@@ -120,6 +122,13 @@ bot = Cinch::Bot.new do
     #                                                   engineid: 'bar'
     #                                               }
 
+    c.plugins.options[Cinch::Plugins::Yourls] = { yourls_server:      'https://example.net/yourls/yourls-api.php?signature=',
+                                                  secret_id:          'foo',
+                                                  disabled_channels:  %w(#foo #bar),
+                                                  scrape_title:       'never',
+                                                  collection_channel: '#foo'
+    }
+    
     c.password = 'nspass'
   end
 end

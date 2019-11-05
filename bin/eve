@@ -1,0 +1,38 @@
+#!/usr/bin/env ruby
+
+=begin
+
+File: eve.rb
+@author Taylor-Jayde Blackstone <t.blackstone@inspyre.tech>
+@since 6.9
+
+Beginning the switch-over to the eveOE/eveSeven program specs
+eve.rb (not to be confused with the previous Eve.rb) will
+serve as an entry-point into a runtime with our bot.
+
+This file serves not only Ruby convention by offering a small
+root file but it natively intoduces the ability to run the bot
+in the background instead of maintaining a terminal/screen
+connection with it's output feed.
+
+=end
+
+require 'daemons' # This is a gem
+
+require 'pathname' # AFAIK this is a native library to most rubies
+
+# Grab the present working directory and concatenate
+
+file = File.expand_path("../../lib/run/eveService.rb", __FILE__)
+p file
+
+Daemons.run_proc(
+  'eveService', # name of daemon
+#  :dir_mode => :normal
+#  :dir => File.join(pwd, 'tmp/pids'), # directory where pid file will be stored
+#  :backtrace => true,
+#  :monitor => true,
+  :log_output => true
+) do
+  exec "ruby #{file}"
+end

@@ -5,7 +5,6 @@
 *.pydevproject
 .project
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
@@ -244,7 +243,6 @@ tmp
 Gemfile.lock
 
 # Eve specific files
-docs/userinfo.yaml
-docs/memos.yaml
-docs/seen.yaml
+docs/*
+bin/plugins.rb
 *.output

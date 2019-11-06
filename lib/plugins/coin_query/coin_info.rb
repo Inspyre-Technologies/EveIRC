@@ -58,7 +58,7 @@ def basicInfo(m, query)
 
   end
 
-  # Now we check our results, if there are
+  # Now we do_check our results, if there are
   # results then we let the end-user see
   # the infomation we've gathered.
 

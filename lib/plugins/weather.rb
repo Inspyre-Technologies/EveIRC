@@ -21,9 +21,9 @@ module Cinch
       set :help, <<-USAGE.gsub(/^ {6}/, '')
       Check the weather right from the IRC channel!
       Usage:
-      * !weather <location>: The bot will check the current weather for the location you provide!
-      * !hourly <hour(s)> <location>: The bot will check the projected forecast for how many <hour(s)> away!
-      * !daily <day(s)> <location>: The bot will check the projected forecast for how many <day(s)> away!
+      * !weather <location>: The bot will do_check the current weather for the location you provide!
+      * !hourly <hour(s)> <location>: The bot will do_check the projected forecast for how many <hour(s)> away!
+      * !daily <day(s)> <location>: The bot will do_check the projected forecast for how many <day(s)> away!
       ** If you have your location set with the bot you can use the following commands:
       * !w: Returns the weather for your saved location
       * !h <hour(s)>: Returns the projected forecast for how many hour(s) away, based on your saved location

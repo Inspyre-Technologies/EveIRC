@@ -9,3 +9,7 @@ bin/installer/doc
 *.lock
 tmp
 *.pid
+.bundle
+vendor
+
+.idea/

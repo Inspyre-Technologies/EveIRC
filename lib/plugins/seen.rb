@@ -22,7 +22,7 @@ module Cinch
       USAGE
 
      # Upon this plugin file loading it will
-     # check if the appropriate files exist.
+     # do_check if the appropriate files exist.
      # If they do not exist it will then create
      # the necessary files.
 

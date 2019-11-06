@@ -39,7 +39,7 @@ def txInfo(m, coin, txHash)
     rescue OpenURI::HTTPError => e
       if e.message == '404 Not Found'
         m.reply("I'm sorry, there's either a problem with the API or your request.")
-        m.reply("Please check your hash or currency spelling, or please try again later.")
+        m.reply("Please do_check your hash or currency spelling, or please try again later.")
         return "error"
       end
     else

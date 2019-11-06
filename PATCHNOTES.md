@@ -27,6 +27,25 @@ There will (read: should) be a difference in the way developers log changes in C
     * NEGLIGIBLE: A patch marked with this tag will contain simple changes to EveIRC plugins, documentation, or help information. Can be ignored with no loss of application stability.
     * FEATURE: (This tag may be used in conjunction with others) A patch tagged with this label has one or more features (bits of usable functionality) that was not in the previous release. If this tag is used alone, that patch was only pushed to release the feature (though some negligible bugfixes might be contained)
     
+## PATCHNOTES 6.10a1.06 [FEATURE (CONT)] 11/05/2019
+  ## Release notes
+    - ### File changes
+    
+## PATCHNOTES 6.10a1.05 [FEATURE] 11/05/2019
+  - ### Release Notes
+    * #### FEATURE - [App] - eveIRC Installer
+      * ##### PURPOSE
+        The eveIRC Installer will provide a greater scope of access to the eveIRC Bot by taking care of all steps of setting up one's environment.
+        
+      * ##### USAGE
+        ``` shell
+          taylor@quark:~/eveIRC/bin$ ruby installer/eve_install.rb
+        
+          # Screen is cleared and program starts
+
+        ```
+        
+
 ## PATCHNOTES 6.8.0 -> 6.9(rc1.0) [FEATURE] 08/02/19 (rc date)
 
   - ### Release Notes

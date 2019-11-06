@@ -40,7 +40,7 @@ module Cinch::Plugins
       @watched.keys.each do |chan|
         @watched[chan].keys.each do |user|
           begin
-            # Just check the last tweet, if they are posting more than once
+            # Just do_check the last tweet, if they are posting more than once
             # every timer tick I don't want to spam the channel.
             tweet = @client.user_timeline(user).first
             unless @watched[chan][user].include?(tweet.id)

@@ -10,7 +10,7 @@ require_relative '../../bin/plugins'
 
  You should have something in the block below as it will have Eve report
  invalid or unauthorized use of her commands to the nicks you place in it
- Note: Please keep in mind that this doesn't check if the dispatch nick
+ Note: Please keep in mind that this doesn't do_check if the dispatch nick
  is authed so if for some reason it is imperative that no one but the bot
  masters see output maybe it is wise to only put your nick in here and
  make sure no one steals it!

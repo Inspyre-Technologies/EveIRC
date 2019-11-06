@@ -16,7 +16,7 @@ class EveInstaller
   @connection_check = true
   @no_hint          = false
   @docs_base_url    = "#{@github_base}wiki/eveIRC-Auto-Installer"
-  @issue_url        = "#{github_base}issues/new?assignees=doubledave%2C+"\
+  @issue_url        = "#{@github_base}issues/new?assignees=doubledave%2C+"\
                       'tayjaybabee&labels=installer%2C+Investigating&'\
                       'template=installer_issue.md&title=%5BINSTALLER%3A+Issue%5D'
 

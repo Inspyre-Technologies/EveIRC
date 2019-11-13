@@ -1,15 +1,17 @@
-class EveInstall
+class EveInstaller
   module Gems
 
-    def check
+    def self.check
       begin
         require 'tty-prompt'
       rescue LoadError
-        install_gems
+        install
       end
     end
 
-    def install
+    def self
+
+    def self.install
       return if $ran == 'yes'
 
       gemfile(true) do

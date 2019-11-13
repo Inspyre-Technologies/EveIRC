@@ -1,4 +1,4 @@
-class EveInstaller
+class Setup
   module Helpers
     module Environment
       module Network

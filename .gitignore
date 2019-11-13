@@ -13,3 +13,5 @@ tmp
 vendor
 
 .idea/
+
+.dead_files/

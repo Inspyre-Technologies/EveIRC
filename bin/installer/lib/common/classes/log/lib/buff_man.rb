@@ -1,3 +1,48 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 module EveIRCInstaller
   # @author Taylor-Jayde Blackstone <t.blackstone@inspyre.tech>
   # @since 1.0
@@ -53,6 +98,6 @@ module EveIRCInstaller
     def write_current
       $logfile << $buffer
     end
-
   end
 end
+

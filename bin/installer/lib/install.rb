@@ -1,4 +1,4 @@
-class EveInstaller
+class Setup
   class Install
 
     def initialize

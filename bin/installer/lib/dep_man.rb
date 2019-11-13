@@ -1,4 +1,4 @@
-class EveInstaller
+class Setup
   class DepMan
     require_relative 'dep_man/dep_man'
 

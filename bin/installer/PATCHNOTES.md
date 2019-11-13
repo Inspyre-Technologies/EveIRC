@@ -4,6 +4,26 @@ eveIRC Version: 6.10
 
 Patch Reason: alpha build
 
+###Classes
+   * #### Setup
+       * **Purpose:** 
+         To prepare the end-user's environment for the install script
+       
+       * **Commands:**
+         should not access directly
+       
+       * **Options:**
+       n.a
+       
+       * **Started by:**
+         EveIRCInstaller
+         
+   * #### Install
+     
+### Modules
+
+  * #### EveIRCInstaller
+
 ##Changes Since v1.0a1.01
 
 ###Modules

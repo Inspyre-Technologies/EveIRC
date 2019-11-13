@@ -1,4 +1,4 @@
-class EveInstaller
+class Setup
   module Setup
 
     def self.runner(sudo)

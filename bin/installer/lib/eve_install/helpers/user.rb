@@ -1,7 +1,7 @@
 class EveInstaller
   module Helpers
     # @author Taylor-Jayde Blackstone <t.blackstone@inspyre.tech>
-    # @since 1.0
+    # @since 5.09
     #
     # A helper full of little subroutines to help
     # ascertain/change privileges
@@ -9,7 +9,6 @@ class EveInstaller
 
       def self.elevate
         return if is_sudo?
-        
         prompt = "I've detected that your Ruby environment"\
                  " requires gems to be installed via a 'super-user'"\
                  " account yet; you didn't run me with elevated"\
@@ -26,17 +25,25 @@ class EveInstaller
       #
       # @return Boolean true - allowed to sudo | false - not allowed
       def self.can_sudo?
-        puts "I've detected that your Ruby environment"\
-             " requires gems to be installed via a 'super-user'"\
-             " account yet; you didn't run me with elevated"\
-             ' access.'
+        prompt = "I've detected that your Ruby environment"\
+                 " requires gems to be installed via a 'super-user'"\
+                 " account yet; you didn't run me with elevated"\
+                 ' access.'
+        puts prompt
         puts
         puts 'Shall I attempt to invoke sudo? [y/N] '
 
         answer = gets.chomp
 
-        $sudo = answer.match(YES_PAT) ? true : false
-
+        if answer.match(YES_PAT)
+          $sudo = true
+          p $sudo
+          return true
+        else
+          $sudo = false
+          p $sudo
+          return false
+        end
       end
 
       # Ascertains if run as sudo

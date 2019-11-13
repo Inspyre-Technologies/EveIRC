@@ -1,8 +1,11 @@
 module EveIRCInstaller
   class Log
+    require_relative 'log/lib/buff_man'
+
     attr_reader :logger
 
-    class InvalidArgumentError < StandardError; end
+    class InvalidArgumentError < StandardError
+    end
 
     class NoMessageError < Log::InvalidArgumentError
 
@@ -10,19 +13,38 @@ module EveIRCInstaller
 
     def initialize
       require 'tty-logger'
-      @prompt = TTY::Prompt.new
+      start_buffer
     rescue LoadError
-      $logger_fallback = true
+      require 'logger'
+      start_buffer
+    end
+
+    def start(fallback = false)
+      start_fallback if fallback
+      deps = ['tty-prompt', 'tty-logger']
+      begin
+        DepMan::Gems.load
+      rescue LoadError
+
+      end
+
+
+    end
+
+    def start_fallback
+
+    end
+
+    def start_buffer
+      BuffMan.new
+
     end
 
     def entry(params = {})
-      message   = params[:message] | InvalidArgumentError::NoMessageError.new('No message included in request to log message')
-      level     = params[:level] | 'info'
-      timestamp = params[:time]
-      if $logger_fallback && unless $logger_fallback.nil?
-        put_default
-      end
+      time      = params[:timestamp]
+      message   = params[:message]
+      level     = params[:level]
+      new_entry = {}
     end
-
   end
 end

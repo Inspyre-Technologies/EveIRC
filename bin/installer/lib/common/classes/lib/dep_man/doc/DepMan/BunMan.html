@@ -120,7 +120,7 @@ for/install gem dependencies for the EveIRCInstaller</p>
       
         
         <div class='inline'>
-<p>Taylor-Jayde Blackstone &lt;t.blackstone@inspyre.tech</p>
+<p>Taylor-Jayde Blackstone &lt;t.blackstone@inspyre.tech&gt;</p>
 </div>
       
     </li>
@@ -153,7 +153,7 @@ for/install gem dependencies for the EveIRCInstaller</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#gems_missing-instance_method" title="#gems_missing (instance method)">#<strong>gems_missing</strong>  &#x21d2; Array </a>
+      <a href="#gems_missing-instance_method" title="#gems_missing (instance method)">#<strong>gems_missing</strong>  &#x21d2; Array&lt;String&gt; </a>
     
 
     
@@ -171,9 +171,9 @@ for/install gem dependencies for the EveIRCInstaller</p>
 
   
     <span class="summary_desc"><div class='inline'>
-<p>After running BunMan#assess this attribute will be populated with an array
-of strings containing the names of needed gems that were not found when
-running BunMan#assess.</p>
+<p>After running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span> this attribute will be populated with an
+array of strings containing the names of needed gems that were not found
+when running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span>.</p>
 </div></span>
   
 </li>
@@ -182,7 +182,7 @@ running BunMan#assess.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#gems_needed-instance_method" title="#gems_needed (instance method)">#<strong>gems_needed</strong>  &#x21d2; Array </a>
+      <a href="#gems_needed-instance_method" title="#gems_needed (instance method)">#<strong>gems_needed</strong>  &#x21d2; Array&lt;String&gt; </a>
     
 
     
@@ -209,7 +209,7 @@ running BunMan#assess.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#gems_present-instance_method" title="#gems_present (instance method)">#<strong>gems_present</strong>  &#x21d2; Array </a>
+      <a href="#gems_present-instance_method" title="#gems_present (instance method)">#<strong>gems_present</strong>  &#x21d2; Array&lt;String&gt; </a>
     
 
     
@@ -229,7 +229,7 @@ running BunMan#assess.</p>
     <span class="summary_desc"><div class='inline'>
 <p>An array containing the gems - of those that EveIRC Installer needs to run
 as intended - found on the end-user&#39;s system with running
-BunMan#assess.</p>
+<span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span>.</p>
 </div></span>
   
 </li>
@@ -252,6 +252,31 @@ BunMan#assess.</p>
   <span class="summary_signature">
     
       <a href="#assess-instance_method" title="#assess (instance method)">#<strong>assess</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A function to determine which (if any) gems are going to need to be
+installed by bundler.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inform_missing-instance_method" title="#inform_missing (instance method)">#<strong>inform_missing</strong>  &#x21d2; Object </a>
     
 
     
@@ -369,16 +394,16 @@ installed on the end-user&#39;s environment.</p>
       <pre class="lines">
 
 
+33
+34
 35
 36
 37
 38
-39
-40
-41</pre>
+39</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 33</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
 
@@ -402,7 +427,7 @@ installed on the end-user&#39;s environment.</p>
       <div class="method_details first">
   <h3 class="signature first" id="gems_missing-instance_method">
   
-    #<strong>gems_missing</strong>  &#x21d2; <tt>Array</tt> 
+    #<strong>gems_missing</strong>  &#x21d2; <tt>Array&lt;String&gt;</tt> 
   
 
   
@@ -411,17 +436,15 @@ installed on the end-user&#39;s environment.</p>
 </h3><div class="docstring">
   <div class="discussion">
     
-<p>Returns After running BunMan#assess this attribute will be populated with
+<p>Returns After running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span> this attribute will be populated with
 an array of strings containing the names of needed gems that were not found
-when running BunMan#assess. The attribute will return an empty array if the
-user is not missing any gems eveIRC Installer is looking for or
-BunMan#assess hasn&#39;t been run yet.</p>
+when running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span>. The attribute will return an empty array if
+the user is not missing any gems eveIRC Installer is looking for or
+<span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span> hasn&#39;t been run yet.</p>
 
-<p>This returned array will be used by BunMan#inform_missing to notify the
+<p>This returned array will be used by <span class='object_link'><a href="#inform_missing-instance_method" title="DepMan::BunMan#inform_missing (method)">#inform_missing</a></span> to notify the
 user that due to missing dependencies they will need to authorize the
 installation of a few gems that eveIRC Installer is dependant upon</p>
-
-<p>@example =&gt; [“tty-prompt”, “tty-logger”]</p>
 
 
   </div>
@@ -434,23 +457,21 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
     <li>
       
       
-        <span class='type'>(<tt>Array</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
-<p>After running BunMan#assess this attribute will be populated with an array
-of strings containing the names of needed gems that were not found when
-running BunMan#assess. The attribute will return an empty array if the user
-is not missing any gems eveIRC Installer is looking for or BunMan#assess
-hasn&#39;t been run yet.</p>
+<p>After running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span> this attribute will be populated with an
+array of strings containing the names of needed gems that were not found
+when running <span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span>. The attribute will return an empty array if
+the user is not missing any gems eveIRC Installer is looking for or
+<span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span> hasn&#39;t been run yet.</p>
 
-<p>This returned array will be used by BunMan#inform_missing to notify the
+<p>This returned array will be used by <span class='object_link'><a href="#inform_missing-instance_method" title="DepMan::BunMan#inform_missing (method)">#inform_missing</a></span> to notify the
 user that due to missing dependencies they will need to authorize the
 installation of a few gems that eveIRC Installer is dependant upon</p>
-
-<p>@example =&gt; [“tty-prompt”, “tty-logger”]</p>
 </div>
       
     </li>
@@ -479,6 +500,8 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
       <pre class="lines">
 
 
+30
+31
 32
 33
 34
@@ -513,10 +536,20 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
 63
 64
 65
-66</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 30</span>
 
 <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="" title="DepMan::BunMan (class)">BunMan</a></span></span>
   <span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:gems_needed</span><span class='comma'>,</span> <span class='symbol'>:gems_present</span><span class='comma'>,</span> <span class='symbol'>:gems_missing</span>
@@ -533,11 +566,23 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
 </span>  <span class='comment'># any gems installed on the end-user&#39;s environment.
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Boolean] true; gem was found | false; gem was not present
+</span>  <span class='comment'># @example Check for installed gem
+</span>  <span class='comment'>#   BunMan.installed?(&#39;tty-prompt&#39;) #=&gt; false 
+</span>  <span class='comment'># @param [String] gem The name of the gem to check
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
+    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local $l</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_inform_missing'>inform_missing</span>
+
+  <span class='kw'>end</span>
+
+  <span class='comment'># A function to determine which (if any) gems are going to
+</span>  <span class='comment'># need to be installed by bundler
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @example Assess what gems are needed before install can begin
+</span>  <span class='comment'>#   BunMan.assess #=&gt; Populates BunMan.gems_present and BunMan.gems_missing
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
     <span class='id identifier rubyid_needed'>needed</span> <span class='op'>=</span> <span class='ivar'>@gems_needed</span>
     <span class='id identifier rubyid_have'>have</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -563,7 +608,7 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
       <div class="method_details ">
   <h3 class="signature " id="gems_needed-instance_method">
   
-    #<strong>gems_needed</strong>  &#x21d2; <tt>Array</tt> 
+    #<strong>gems_needed</strong>  &#x21d2; <tt>Array&lt;String&gt;</tt> 
   
 
   
@@ -585,7 +630,7 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
     <li>
       
       
-        <span class='type'>(<tt>Array</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
       
       
       
@@ -620,6 +665,8 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
       <pre class="lines">
 
 
+30
+31
 32
 33
 34
@@ -654,10 +701,20 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
 63
 64
 65
-66</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 30</span>
 
 <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="" title="DepMan::BunMan (class)">BunMan</a></span></span>
   <span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:gems_needed</span><span class='comma'>,</span> <span class='symbol'>:gems_present</span><span class='comma'>,</span> <span class='symbol'>:gems_missing</span>
@@ -674,11 +731,23 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
 </span>  <span class='comment'># any gems installed on the end-user&#39;s environment.
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Boolean] true; gem was found | false; gem was not present
+</span>  <span class='comment'># @example Check for installed gem
+</span>  <span class='comment'>#   BunMan.installed?(&#39;tty-prompt&#39;) #=&gt; false 
+</span>  <span class='comment'># @param [String] gem The name of the gem to check
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
+    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local $l</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_inform_missing'>inform_missing</span>
+
+  <span class='kw'>end</span>
+
+  <span class='comment'># A function to determine which (if any) gems are going to
+</span>  <span class='comment'># need to be installed by bundler
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @example Assess what gems are needed before install can begin
+</span>  <span class='comment'>#   BunMan.assess #=&gt; Populates BunMan.gems_present and BunMan.gems_missing
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
     <span class='id identifier rubyid_needed'>needed</span> <span class='op'>=</span> <span class='ivar'>@gems_needed</span>
     <span class='id identifier rubyid_have'>have</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -704,7 +773,7 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
       <div class="method_details ">
   <h3 class="signature " id="gems_present-instance_method">
   
-    #<strong>gems_present</strong>  &#x21d2; <tt>Array</tt> 
+    #<strong>gems_present</strong>  &#x21d2; <tt>Array&lt;String&gt;</tt> 
   
 
   
@@ -715,7 +784,7 @@ installation of a few gems that eveIRC Installer is dependant upon</p>
     
 <p>Returns An array containing the gems - of those that EveIRC Installer needs
 to run as intended - found on the end-user&#39;s system with running
-BunMan#assess</p>
+<span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span></p>
 
 
   </div>
@@ -728,14 +797,15 @@ BunMan#assess</p>
     <li>
       
       
-        <span class='type'>(<tt>Array</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
       
       
       
         &mdash;
         <div class='inline'>
 <p>An array containing the gems - of those that EveIRC Installer needs to run
-as intended - found on the end-user&#39;s system with running BunMan#assess</p>
+as intended - found on the end-user&#39;s system with running
+<span class='object_link'><a href="#assess-instance_method" title="DepMan::BunMan#assess (method)">#assess</a></span></p>
 </div>
       
     </li>
@@ -764,6 +834,8 @@ as intended - found on the end-user&#39;s system with running BunMan#assess</p>
       <pre class="lines">
 
 
+30
+31
 32
 33
 34
@@ -798,10 +870,20 @@ as intended - found on the end-user&#39;s system with running BunMan#assess</p>
 63
 64
 65
-66</pre>
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 30</span>
 
 <span class='kw'>class</span> <span class='const'><span class='object_link'><a href="" title="DepMan::BunMan (class)">BunMan</a></span></span>
   <span class='id identifier rubyid_attr_accessor'>attr_accessor</span> <span class='symbol'>:gems_needed</span><span class='comma'>,</span> <span class='symbol'>:gems_present</span><span class='comma'>,</span> <span class='symbol'>:gems_missing</span>
@@ -818,11 +900,23 @@ as intended - found on the end-user&#39;s system with running BunMan#assess</p>
 </span>  <span class='comment'># any gems installed on the end-user&#39;s environment.
 </span>  <span class='comment'>#
 </span>  <span class='comment'># @return [Boolean] true; gem was found | false; gem was not present
+</span>  <span class='comment'># @example Check for installed gem
+</span>  <span class='comment'>#   BunMan.installed?(&#39;tty-prompt&#39;) #=&gt; false 
+</span>  <span class='comment'># @param [String] gem The name of the gem to check
 </span>  <span class='kw'>def</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
+    <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local $l</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
   <span class='kw'>end</span>
 
-  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_inform_missing'>inform_missing</span>
+
+  <span class='kw'>end</span>
+
+  <span class='comment'># A function to determine which (if any) gems are going to
+</span>  <span class='comment'># need to be installed by bundler
+</span>  <span class='comment'>#
+</span>  <span class='comment'># @example Assess what gems are needed before install can begin
+</span>  <span class='comment'>#   BunMan.assess #=&gt; Populates BunMan.gems_present and BunMan.gems_missing
+</span>  <span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
     <span class='id identifier rubyid_needed'>needed</span> <span class='op'>=</span> <span class='ivar'>@gems_needed</span>
     <span class='id identifier rubyid_have'>have</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
     <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -862,6 +956,98 @@ as intended - found on the end-user&#39;s system with running BunMan#assess</p>
 </h3><div class="docstring">
   <div class="discussion">
     
+<p>A function to determine which (if any) gems are going to need to be
+installed by bundler</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Assess what gems are needed before install can begin</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="DepMan::BunMan (class)">BunMan</a></span></span><span class='period'>.</span><span class='id identifier rubyid_assess'>assess</span> <span class='comment'>#=&gt; Populates BunMan.gems_present and BunMan.gems_missing</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Since:</p>
+<ul class="since">
+  
+    <li>
+      
+      
+      
+      
+        
+        <div class='inline'>
+<p>1.0</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 61</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
+  <span class='id identifier rubyid_needed'>needed</span> <span class='op'>=</span> <span class='ivar'>@gems_needed</span>
+  <span class='id identifier rubyid_have'>have</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_needed'>needed</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_gem'>gem</span><span class='op'>|</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_have'>have</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gem'>gem</span>
+      <span class='ivar'>@gems_present</span> <span class='op'>=</span> <span class='id identifier rubyid_have'>have</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span> <span class='kw'>unless</span> <span class='id identifier rubyid_have'>have</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_missing'>missing</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gem'>gem</span>
+      <span class='ivar'>@gems_missing</span> <span class='op'>=</span> <span class='id identifier rubyid_missing'>missing</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span> <span class='kw'>unless</span> <span class='id identifier rubyid_missing'>missing</span><span class='period'>.</span><span class='id identifier rubyid_empty'>empty</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inform_missing-instance_method">
+  
+    #<strong>inform_missing</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
 
   </div>
 </div>
@@ -890,37 +1076,15 @@ as intended - found on the end-user&#39;s system with running BunMan#assess</p>
       <pre class="lines">
 
 
-51
 52
 53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64</pre>
+54</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 51</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 52</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_assess'>assess</span>
-  <span class='id identifier rubyid_needed'>needed</span> <span class='op'>=</span> <span class='ivar'>@gems_needed</span>
-  <span class='id identifier rubyid_have'>have</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_missing'>missing</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_needed'>needed</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_gem'>gem</span><span class='op'>|</span>
-    <span class='kw'>if</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-      <span class='id identifier rubyid_have'>have</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gem'>gem</span>
-      <span class='ivar'>@gems_present</span> <span class='op'>=</span> <span class='id identifier rubyid_have'>have</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span> <span class='kw'>unless</span> <span class='id identifier rubyid_have'>have</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
-    <span class='kw'>else</span>
-      <span class='id identifier rubyid_missing'>missing</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_gem'>gem</span>
-      <span class='ivar'>@gems_missing</span> <span class='op'>=</span> <span class='id identifier rubyid_missing'>missing</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span> <span class='kw'>unless</span> <span class='id identifier rubyid_missing'>missing</span><span class='period'>.</span><span class='id identifier rubyid_empty'>empty</span>
-    <span class='kw'>end</span>
-  <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_inform_missing'>inform_missing</span>
+
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -947,6 +1111,38 @@ installed on the end-user&#39;s environment.</p>
 </div>
 <div class="tags">
   
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Check for installed gem</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'><span class='object_link'><a href="" title="DepMan::BunMan (class)">BunMan</a></span></span><span class='period'>.</span><span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>tty-prompt</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='comment'>#=&gt; false </span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>gem</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The name of the gem to check</p>
+</div>
+      
+    </li>
+  
+</ul>
+
 <p class="tag_title">Returns:</p>
 <ul class="return">
   
@@ -988,15 +1184,15 @@ installed on the end-user&#39;s environment.</p>
       <pre class="lines">
 
 
-47
 48
-49</pre>
+49
+50</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'gems.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'gems.rb', line 48</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_installed?'>installed?</span><span class='lparen'>(</span><span class='id identifier rubyid_gem'>gem</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local </span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
+  <span class='id identifier rubyid_system'>system</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>gem list --local $l</span><span class='tstring_end'>&#39;</span></span> <span class='op'>+</span> <span class='id identifier rubyid_gem'>gem</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -1008,7 +1204,7 @@ installed on the end-user&#39;s environment.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Nov 12 14:55:53 2019 by
+  Generated on Tue Nov 12 17:57:14 2019 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.20 (ruby-2.5.1).
 </div>

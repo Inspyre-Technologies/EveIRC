@@ -13,10 +13,9 @@ module EveIRCInstaller
 
     def initialize
       require 'tty-logger'
-      start_buffer
+      start
     rescue LoadError
-      require 'logger'
-      start_buffer
+      start(true)
     end
 
     def start(fallback = false)
@@ -33,10 +32,7 @@ module EveIRCInstaller
 
     def start_fallback
 
-    end
-
-    def start_buffer
-      BuffMan.new
+      require 'logger'
 
     end
 

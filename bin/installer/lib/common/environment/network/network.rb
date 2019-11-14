@@ -53,7 +53,6 @@ module EveIRCInstaller
 
           @pings = []
           @pings << system('ping -c 1' + @targ)
-          p @pings
           return @pings
 
         }

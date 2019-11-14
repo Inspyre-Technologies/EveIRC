@@ -1,10 +1,23 @@
 
 module EveIRCInstaller
-  require_relative 'lib/common/modules/eve_irc_installer'
   class MainApplication
+    require_relative 'lib/helpers/parser'
+    Helpers::Parser.parse(ARGV)
 
 
-    def initialize
+    p 'The options are ' + $options.to_s
+
+    require_relative 'lib/common/modules/eve_irc_installer'
+
+
+
+
+
+
+    def initialize(*)
+      p ARGV
+
+
 
       Log.new
       p $buffer
@@ -15,7 +28,7 @@ module EveIRCInstaller
                             level: 'warn'
       })
 
-      net_status = Environment::Network.check
+      net = Environment::Network
 
       Setup.new
     rescue Environment::Network::ConnError => e
